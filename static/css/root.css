@@ -24,7 +24,7 @@
 
     --font-L: 60px;
     --font-M: 30px;
-    --font-S: 30px;
+    --font-S: 20px;
 }
 
 body {
@@ -39,6 +39,18 @@ body {
  * @h1 - tiny5
  * @button
  * ===================================== */
+
+.nav-list a {
+    color: var(--color-black);
+    padding: 3px;
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    font-size: var(--font-S);
+    background-color: var(--color-black);
+    color: var(--color-secondary);
+}
 
 h2 {
     font-family: 'Tiny5';

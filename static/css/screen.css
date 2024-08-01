@@ -90,4 +90,8 @@
     .card-info {
 
     }
+
+    .nav-list {
+        display: flex;
+    }
 }
