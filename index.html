@@ -6,22 +6,29 @@
     <link rel="stylesheet" href="./static/css/root.css">
     <link rel="stylesheet" href="./static/css/index.css">
     <link rel="stylesheet" href="./static/css/screen.css">
-    <title>inVaal_Triangle - index_page</title>
+    <title>inVaal_Triangle - Landing_page</title>
 </head>
 <body>
 
-    <p class="nav-menu">Menu</p>
-    <nav>
-        <ul>
-            <li>My Profile</li>
-            <li>News</li>
-        </ul>
-    </nav>
-
+    <div class="menu-container">
+        <!-- <button class="menu-button">Menu</button> -->
+        <nav class="dropdown-menu" style="display: none;">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
     <header>
+        <div class="intro-logo">
         <img class="img-logo" src="./imgs/socials/youtube.png" alt="logo">
+        </div>
+        <div>
         <h1>INVAAL</h1>
         <p>[016]</p>
+        </div>
     </header>
 
     <main>
@@ -34,36 +41,39 @@
         </div>
         
         <div>
-            <div>
+            <div class="card">
                 <h2>Experience Premium Content</h2>
                 <p>Dive into our exhaustive array of intriguing articles, enlightening videos, and informative tutorials. It’s your gateway to limitless knowledge!</p>
             </div>
+        </div>
+        
+        <div class="img-2x">
             <div class="img-src">
-                <img src="" alt="">
+                <img src="./imgs/socials/youtube.png" alt="">
+            </div>
+            <div class="img-src">
+                <img src="./imgs/socials/youtube.png" alt="">
             </div>
         </div>
 
-        <div>
-            <div class="img-src">
-            </div>
-
-            <div>
+            <article>
                 <h2>FIND YOUR PERFECT GIG</h2>
                 <p>Discover an extensive listing of jobs and projects, categorized to match your skills and interests. Job hunting has never been so effortless!</p>
-            </div>
-        </div>
+            </article>
 
-        <div>
+            <div class="card">
+        <div class="card-info">
             <h2>YOUR LOCAL GUIDE</h2>
             <p>Discover an extensive listing of jobs and projects, categorized to match your skills and interests. Job hunting has never been so effortless!</p>
         </div>
 
         <!-- IMG display -->
          <div class="img-display">
-
+            <img src="./imgs/socials/youtube.png" alt="">
+         </div>
          </div>
 
-         <div>
+         <article>
             <div>
                 <h2>QUICK ANSWERS TO YOUR QUERIES</h2>
             </div>
@@ -77,8 +87,9 @@
                     <p>Yes, engage actively on various topics on our community forum.</p>
                 </div>
             </div>
-         </div>
+         </article>
 
+         <div class="card">
          <div>
             <div>
             <h2>Ready to embark on the inVaal journey? Join now!</h2>
@@ -88,6 +99,11 @@
                 <button>Learn More</button>
             </div>
          </div>
+
+         <div>
+            <img src="./imgs/socials/youtube.png" alt="">
+         </div>
+         </div>
     </main>
 
 
@@ -95,7 +111,7 @@
         <div class="footer-elements">
         <div class="footer-div-socials">
             <img class="footer-socials" src="./imgs/socials/facebook.png" alt="Facebook">
-            <img class="footer-socials" src="./imgs/socials/x.png" alt="X">
+            <img class="footer-socials" src="./imgs/socials/whatsapp.png" alt="whatsapp">
             <img class="footer-socials" src="./imgs/socials/youtube.png" alt="YouTube">
         </div>
 
