@@ -1,0 +1,29 @@
+nav ul {
+    padding: 2px;
+    list-style: none;
+}
+
+.nav-menu {
+    display: none;
+}
+
+main {
+    margin-bottom: 20vh;
+}
+
+article {
+    padding: 10px;
+ background-color: var(--color-black);   
+}
+
+article h2 {
+    color: var(--color-main);
+}
+
+article p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px ;
+    color: var(--color-primary);
+}

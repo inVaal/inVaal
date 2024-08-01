@@ -1,0 +1,16 @@
+/* Small Screens */
+@media (width < 500px) {
+    nav ul {
+        gap: 2rem;
+        display: flex;
+        border: 3px solid ;
+    }
+
+
+}
+
+/* Large Screens */
+@media (width > 500px) {
+}
+
+

@@ -24,6 +24,7 @@
 }
 
 body {
+    padding: 5px;
     background-color: var(--color-main);
 
 }
@@ -56,6 +57,8 @@ header {
  ===================================== */
 
 footer {
+    margin-top: 20vh;
+    background-color: var(--color-main);
     border-top: 3px solid;
     position: fixed;
     bottom: 0;
