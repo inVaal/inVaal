@@ -1,0 +1,68 @@
+/* Styling for Binance
+ * 
+ */
+
+/*
+ * Binance Market
+ */
+.binance-wrapper {
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.binance-logo {
+    border-radius: 50%;
+    background-color: var(--color-black);
+    padding: 15px;
+    box-shadow: 0 10px 20px;
+
+}
+.binance-market-data {
+    
+}
+
+.his-candlesticks,
+.market-overview {
+    margin: 5vh;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px;
+}
+
+
+#price {
+    font-size: 2em;
+    color: var(--color-secondary);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid var(--color-black);
+}
+th, td {
+    background-color: var(--color-main);
+    color: var(--color-secondary);
+    padding: 8px;
+}
+th {
+    background-color: var(--color-black);
+    border: 2px inset var(--color-main) ;
+}
+
+
+/* Small */
+@media (width < 500px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .binance-logo {
+    }
+}

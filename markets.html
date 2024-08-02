@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/root.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="./static/css/screen.css">
+    <link rel="stylesheet" href="./static/css/binance_info.css">
+    <title>inVaal - Markets</title>
+</head>
+<body>
+    <div class="menu-container">
+        <!-- <button class="menu-button">Menu</button> -->
+        <nav class="dropdown-menu">
+            <ul class="nav-list">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <header>
+        <div class="intro-logo" >
+        <img class="img-logo" src="./imgs/socials/youtube.png" alt="logo">
+        </div>
+        <div>
+        <h1>INVAAL</h1>
+        <p>[016]</p>
+        </div>
+    </header>
+
+             <!-- Markets -->
+             <div class="binance-wrapper">
+                <div class="binance-logo">
+       <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_00GOB3MJEB"><img  class="img-logo" src="./imgs/socials/120px-Binance_Logo.png" alt="Binance"></a>
+        </div>
+        <div class="binance-market-data">
+            <h1>Binance Market Data</h1>
+            <strong>Current BTC Price: $</strong><span id="price"></span>
+        </div>
+    </div>
+    
+    <div class="his-candlesticks">
+        <h2>Historical Data (Last 10 Candlesticks)</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Close</th>
+                    <th>Volume</th>
+                </tr>
+            </thead>
+            <tbody id="historical-data">
+            </tbody>
+        
+        </table>
+    
+    </div>
+
+
+
+
+
+
+    <div class="market-overview">
+        <h1>Markets Overview</h1>
+        <table id="market-table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                    <th>Market Cap</th>
+                    <th>Volume</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be populated here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Js links -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./static/js/script.js"></script>
+
+
+    
+</body>
+</html>
