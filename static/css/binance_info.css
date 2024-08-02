@@ -27,8 +27,8 @@
 .market-overview {
     margin: 5vh;
     padding: 5px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     background-color: var(--color-white);
     border-radius: 10px;
     box-shadow: 0 0 10px;
