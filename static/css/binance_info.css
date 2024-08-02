@@ -5,33 +5,35 @@
 /*
  * Binance Market
  */
-.binance-wrapper {
-    
+
+.markets {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.binance-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-.binance-logo {
+.binance-logo img {
     border-radius: 50%;
-    background-color: var(--color-black);
     padding: 15px;
-    box-shadow: 0 10px 20px;
+    background-color: var(--color-black);
+    box-shadow: 0 10px 10px var(--color-black);
 
 }
 .binance-market-data {
-    
 }
 
 .his-candlesticks,
 .market-overview {
-    margin: 5vh;
-    padding: 5px;
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: var(--color-white);
-    border-radius: 10px;
-    box-shadow: 0 0 10px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -39,11 +41,8 @@
     font-size: 2em;
     color: var(--color-secondary);
 }
+
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border: 2px solid var(--color-black);
 }
 th, td {
     background-color: var(--color-main);
@@ -59,10 +58,8 @@ th {
 /* Small */
 @media (width < 500px) {
     body {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .binance-logo {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
     }
 }
