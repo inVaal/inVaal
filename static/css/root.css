@@ -22,9 +22,10 @@
     --test: lime;
     --error: red;
 
-    --font-L: 60px;
-    --font-M: 30px;
-    --font-S: 20px;
+    --font-L: 4rem;
+    --font-M: 2rem;
+    --font-S: 1rem;
+    --font-XS: 0.5rem;
 }
 
 body {
@@ -52,7 +53,8 @@ body {
     color: var(--color-secondary);
 }
 
-h2 {
+h2, h3 {
+    color: var(--color-white);
     font-family: 'Tiny5';
 }
 button {
@@ -70,6 +72,7 @@ header {
     justify-content: center;
     align-items: center;
     font-family: 'Tiny5';
+    border-bottom: 10px solid;
 }
 
 /*
