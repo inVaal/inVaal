@@ -4,14 +4,6 @@
     background-color: var(--color-main);
 }
 
-nav ul {
-    padding: 2px;
-    list-style: none;
-}
-
-.nav {
-    display: block;
-}
 
 main {
     margin-bottom: 20vh;

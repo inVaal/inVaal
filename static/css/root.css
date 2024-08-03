@@ -40,10 +40,19 @@ body {
  * @h1 - tiny5
  * @button
  * ===================================== */
+.nav-list {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.nav-list li {
+    list-style: none;
+}
 
 .nav-list a {
     color: var(--color-black);
-    padding: 3px;
+    padding: 5px;
     text-decoration: none;
 }
 
@@ -106,11 +115,15 @@ footer {
     width: 30px;
 }
 
-/* imgs */
+/*
+ * imgs
+ */
 .img-2x {
     display: flex;
 }
-/* logo */
+/*
+ * logo
+ */
 .intro-logo {
     display: flex;
     justify-content: center;
