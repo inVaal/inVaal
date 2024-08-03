@@ -41,6 +41,12 @@
         align-items: center;
     }
 
+    .gif-src {
+        margin: 5px;
+        padding: 5px;
+        height: 200px;
+    }
+
     
     
 }
