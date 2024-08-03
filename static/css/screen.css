@@ -113,7 +113,11 @@
         display: flex;
     }
 
-
+    .gridx2 {
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr 0.5fr;
+    }
 
   
 }
