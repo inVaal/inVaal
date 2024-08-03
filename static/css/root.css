@@ -13,7 +13,7 @@
 
 :root {
     --color-main: rgb(121, 128, 1);
-    --color-primary: rgb(242, 255, 1);
+    --color-primary: rgb(190, 199, 1);
     --color-secondary: rgb(247, 255, 87);
 
     --color-black: black;
@@ -41,9 +41,9 @@ body {
  * @button
  * ===================================== */
 .nav-list {
+    border: 3px inset var(--color-white);
     padding: 5px;
     display: flex;
-    flex-direction: column;
     gap: 0.5rem;
 }
 .nav-list li {
@@ -83,6 +83,7 @@ header {
     font-family: 'Tiny5';
     border-bottom: 10px solid;
 }
+
 
 /*
  * Footer

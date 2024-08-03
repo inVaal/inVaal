@@ -12,6 +12,7 @@ main {
 
 
 article {
+    border-radius: 25px;
     padding: 10px;
     background-color: var(--color-black);   
 }
@@ -26,4 +27,8 @@ article p {
     align-items: center;
     padding: 5px ;
     color: var(--color-primary);
+}
+
+.card {
+    border-radius: 25px;
 }
