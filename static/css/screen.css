@@ -41,7 +41,8 @@
         align-items: center;
     }
 
-   
+    
+    
 }
 
 /* Large Screens (min-width: 500px) */
@@ -87,11 +88,16 @@
         align-items: center;
     }
 
-    .card-info {
 
+    .markets {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
-    .nav-list {
-        display: flex;
+    .news-nav {
+        top: 2rem;
+        position: sticky;
     }
+
+  
 }

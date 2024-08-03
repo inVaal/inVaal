@@ -16,6 +16,7 @@
             <ul class="nav-list">
                 <li><a href="./index.html">Home</a></li>
                 <li>Markets</li>
+                <li><a href="./news.html">News</a></li>
                 <!-- <li><a href="#">About</a></li> -->
                 <!-- <li><a href="#">Services</a></li> -->
                 <!-- <li><a href="#">Contact</a></li> -->
@@ -34,15 +35,20 @@
 
     <div class="markets">
              <!-- Markets -->
-             <div class="binance-wrapper">
+    <div>
+             
+        <div class="binance-wrapper">
                 <div class="binance-logo">
-       <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_00GOB3MJEB"><img  class="img-logo" src="./imgs/socials/120px-Binance_Logo.png" alt="Binance"></a>
+                <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_00GOB3MJEB"><img  class="img-logo" src="./imgs/socials/120px-Binance_Logo.png" alt="Binance"></a>
+                </div>
+            <div class="binance-market-data">
+                <h1>Binance Market Data</h1>
+                <strong>Current BTC Price: $</strong><span id="price"></span>
+            </div>
         </div>
-        <div class="binance-market-data">
-            <h1>Binance Market Data</h1>
-            <strong>Current BTC Price: $</strong><span id="price"></span>
+        <!-- largeScreen -->
         </div>
-    </div>
+        <div>
     
     <div class="his-candlesticks">
         <h2>Historical Data (Last 10 Candlesticks)</h2>
@@ -66,29 +72,35 @@
     </div>
 
 
-
-
-
-
-    <div class="market-overview">
-        <h2>Markets Overview</h2>
-        <table id="market-table">
-            <thead>
-                <tr>
-                    <th>Symbol</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Change</th>
-                    <th>Market Cap</th>
-                    <th>Volume</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Data will be populated here by JavaScript -->
-            </tbody>
-        </table>
+        <div class="market-overview">
+            <h2>Markets Overview</h2>
+            <table id="market-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Change</th>
+                        <th>Market Cap</th>
+                        <th>Volume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+
+
+    <footer>
+    <div>
+        <p>Reach © 2024 inVaal_Triangle. All rights reserved.</p>
+    </div>
+    </footer>
+
+
 
     <!-- Js links -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

@@ -132,3 +132,18 @@ footer {
 .img-logo {
     width: 90px;
 }
+
+
+
+/* 
+ * ads
+ */
+
+ .ads {
+    height: 150px;
+    margin-bottom: 5vh;
+    background-image: url('../../imgs/logos/inVaalTriangle_logo.png');
+    background-position: center;
+    background-repeat: space;
+    background-size: contain;
+ }
