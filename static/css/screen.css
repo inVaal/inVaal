@@ -119,5 +119,11 @@
         grid-template-columns: 1fr 0.5fr;
     }
 
+    .gif-src {
+        margin: 5px;
+        padding: 5px;
+        height: 200px;
+    }
+
   
 }
