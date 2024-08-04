@@ -123,8 +123,26 @@ list-style: none;
 }
 
 .accordion-content li{
+    font-weight: bold;
 list-style: none;
 }
 .accordion-item:target .accordion-content {
     display: block;
+}
+
+.card-news-div {
+    margin: 2vh 0 2vh 0;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-src_date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    
 }

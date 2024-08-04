@@ -47,6 +47,21 @@
         height: 200px;
     }
 
+    .card-news-div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    
+    .card-src_date {
+        
+    }
+
+    .card-news-div iframe {
+        margin-top: 2vh;
+        width: 100%;
+    }
+
     
     
 }
