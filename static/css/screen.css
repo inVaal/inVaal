@@ -62,24 +62,54 @@
         width: 100%;
     }
 
+    .flex-QnA {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     
     
 }
 
 /* Large Screens (min-width: 500px) */
 @media (width > 500px) {
+
+    body {
+        font-size: var(--font-M);
+    }
+
+    .nav-list li {
+        font-size: var(--font-M);
+        font-family: 'tiny5';
+        list-style: none;
+    }
+
     article {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2.5vh;
+        justify-content: space-around;
 
     }
 
-    article h2,
+    article h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+    }
+
     article p {
-        text-align: center;
-        padding: 50px;
+        padding: 15px;
+    }
+    
+    article div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 25px;
+        padding: 15px;
+        box-shadow: 0 0 10px var(--color-secondary);
     }
 
     header {
@@ -102,17 +132,34 @@
     }
 
     .card {
-        margin-bottom: 2vh;
-        background-color: var(--color-primary);
+        padding: 2rem;
         display: flex;
-        justify-content: center;
         justify-content: space-around;
-        align-items: center;
     }
 
-    .card > * {
-        padding: 20px;
+    .card h2 {
+        padding: 15px;
+        text-align: center;
     }
+
+    .card p {
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+        border: 3px solid;
+    }
+
+    .card div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+  
 
 
     .markets {
@@ -129,9 +176,12 @@
     }
 
     .gridx2 {
-        display: grid;
-        text-align: center;
-        grid-template-columns: 1fr 0.5fr;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gridx2 > {
+    height: 100%;
     }
 
     .gif-src {
@@ -140,5 +190,11 @@
         height: 200px;
     }
 
+    .flex-QnA {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
   
 }
