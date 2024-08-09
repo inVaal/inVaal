@@ -2,7 +2,7 @@
 @media (width < 500px) {
 
     body {
-        font-size: var(--font-XS);
+        font-size: var(--font-S);
     }
     header {
         font-size: var(--font-M);
