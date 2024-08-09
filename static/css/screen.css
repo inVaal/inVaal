@@ -1,5 +1,9 @@
 /* Small Screens (max-width: 499px) */
 @media (width < 500px) {
+
+    body {
+        font-size: var(--font-XS);
+    }
     header {
         font-size: var(--font-M);
         gap: 2rem;
@@ -13,14 +17,14 @@
     }
 
     article {
-        padding: 25px;
+        padding: 15px;
         display: flex;
         flex-direction: column;
         margin-bottom: 5vh;
     }
 
     article p {
-        padding: 20px;
+        padding: 10px;
         text-align: right;
     }
 
@@ -77,7 +81,7 @@
 @media (width > 500px) {
 
     body {
-        font-size: var(--font-M);
+        font-size: var(--font-S);
     }
 
     .nav-list li {
@@ -96,7 +100,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 15px;
     }
 
     article p {
@@ -176,9 +179,8 @@
     }
 
     .gridx2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
     .gridx2 > {
     height: 100%;
