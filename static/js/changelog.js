@@ -14,7 +14,7 @@ fetch('./static/data/changelog.json')
 
             // Set content for version and date
             version.textContent = `Version ${entry.version}`;
-            date.textContent = `Released: ${entry.date}`;
+            date.textContent = `${entry.date}`;
 
             // Loop through the changes and add them to the changes list
             entry.changes.forEach(change => {

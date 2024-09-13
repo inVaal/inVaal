@@ -1,13 +1,55 @@
 {
     "categories": [
-      { "name": "Local News", "description": "Focusing on news from a specific region or city.", "link": "#local_news" },
-      { "name": "Top Stories", "description": "Highlighting the most important and current news.", "link": "#top_stories" },
-      { "name": "Education", "description": "Covering news about schools, universities, and educational policies.", "link": "#education" },
-      { "name": "Technology", "description": "News about tech companies, gadgets, software, and innovations.", "link": "#technology"},
-      { "name": "Science", "description": "Covering scientific discoveries, research, and advancements.", "link": "#science" },
-      { "name": "Health", "description": "News about health, wellness, medical research, and public health.", "link": "#health" },
-      { "name": "Sports", "description": "Covering sports events, scores, teams, and athletes.", "link": "#sports" },
-      { "name": "Entertainment", "description": "News about movies, TV shows, music, celebrities, and pop culture.", "link": "#entertainment" }
+    {
+        "name": "Local News",
+        "description": "Focusing on news from a specific region or city.",
+        "link": "#local_news"
+    },
+    {
+        "name": "Top Stories",
+        "description": "Highlighting the most important and current news.",
+        "link": "#top_stories" 
+    },
+    {
+        "name": "Education",
+        "description": "Covering news about schools, universities, and educational policies.",
+        "link": "#education" 
+    },
+    {
+        "name": "Technology",
+        "description": "News about tech companies, gadgets, software, and innovations.",
+        "link": "#technology" 
+    },
+    {
+        "name": "Science",
+        "description": "Covering scientific discoveries, research, and advancements.",
+        "link": "#science" 
+    },
+    {
+        "name": "Health",
+        "description": "News about health, wellness, medical research, and public health.",
+        "link": "#health" 
+    },
+    {
+        "name": "Sports",
+        "description": "Covering sports events, scores, teams, and athletes.",
+        "link": "#sports" 
+    },
+    {
+        "name": "Entertainment",
+        "description": "News about movies, TV shows, music, celebrities, and pop culture.",
+        "link": "#entertainment" 
+    },
+    {
+        "name": "Business",
+        "description": "Covering financial news, stock market updates, and business trends.",
+        "link": "#business"
+    },
+    {
+        "name": "Job Hunting",
+        "description": "Covering financial news, stock market updates, and business trends.",
+        "link": "./jobs.html"
+    }
     ]
   }
   
