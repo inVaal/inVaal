@@ -1,29 +1,44 @@
 [
     {
-        "title": "Software Engineer",
-        "description": "We are looking for a talented software engineer to join our team.",
-        "location": "Johannesburg, South Africa",
+        "title": "Engineering",
+        "description": "We are looking for a talented Engineer to join our team.",
+        "location": "Meyerton",
         "position": "Full-time",
         "duration": "Permanent",
-        "link": "https://example.com/apply/software-engineer",
-        "picture": "https://example.com/images/software-engineer.png"
-    },
-    {
-        "title": "Graphic Designer",
-        "description": "Join our creative team as a graphic designer. Proficiency in Photoshop required.",
-        "location": "Cape Town, South Africa",
-        "position": "Part-time",
-        "duration": "6 months",
-        "link": "https://example.com/apply/graphic-designer",
+        "minRequirements": "* EXPERIENCE AS A SHE REP, MATRIC, COMPUTER LITERATE, WELL SPOKEN IN ENGILSH AND AFRIKAANS and MUST BE AVAILABLE IMMEDIATELY",
+        "applicationClosingDate": "16 Sep 2024",
+        "link": "info@angstromeng.co.za",
         "picture": null
     },
     {
-        "title": "Marketing Specialist",
-        "description": "We need a marketing specialist to boost our product's visibility in the digital market.",
-        "location": "Remote",
+        "title": "Cash Sales Clerk",
+        "description": "To promote our manufacturing client in the local market by means of cash sales, email and personal communication regarding products & maintaining a high level of customer care",
+        "location": "Sasolburg.",
+        "position": "Part-time",
+        "duration": "6 months",
+        "minRequirements": "2 - 3 years sales experience SYSPRO knowledge",
+        "applicationClosingDate": null,
+        "link": "mailto:Vaaltriangle@expresspros.co.za",
+        "picture": "./static/data/data_imgs/Cash_Clerk.jpeg"
+    },
+    {
+        "title": "Office Administrator",
+        "description": "We need a Office Administrator specialist to boost our product's visibility in the digital market.",
+        "location": "Sasolburg",
         "position": "Contract",
         "duration": "3 months",
-        "link": "https://example.com/apply/marketing-specialist",
-        "picture": "https://example.com/images/marketing-specialist.png"
+        "applicationClosingDate": "2021-09-20",
+        "link": "mailto:personalassistant@huizemark.com",
+        "picture": "./static/data/data_imgs/office_admin.jpeg"
+    },
+    {
+        "title": "Mould Maker",
+        "description": "Maintain moulds and  make sure tools in a good condition.",
+        "location": "Vereeniging",
+        "position": null,
+        "duration": null,
+        "applicationClosingDate": "2021-09-30",
+        "link": "mailto:coerienm@recuiter-we-r.co.za",
+        "picture": "./static/data/data_imgs/mould_maker.jpeg"
     }
 ]

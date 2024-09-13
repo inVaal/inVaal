@@ -7,16 +7,50 @@ fetch('./static/data/jobs.json') // Ensure the correct path to your jobs.json fi
             const jobElement = document.createElement('div');
             jobElement.classList.add('job-item'); // Add a class for styling
 
-            // Create the job HTML dynamically
-            jobElement.innerHTML = `
-                <h2>${job.title}</h2>
-                <p><strong>Location:</strong> ${job.location}</p>
-                <p><strong>Position:</strong> ${job.position}</p>
-                <p><strong>Duration:</strong> ${job.duration}</p>
-                <p>${job.description}</p>
-                <a href="${job.link}" target="_blank">Apply Here</a>
-                ${job.picture ? `<img src="${job.picture}" alt="${job.title} picture" width="100px">` : ''}
+            // Create the job HTML dynamically and only render fields if they exist
+            let jobHTML = `
+            <div class="div-class">
+                <h2>${job.title ? job.title : ''}</h2>
             `;
+
+            if (job.location) {
+                jobHTML += `<p><strong>Location:</strong> ${job.location}</p>`;
+            }
+
+            if (job.position) {
+                jobHTML += `<p><strong>Position:</strong> ${job.position}</p>`;
+            }
+
+            if (job.duration) {
+                jobHTML += `<p><strong>Duration:</strong> ${job.duration}</p>`;
+            }
+
+            if (job.minRequirements) {
+                jobHTML += `<p><strong>Minimum Requirement/s:</strong> ${job.minRequirements}</p>`;
+            }
+
+
+            if (job.applicationClosingDate) {
+                jobHTML += `<p><strong>Applications Close Date:</strong> ${job.applicationClosingDate}</p>`;
+            }
+
+            if (job.description) {
+                jobHTML += `<p>${job.description}</p>`;
+            }
+
+            if (job.link) {
+                jobHTML += `<a href="${job.link}" target="_blank">Apply Here</a>`;
+            }
+
+            // If picture exists, add the image element
+            if (job.picture) {
+                jobHTML += `<br><br><img src="${job.picture}" alt="${job.title} picture" width="100px" class="img-job-posts">`;
+            }
+
+            jobHTML += `</div>`;
+
+            // Set the HTML content to jobElement
+            jobElement.innerHTML = jobHTML;
 
             // Append the job element to the container
             jobContainer.appendChild(jobElement);
