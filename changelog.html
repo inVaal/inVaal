@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - inVaal Triangle</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="./static/css/root.css">
+    <link rel="stylesheet" href="./static/css/changelog.css">
+
+    <style>
+        main {
+            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .changelog-section {
+            border: 3px solid lime;
+            list-style-type: none;
+            padding: 0;
+        }
+        .changelog-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul:nth-child(2) {
+
+            list-style-type: none;
+            padding: 0;
+            text-decoration: underline;
+        }
+
+        .fixed-btn {
+            background-image: url('./imgs/instructions/arrow_back.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body style="background-color: var(--color-secondary);">
+
+    <a href="./index.html"><button class="fixed-btn">
+        <!-- <img src="./imgs/instructions/arrow_back.png" alt=""> -->
+    </button></a>
+
+    <!-- Header -->
+    <header>
+        <div class="intro-logo">
+            <img class="img-logo" src="./imgs/logos/inVaalTriangle_logo.png" alt="logo">
+        </div>
+        <h1>InVaal Changelog</h1>
+        <p>PM2024IVT</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="changelog-section">
+            <h2>Latest Updates</h2>
+            <ul id="changelog-list">
+                <!-- Dynamic Changelog Content will be inserted here -->
+            </ul>
+        </section>
+    </main>
+
+    <footer style="display: flex;
+    justify-content: center;">
+        <div class="footer-elements">
+        <div class="footer-div-socials">
+            <a href="https://www.facebook.com/invaaltriangle/" ><img class="footer-socials" src="./imgs/socials/facebook.png" alt="Facebook_page"></a>
+            <a href="https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C" alt=""><img class="footer-socials" src="./imgs/socials/whatsapp.png" alt="whatsapp_Channel"></a>
+            <!-- <img class="footer-socials" src="./imgs/socials/youtube.png" alt="YouTube"> -->
+        </div>
+
+        <div>
+            <p>Reach © 2024 inVaal_Triangle. All rights reserved.</p>
+        </div>
+    </div>
+    </footer>
+
+    <script src="./static/js/changelog.js"></script>
+</body>
+</html>
