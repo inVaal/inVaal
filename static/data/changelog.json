@@ -1,0 +1,34 @@
+{
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2024-09-13",
+        "changes": [
+          "Initial release of the inVaal Triangle project.",
+          "Implemented dynamic navigation from JSON.",
+          "Added changelog page."
+        ]
+      },
+      {
+        "version": "1.0.1",
+        "date": "2024-09-20",
+        "changes": [
+          "Added Google Authentication to the project.",
+          "Enhanced navigation with additional categories.",
+          "Improved mobile responsiveness."
+        ]
+      },
+      {
+        "version": "1.0.2",
+        "date": "2024-10-01",
+        "changes": [
+          "Fixed bug in the dynamic navigation loader.",
+          "Updated the homepage layout for better UX.",
+          "Added new sections for local news and top stories.",
+          "Still on the Beta version.",
+          "A platform where the Community is encouraged to test and provide feedback."
+        ]
+      }
+    ]
+  }
+  
