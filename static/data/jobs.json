@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Software Engineer",
+        "description": "We are looking for a talented software engineer to join our team.",
+        "location": "Johannesburg, South Africa",
+        "position": "Full-time",
+        "duration": "Permanent",
+        "link": "https://example.com/apply/software-engineer",
+        "picture": "https://example.com/images/software-engineer.png"
+    },
+    {
+        "title": "Graphic Designer",
+        "description": "Join our creative team as a graphic designer. Proficiency in Photoshop required.",
+        "location": "Cape Town, South Africa",
+        "position": "Part-time",
+        "duration": "6 months",
+        "link": "https://example.com/apply/graphic-designer",
+        "picture": null
+    },
+    {
+        "title": "Marketing Specialist",
+        "description": "We need a marketing specialist to boost our product's visibility in the digital market.",
+        "location": "Remote",
+        "position": "Contract",
+        "duration": "3 months",
+        "link": "https://example.com/apply/marketing-specialist",
+        "picture": "https://example.com/images/marketing-specialist.png"
+    }
+]
