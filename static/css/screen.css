@@ -22,7 +22,7 @@
 @media (width < 500px) {
 
     body {
-        color: pink;
+        color: red;
         font-size: var(--font-S);
     }
     header {
