@@ -1,18 +1,31 @@
 /* localNews.css */
+@import url('https://fonts.googleapis.com/css2?family=Kolker+Brush&display=swap');
 
 
 .news-item {
     padding: 15px;
     border-bottom: 1px solid #ccc;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    width: 350px;
+    height: 350px;
+    margin: 10px;
 }
 
 .news-item img, .news-item video {
     margin-top: 10px;
+    margin-bottom: 10px;
+
 }
 
 
 .dynamic-sections {
+    margin-top: 5vh;
     gap: 2rem;
     display: flex;
     flex-wrap: wrap;
@@ -28,9 +41,10 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px solid;
     text-decoration: none;
     background-color: var(--color-primary);
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--color-primary);
 }
 
 #sasolburg-news, #vereeniging-news, #vanderbijlpark-news {
@@ -38,10 +52,8 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px solid;
     width: 350px;
     height: 350px;
-    background-color: white;
     border-radius: 10px;
 }
 
@@ -77,6 +89,26 @@ video {
 }
 
 section h2 {
+    font-family: "Rock Salt", "Kolker Brush", cursive;
     font-size: var(--font-M);
     color: var(--color-white);
+}
+
+section h3  {
+    text-align: center;
+}
+
+
+
+@media (min-width: 500px) {
+    .dynamic-sections {
+        background-image: url(../../imgs/logos/inVaalTriangle_logo.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding: 5px;
+        
+    }
+
+
 }

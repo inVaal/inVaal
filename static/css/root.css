@@ -1,5 +1,6 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Rock+Salt&display=swap');
 
 /*
  * Reset the default browser setings
@@ -12,20 +13,25 @@
 }
 
 :root {
+    /* Main Colors */
     --color-main: rgb(121, 128, 1);
     --color-primary: rgb(190, 199, 1);
     --color-secondary: rgb(247, 255, 87);
 
+    /* Basic clr */
     --color-black: black;
     --color-white: white;
 
+    /* Debugging clrs */
     --test: lime;
     --error: red;
 
-    --font-L: 2.5rem;
-    --font-M: 1.5rem;
-    --font-S: 1rem;
+    /* Font Sizes */
     --font-XS: 0.7rem;
+    --font-S: 1rem;
+    --font-M: 1.5rem;
+    --font-L: 2.5rem;
+    --font-XL: 4rem;
 }
 
 body {
@@ -168,6 +174,10 @@ footer {
 
 .footer-socials {
     width: 30px;
+}
+
+footer a {
+    color: var(--color-white);
 }
 
 /*

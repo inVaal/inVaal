@@ -22,7 +22,6 @@
 @media (width < 500px) {
 
     body {
-        color: red;
         font-size: var(--font-S);
     }
     header {
@@ -102,10 +101,6 @@
     footer {
         padding: 5px;
         font-size: var(--font-XS);        
-    }
-
-    footer a {
-        color: var(--color-white);
     }
     
     
