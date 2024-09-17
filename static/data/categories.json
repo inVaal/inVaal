@@ -6,9 +6,9 @@
         "link": "./local_news.html"
     },
     {
-        "name": "Top Stories",
-        "description": "Highlighting the most important and current news.",
-        "link": "./top_stories.html" 
+        "name": "World News",
+        "description": "Highlighting the most important and current news in the World.",
+        "link": "./tworld_news.html" 
     },
     {
         "name": "Job Hunting",

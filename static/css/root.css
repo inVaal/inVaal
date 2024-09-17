@@ -197,16 +197,3 @@ footer {
 }
 
 
-
-/* 
- * ads
- */
-
- .ads {
-    height: 150px;
-    margin-bottom: 5vh;
-    background-image: url('../../imgs/logos/inVaal.gif');
-    background-position: center;
-    background-repeat: space;
-    background-size: contain;
- }

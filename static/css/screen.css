@@ -22,7 +22,7 @@
 @media (width < 500px) {
 
     body {
-        font-size: var(--font-S);
+        font-size: var(--font-XS);
     }
     header {
         font-size: var(--font-M);
@@ -30,6 +30,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    nav {
+    font-size: var(--font-XS);
     }
 
     .img-logo {
@@ -92,6 +96,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    footer {
+        padding: 5px;
+        font-size: var(--font-XS);        
+    }
+
+    footer a {
+        color: var(--color-white);
     }
     
     
