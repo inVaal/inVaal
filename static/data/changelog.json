@@ -13,7 +13,6 @@
         "version": "1.0.1",
         "date": "2024-09-20",
         "changes": [
-          "Added Google Authentication to the project.",
           "Enhanced navigation with additional categories.",
           "Improved mobile responsiveness."
         ]

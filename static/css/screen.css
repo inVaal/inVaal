@@ -1,3 +1,23 @@
+/*
+ * NewsLoad
+ */
+#news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.news-item img, .news-item video {
+    margin-top: 10px;
+}
+
+
+
 /* Small Screens (max-width: 499px) */
 @media (width < 500px) {
 

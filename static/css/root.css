@@ -83,6 +83,25 @@ nav {
     text-decoration-thickness: 5px;
 }
 
+/* Main Section
+ */
+.title-main {
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.div-class {
+    padding: 25px;
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 5px solid var(--color-main);
+}
+
+/* 
+ * Basic Elements
+ */
 h1, h2, h3 {
     color: var(--color-main);
 }

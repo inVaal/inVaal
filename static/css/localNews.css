@@ -1,0 +1,63 @@
+/* localNews.css */
+
+
+.news-item {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.news-item img, .news-item video {
+    margin-top: 10px;
+}
+
+
+.dynamic-sections {
+    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px;
+}
+
+section {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid;
+    text-decoration: none;
+    background-color: var(--color-primary);
+}
+
+#sasolburg-news, #vereeniging-news, #vanderbijlpark-news {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid;
+    width: 350px;
+    height: 350px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+section a {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    color: red;
+    text-decoration: none;
+}
+section a:hover {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    color: var(--color-main);
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 5px;
+}

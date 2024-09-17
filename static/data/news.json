@@ -1,0 +1,35 @@
+[
+    {
+        "title": "Clean-up Campaign",
+        "date": "2024-09-15",
+        "source": "https://www.istockphoto.com/vector/people-cleaning-planet-earth-and-building-a-better-future-gm1193476605-339484365",
+        "description": "Community clean-up event was a great success.",
+        "location": "Sasolburg",
+        "media": {
+            "type": "image",
+            "url": "./static/data/data_imgs/Cleanup_istockphoto-1193476605-612x612.jpg"
+        }
+    },
+    {
+        "title": "Local Winners",
+        "date": "2024-09-16",
+        "source": "https://pictory.ai/",
+        "description": "Local sports team wins championship.",
+        "location": "Vereeniging",
+        "media": {
+            "type": "mp4",
+            "url": "./static/data/data_vidz/Localsports.mp4"
+        }
+    },
+    {
+        "title": "VUT Students Protest Over Poor Infrastructure",
+        "date": "2024-09-17",
+        "source": "https://sundayworld.co.za/news/student-body-decries-vuts-shambolic-state/",
+        "description": "Students at Vaal University of Technology (VUT) are facing severe challenges ...",
+        "location": "Vanderbijlpark",
+        "media": {
+            "type": "image",
+            "url": "./static/data/data_imgs/VUT-protest.jpg"
+        }
+    }
+]

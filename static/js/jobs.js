@@ -1,3 +1,4 @@
+// jobs.js
 fetch('./static/data/jobs.json') // Ensure the correct path to your jobs.json file
     .then(response => response.json())
     .then(jobs => {
@@ -29,7 +30,6 @@ fetch('./static/data/jobs.json') // Ensure the correct path to your jobs.json fi
                 jobHTML += `<p><strong>Minimum Requirement/s:</strong> ${job.minRequirements}</p>`;
             }
 
-
             if (job.applicationClosingDate) {
                 jobHTML += `<p><strong>Applications Close Date:</strong> ${job.applicationClosingDate}</p>`;
             }
@@ -38,8 +38,13 @@ fetch('./static/data/jobs.json') // Ensure the correct path to your jobs.json fi
                 jobHTML += `<p>${job.description}</p>`;
             }
 
+            // Handle both email (mailto:) and website links
             if (job.link) {
-                jobHTML += `<a href="${job.link}" target="_blank">Apply Here</a>`;
+                if (job.link.startsWith('http')) {
+                    jobHTML += `<a href="${job.link}" target="_blank">Apply Here</a>`;
+                } else if (job.link.startsWith('mailto:')) {
+                    jobHTML += `<a href="${job.link}" target="_blank">Apply via Email</a>`;
+                }
             }
 
             // If picture exists, add the image element
