@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const titleEl = document.createElement('h3');
                 titleEl.textContent = item.title;
                 newsItemDiv.appendChild(titleEl);
+                
+                // Add date
+                const dateEl = document.createElement('p');
+                dateEl.textContent = `${item.date}`;
+                newsItemDiv.appendChild(dateEl);
 
                 // Add media (image or video)
                 if (item.media.type === 'image') {
@@ -35,10 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     newsItemDiv.appendChild(videoEl);
                 }
                 
-                // Add date
-                const dateEl = document.createElement('p');
-                dateEl.textContent = `Date: ${item.date}`;
-                newsItemDiv.appendChild(dateEl);
 
                 
                 // Add description
