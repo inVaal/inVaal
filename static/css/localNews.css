@@ -75,3 +75,8 @@ video {
     object-fit: auto-fill;
     border-radius: 10px;
 }
+
+section h2 {
+    font-size: var(--font-M);
+    color: var(--color-white);
+}
