@@ -42,8 +42,8 @@ fetch('./static/data/jobs.json') // Ensure the correct path to your jobs.json fi
             if (job.link) {
                 if (job.link.startsWith('http')) {
                     jobHTML += `<a href="${job.link}" target="_blank">Apply Here</a>`;
-                } else if (job.link.startsWith('mailto:')) {
-                    jobHTML += `<a href="${job.link}" target="_blank">Apply via Email</a>`;
+                } else {
+                    jobHTML += `<a href="mailto:${job.link}" target="_blank">Apply via Email</a>`;
                 }
             }
 
