@@ -8,7 +8,7 @@
     {
         "name": "World News",
         "description": "Highlighting the most important and current news in the World.",
-        "link": "./tworld_news.html" 
+        "link": "./world_news.html" 
     },
     {
         "name": "Job Hunting",
@@ -26,21 +26,6 @@
         "link": "./technology.html" 
     },
     {
-        "name": "Science",
-        "description": "Covering scientific discoveries, research, and advancements.",
-        "link": "./science.html" 
-    },
-    {
-        "name": "Health",
-        "description": "News about health, wellness, medical research, and public health.",
-        "link": "./health.html" 
-    },
-    {
-        "name": "Sports",
-        "description": "Covering sports events, scores, teams, and athletes.",
-        "link": "./sports.html" 
-    },
-    {
         "name": "Entertainment",
         "description": "News about movies, TV shows, music, celebrities, and pop culture.",
         "link": "./entertainment.html"
@@ -49,6 +34,11 @@
         "name": "Business",
         "description": "Covering financial news, stock market updates, and business trends.",
         "link": "./business.html"
+    },
+    {
+        "name": "Freelance",
+        "description": "We design Web-sites for small business and maintain it too.",
+        "link": "./freelance.html"
     }
     ]
   }

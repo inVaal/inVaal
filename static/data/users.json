@@ -1,0 +1,81 @@
+{
+    "users": [
+        {
+            "user_id": "xs01sAso89",
+            "start_date": "2024-09-13",
+            "user_data": [
+                {
+                    "name": "John Doe",
+                    "email": "jhn@gmail.com",
+                    "password": "$2b$10$wE6v1...",
+                    "phone": "0123456789",
+                    "location": "Vanderbijlpark",
+                    "interests": [
+                        "Local News", "World News", "Job Hunting", "Education", "Technology", "Business"
+                    ],
+                    "profile_picture": "./static/data/data_imgs/profile_pic1.jpeg",
+                    "resume": "./static/data/data_files/resume1.pdf",
+                    "cover_letter": "./static/data/data_files/cover_letter1.pdf",
+                    "job_applications": [
+                        {
+                            "job_id": "job01",
+                            "job_title": "Engineering",
+                            "company": "Angstrom Engineering",
+                            "location": "Meyerton",
+                            "date_applied": "2024-09-15",
+                            "status": "Pending"
+                        },
+                        {
+                            "job_id": "job02",
+                            "job_title": "Cash Sales Clerk",
+                            "company": "Express Pros",
+                            "location": "Sasolburg",
+                            "date_applied": "2024-09-16",
+                            "status": "Rejected"
+                        },
+                        {
+                            "job_id": "job03",
+                            "job_title": "Clerk",
+                            "company": "Recruiter We R",
+                            "location": "Sasolburg",
+                            "date_applied": "2024-09-16",
+                            "status": "Accepted"
+                        },
+                        {
+                            "job_id": "job04",
+                            "job_title": "Sales",
+                            "company": "Example Company",
+                            "location": "Sasolburg",
+                            "date_applied": "2024-10-16",
+                            "status": "Called For Interview"
+                        }
+                    ],
+                    "saved_jobs": ["job03", "job04"],
+                    "saved_searches": ["Engineering Jobs", "Cashier Jobs"],
+                    "notifications": [
+                        {
+                            "notification_id": "notif01",
+                            "date": "2024-09-17",
+                            "message": "Your application for the Engineering position at Angstrom Engineering has been received."
+                        },
+                        {
+                            "notification_id": "notif02",
+                            "date": "2024-09-18",
+                            "message": "Your application for the Cash Sales Clerk position at Express Pros has been rejected."
+                        },
+                        {
+                            "notification_id": "notif03",
+                            "date": "2024-06-18",
+                            "message": "Your application for the Clerk has been accepted."
+                        },
+                        {
+                            "notification_id": "notif04",
+                            "date": "2024-10-18",
+                            "message": "You have been called for an interview for the Sales position at Example Company."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

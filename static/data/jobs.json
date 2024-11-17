@@ -1,5 +1,6 @@
 [
     {
+        "job_id": "job01",
         "title": "Engineering",
         "description": "We are looking for a talented Engineer to join our team.",
         "location": "Meyerton",
@@ -11,6 +12,7 @@
         "picture": null
     },
     {
+        "job_id": "job02",
         "title": "Cash Sales Clerk",
         "description": "To promote our manufacturing client in the local market by means of cash sales, email and personal communication regarding products & maintaining a high level of customer care",
         "location": "Sasolburg.",
@@ -22,6 +24,7 @@
         "picture": "./static/data/data_imgs/Cash_Clerk.jpeg"
     },
     {
+        "job_id": "job03",
         "title": "Office Administrator",
         "description": "We need a Office Administrator specialist to boost our product's visibility in the digital market.",
         "location": "Sasolburg",
@@ -32,6 +35,7 @@
         "picture": "./static/data/data_imgs/office_admin.jpeg"
     },
     {
+        "job_id": "job04",
         "title": "Mould Maker",
         "description": "Maintain moulds and  make sure tools in a good condition.",
         "location": "Vereeniging",

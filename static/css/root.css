@@ -27,6 +27,7 @@
     --error: red;
 
     /* Font Sizes */
+    --font-XXS: 0.5rem;
     --font-XS: 0.7rem;
     --font-S: 1rem;
     --font-M: 1.5rem;
@@ -153,6 +154,7 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
+
 
 .changelog {
     padding: 15px;

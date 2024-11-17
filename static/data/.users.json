@@ -1,0 +1,82 @@
+{
+    "users": [
+        {
+            "user_id": "xs01sAso89", // genarate a unique id for the this user when they register
+            "start_date": "2024-09-13", // save the date when the user was created the account
+            "user_data": [
+                {
+                    "id_number": "9505205140089", // Unique identifier [identification]
+                    "username": "JohnDoe", // user has to create it[identification].
+                    "name": "John",
+                    "surname": "Doe",
+                    "email": "jhn@gmail.com", // user has to create it[identification].
+                    "password": "$2b$10$wE6v1...",  // Hashed password[verification]
+                    "phone": "0123456789",  // Stored as a string[verification]
+                    "location": "Vanderbijlpark",
+                    "interests": [ // handle the user's interests
+                                    // if new user its null untill the user interacts with the system/interests
+                        "Local News", "World News", "Job Hunting", "Education", "Technology", "Business"
+                    ],
+                    "profile_picture": "./static/data/data_imgs/user_imgs/profile_pic1.jpeg", // user has to upload it[verification] // new user user the 
+                    "resume": "./static/data/data_files/user_resume/resume1.pdf",
+                    "cover_letter": "./static/data/data_files/user_coverLetter/cover_letter1.pdf",
+                    "job_applications": [  // Should be displayed in the user's profile application history
+                        {
+                            "job_id": "job01",
+                            "job_title": "Engineering",
+                            "company": "Angstrom Engineering",
+                            "location": "Meyerton",
+                            "date_applied": "2024-09-15",
+                            "status": "Pending"
+                        },
+                        {
+                            "job_id": "job02",
+                            "job_title": "Cash Sales Clerk",
+                            "company": "Express Pros",
+                            "location": "Sasolburg",
+                            "date_applied": "2024-09-16",
+                            "status": "Rejected"
+                        },
+                        {
+                            "job_id": "job03",
+                            "job_title": "Admin Clerk",
+                            "company": "Example Company",
+                            "location": "Sasolburg",
+                            "date_applied": "2024-09-16",
+                            "status": "Called For Interview"
+                        },
+                        {
+                            "job_id": "job04",
+                            "job_title": "Cashier",
+                            "company": "Example Company",
+                            "location": "Vanderbijlpark",
+                            "date_applied": "2024-09-16",
+                            "status": "Accepted"
+                        }
+                    ], 
+                    // should be displayed in the user's profile
+                    // should start error handling for the user's profile
+                    // should handle disyplay dynamic data for the user's profile
+                    "saved_jobs": ["job03", "job04"],
+                    "saved_searches": ["Engineering Jobs", "Cashier Jobs"],
+                    // should be displayed in the user's pages
+                    // fixed on the screen when active or available
+                    // should be animated when new notification is available
+                    // show a logo and a [number of notifications] when new notification is available
+                    "notifications": [
+                        {
+                            "notification_id": "notif01",
+                            "date": "2024-09-17",
+                            "message": "Your application for the Engineering position at Angstrom Engineering has been received."
+                        },
+                        {
+                            "notification_id": "notif02",
+                            "date": "2024-09-18",
+                            "message": "Your application for the Cash Sales Clerk position at Express Pros has been rejected."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
