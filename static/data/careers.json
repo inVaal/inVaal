@@ -1,0 +1,38 @@
+
+{
+
+    "categories": [
+    {
+        "name": "Engineering",
+        "jobs": [
+            {
+                "title": "Software Engineer",
+                "link": "https://example.com/software-engineer",
+                "openingDate": "2023-01-01",
+                "closingDate": "2023-12-31"
+            },
+            {
+                "title": "Mechanical Engineer",
+                "link": "https://example.com/mechanical-engineer",
+                "openingDate": "2023-02-01",
+                "closingDate": "2023-11-30"
+            }
+        ]
+    },
+    {
+        "name": "Marketing",
+        "jobs": [
+            {
+                "title": "Marketing Specialist",
+                "link": "https://example.com/marketing-specialist",
+                "openingDate": "2023-03-01",
+                "closingDate": "2023-10-31"
+            }
+        ]
+    },
+    {
+        "name": "",
+        "jobs": []
+    }
+]
+}

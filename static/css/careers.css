@@ -1,0 +1,43 @@
+/* Careers */
+.job-category {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.job-category h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.no-jobs {
+    color: red;
+    font-weight: bold;
+}
+
+.job-category div {
+    margin-top: 10px;
+}
+
+.job-category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.job-category li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.job-category li:last-child {
+    border-bottom: none;
+}
+
+.job-category p {
+    margin: 10px 0;
+    color: var(--error);
+}

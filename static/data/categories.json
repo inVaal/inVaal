@@ -39,6 +39,11 @@
         "name": "Freelance",
         "description": "We design Web-sites for small business and maintain it too.",
         "link": "./freelance.html"
+    },
+    {
+        "name": "Careers",
+        "description": "Career Chances for Everyone.",
+        "link": "./careers.html"
     }
     ]
   }
