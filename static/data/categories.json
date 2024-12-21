@@ -11,24 +11,9 @@
         "link": "./world_news.html" 
     },
     {
-        "name": "Job Hunting",
-        "description": "Covering financial news, stock market updates, and business trends.",
-        "link": "./jobs.html"
-    },
-    {
         "name": "Education",
         "description": "Covering news about schools, universities, and educational policies.",
         "link": "./education.html" 
-    },
-    {
-        "name": "Technology",
-        "description": "News about tech companies, gadgets, software, and innovations.",
-        "link": "./technology.html" 
-    },
-    {
-        "name": "Entertainment",
-        "description": "News about movies, TV shows, music, celebrities, and pop culture.",
-        "link": "./entertainment.html"
     },
     {
         "name": "Business",

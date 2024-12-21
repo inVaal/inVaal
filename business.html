@@ -52,18 +52,23 @@
 
     <footer>
         <div class="footer-elements">
-        <div class="footer-div-socials">
-            <a href="https://www.facebook.com/invaaltriangle/" ><img class="footer-socials" src="./imgs/socials/facebook.png" alt="Facebook_page"></a>
-            <a href="https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C" alt=""><img class="footer-socials" src="./imgs/socials/whatsapp.png" alt="whatsapp_Channel"></a>
-            <!-- <img class="footer-socials" src="./imgs/socials/youtube.png" alt="YouTube"> -->
-        </div>
+            <div class="footer-div-socials">
+                <a href="https://www.facebook.com/invaaltriangle/"><img class="footer-socials" src="./imgs/socials/facebook.png" alt="Facebook_page"></a>
+                <a href="https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C"><img class="footer-socials" src="./imgs/socials/whatsapp.png" alt="whatsapp_Channel"></a>
+            </div>
 
-        <div>
-            <p>Reach © 2024 inVaal_Triangle. All rights reserved.</p>
+            <div>
+                <p>inVaal_Triangle © <span id="current-year"></span>. All rights reserved.</p>
+            </div>
         </div>
-    </div>
-    <div class="changelog"><a href="./changelog.html">ChangeLog</a></div>
+        <div class="changelog"><a href="./changelog.html">ChangeLog</a></div>
     </footer>
+
+    <!-- JavaScript Links -->
+    <!-- Inline Script to Update Current Year -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
     
 </body>
 </html>

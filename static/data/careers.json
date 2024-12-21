@@ -1,38 +1,201 @@
-
 {
-
+    "company": {
+      "name": "InVaal Triangle",
+      "website": "https://theekingza.github.io/inVaal_Triangle",
+      "contactEmail": "invaaltriangle@gmail.com",
+      "location": {
+        "address": "1234 Main St",
+        "city": "Sasolburg, Vereeniging, Vanderbijlpark",
+        "state": "Free State, Gauteng",
+        "zipCode": "12345",
+        "country": "South Africa"
+      }
+    },
     "categories": [
-    {
+      {
+        "id": "cat-001",
         "name": "Engineering",
         "jobs": [
-            {
-                "title": "Software Engineer",
-                "link": "https://example.com/software-engineer",
-                "openingDate": "2023-01-01",
-                "closingDate": "2023-12-31"
+          {
+            "id": "job-001",
+            "title": "Software Engineer",
+            "department": "Engineering",
+            "type": "Full-Time",
+            "location": "Remote",
+            "salaryRange": {
+              "min": 70000,
+              "max": 90000,
+              "currency": "R"
             },
-            {
-                "title": "Mechanical Engineer",
-                "link": "https://example.com/mechanical-engineer",
-                "openingDate": "2023-02-01",
-                "closingDate": "2023-11-30"
+            "description": "We are seeking a talented Software Engineer to develop and maintain our applications.",
+            "responsibilities": [
+              "Develop and maintain web applications",
+              "Collaborate with cross-functional teams",
+              "Participate in code reviews and testing"
+            ],
+            "qualifications": {
+              "education": "Bachelor's degree in Computer Science or related field",
+              "experience": "3+ years of software development experience",
+              "skills": [
+                "Proficiency in JavaScript and Python",
+                "Experience with React and Node.js",
+                "Knowledge of RESTful APIs"
+              ]
+            },
+            "benefits": [
+              "Competitive salary",
+              "Health insurance",
+              "Flexible working hours",
+              "Professional development opportunities"
+            ],
+            "application": {
+              "deadline": "2023-12-31",
+              "instructions": "Please submit your resume and cover letter through our website.",
+              "applicationLink": "#"
+            },
+            "metadata": {
+              "openingDate": "2023-01-01",
+              "closingDate": "2023-12-31",
+              "postedDate": "2023-01-01",
+              "updatedDate": "2023-04-15",
+              "status": "Open"
+            },
+            "communityImpact": {
+              "description": "This role contributes to developing software that enhances community services and accessibility.",
+              "initiatives": [
+                "Local education programs",
+                "Community health projects",
+                "Environmental sustainability efforts"
+              ]
+            },
+            "tags": ["JavaScript", "Remote", "Full-Time"],
+            "analytics": {
+              "views": 150,
+              "applications": 25
             }
+          },
+          {
+            "id": "job-002",
+            "title": "Mechanical Engineer",
+            "department": "Engineering",
+            "type": "Full-Time",
+            "location": "On-site",
+            "salaryRange": {
+              "min": 65000,
+              "max": 85000,
+              "currency": "R"
+            },
+            "description": "Looking for a Mechanical Engineer to design and oversee manufacturing processes.",
+            "responsibilities": [
+              "Design mechanical systems",
+              "Oversee manufacturing processes",
+              "Collaborate with the product development team"
+            ],
+            "qualifications": {
+              "education": "Bachelor's degree in Mechanical Engineering or related field",
+              "experience": "2+ years of mechanical design experience",
+              "skills": [
+                "Proficiency in CAD software",
+                "Strong analytical skills",
+                "Knowledge of manufacturing processes"
+              ]
+            },
+            "benefits": [
+              "Competitive salary",
+              "Health insurance",
+              "Paid time off",
+              "Retirement plan"
+            ],
+            "application": {
+              "deadline": "2023-11-30",
+              "instructions": "Apply online with your resume and portfolio.",
+              "applicationLink": "#"
+            },
+            "metadata": {
+              "openingDate": "2023-02-01",
+              "closingDate": "2023-11-30",
+              "postedDate": "2023-02-01",
+              "updatedDate": "2023-04-10",
+              "status": "Open"
+            },
+            "communityImpact": {
+              "description": "This position supports the development of sustainable products that benefit the local community.",
+              "initiatives": [
+                "Renewable energy projects",
+                "Local manufacturing partnerships",
+                "Sustainability workshops"
+              ]
+            },
+            "tags": ["Mechanical", "On-site", "Full-Time"],
+            "analytics": {
+              "views": 120,
+              "applications": 18
+            }
+          }
         ]
-    },
-    {
+      },
+      {
+        "id": "cat-002",
         "name": "Marketing",
         "jobs": [
-            {
-                "title": "Marketing Specialist",
-                "link": "https://example.com/marketing-specialist",
-                "openingDate": "2023-03-01",
-                "closingDate": "2023-10-31"
+          {
+            "id": "job-003",
+            "title": "Marketing Specialist",
+            "department": "Marketing",
+            "type": "Part-Time",
+            "location": "On-site",
+            "salaryRange": {
+              "min": 30000,
+              "max": 45000,
+              "currency": "R"
+            },
+            "description": "Join our marketing team to help promote our brand and engage with the community effectively.",
+            "responsibilities": [
+              "Develop marketing campaigns",
+              "Manage social media accounts",
+              "Coordinate events and workshops"
+            ],
+            "qualifications": {
+              "education": "Bachelor's degree in Marketing or related field",
+              "experience": "1-2 years of marketing experience",
+              "skills": [
+                "Strong communication skills",
+                "Experience with digital marketing tools",
+                "Creative thinking"
+              ]
+            },
+            "benefits": [
+              "Flexible schedule",
+              "Opportunities for growth",
+              "Employee discounts"
+            ],
+            "application": {
+              "deadline": "2024-01-15",
+              "instructions": "Apply online with your portfolio and resume.",
+              "applicationLink": "#"
+            },
+            "metadata": {
+              "openingDate": "2023-03-01",
+              "closingDate": "2023-10-31",
+              "postedDate": "2023-03-01",
+              "updatedDate": "2023-04-20",
+              "status": "Open"
+            },
+            "communityImpact": {
+              "description": "This position helps enhance our outreach programs, fostering stronger community relationships.",
+              "initiatives": [
+                "Community workshops",
+                "Local partnerships",
+                "Charitable events"
+              ]
+            },
+            "tags": ["Marketing", "On-site", "Part-Time"],
+            "analytics": {
+              "views": 100,
+              "applications": 20
             }
+          }
         ]
-    },
-    {
-        "name": "",
-        "jobs": []
-    }
-]
-}
+      }
+    ]
+  }

@@ -121,12 +121,18 @@
             </div>
 
             <div>
-                <p>Reach © 2024 inVaal_Triangle. All rights reserved.</p>
+                <p>inVaal_Triangle © <span id="current-year"></span>. All rights reserved.</p>
             </div>
         </div>
         <div class="changelog"><a href="./changelog.html">ChangeLog</a></div>
     </footer>
 
+    <!-- JavaScript Links -->
+    <!-- Inline Script to Update Current Year -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    
     <script src="./static/js/categories.js"></script>
 </body>
 </html>

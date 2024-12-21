@@ -16,28 +16,183 @@
 .no-jobs {
     color: red;
     font-weight: bold;
+    padding: 10px 0;
 }
 
 .job-category div {
     margin-top: 10px;
 }
 
-.job-category ul {
-    list-style-type: none;
-    padding: 0;
+.company-info {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e9e9e9;
 }
 
-.job-category li {
-    margin-bottom: 10px;
-    padding: 5px;
+.company-info h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.company-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Accordion Styling */
+
+/* Category Accordion Header */
+.job-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.job-category-header:hover,
+.job-category-header:focus {
+    background-color: #e0e0e0; /* Darker gray on hover/focus */
+    outline: none;
+}
+
+/* Accordion Icon Rotation */
+.accordion-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Rotate icon when active */
+.job-category-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+/* Category Content */
+.job-category-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #fafafa; /* Slightly lighter gray */
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+    padding: 0 15px;
+    margin-bottom: 10px;
 }
 
-.job-category li:last-child {
-    border-bottom: none;
+.job-category-content.active {
+    max-height: 2000px; /* Adjust as needed */
+    padding: 15px;
 }
 
-.job-category p {
-    margin: 10px 0;
-    color: var(--error);
+/* Job Items */
+.job-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.job-header:hover,
+.job-header:focus {
+    background-color: #f0f0f0;
+    outline: none;
+}
+
+.job-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+/* Job Content */
+.job-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0 0 3px 3px;
+    padding: 0 10px;
+    margin-top: 5px;
+}
+
+.job-content.active {
+    max-height: 1500px; /* Adjust as necessary */
+    padding: 10px;
+}
+
+/* Job Details */
+.job-details {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.job-section {
+    margin-bottom: 10px;
+}
+
+.job-section h4 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.job-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.job-tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.error-message-active {
+    display: block;
+}
+
+/* Loading Indicator Styling */
+.loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin: 20px 0;
 }
