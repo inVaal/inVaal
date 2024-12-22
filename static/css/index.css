@@ -10,3 +10,13 @@ article p {
 .card {
 }
 
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-main);
+    color: var(--black);
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-family: 'tiny5';
+}

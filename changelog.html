@@ -19,20 +19,14 @@
             border-radius: 10px;
         }
         .changelog-section {
-            border: 3px solid lime;
             list-style-type: none;
             padding: 0;
         }
-        .changelog-list {
-            list-style-type: none;
-            padding: 0;
-        }
+
 
         ul:nth-child(2) {
-
             list-style-type: none;
             padding: 0;
-            text-decoration: underline;
         }
 
         .fixed-btn {
@@ -51,7 +45,7 @@
         }
     </style>
 </head>
-<body style="background-color: var(--color-secondary);">
+<body style="background-color: var(--color-main);">
 
     <a href="./index.html"><button style="z-index: 999;" class="fixed-btn">
     </button></a>
@@ -61,21 +55,21 @@
         <div class="intro-logo">
             <img class="img-logo" src="./imgs/logos/inVaalTriangle_logo.png" alt="logo">
         </div>
-        <h1>InVaal Changelog</h1>
-        <p>PM2024IVT</p>
+        <h1 style="color: black;">InVaal Changelog</h1>
+        <p style="color: white;">PM2024IVT</p>
     </header>
 
     <!-- Main Content -->
     <main>
         <section id="changelog-section">
-            <h2>Latest Updates</h2>
+            <h2 style="display: flex; justify-content:flex-end; color: black; font-family: tiny5;">Latest Updates</h2>
             <ul id="changelog-list">
                 <!-- Dynamic Changelog Content will be inserted here -->
             </ul>
         </section>
     </main>
 
-    <footer>
+    <footer style="border-top: 3px solid black;">
         <div class="footer-elements">
             <div class="footer-div-socials">
                 <a href="https://www.facebook.com/invaaltriangle/"><img class="footer-socials" src="./imgs/socials/facebook.png" alt="Facebook_page"></a>
@@ -86,7 +80,6 @@
                 <p>inVaal_Triangle © <span id="current-year"></span>. All rights reserved.</p>
             </div>
         </div>
-        <div class="changelog"><a href="./changelog.html">ChangeLog</a></div>
     </footer>
 
     <!-- JavaScript Links -->

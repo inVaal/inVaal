@@ -52,6 +52,27 @@
         text-align: right;
     }
 
+    .cta-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--color-main);
+        color: var(--black);
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .cta-button:hover {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--color-main);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
 
 
     .img-2x {
@@ -171,12 +192,15 @@
     }
 
     .gridx2 {
+        text-align: center;
         padding: 20px;
         gap: 2rem;
         display: grid;
         border: 3px solid var(--color-main);
         align-items: center;
     }
+
+
     .gridx2 > {
     height: 100%;
     }
