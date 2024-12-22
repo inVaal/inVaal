@@ -200,6 +200,7 @@ function generateJobDetailsHTML(job) {
 
     return `
         <div class="job-details">
+        <p><strong>Refs number:</strong> ${job.job_id || 'N/A'}</p>
             <p><strong>Department:</strong> ${job.department || 'N/A'}</p>
             <p><strong>Type:</strong> ${job.type || 'N/A'}</p>
             <p><strong>Location:</strong> ${job.location || 'N/A'}</p>
@@ -271,8 +272,7 @@ function displayCompanyInfo(company, container) {
 
     companyDiv.innerHTML = `
         <h2>${company.name}</h2>
-        <p><strong>Website:</strong> <a href="${company.website}" target="_blank" rel="noopener noreferrer">${company.website}</a></p>
-        <p><strong>Contact Email:</strong> <a href="mailto:${company.contactEmail}">${company.contactEmail}</a></p>
+        <p><strong>Contact e-mail:</strong> <a href="mailto:${company.contactEmail}">${company.contactEmail}</a></p>
         <p><strong>Location:</strong><br>  ${company.location.city}<br>${company.location.state}<br>${company.location.country}</p>
     `;
 

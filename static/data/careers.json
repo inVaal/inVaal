@@ -17,7 +17,7 @@
         "name": "Engineering",
         "jobs": [
           {
-            "id": "job-001",
+            "job_id": "SE001",
             "title": "Software Engineer",
             "department": "Engineering",
             "type": "Full-Time",
@@ -75,14 +75,14 @@
             }
           },
           {
-            "id": "job-002",
-            "title": "Mechanical Engineer",
+            "job_id": "SE002",
+            "title": "Sound Engineer",
             "department": "Engineering",
             "type": "Full-Time",
             "location": "On-site",
             "salaryRange": {
-              "min": 65000,
-              "max": 85000,
+              "min": 5000,
+              "max": 8000,
               "currency": "R"
             },
             "description": "Looking for a Mechanical Engineer to design and oversee manufacturing processes.",
@@ -93,11 +93,11 @@
             ],
             "qualifications": {
               "education": "Bachelor's degree in Mechanical Engineering or related field",
-              "experience": "2+ years of mechanical design experience",
+              "experience": null,
               "skills": [
-                "Proficiency in CAD software",
+                "Proficiency in Fruity Loops software",
                 "Strong analytical skills",
-                "Knowledge of manufacturing processes"
+                "Knowledge of engineering processes"
               ]
             },
             "benefits": [
@@ -139,7 +139,7 @@
         "name": "Marketing",
         "jobs": [
           {
-            "id": "job-003",
+            "job_id": "MS001",
             "title": "Marketing Specialist",
             "department": "Marketing",
             "type": "Part-Time",
