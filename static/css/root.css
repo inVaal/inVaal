@@ -1,9 +1,10 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Festive&family=Fruktur:ital@0;1&family=Oleo+Script:wght@400;700&family=Stalemate&display=swap');
 
 /*
- * Reset the default browser setings
+ * Reset the default browser settings
  */
 
 * {
@@ -11,6 +12,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 
 :root {
     /* Main Colors */
@@ -33,6 +35,10 @@
     --font-M: 1.5rem;
     --font-L: 2.5rem;
     --font-XL: 4rem;
+
+    /* Fonts */
+    --basic-font: 'EB Garamond', serif;
+    --logo-font: 'tiny5';
 }
 
 body {
@@ -56,13 +62,15 @@ main {
  * ===================================== */
  
 nav {
-    padding: 10px;
+    padding: 5px;
     background-color: var(--color-main);
     top: 0;
     position: sticky;
-    border: 3px solid var(--color-black);
-    font-family: 'tiny5';
+    border: 1px solid var(--color-black);
+    font-family: var(--basic-font);
+    font-weight: bold;
 }
+
 .nav-list {
     padding: 5px;
     gap: 2rem;
@@ -87,7 +95,7 @@ nav {
     color: var(--color-secondary);
     text-decoration: underline;
     text-underline-offset: 5px;
-    text-decoration-thickness: 5px;
+    text-decoration-thickness: 1px;
 }
 
 /* Main Section

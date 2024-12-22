@@ -18,5 +18,15 @@ article p {
     text-decoration: none;
     border-radius: 5px;
     margin-top: 20px;
-    font-family: 'tiny5';
+    font-family: var(--basic-font);
+}
+
+.cta-button:hover {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-main);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
 }

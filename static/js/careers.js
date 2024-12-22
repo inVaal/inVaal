@@ -189,7 +189,7 @@ function toggleAccordion(header, content) {
  */
 function generateJobDetailsHTML(job) {
     const salary = job.salaryRange
-        ? `${job.salaryRange.currency} ${job.salaryRange.min.toLocaleString()} - ${job.salaryRange.max.toLocaleString()}`
+        ? `${job.salaryRange.currency}${job.salaryRange.min.toLocaleString()} - ${job.salaryRange.currency}${job.salaryRange.max.toLocaleString()}`
         : 'Not specified';
     
     const responsibilities = Array.isArray(job.responsibilities) ? job.responsibilities.map(r => `<li>${r}</li>`).join('') : '';

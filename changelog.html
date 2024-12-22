@@ -7,8 +7,12 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="./static/css/root.css">
     <link rel="stylesheet" href="./static/css/changelog.css">
-
+    
+    
+    
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Festive&family=Fruktur:ital@0;1&family=Oleo+Script:wght@400;700&family=Stalemate&display=swap');
+
         main {
             gap: 2rem;
             display: flex;
@@ -21,6 +25,20 @@
         .changelog-section {
             list-style-type: none;
             padding: 0;
+        }
+
+        section h2 {
+            font-family: 'Festive', cursive;
+            font-size: 2rem;
+            color: var(--color-main);
+        }
+
+        section ul {
+            font-family: 'Oleo Script', cursive;
+        }
+
+        section li:hover {
+            cursor: pointer;
         }
 
 
@@ -62,7 +80,7 @@
     <!-- Main Content -->
     <main>
         <section id="changelog-section">
-            <h2 style="display: flex; justify-content:flex-end; color: black; font-family: tiny5;">Latest Updates</h2>
+            <h2 style="display: flex; justify-content:flex-end; color: black;">Latest Updates</h2>
             <ul id="changelog-list">
                 <!-- Dynamic Changelog Content will be inserted here -->
             </ul>

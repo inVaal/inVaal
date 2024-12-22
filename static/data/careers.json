@@ -35,7 +35,7 @@
             ],
             "qualifications": {
               "education": "Computer Science or related field",
-              "experience": "3+ years of software development experience",
+              "experience": "Software Development Experience",
               "skills": [
                 "Proficiency in JavaScript/ TypeScript, Python, C++, Java, Swift, and Verilog",
                 "Ability to articulate complex concepts fluently in South African English",
@@ -49,7 +49,7 @@
                 "Rates vary based on expertise, skills assessment, location, project need, and other factors. For example, higher rates may be offered to PhDs."
             ],
             "application": {
-              "deadline": "2023-12-31",
+              "deadline": null,
               "instructions": "Apply online on Outlier's website.",
               "applicationLink": "https://app.outlier.ai/expert/opportunities/4476587005?utm_source=referral&referring_user=87d30566f696e25b9990ecad3064a8c84f08846c92efb1a9fbb3d3136c97dbed745091f1a99b2f15f34c90516184e667"
             },
@@ -77,7 +77,7 @@
       },
       {
         "id": "INVAAL-Freelancing",
-        "name": "Freelance",
+        "name": "Language",
         "jobs": [
             {
                 "job_id": "Outlier-FEW-EN-ZA",
@@ -139,7 +139,7 @@
                 }
           },{
             "job_id": "Outlier-SSLFW-EN-ZA",
-            "title": "Sesotho sa Leboa Freelance Writer",
+            "title": "Sesotho Sa Leboa Freelance Writer",
             "department": "Language",
             "type": "Full-Time",
             "location": "Remote",
@@ -186,7 +186,7 @@
                 "Community coding workshops"
               ]
             },
-            "tags": ["Sesotho sa Leboa", "Remote", "Full-Time"],
+            "tags": ["Sesotho Sa Leboa", "Remote", "Full-Time"],
             "analytics": {
               "views": 0,
               "applications": null
