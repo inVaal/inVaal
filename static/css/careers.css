@@ -168,7 +168,7 @@
 
 .tag {
     display: inline-block;
-    background-color: #007BFF;
+    background-color: var(--color-main);
     color: #fff;
     padding: 3px 8px;
     border-radius: 12px;
