@@ -38,6 +38,18 @@
         "Improved performance for loading large datasets.",
         "Minor UI adjustments for better alignment of media and text."
       ]
+    },
+    {
+      "version": "1.0.4",
+      "date": "2025-01-04",
+      "changes": [
+        "New Colors for the Website.",
+        "Still on the mobile before desktop designing.",
+        "Minor UI adjustments for better color alignment for viewing on the phone",
+        "Planning on having a feedback button and a community.",
+        "Still on the Beta version.",
+        "colors: main : hsl(282, 98%, 36%) , secondary: hwb(191 0% 21%)"
+      ]
     }
   ]
 }

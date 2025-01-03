@@ -16,12 +16,12 @@
 
 :root {
     /* Main Colors */
-    --color-main: rgb(121, 128, 1);
-    --color-primary: rgb(190, 199, 1);
-    --color-secondary: rgb(247, 255, 87);
+    --color-main: hsl(282, 98%, 36%);
+    --color-primary: hsl(282, 92%, 57%);
+    --color-secondary: hsl(0, 0%, 100%);
 
     /* Basic clr */
-    --color-black: black;
+    --color-black: rgb(0, 204, 255);
     --color-white: white;
 
     /* Debugging clrs */
@@ -43,7 +43,7 @@
 
 body {
     padding: 5px;
-    background-color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 main {

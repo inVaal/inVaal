@@ -2,15 +2,15 @@
 .job-category {
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-main);
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: transparent;
 }
 
 .job-category h2 {
     margin: 0;
-    font-size: 1.5em;
-    color: #333;
+    font-size: var(--font-S);
+    color: var(--color-main);
 }
 
 .no-jobs {
@@ -78,11 +78,11 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease;
-    background-color: #fafafa; /* Slightly lighter gray */
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    border-radius: 0 0 5px 5px;
+    background-color: transparent; /* Slightly lighter gray */
+    border-left: 1px solid var(--color-main);
+    border-right: 1px solid var(--color-main);
+    border-bottom: 1px solid var(--color-main);
+    border-radius: 5px;
     padding: 0 15px;
     margin-bottom: 10px;
 }
@@ -94,11 +94,9 @@
 
 /* Job Items */
 .job-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 0px;
+    padding: 5px;
     border-radius: 3px;
-    background-color: #fff;
 }
 
 .job-header {
@@ -197,3 +195,12 @@
     margin: 20px 0;
 }
 
+
+.outlier-logo {
+    background-color: var(--color-main);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
