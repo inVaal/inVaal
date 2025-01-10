@@ -48,7 +48,7 @@ inVaal_Triangle is a community-driven media platform designed to provide local n
 ### Demo
 
 You can view the live demo of the project here: 
-[`Web_demo`](https://theekingza.github.io/inVaal_Triangle/)
+[`Web_demo`](https://invaal.github.io/inVaal/)
 
 ---
 
