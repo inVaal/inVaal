@@ -1,35 +1,35 @@
 [
     {
-        "title": "Clean-up Campaign",
-        "date": "2024-09-15",
-        "source": "https://www.istockphoto.com/vector/people-cleaning-planet-earth-and-building-a-better-future-gm1193476605-339484365",
-        "description": "Community clean-up event was a great success.",
+        "title": "Comming Soon",
+        "date": null,
+        "source": "#",
+        "description": null,
         "location": "Sasolburg",
         "media": {
             "type": "image",
-            "url": "./static/data/data_imgs/Cleanup_istockphoto-1193476605-612x612.jpg"
+            "url": "./imgs/logos/inVaalTriangle_logo.png"
         }
     },
     {
-        "title": "Local Winners",
-        "date": "2024-09-16",
-        "source": "https://pictory.ai/",
-        "description": "Local sports team wins championship.",
+        "title": "Comming Soon",
+        "date": null,
+        "source": "#",
+        "description": null,
         "location": "Vereeniging",
         "media": {
-            "type": "mp4",
-            "url": "./static/data/data_vidz/Localsports.mp4"
+            "type": "image",
+            "url": "./imgs/logos/inVaal.gif"
         }
     },
     {
-        "title": "VUT Students Protest Over Poor Infrastructure",
-        "date": "2024-09-17",
-        "source": "https://sundayworld.co.za/news/student-body-decries-vuts-shambolic-state/",
-        "description": "Students at Vaal University of Technology (VUT) are facing severe challenges ...",
+        "title": "Comming Soon",
+        "date": null,
+        "source": "#",
+        "description": null,
         "location": "Vanderbijlpark",
         "media": {
-            "type": "image",
-            "url": "./static/data/data_imgs/VUT-protest.jpg"
+            "type": "gif",
+            "url": "./imgs/logos/inVaalTriangle_logo.png"
         }
     }
 ]

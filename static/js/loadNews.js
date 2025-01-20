@@ -11,47 +11,63 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(newsItems => {
             // Iterate through the news items and place them in the correct section
             newsItems.forEach(item => {
+                
+                // If null dont show on site
                 // Create a div to hold each news item
                 const newsItemDiv = document.createElement('div');
                 newsItemDiv.className = 'news-item';
 
+                // If null dont show on site
                 // Add title
-                const titleEl = document.createElement('h3');
-                titleEl.textContent = item.title;
-                newsItemDiv.appendChild(titleEl);
+                if (item.title){
+                    const titleEl = document.createElement('h3');
+                    titleEl.textContent = item.title;
+                    newsItemDiv.appendChild(titleEl);
+                }
                 
+                // If null dont show on site
                 // Add date
-                const dateEl = document.createElement('p');
-                dateEl.textContent = `${item.date}`;
-                newsItemDiv.appendChild(dateEl);
+                if (item.date){
+                    const dateEl = document.createElement('p');
+                    dateEl.textContent = `${item.date}`;
+                    newsItemDiv.appendChild(dateEl);
+                }
 
-                // Add media (image or video)
-                if (item.media.type === 'image') {
-                    const imgEl = document.createElement('img');
-                    imgEl.src = item.media.url;
-                    imgEl.alt = 'News Image';
-                    imgEl.width = 200;
-                    newsItemDiv.appendChild(imgEl);
-                } else if (item.media.type === 'mp4') {
-                    const videoEl = document.createElement('video');
-                    videoEl.src = item.media.url;
-                    videoEl.controls = true;
-                    videoEl.width = 300;
-                    newsItemDiv.appendChild(videoEl);
+                // If null dont show on site
+                // Add media (image, gif, or video)
+                if (item.media && item.media.type && item.media.url){
+                    if (item.media.type === 'image' || item.media.type === 'gif') {
+                        const imgEl = document.createElement('img');
+                        imgEl.src = item.media.url;
+                        imgEl.alt = 'News Image';
+                        imgEl.width = 200;
+                        newsItemDiv.appendChild(imgEl);
+                    } else if (item.media.type === 'mp4') {
+                        const videoEl = document.createElement('video');
+                        videoEl.src = item.media.url;
+                        videoEl.controls = true;
+                        videoEl.width = 300;
+                        newsItemDiv.appendChild(videoEl);
+                    }
                 }
                 
 
-                
+                // If null dont show on site
                 // Add description
-                const descriptionEl = document.createElement('p');
-                descriptionEl.textContent = item.description;
-                newsItemDiv.appendChild(descriptionEl);
+                if (item.description){
+                    const descriptionEl = document.createElement('p');
+                    descriptionEl.textContent = item.description;
+                    newsItemDiv.appendChild(descriptionEl);
+                }
                 
+                // If null dont show on site
                 // Add source link
-                const sourceEl = document.createElement('a');
-                sourceEl.href = item.source;
-                sourceEl.textContent = 'Read more';
-                newsItemDiv.appendChild(sourceEl);
+                if (item.source){
+                    const sourceEl = document.createElement('a');
+                    sourceEl.href = item.source;
+                    sourceEl.textContent = 'Read more';
+                    newsItemDiv.appendChild(sourceEl);
+                }
 
                 // Append the news item to the correct location container
                 if (item.location === 'Sasolburg') {
