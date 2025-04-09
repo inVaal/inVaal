@@ -3,110 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changelog - inVaal Triangle</title>
+    <title>InVaal - Changelog</title>
+    
     <!-- CSS Links -->
-    <link rel="stylesheet" href="./static/css/root.css">
-    <link rel="stylesheet" href="./static/css/changelog.css">
-    
-    
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Festive&family=Fruktur:ital@0;1&family=Oleo+Script:wght@400;700&family=Stalemate&display=swap');
-
-        main {
-            gap: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--color-white);
-            border-radius: 10px;
-        }
-        .changelog-section {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        section h2 {
-            font-family: 'Festive', cursive;
-            font-size: 2rem;
-            color: var(--color-main);
-        }
-
-        section ul {
-            font-family: 'Oleo Script', cursive;
-        }
-
-        section li:hover {
-            cursor: pointer;
-        }
-
-
-        ul:nth-child(2) {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .fixed-btn {
-            background-image: url('./imgs/instructions/arrow_back.png');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            padding: 20px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/mobile_nav.css">
+    <link rel="stylesheet" href="css/changelog.css">
 </head>
-<body style="background-color: var(--color-main);">
-
-    <a href="./index.html"><button style="z-index: 999;" class="fixed-btn">
-    </button></a>
-<sup style="position: fixed;">version: 1.0.4</sup>
-    <!-- Header -->
-    <header>
-        <div class="intro-logo">
-            <img class="img-logo" src="./imgs/logos/inVaalTriangle_logo.png" alt="logo">
-        </div>
-        <h1 style="color: var(--color-black);">InVaal</h1>
-        <h2 style="color: var(--color-white);">Changelog</h2>
-        <p style="color: black;">PM<span id="current-year"></span>IVT</p>
+<body>
+    <header id="site-header">
+        <!-- Dynamic header will load here -->
     </header>
 
-    <!-- Main Content -->
-    <main>
+    <main class="changelog-main">
         <section id="changelog-section">
-            <h2 style="display: flex; justify-content:flex-end; color: black;">Latest Updates</h2>
+            <h2 style="display: flex; justify-content:flex-end; font-family: tiny5;">Change Log</h2>
             <ul id="changelog-list">
                 <!-- Dynamic Changelog Content will be inserted here -->
             </ul>
         </section>
     </main>
 
-    <footer style="border-top: 3px solid black;">
-        <div class="footer-elements">
-            <div class="footer-div-socials">
-                <a href="https://www.facebook.com/invaaltriangle/"><img class="footer-socials" src="./imgs/socials/facebook.png" alt="Facebook_page"></a>
-                <a href="https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C"><img class="footer-socials" src="./imgs/socials/whatsapp.png" alt="whatsapp_Channel"></a>
-            </div>
 
-            <div>
-                <p>inVaal_Triangle © <span id="current-year"></span>. All rights reserved.</p>
-            </div>
-        </div>
+    <footer id="site-footer">
+        <!-- Dynamic footer will load here -->
     </footer>
 
-    <!-- JavaScript Links -->
-    <!-- Inline Script to Update Current Year -->
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-    
-    <script src="./static/js/changelog.js"></script>
+    <!-- JavaScript Files -->
+    <script src="js/navigation.js"></script>
+    <script src="js/changelog.js"></script>
 </body>
 </html>

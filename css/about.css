@@ -1,0 +1,24 @@
+.about-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--color-background);
+}
+/* Coverage Area */
+.coverage-area {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+border: 3px solid var(--color-main);
+}
+.coverage-grid {
+
+}
+.coverage-card {
+
+}
+.coverage-card {
+
+}

@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Comming Soon",
+        "date": null,
+        "source": "sasolburg.html",
+        "description": "Updates in the Local Area of Sasolburg",
+        "location": "Sasolburg",
+        "category":"local",
+        "media": {
+            "type": "image",
+            "url": "./assets/logos/inVaalTriangle_logo.png"
+        }
+    },
+    {
+        "title": "Comming Soon",
+        "date": null,
+        "source": "vereeniging.html",
+        "description": "Updates in the Local Area of Vereeniging",
+        "location": "Vereeniging",
+        "category":"Bussiness",
+        "media": {
+            "type": "image",
+            "url": "./assets/logos/inVaal.gif"
+        }
+    },
+    {
+        "title": "Comming Soon",
+        "date": null,
+        "source": "vanderbijlpark.html",
+        "description": "Updates in the Local Area of Vanderbijlpark",
+        "location": "Vanderbijlpark",
+        "category":"local",
+        "media": {
+            "type": "gif",
+            "url": "./assets/logos/inVaalTriangle_logo.png"
+        }
+    }
+]

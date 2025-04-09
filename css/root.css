@@ -1,0 +1,436 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+* {
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* Root Variables */
+:root {
+    /* Main Colors */
+    --color-main: hsl(282, 98%, 36%);
+    --color-primary: hsl(282, 92%, 57%);
+    --color-secondary: rgb(0, 204, 255);
+
+    /* Basic Colors */
+    --color-black: black;
+    --color-white: white;
+    --color-background: #f4f4f4;
+    --color-text: #333;
+
+    /* Debugging Colors */
+    --color-test: lime;
+    --color-error: red;
+
+    /* Font Sizes */
+    --font-XXS: 0.5rem;
+    --font-XS: 0.7rem;
+    --font-S: 1rem;
+    --font-M: 1.5rem;
+    --font-L: 2.5rem;
+    --font-XL: 4rem;
+
+    /* Fonts */
+    --font-body: 'EB Garamond', serif;
+    --font-logo: 'Tiny5', cursive;
+
+    /* Line */
+    --line-offset: 0.5em;
+}
+
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* Intro text */
+.introduction {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--color-secondary);
+    color: var(--color-black);
+
+}
+
+/* More about us on the index */
+.about-us {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+
+/* Default Button */
+button {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    padding: 10px;
+    border-radius: 25px;
+}
+button:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-main);
+    font-weight: bold;
+}
+/* Location Page Specific Styles */
+.location-header {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.location-header h1 {
+    font-size: var(--font-L);
+    margin-bottom: 1rem;
+}
+
+.news-filter {
+    background-color: var(--color-white);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.filter-controls select,
+.filter-controls input {
+    padding: 0.5rem;
+    font-size: var(--font-S);
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
+}
+
+
+/* News
+ */
+
+ /* News Grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* News styling */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.news-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.news-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.news-category {
+    font-size: var(--font-XS);
+    background-color: var(--color-secondary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.news-location {
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.news-media img {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.news-title {
+    margin: 0.5rem 0;
+    color: var(--color-main);
+}
+
+.news-description {
+    color: var(--color-black);
+    margin-bottom: 0.5rem;
+}
+
+.news-date {
+    display: block;
+    color: var(--color-secondary);
+    font-size: var(--font-XS);
+}
+
+.news-source {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* No news Message */
+.no-news-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-background);
+}
+
+.careers-page h2 {
+    padding: 5px;
+    margin: 0 0 0 25px ;
+   
+}
+/* About */
+/* About Page Styles */
+.about-header h1, .careers-header h1 {
+    font-size: var(--font-L);
+    margin-bottom: 1rem;
+    color: var(--color-secondary);
+    font-family: tiny5;
+}
+
+.about-header, .careers-header {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+
+.about-mission, .current-openings {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 3px solid var(--color-main);
+}
+
+.team-grid, .job-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.team-member-card, .job-card, .value-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.benefit-card {
+    background-color: var(--color-white);
+    border-top: 2px solid var(--color-secondary);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.application-process {
+    padding: 15px;
+}
+
+.application-steps {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.step {
+    box-shadow: 0 0 10px 1px var(--color-main);
+    border-radius: 25px;
+    border: 5px double var(--color-secondary);
+    text-align: center;
+    max-width: 250px;
+    padding: 25px;
+}
+
+.step:hover {
+    transition: 0.5s;
+    box-shadow: 0 10px 10px 1px var(--color-main);
+}
+
+/* Navigation Strt */
+/* Navigation Styles */
+.main-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-main);
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: var(--font-logo);
+    font-size: var(--font-L);
+}
+
+.nav-links ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-links ul li {
+    margin-left: 1rem;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: var(--color-main);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+    color: var(--color-secondary);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-main);
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+/* Responsive Navigation */
+@media screen and (max-width: 768px) {
+    .main-navigation {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        display: none; /* Will be shown with JavaScript in mobile view */
+        width: 100%;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links ul li {
+        margin: 0.5rem 0;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+}
+/* Navigation Fin*/
+
+/* Footer */
+.footer-content {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-section {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-section li {
+    list-style: none;
+    margin: 0.5rem 0;
+}
+
+.footer-section a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+.social-links {
+    width: 80%;
+    background-color:  var(--color-main);
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--color-white);
+}
+
+.social-links a:hover {
+    color: var(--color-secondary);
+    text-underline-offset: var(--line-offset);
+}
+
+
+.footer-socials {
+    width: 30px;
+}

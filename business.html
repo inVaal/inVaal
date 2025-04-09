@@ -3,40 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./imgs/logos/inVaalTriangle_logo.png" type="image/x-icon">
-    <!-- Meta Description for SEO -->
-    <meta name="description" content="Stay updated with the latest business news, trends, and insights from our community and beyond.">
+    <title>Business - inVaal [016]</title>
+    
     <!-- CSS Links -->
-    <link rel="stylesheet" href="./static/css/root.css">
-    <link rel="stylesheet" href="./static/css/index.css">
-    <link rel="stylesheet" href="./static/css/screen.css">
-    <link rel="stylesheet" href="./static/css/business_minipay.css">
-    <title>inVaal_Triangle - Business</title>
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/mobile_nav.css">
+    <link rel="stylesheet" href="css/business.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="intro-logo">
-            <img class="img-logo" src="./imgs/logos/inVaalTriangle_logo.png" alt="logo" loading="lazy">
-        </div>
-        <div>
-            <h1>INVAAL</h1>
-            <p>[016]</p>
-        </div>
+    <!-- Navigation Component -->
+    <header id="site-header">
+        <!-- Will be loaded dynamically from components/header.html -->
     </header>
 
-    <main style="padding: 25px;">
-        <div>
-            <div class="title-main">
-                <div>
-                    <a href="./index.html">
-                        <img src="./imgs/instructions/arrow_back.png" alt="Go Back" width="50px" loading="lazy">
-                    </a>
-                </div>
-                <div>
-                    <h1>Business</h1>
-                </div>
-            </div>
+    <!-- Main Content Area -->
+    <main class="business-page">
+        <!-- Business Header Section -->
+        <section class="business-header">
+            <h1>Business</h1>
             <p>
                 Stay updated with the latest business news, trends, and insights from our community and beyond.
                 <br>
@@ -44,81 +33,104 @@
                 <br><br>
                 Whether you're a business owner, investor, or simply interested in the world of commerce, find valuable information and updates that can help you make informed decisions and stay ahead in the dynamic business landscape.
             </p>
-        </div>
+        </section>
 
         <!-- Slideshow Container -->
-        <div id="slideshow" class="slideshow-container">
-            <!-- Slide 1 -->
-            <div class="slide">
-                <div class="caption">Opera</div>
-            
-                <a href="https://invite.minipay.xyz/nijSNnydk4E15n8A8">
-                    <img src="./static/data/minipay/minipay_imgs/Opera.png" alt="Financial Growth" style="width:100%">
-                </a>
-            </div>
-           
-
-            <!-- Slide 2 -->
-            <div class="slide">
-                <div class="caption">Opera Mini & Minipay</div>
-
-            <a href="https://invite.minipay.xyz/nijSNnydk4E15n8A8">
-                <img src="./static/data/minipay/minipay_imgs/more.png" alt="Market Trends" style="width:100%">
-            </a>
-            </div>
-
-            <!-- Slide 3 -->
-
-            <div class="slide">
-                <div>
-             </div>
-             <div class="caption">
-                 Celo Network
-                 
-                </div>
-                <div>
-                    <a href="https://celo.org/">
-                        <img src="./static/data/minipay/minipay_imgs/celo.png" alt="Business Meeting" style="width:100%">
+        <section id="slideshow" class="slideshow-container">
+            <div class="slides-wrapper">
+                <!-- Slide 1: Opera -->
+                <div class="slide">
+                    <a href="https://opera.com">
+                        <img src="./assets/images/opera/miniPay/Opera.png" alt="Financial Growth">
+                        <div class="caption">Opera</div>
                     </a>
-             </div>
+                </div>
 
-             <div style="display: flex; flex-direction:column; justify-content: center; align-items: center; padding-top: 20px;">
-             <div>
-                 <!-- MiniPay Link -->
-          <a style="text-decoration: none; color:red;" href="https://invite.minipay.xyz/nijSNnydk4E15n8A8">Install Minipay</a>
-          </div>
-          <div>  
-          <p>Start earning money online.</p>
-             </div>
-             </div>
-        
-             </div>
-        </div>
+                <!-- Slide 2: Opera Mini & Minipay -->
+                <div class="slide">
+                    <a href="https://invite.minipay.xyz/nijSNnydk4E15n8A8">
+                        <img src="./assets/images/opera/miniPay/more.png" alt="Market Trends">
+                        <div class="caption">Opera Mini & Minipay</div>
+                    </a>
+                </div>
 
+                <!-- Slide 3: Celo Network -->
+                <div class="slide">
+                    <a href="https://celo.org/">
+                        <img src="./assets/images/opera/miniPay/celo.png" alt="Business Meeting">
+                        <div class="caption">Celo Network</div>
+                    </a>
+                    <div class="minipay-promo">
+                        <a href="https://invite.minipay.xyz/nijSNnydk4E15n8A8" class="install-link">Install Minipay</a>
+                        <p>Start earning money online.</p>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Navigation Controls -->
+            <div class="slideshow-controls">
+                <button class="prev-slide">&#10094;</button>
+                <button class="next-slide">&#10095;</button>
+            </div>
 
+            <!-- Slide Indicators -->
+            <div class="slide-indicators"></div>
+        </section>
 
+        <!-- Business Directory Section -->
+        <section class="business-directory">
+            <h2>Local Business Directory</h2>
+            
+            <!-- Search and Filter Controls -->
+            <div class="business-controls">
+                <input 
+                    type="text" 
+                    id="business-search" 
+                    placeholder="Business Partners ..."
+                    aria-label="Search businesses"
+                >
+                
+                <select 
+                    id="category-filter" 
+                    aria-label="Filter businesses by category"
+                >
+                    <option value="">All Categories</option>
+                    <!-- Categories will be dynamically populated -->
+                </select>
+            </div>
+
+            <!-- Business Listings Container -->
+            <div id="business-listings" class="business-grid">
+                <!-- Placeholder for dynamically loaded businesses -->
+                <div class="business-card placeholder">
+                    <p>Loading businesses...</p>
+                </div>
+            </div>
+
+            <!-- Pagination or Load More -->
+            <div class="business-pagination">
+                <button id="load-more-businesses" class="load-more-btn">
+                    Load More Businesses
+                </button>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="business-cta">
+            <h3>Are You a Local Business?</h3>
+            <p>List your business and reach more customers in the Vaal Triangle area.</p>
+            <a href="#" class="cta-button">List Your Business</a>
+        </section>
     </main>
-<!-- Footer -->
-<footer>
-    <div class="footer-elements">
-        <div class="footer-div-socials">
-            <a href="https://www.facebook.com/invaaltriangle/"><img class="footer-socials" src="./imgs/socials/facebook.png" alt="Facebook_page"></a>
-            <a href="https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C"><img class="footer-socials" src="./imgs/socials/whatsapp.png" alt="whatsapp_Channel"></a>
-        </div>
 
-        <div>
-            <p>inVaal_Triangle © <span id="current-year"></span>. All rights reserved.</p>
-        </div>
-    </div>
-    <div class="changelog"><a href="./changelog.html">ChangeLog</a></div>
-</footer>
+    <!-- Footer Component -->
+    <footer id="site-footer">
+        <!-- Will be loaded dynamically from components/footer.html -->
+    </footer>
 
-    <!-- JavaScript Links -->
-    <!-- Inline Script to Update Current Year -->
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-
+    <!-- JavaScript Files -->
+    <script src="js/navigation.js"></script>
+    <script src="js/slideshow.js"></script>
+    <script src="js/loaders/business-loader.js"></script>
 </body>
 </html>

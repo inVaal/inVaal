@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InVaal - Sasolburg Updates</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="./css/root.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/typography.css">
+    <link rel="stylesheet" href="./css/mobile_nav.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation Component -->
+    <header id="site-header">
+        <!-- Will be loaded dynamically from ../components/header.html -->
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <section class="location-header">
+            <h1>Sasolburg News</h1>
+            <p>Local news and updates from the Sasolburg area</p>
+        </section>
+
+        <section class="news-filter">
+            <div class="filter-controls">
+                <select id="news-category">
+                    <option value="all">All Categories</option>
+                    <option value="local">Local News</option>
+                    <option value="business">Business</option>
+                    <option value="events">Events</option>
+                </select>
+                <input type="text" id="search-news" placeholder="Search news...">
+            </div>
+        </section>
+
+        <section class="news-grid" id="sasolburg-news-container">
+            <!-- News will be dynamically loaded here -->
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer id="site-footer">
+        <!-- Will be loaded dynamically from ../components/footer.html -->
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/loaders/location-news-loader.js" data-location="Sasolburg"></script>
+    <script src="../js/null-handler.js"></script>
+</body>
+</html>

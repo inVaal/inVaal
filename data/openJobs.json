@@ -1,0 +1,63 @@
+[
+    {
+        "title": "Journalist - Local News",
+        "location": "Vaal Triangle",
+        "type": "Part-time",
+        "description": "Seeking a passionate journalist to cover local news and community stories.",
+        "requirements": [
+            "Must be living in Sasolburg, Vanderbijlpark or Vereeniging",
+            "Must have a passion for writing",
+            "Must have a passion for local news",
+            "Must have a passion for community stories"
+        ],
+        "contact": {
+            "name": "Pule Mathikha",
+            "email": "proceedingmc@gmail.com",
+            "phone": "+27 79 311 9969",
+            "website": "https://invaal.github.io/inVaal",
+            "address": "Vaal Triangle",
+            "city": "Vaal Triangle",
+            "province": "Free State and Gauteng",
+            "country": "South Africa",
+            "postalCode": "1949",
+            "latitude": "-26.7117",
+            "longitude": "27.8378",
+            "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.0000000000005!2d27.8378!3d-26.7117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e949f1b1b1b1b1b%3A0x1e949f1b1b1b1b1b!2s123%20Main%20St%2C%20Vanderbijlpark%2C%201911!5e0!3m2!1sen!2sza!4v1628580000000!5m2!1sen!2sza",
+            "logo": "./assets/logos/inVaalTriangle_logo.png",
+            "media": [
+                {
+                    "type": "image",
+                    "url": "./assets/logos/inVaalTriangle_logo.png"
+                }
+            ],
+            "social": [
+                {
+                    "facebook": "https://www.facebook.com/invaal",
+                    "twitter": "https://www.twitter.com/invaal",
+                    "instagram": "https://www.instagram.com/invaal",
+                    "linkedin": "https://www.linkedin.com/invaal"
+                }
+            ],
+            "category": [
+                "Journalism",
+                "Local News",
+                "Community Stories",
+                "Writing",
+                "News"
+            ],
+            "posted_on": "2021-08-10",
+            "end-date": "2021-08-31",
+            "price": "R 0.00",
+            "currency": "ZAR",
+            "status": "Open",
+            "tags": [
+                "Journalist",
+                "Local News",
+                "Community Stories",
+                "Writing",
+                "News",
+                "Journalism"
+            ]
+        }
+    }
+]

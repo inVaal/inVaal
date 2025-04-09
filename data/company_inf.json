@@ -1,0 +1,29 @@
+{
+    "company": {
+        "name": "InVaal",
+        "motto": "[016]",
+        "motto_text": "Reach Out",
+        "website": "https://invaal.github.io/inVaal",
+        "contact": {
+            "email": "invaaltriangle@gmail.com",
+            "phone": null,
+            "telephone": null,
+            "fax": null,
+            "social_media": {
+                "youtube": "https://youtu.be/a3NYnBlj1Vk?si=kjYF_wTKFqiRLRAa",
+                "tiktok": null,
+                "facebook": "https://www.facebook.com/invaaltriangle/",
+                "x": null,
+                "whatsapp": "https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C",
+                "instagram": null
+            }
+        },
+        "location": {
+            "address": null,
+            "cities": ["Sasolburg", "Vereeniging", "Vanderbijlpark"],
+            "states": ["Free State", "Gauteng"],
+            "zipCode": null,
+            "country": "South Africa"
+        }
+    }
+}

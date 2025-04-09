@@ -1,0 +1,137 @@
+/* Basic styling for the navigation container */
+
+.nav-container {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* Style the hamburger button */
+.menu-button {
+    /* Remove default button styles */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    /* Center the button */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Create the hamburger icon using spans */
+.menu-button span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-secondary);
+    transition: all 0.3s ease;
+}
+
+/* Style the navigation menu */
+.nav-menu {
+    /* Hide the menu by default on mobile */
+    display: none;
+    margin-top: 1rem;
+}
+
+/* Show the menu when active class is present */
+.nav-menu.active {
+    display: block;
+}
+
+/* Style navigation links */
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu li {
+    padding: 5px;
+}
+
+.nav-menu a {
+    color: var(--color-main);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.nav-menu a:hover {
+    font-weight: bold;
+    font-family: tiny5;
+    color: var(--color-secondary);
+}
+
+/* Animation for hamburger to X transformation */
+.menu-button.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Media Query for screens wider than 500px */
+@media screen and (width > 500px) {
+    .nav-container {
+        /* Make container flex to align items */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    /* Hide the hamburger button */
+    .menu-button {
+        display: none;
+    }
+
+    /* Show the navigation menu */
+    .nav-menu {
+        display: block !important; /* Override the mobile display: none */
+        margin-top: 0; /* Remove top margin used in mobile view */
+    }
+
+    /* Style the navigation list */
+    .nav-menu ul {
+        display: flex;
+        gap: 2rem; /* Space between menu items */
+        align-items: center;
+    }
+
+    /* Remove vertical margins used in mobile view */
+    .nav-menu li {
+        margin: 0;
+    }
+
+    /* Enhanced link styling for desktop */
+    .nav-menu a {
+        position: relative;
+        padding: 0.5rem 0;
+    }
+
+    /* Add underline animation on hover */
+    .nav-menu a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: #333;
+        transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+}
