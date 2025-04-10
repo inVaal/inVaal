@@ -2,49 +2,6 @@
     "businesses": [
         {
             "id": 1,
-            "name": "InVaal Media House",
-            "category": "Media",
-            "description": "Local news and media platform serving the Vaal Triangle",
-            "contact": {
-                "phone": "+27 79 311 9969",
-                "email": "info@invaal.com",
-                "website": "https://invaal.github.io/inVaal"
-            },
-            "address": {
-                "street": "123 Main Street",
-                "city": "Vereeniging",
-                "province": "Gauteng"
-            },
-            "social_media": {
-                "facebook": "facebook.com/invaal",
-                "twitter": "twitter.com/invaal",
-                "instagram": "#"
-            },
-            "logo": "assets/images/business-logos/invaal-media-house-logo.png"
-        },
-        {
-            "id": 2,
-            "name": "Local Cafe",
-            "category": "Food & Beverage",
-            "description": "Cozy cafe offering great coffee and light meals",
-            "contact": {
-                "phone": "+27 XX XXX XXXX",
-                "email": "contact@localcafe.com",
-                "website": "https://localcafe.com"
-            },
-            "address": {
-                "street": "45 Oak Road",
-                "city": "Sasolburg",
-                "province": "Free State"
-            },
-            "social_media": {
-                "facebook": "#",
-                "instagram": "#"
-            },
-            "logo": "./assets/images/business-logos/local-cafe-logo.png"
-        },
-        {
-            "id": 3,
             "name": "Go Deeper Podcast_2024",
             "category": "Media",
             "description": "Dive into the unseen, unspoken & uncharted. ARE YOU READY TO GO DEEPER?",
@@ -54,7 +11,7 @@
                 "website": "https://theekingza.github.io/GoDeeper_Podcast/"
             },
             "address": {
-                "street": "789 Innovation Drive",
+                "street": "near Leeuwsprite",
                 "city": "Sasolburg",
                 "province": "Free State"
             },
@@ -63,7 +20,7 @@
                 "linkedin": "#",
                 "twitter": "#"
             },
-            "logo": "./assets/images/business-logos/logo_GD.png"
+            "logo": "./assets/images/business-logos/logo_GD_blk.png"
         }
     ],
     "categories": [

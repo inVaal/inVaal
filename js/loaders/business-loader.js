@@ -80,7 +80,10 @@ class BusinessDirectory {
             </div>
             <div class="business-actions">
                 <a href="${business.contact.website}" target="_blank" class="btn">Visit Website</a>
-            </div>
+                </div>
+            <div class="business-social">
+                <a href="${business.social_media.youtube}" target="_blank" class="btn">YouTube Channel</a>
+                </div>
         `;
 
         return card;
