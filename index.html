@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="./css/typography.css">
     <link rel="stylesheet" href="./css/mobile_nav.css">
+    <link rel="stylesheet" href="./css/business.css">
     
     <!-- Favicon -->
     <link rel="icon" href="assets/logos/inVaalTriangle_logo.png" type="image/x-icon">
@@ -76,7 +77,49 @@
                 <!-- News will be dynamically loaded here -->
             </div>
         </section>
-
+        <br><br>
+            <!-- Slideshow Container -->
+            <section id="slideshow" class="slideshow-container">
+                <div class="slides-wrapper">
+                    <!-- Slide 1: Opera -->
+                    <div class="slide">
+                        <a href="https://opera.com">
+                            <img src="./assets/images/opera/miniPay/Opera.png" alt="Financial Growth">
+                            <div class="caption">Opera</div>
+                        </a>
+                    </div>
+    
+                    <!-- Slide 2: Opera Mini & Minipay -->
+                    <div class="slide">
+                        <a href="https://invite.minipay.xyz/nijSNnydk4E15n8A8">
+                            <img src="./assets/images/opera/miniPay/more.png" alt="Market Trends">
+                            <div class="caption">Opera Mini & Minipay</div>
+                        </a>
+                    </div>
+    
+                    <!-- Slide 3: Celo Network -->
+                    <div class="slide">
+                        <a href="https://celo.org/">
+                            <img src="./assets/images/opera/miniPay/celo.png" alt="Business Meeting">
+                            <div class="caption">Celo Network</div>
+                        </a>
+                        <div class="minipay-promo">
+                            <a href="https://invite.minipay.xyz/nijSNnydk4E15n8A8" class="install-link">Install Minipay</a>
+                            <p>Start earning money online.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Navigation Controls -->
+                <div class="slideshow-controls">
+                    <button class="prev-slide">&#10094;</button>
+                    <button class="next-slide">&#10095;</button>
+                </div>
+    
+                <!-- Slide Indicators -->
+                <div class="slide-indicators"></div>
+            </section>
+<br><br>
        
     </main>
 
@@ -88,6 +131,7 @@
     <!-- JavaScript Files -->
     <script src="js/navigation.js"></script>
     <script src="js/loaders/news-loader.js"></script>
+    <script src="js/slideshow.js"></script>
 <!--     
     <script src="js/null-handler.js"></script>
     <script src="js/nscn_ld.js"></script>
