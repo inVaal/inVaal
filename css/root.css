@@ -12,7 +12,7 @@
     /* Main Colors */
     --color-main: hsl(282, 98%, 36%);
     --color-primary: hsl(282, 92%, 57%);
-    --color-secondary: rgb(0, 204, 255);
+    --color-secondary: rgb(4, 174, 217);
 
     /* Basic Colors */
     --color-black: black;
@@ -399,14 +399,12 @@ button:hover {
 
 /* Footer */
 .footer-content {
-    background-color: var(--color-main);
     color: var(--color-white);
     padding: 2rem 1rem;
     text-align: center;
 }
 
 .footer-section {
-    background-color: var(--color-main);
     color: var(--color-white);
     padding: 2rem 1rem;
     text-align: center;

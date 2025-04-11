@@ -61,16 +61,16 @@
     .footer-content{
         background-color: var(--color-black);
     }
+
+    .footer-content h3 {
+        color: var(--color-white);
+        text-align: right;
+        font-size: var(--font-M);
+        margin: 0;
+    }
     .footer-section{
         background-color: var(--color-main);
         border-radius: 25px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        /* img bg */
-        background-image: url('../assets/logos/inVaalTriangle_logo.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        object-fit: fill;
     }
     .footer-section li {
         padding: 2px;
@@ -82,7 +82,7 @@
         background-color: var(--color-black);
         color: var(--color-white);
     }
-    .footer-section h3{
+    .footer-section h3 {
         font-size: var(--font-M);
         color: var(--color-white);
     }
