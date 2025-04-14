@@ -2,14 +2,14 @@
 const container = document.getElementById('sasolburg-news-container');
 
 // Fetch data from the JSON file
-fetch('../../data/sasolburg.json') // Adjust path if your JSON file is elsewhere
+fetch('data/sasolburg.json') // Adjust path if your JSON file is elsewhere
   .then(response => response.json())
   .then(data => {
     displayNews(data); // Call function to build the news cards
   })
   .catch(error => {
     console.error('Error loading Sasolburg news:', error);
-    container.innerHTML = '<p>Failed Please try again later.</p>';
+    container.innerHTML = '<p>Failed !! later.</p>';
   });
 
 
