@@ -9,7 +9,7 @@ fetch('../data/sasolburg.json') // Adjust path if your JSON file is elsewhere
   })
   .catch(error => {
     console.error('Error loading Sasolburg news:', error);
-    container.innerHTML = '<p>Failed to load news. Please try again later.</p>';
+    container.innerHTML = '<p>Failed Please try again later.</p>';
   });
 
 
