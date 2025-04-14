@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch news from the Sasolburg-specific JSON
     async function fetchNews() {
         try {
-            const res = await fetch('../data/places/sasolburg.json');
+            const res = await fetch('../data/sasolburg.json');
             const data = await res.json();
             allNews = data;
             renderNews(allNews);
