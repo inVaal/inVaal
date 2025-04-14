@@ -1,11 +1,13 @@
+```
 Company name: inVaal [016]
 Catergory: Media House
 Sever: Github
 Author: Pule Mathikha
+```
 -----
 
 ---
-inVaal Website Structure
+inVaal Website Structure_
 Release Date: 11-04-2025
 ```
 │
@@ -132,6 +134,6 @@ Release Date: 11-04-2025
 
 ---
 
-[Web_Demo](https://theekingza.github.io/inVaal_v2_Mar2025)
+[Web_Demo](https://invaal.github.io/inVaal)
 
 ---
