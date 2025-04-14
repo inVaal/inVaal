@@ -1,0 +1,18 @@
+[
+    {
+      "title": "New Episode 3: K.Surpreme - Sasolburg",
+      "description": "Dive into the world of K.Surprem, where music and photography collide. Tune in to this episode of Go Deeper Podcast for an exclusive interview.",
+      "category": "business",
+      "location": "Sasolburg",
+      "date": "2025-04-14",
+      "author": "Pule Mathikha",
+      "tags": ["Speak", "community", "fun"],
+      "link": "https://youtu.be/vms4dF-Xtgo?si=_vamNBZMMtsS-3NI",
+      "media": {
+        "url": "../assets/images/business-logos/logo_GD_blk.png",
+        "alt": "Episode 3: K.Surpreme - Sasolburg"
+      },
+      "highlighted": true
+    }
+  ]
+  

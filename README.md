@@ -6,7 +6,8 @@ Author: Pule Mathikha
 
 ---
 inVaal Website Structure
-Release Date: ##-##-####
+Release Date: 11-04-2025
+```
 │
 ├── index.html                 # Homepage with latest news and featured stories
 ├── deploy_.sh                 # Bash to deploy and push to github and check for errors(using colors)
@@ -54,6 +55,7 @@ Release Date: ##-##-####
 └── assets/
     ├── icons/                 # Site icons and favicons
     └── logos/                 # inVaal branding assets
+```
 ---
 
 ```
