@@ -2,7 +2,7 @@
 const container = document.getElementById('sasolburg-news-container');
 
 // Fetch data from the JSON file
-fetch('../../data/sasolburg.json') // Adjust path if your JSON file is elsewhere
+fetch('../data/sasolburg.json') // Adjust path if your JSON file is elsewhere
   .then(response => response.json())
   .then(data => {
     displayNews(data); // Call function to build the news cards
