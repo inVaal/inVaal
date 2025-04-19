@@ -1,0 +1,24 @@
+.author-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .author-photo {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  .author-info {
+    flex: 1;
+  }
+  
+  .author-socials a {
+    margin-right: 1rem;
+    color: #0077cc;
+  }
+  
+  body {
+    padding: 20px;
+  }

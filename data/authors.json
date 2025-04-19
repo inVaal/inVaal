@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Pule Mathikha",
+      "bio": "A creative storyteller based in Sasolburg.",
+      "image": "../assets/images/authors/PuleMathikha.png",
+      "website": "https://theekingza.github.io/Portfolio/",
+      "social": {
+        "youtube": "https://youtube.com/@Cursedwell",
+        "twitter": "https://twitter.com/Pule_Mathikha",
+        "linkedin": "https://www.linkedin.com/in/pulemathikha",
+        "instagram": "https://www.instagram.com/cursedwell_",
+        "facebook": "https://www.facebook.com/cursedwell",
+        "tiktok": "https://www.tiktok.com/@cursedwell"
+      }
+    },
+    {
+      "name": "Jane Doe",
+      "bio": "Jane writes about local businesses and community initiatives.",
+      "image": "assets/images/authors/jane.jpg",
+      "website": null,
+      "social": {}
+    }
+  ]
+  

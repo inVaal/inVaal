@@ -1,46 +1,76 @@
-// Get reference to the container where news will be displayed
-const container = document.getElementById('sasolburg-news-container');
+// js/loaders/places/sasolburgLoader.js
 
-// Fetch data from the JSON file
-fetch('data/sasolburg.json') // Adjust path if your JSON file is elsewhere
-  .then(response => response.json())
-  .then(data => {
-    displayNews(data); // Call function to build the news cards
+// DOM elements
+const container = document.getElementById('sasolburg-news-container');
+const categoryFilter = document.getElementById('news-category');
+const searchInput = document.getElementById('search-news');
+
+// Store data globally so we can filter it
+let allNews = [];
+
+// Fetch news from sasolburg.json
+fetch('data/sasolburg.json') // Adjust the path if needed
+  .then((response) => response.json())
+  .then((data) => {
+    allNews = data;
+    renderNews(allNews); // Initial rendering
   })
-  .catch(error => {
+  .catch((error) => {
     console.error('Error loading Sasolburg news:', error);
-    container.innerHTML = '<p>Failed !! later.</p>';
   });
 
+/**
+ * Render news items into the DOM
+ */
+function renderNews(newsList) {
+  container.innerHTML = ''; // Clear previous content
 
-// Function to display each news item
-function displayNews(newsArray) {
-  newsArray.forEach(news => {
-    // Create a news card
-    const card = document.createElement('div');
-    card.classList.add('news-card');
+  if (newsList.length === 0) {
+    container.innerHTML = '<p>No news articles found.</p>';
+    return;
+  }
 
-    // Build HTML content inside the card
+  newsList.forEach((item) => {
+    const card = document.createElement('article');
+    card.className = 'news-card';
+
     card.innerHTML = `
-      <img src="${news.media.url}" alt="${news.media.alt}" class="news-image">
+      <img src="${item.media.url}" alt="${item.media.alt}" class="news-image">
       <div class="news-content">
-        <h3>${news.title}</h3>
-        <p class="news-date">${formatDate(news.date)} | <span class="news-category">${news.category}</span></p>
-        <p>${news.description}</p>
-        <a href="${news.link}" target="_blank" class="news-link">Watch Episode</a>
-        <p class="news-tags">${news.tags.map(tag => `#${tag}`).join(' ')}</p>
-        <p class="news-author">By ${news.author}</p>
+        <h2>${item.title}</h2>
+        <p>${item.description}</p>
+        <p><strong>Author:</strong>
+        <a href="../pages/author.html?name=${encodeURIComponent(item.author)}">
+        ${item.author}
+        </a></p>
+        <p><strong>Date:</strong> ${item.date}</p>
+        <a href="${item.link}" target="_blank" rel="noopener noreferrer">Watch Now</a>
       </div>
     `;
 
-    // Append card to the container
     container.appendChild(card);
   });
 }
 
+/**
+ * Filter and search news dynamically
+ */
+function filterAndSearchNews() {
+  const selectedCategory = categoryFilter.value;
+  const searchTerm = searchInput.value.toLowerCase();
 
-// Helper to format date nicely
-function formatDate(dateStr) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateStr).toLocaleDateString(undefined, options);
+  const filteredNews = allNews.filter((item) => {
+    const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
+    const matchesSearch =
+      item.title.toLowerCase().includes(searchTerm) ||
+      item.description.toLowerCase().includes(searchTerm);
+
+    return matchesCategory && matchesSearch;
+  });
+
+  renderNews(filteredNews);
 }
+
+// Event listeners for filtering and searching
+categoryFilter.addEventListener('change', filterAndSearchNews);
+searchInput.addEventListener('input', filterAndSearchNews);
