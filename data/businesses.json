@@ -20,7 +20,7 @@
                 "linkedin": "#",
                 "twitter": "#"
             },
-            "logo": "./assets/images/business-logos/logo_GD_blk.png"
+            "logo": "assets/images/business-logos/logo_GD_blk.png"
         },{
             "id": 2,
             "name": "SN Fish & Chips",
@@ -41,7 +41,7 @@
                 "linkedin": "#",
                 "twitter": "#"
             },
-            "logo": "./assets/images/business-logos/logo_SN.png"
+            "logo": "assets/images/business-logos/logo_SN.png"
         }
     ],
     "categories": [
