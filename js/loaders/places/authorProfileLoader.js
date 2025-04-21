@@ -61,7 +61,7 @@ Promise.all([
           <p><strong>Date:</strong> ${item.date}</p>
           <a href="${item.link}" target="_blank">Watch Now</a>
 
-          <p><strong>Author:</strong> <a href="../pages/author.html?name=${encodeURIComponent(item.author)}">${item.author}</a></p>
+          <p><strong>Author:</strong> <a href="author.html?name=${encodeURIComponent(item.author)}">${item.author}</a></p>
 
         </div>
       `;

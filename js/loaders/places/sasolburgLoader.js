@@ -40,7 +40,7 @@ function renderNews(newsList) {
         <h2>${item.title}</h2>
         <p>${item.description}</p>
         <p><strong>Author:</strong>
-        <a href="../pages/author.html?name=${encodeURIComponent(item.author)}">
+        <a href="../author.html?name=${encodeURIComponent(item.author)}">
         ${item.author}
         </a></p>
         <p><strong>Date:</strong> ${item.date}</p>
