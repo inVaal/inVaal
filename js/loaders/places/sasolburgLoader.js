@@ -39,12 +39,20 @@ function renderNews(newsList) {
       <div class="news-content">
         <h2>${item.title}</h2>
         <p>${item.description}</p>
+        
+        <p style="color: var(--color-main);"><strong>${item.category}</strong>
+        </p>
+        
+
+        <p class="tags">
+        ${item.tags}</p>
+
         <p><strong>Author:</strong>
         <a href="../author.html?name=${encodeURIComponent(item.author)}">
         ${item.author}
         </a></p>
         <p><strong>Date:</strong> ${item.date}</p>
-        <a href="${item.link}" target="_blank" rel="noopener noreferrer">Watch Now</a>
+        <a href="${item.link}" target="_blank" rel="noopener noreferrer">Visit Here</a>
       </div>
     `;
 

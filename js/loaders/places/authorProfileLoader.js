@@ -63,6 +63,8 @@ Promise.all([
 
           <p><strong>Author:</strong> <a href="author.html?name=${encodeURIComponent(item.author)}">${item.author}</a></p>
 
+          
+
         </div>
       `;
       newsContainer.appendChild(card);

@@ -21,6 +21,27 @@
                 "twitter": "#"
             },
             "logo": "./assets/images/business-logos/logo_GD_blk.png"
+        },{
+            "id": 2,
+            "name": "SN Fish & Chips",
+            "category": "Food & Beverage",
+            "description": "Join us for a delicious episode featuring SN Fish & Chips, a local favorite in Sasolburg. Discover the story behind this beloved eatery and its impact on the community.",
+            "contact": {
+                "phone": "+27 65 064 1760",
+                "email": "Snfishnchips4@gmail.com",
+                "website": "https://theekingza.github.io/fish_and_chips/"
+            },
+            "address": {
+                "street": "Zamdela",
+                "city": "Sasolburg",
+                "province": "Free State"
+            },
+            "social_media": {
+                "youtube": null,
+                "linkedin": "#",
+                "twitter": "#"
+            },
+            "logo": "./assets/images/business-logos/logo_SN.png"
         }
     ],
     "categories": [

@@ -70,20 +70,20 @@ class BusinessDirectory {
         card.classList.add('business-card');
         
         card.innerHTML = `
-            <img src="${business.logo}" alt="${business.name} logo" onerror="this.src='./assets/images/placeholder-logo.png'">
-            <h3>${business.name}</h3>
-            <p class="category">${business.category}</p>
-            <p>${business.description}</p>
+            ${business.logo ? `<img src="${business.logo}" alt="${business.name} logo" onerror="this.src='./assets/images/placeholder-logo.png'">` : ''}
+            <h3>${business.name || 'No Name Available'}</h3>
+            ${business.category ? `<p class="category">${business.category}</p>` : ''}
+            ${business.description ? `<p>${business.description}</p>` : ''}
             <div class="business-contact">
-                <p>Call: ${business.contact.phone || 'N/A'}</p>
-                <p>Email: ${business.contact.email || 'N/A'}</p>
+            ${business.contact?.phone ? `<p>Call: ${business.contact.phone}</p>` : ''}
+            ${business.contact?.email ? `<p>Email: ${business.contact.email}</p>` : ''}
             </div>
             <div class="business-actions">
-                <a href="${business.contact.website}" target="_blank" class="btn">Visit Website</a>
-                </div>
+            ${business.contact?.website ? `<a href="${business.contact.website}" target="_blank" class="btn">Visit Website</a>` : ''}
+            </div>
             <div class="business-social">
-                <a href="${business.social_media.youtube}" target="_blank" class="btn">YouTube Channel</a>
-                </div>
+            ${business.social_media?.youtube ? `<a href="${business.social_media.youtube}" target="_blank" class="btn">YouTube Channel</a>` : ''}
+            </div>
         `;
 
         return card;

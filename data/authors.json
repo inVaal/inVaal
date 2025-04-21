@@ -17,8 +17,10 @@
       "name": "Jane Doe",
       "bio": "Jane writes about local businesses and community initiatives.",
       "image": "assets/images/authors/jane.jpg",
-      "website": null,
-      "social": {}
+      "website": "https://minipay.to",
+      "social": {
+        "youtube": "https://youtube.com/@Cursedwell"
+      }
     }
   ]
   

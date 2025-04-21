@@ -133,7 +133,16 @@ button:hover {
     border-radius: 4px;
 }
 
-
+/* tags */
+.tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-weight: bold;
+}
 /* News
  */
 
