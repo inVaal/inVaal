@@ -416,39 +416,58 @@ button:hover {
 /* Navigation Fin*/
 
 /* Footer */
+/* Footer */
+#site-footer { /* Use a more specific selector for the footer element */
+    background-color: var(--color-black); /* Assuming this is your footer background */
+    color: var(--color-white); /* Default text color for the footer */
+    padding: 2rem 1rem; /* Consistent padding */
+}
+
 .footer-content {
-    color: var(--color-white);
-    padding: 2rem 1rem;
-    text-align: center;
+    text-align: center; /*  Applies to all content within the footer */
 }
 
-.footer-section {
-    color: var(--color-white);
-    padding: 2rem 1rem;
-    text-align: center;
-}
+/* Removed .footer-section as it's redundant.  Apply styles directly to relevant elements */
 
-.footer-section li {
+/* Footer Navigation (if any) */
+#site-footer nav ul { /* Assuming you have a navigation in the footer */
     list-style: none;
-    margin: 0.5rem 0;
+    padding: 0;
+    margin: 0;
+    display: flex; /*  For horizontal navigation */
+    justify-content: center; /* Center the navigation */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
 }
 
-.footer-section a {
-    color: var(--color-secondary);
+#site-footer nav li {
+    margin: 0.5rem 1rem; /* Spacing between navigation items */
+}
+
+#site-footer nav a {
+    color: var(--color-secondary); /* Link color */
     text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover */
 }
 
+#site-footer nav a:hover {
+    color: var(--color-white); /* Hover color */
+    text-decoration: underline; /* Or use text-underline-offset */
+    text-underline-offset: var(--line-offset);
+}
+
+/* Social Links */
 .social-links {
-    width: 80%;
-    background-color:  var(--color-main);
-    padding: 0.5em;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center; /* Center the social links */
     align-items: center;
+    padding: 0.5rem;
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
 }
 
 .social-links a {
     color: var(--color-white);
+    margin: 0 1rem; /* Spacing between social icons */
+    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
@@ -456,7 +475,15 @@ button:hover {
     text-underline-offset: var(--line-offset);
 }
 
-
 .footer-socials {
+    border-radius: 25%;
+    background-color: var(--color-main);
     width: 30px;
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Optional: Copyright Notice */
+.copyright {
+    font-size: 0.8rem;
+    margin-top: 1rem;
 }

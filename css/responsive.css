@@ -1,7 +1,9 @@
 /* Responsive Design */
 /* Mobile Navigation */
 /* Small Screens */
-@media (width < 500px) {
+@media (width < 500px)
+
+{
     /* Add mobile-specific navigation styles */
     .filter-controls {
         flex-direction: column;
@@ -57,38 +59,63 @@
     }
 
 
-    /* Footer */
-    .footer-content{
-        background-color: var(--color-black);
+   /* Footer */
+    #site-footer {
+        padding: 1rem; /* Reduce padding for smaller screens */
     }
 
-    .footer-content h3 {
+    footer#site-footer h3 {
         color: var(--color-white);
-        text-align: right;
-        font-size: var(--font-M);
-        margin: 0;
-    }
-    .footer-section{
-        background-color: var(--color-main);
-        border-radius: 25px;
-    }
-    .footer-section li {
-        padding: 2px;
+
     }
 
-    .footer-section li:hover{
-        font-weight: bold;
+    .footer-content {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center content horizontally */
+        text-align: center; /* Center text */
+    }
+
+    .copyright {
         border-radius: 25px;
+        color: var(--color-white);
         background-color: var(--color-black);
-        color: var(--color-white);
+
     }
-    .footer-section h3 {
-        font-size: var(--font-M);
+    /* Footer Navigation (Quick Links) */
+    #site-footer ul {
         color: var(--color-white);
+        flex-direction: column; /* Stack links vertically */
+        align-items: center;
     }
-    .footer-rights{
-        font-weight: bold;
-        color: var(--color-main);
+
+    #site-footer nav li {
+        margin: 0.5rem 0; /* Adjust spacing */
+    }
+
+    /* Footer Contact */
+    .footer-contact {
+        margin-top: 1rem; /* Add space above the contact info */
+    }
+
+    .footer-contact h3,
+    .footer-links h3 {
+        text-align: center; /* Center headings */
+        margin-bottom: 0.5rem; /* Add space below headings */
+    }
+
+    /* Social Links */
+    .social-links {
+        justify-content: center; /* Center the social links */
+    }
+
+    .footer-socials {
+        width: 40px; /* Adjust icon size */
+    }
+
+    /* Copyright */
+    .copyright {
+        font-size: 0.75rem; /* Reduce font size */
+        margin-top: 1rem;
     }
 }
 
@@ -102,57 +129,43 @@
         align-items: center;
     }
 
-    .footer-content{
-        background-color: var(--color-main);
+    /* Footer - General Styles (if needed, otherwise inherit from base styles) */
+    #site-footer {
     }
-    .footer-section{
-        background-color: var(--color-black);
-        border-radius: 25px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
     }
-    .footer-section h3{
-        font-size: var(--font-L);
+
+    /* Footer Navigation (Quick Links) */
+    #site-footer nav ul {
+        flex-direction: column; /* Stack links vertically */
+        align-items: flex-start; /* Align links to the left */
     }
-    .footer-section ul{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        justify-content: space-around;
+
+    #site-footer nav li {
+        margin: 0.25rem 0; /* Adjust spacing */
     }
-    .footer-section li:hover{
-        list-style: none;
-        text-decoration: underline;
-        text-underline-offset: 5px;
-    }
+
+    /* Footer Contact */
     .footer-contact {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 15px;
-        border: 5px inset var(--color-main);
-        background-color: var(--color-black);
-        color: var(--color-main);
+        text-align: left; /* Align contact info to the left */
     }
+
     .footer-contact h3 {
-        font-size: var(--font-L);
+        margin-bottom: 0.5rem; /* Add some space below headings */
     }
 
-    .footer-links {
-        gap: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        background-color: var(--color-black);
-
+    /* Social Links */
+    .social-links {
+        justify-content: flex-end; /* Align social links to the right */
     }
-    .social-links a{
-        color: var(--color-secondary);
 
-    }
-    .footer-rights{
-        font-weight: bold;
-        color: var(--color-black);
+    /* Copyright */
+    .copyright {
+        text-align: center; /* Align copyright to the right */
+        margin-top: 0; /* Remove the top margin */
     }
 }
