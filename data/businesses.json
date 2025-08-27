@@ -23,13 +23,13 @@
             "logo": "assets/images/business-logos/logo_GD_blk.png"
         },{
             "id": 2,
-            "name": "SN Fish & Chips",
+            "name": "Lehae - Elikhaya",
             "category": "Food & Beverage",
-            "description": "Join us for a delicious episode featuring SN Fish & Chips, a local favorite in Sasolburg. Discover the story behind this beloved eatery and its impact on the community.",
+            "description": "Discover the story behind this beloved eatery and its impact on the community.",
             "contact": {
-                "phone": "+27 65 064 1760",
-                "email": "Snfishnchips4@gmail.com",
-                "website": "https://theekingza.github.io/fish_and_chips/"
+                "phone": "+27 249 8997",
+                "email": "rm.makhalemele@gmail.com",
+                "website": "#"
             },
             "address": {
                 "street": "Zamdela",
@@ -38,10 +38,10 @@
             },
             "social_media": {
                 "youtube": null,
-                "linkedin": "#",
+                "facebook": "#",
                 "twitter": "#"
             },
-            "logo": "assets/images/business-logos/logo_SN.png"
+            "logo": "assets/images/business-logos/logo_LE.png"
         }
     ],
     "categories": [
