@@ -76,7 +76,7 @@ class BusinessDirectory {
             ${business.description ? `<p>${business.description}</p>` : ''}
             <div class="business-contact">
             ${business.contact?.phone ? `<p>Call: ${business.contact.phone}</p>` : ''}
-            ${business.contact?.email ? `<p>Email: ${business.contact.email}</p>` : ''}
+            ${business.contact?.email ? `<p>Email: <a href="mailto:${business.contact.email}">Contact Us</a></p>` : ''}
             </div>
             <div class="business-actions">
             ${business.contact?.website ? `<a href="${business.contact.website}" target="_blank" class="btn">Visit Website</a>` : ''}
