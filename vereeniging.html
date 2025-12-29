@@ -1,51 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InVaal - Vereeniging Updates</title>
-    
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="./css/root.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/typography.css">
-    <link rel="stylesheet" href="./css/mobile_nav.css">
-    <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+  <!-- =========================================================
+    InVaal [016] — Vereeniging Updates
+    Page: vereeniging.html
+    Purpose:
+    - Display Vereeniging-specific news
+    - Filter by category + search
+    - News items load from: ./data/vereeniging-news.json
+  ========================================================== -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>InVaal [016] — Vereeniging Updates</title>
+
+  <!-- =========================
+    CSS
+  ========================== -->
+  <link rel="stylesheet" href="./css/root.css" />
+  <link rel="stylesheet" href="./css/typography.css" />
+  <link rel="stylesheet" href="./css/places/places.css">
+  <link rel="stylesheet" href="./css/mobile_nav.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+  <link rel="stylesheet" href="./css/places/vereeniging.css" />
+
+  <!-- =========================
+    Favicon
+  ========================== -->
+  <link rel="icon" href="./assets/logos/inVaalTriangle_logo.png" type="image/x-icon" />
+
+  <!-- =========================
+    JS
+  ========================== -->
+  <script src="./js/navigation.js" defer></script>
+  <script src="./js/loaders/place-news-loader.js" defer></script>
 </head>
+
 <body>
-    <!-- Navigation Component -->
-    <header id="site-header">
-        <!-- Will be loaded dynamically from ../components/header.html -->
-    </header>
+  <!-- =========================================================
+    Skip link (Accessibility)
+  ========================================================== -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Main Content Area -->
-    <main>
-        <section class="location-header">
-            <h1>Vereeniging News</h1>
-            <p>Local news and updates from the Vereeniging area</p>
+  <!-- =========================================================
+    Header Component (Injected)
+  ========================================================== -->
+  <header id="site-header" class="site-header" role="banner"></header>
+
+  <!-- =========================================================
+    Main Content
+  ========================================================== -->
+  <main id="main">
+    <!-- =========================
+      Page Header
+    ========================== -->
+    <section class="location-header" aria-label="Vereeniging header">
+      <div class="container">
+        <h1>Vereeniging News</h1>
+        <p>Local news, business, and community updates from Vereeniging.</p>
+      </div>
+    </section>
+
+    <!-- =========================
+      Filters (Category + Search)
+    ========================== -->
+    <section class="news-filter" aria-label="Filter Vereeniging news">
+      <div class="container">
+        <div class="filter-controls">
+          <label class="sr-only" for="news-category">Category</label>
+          <select id="news-category">
+            <option value="all">All Categories</option>
+            <option value="local">Local News</option>
+            <option value="business">Business</option>
+            <option value="events">Events</option>
+            <option value="community">Community</option>
+          </select>
+
+          <label class="sr-only" for="search-news">Search</label>
+          <input type="search" id="search-news" placeholder="Search news..." />
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+      News Grid (Dynamic)
+    ========================== -->
+    <section class="section" aria-label="Vereeniging news list">
+      <div class="container">
+        <section
+          class="news-grid"
+          id="vereeniging-news-container"
+          data-place-news
+          data-source="./data/vereeniging-news.json"
+          data-location="Vereeniging"
+        >
+          <!-- Cards injected by place-news-loader.js -->
         </section>
+      </div>
+    </section>
+  </main>
 
-        <section class="news-filter">
-            <div class="filter-controls">
-                <select id="news-category">
-                    <option value="all">All Categories</option>
-                    <option value="local">Local News</option>
-                    <option value="business">Business</option>
-                    <option value="events">Events</option>
-                </select>
-                <input type="text" id="search-news" placeholder="Search news...">
-            </div>
-        </section>
-
-        <section class="news-grid" id="vereeniging-news-container">
-            <!-- News will be dynamically loaded here -->
-        </section>
-    </main>
-
- 
-
-    <!-- JavaScript Files -->
-    <script src="../js/null-handler.js"></script>
+  <!-- =========================================================
+    Footer Component (Injected)
+  ========================================================== -->
+  <footer id="site-footer" class="site-footer" role="contentinfo"></footer>
 </body>
 </html>

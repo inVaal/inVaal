@@ -1,145 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business - inVaal [016]</title>
-    
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="css/root.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/mobile_nav.css">
-    <link rel="stylesheet" href="css/business.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+  <!-- =========================================================
+    InVaal [016] — Business
+    File: business.html
+
+    Goal:
+    - Professional "News & Media" business section
+    - Clean structure + accessible controls
+    - Uses shared header/footer components injected by JS
+  ========================================================== -->
+
+  <!-- =========================
+    Base Meta
+  ========================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="InVaal [016] Business — local business directory, community partners, and media services in the Vaal Triangle." />
+
+  <title>Business — InVaal [016]</title>
+
+  <!-- =========================
+    CSS
+  ========================== -->
+  <link rel="stylesheet" href="./css/root.css" />
+  <link rel="stylesheet" href="./css/typography.css" />
+  <link rel="stylesheet" href="./css/business.css" />
+  <link rel="stylesheet" href="./css/mobile_nav.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+
+  <!-- =========================
+    Favicon
+  ========================== -->
+  <link rel="icon" href="./assets/logos/inVaalTriangle_logo.png" type="image/x-icon" />
+
+  <!-- =========================
+    JS (defer for performance)
+  ========================== -->
+  <script src="./js/navigation.js" defer></script>
+  <script src="./js/loaders/business-loader.js" defer></script>
 </head>
+
 <body>
-    <!-- Navigation Component -->
-    <header id="site-header">
-        <!-- Will be loaded dynamically from components/header.html -->
-    </header>
+  <!-- =========================================================
+    Skip Link (Accessibility)
+  ========================================================== -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Main Content Area -->
-    <main class="business-page">
-        <!-- Business Header Section -->
-        <section class="business-header">
-            <h1>Business</h1>
-            <p>
-                Stay updated with the latest business news, trends, and insights from our community and beyond.
-                <br>
-                Our business section covers everything from local entrepreneurship and market trends to financial advice and corporate developments.
-                <br><br>
-                Whether you're a business owner, investor, or simply interested in the world of commerce, find valuable information and updates that can help you make informed decisions and stay ahead in the dynamic business landscape.
+  <!-- =========================================================
+    Header (Injected)
+  ========================================================== -->
+  <header id="site-header" class="site-header" role="banner">
+    <!-- Injected by js/navigation.js -->
+  </header>
+
+  <!-- =========================================================
+    Main Content
+  ========================================================== -->
+  <main id="main" class="business-page">
+
+    <!-- =======================================================
+      Page Header (Editorial intro)
+    ======================================================== -->
+    <section class="section business-header" aria-label="Business overview">
+      <div class="container">
+        <header class="section-header">
+          <h1 class="section-title">Business</h1>
+          <p class="section-subtitle">
+            Business updates, local partners, and services — built for entrepreneurs,
+            teams, and organizations in the Vaal Triangle.
+          </p>
+        </header>
+
+        <div class="card business-intro-card">
+          <p>
+            Stay updated with the latest business news, trends, and insights from our community and beyond.
+            Our business section covers local entrepreneurship, market trends, financial advice, and corporate developments.
+            Whether you're a business owner, investor, or simply interested in commerce, find useful information that helps you stay ahead.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+      Business Directory
+    ======================================================== -->
+    <section class="section business-directory" aria-label="Local business directory">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Local Business Directory</h2>
+          <p class="section-subtitle">Search trusted local businesses and community partners.</p>
+        </header>
+
+        <!-- Search + Filter controls -->
+        <form class="business-controls" aria-label="Business search and filters" onsubmit="return false;">
+          <label class="sr-only" for="business-search">Search businesses</label>
+          <input
+            type="search"
+            id="business-search"
+            placeholder="Search business partners..."
+            autocomplete="off"
+          />
+
+          <label class="sr-only" for="category-filter">Filter by category</label>
+          <select id="category-filter">
+            <option value="">All Categories</option>
+            <!-- Populated by business-loader.js -->
+          </select>
+        </form>
+
+        <!-- Results -->
+        <p id="business-status" class="status-text" aria-live="polite">Loading businesses...</p>
+
+        <div id="business-listings" class="business-grid" aria-label="Business listings">
+          <!-- Cards injected by business-loader.js -->
+        </div>
+
+        <!-- Pagination / Load more -->
+        <div class="business-pagination">
+          <button id="load-more-businesses" class="btn btn-primary" type="button">
+            Load More Businesses
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+      Call to Action (List your business)
+    ======================================================== -->
+    <section class="section business-cta" aria-label="List your business">
+      <div class="container">
+        <div class="card cta-card">
+          <div>
+            <h2 class="section-title">Are you a local business?</h2>
+            <p class="section-subtitle">
+              List your business and reach more customers in the Vaal Triangle area.
             </p>
-        </section>
+          </div>
 
-    
+          <div class="cta-actions">
+            <a href="#" class="btn btn-primary">List Your Business</a>
+            <a href="mailto:invaaltriangle@gmail.com" class="btn btn-ghost">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Business Directory Section -->
-        <section class="business-directory">
-            <h2>Local Business Directory</h2>
-            
-            <!-- Search and Filter Controls -->
-            <div class="business-controls">
-                <input 
-                    type="text" 
-                    id="business-search" 
-                    placeholder="Business Partners ..."
-                    aria-label="Search businesses"
-                >
-                
-                <select 
-                    id="category-filter" 
-                    aria-label="Filter businesses by category"
-                >
-                    <option value="">All Categories</option>
-                    <!-- Categories will be dynamically populated -->
-                </select>
-            </div>
+    <!-- =======================================================
+      Services (Media House offerings)
+    ======================================================== -->
+    <section class="section services" id="services" aria-label="Media services">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">
+            Professional media services tailored for local businesses and community events.
+          </p>
+        </header>
 
-            <!-- Business Listings Container -->
-            <div id="business-listings" class="business-grid">
-                <!-- Placeholder for dynamically loaded businesses -->
-                <div class="business-card placeholder">
-                    <p>Loading businesses...</p>
-                </div>
-            </div>
+        <div class="grid services-grid" role="list">
+          <article class="card service-card" role="listitem">
+            <h3 class="card-title">Video Production</h3>
+            <p class="card-text">Professional video production services for your business needs.</p>
+            <p class="price">From <strong>R2,500</strong></p>
+            <ul class="service-list">
+              <li>4K Recording</li>
+              <li>Professional Editing</li>
+              <li>Color Grading</li>
+            </ul>
+          </article>
 
-            <!-- Pagination or Load More -->
-            <div class="business-pagination">
-                <button id="load-more-businesses" class="load-more-btn">
-                    Load More Businesses
-                </button>
-            </div>
-        </section>
+          <article class="card service-card" role="listitem">
+            <h3 class="card-title">Photography Services</h3>
+            <p class="card-text">Capture your special moments with professional photography.</p>
+            <p class="price">From <strong>R1,200</strong></p>
+            <ul class="service-list">
+              <li>Event Photography</li>
+              <li>Portrait Sessions</li>
+              <li>Product Photography</li>
+            </ul>
+          </article>
 
-        <!-- Call to Action -->
-        <section class="business-cta">
-            <h3>Are You a Local Business?</h3>
-            <p>List your business and reach more customers in the Vaal Triangle area.</p>
-            <a href="#" class="cta-button">List Your Business</a>
-        </section>
+          <article class="card service-card" role="listitem">
+            <h3 class="card-title">Digital Marketing</h3>
+            <p class="card-text">Boost your online presence with marketing strategies.</p>
+            <p class="price">From <strong>R800/month</strong></p>
+            <ul class="service-list">
+              <li>Social Media Management</li>
+              <li>Content Creation</li>
+              <li>SEO Optimization</li>
+            </ul>
+          </article>
 
-        <section id="services">
-  <h2>Our Services</h2>
-  <p>Professional media services tailored for local businesses and community events.</p>
+          <article class="card service-card" role="listitem">
+            <h3 class="card-title">Event Coverage</h3>
+            <p class="card-text">Complete coverage for your events and special occasions.</p>
+            <p class="price">From <strong>R3,500</strong></p>
+            <ul class="service-list">
+              <li>Live Streaming</li>
+              <li>Multi-Camera Setup</li>
+              <li>Same-Day Highlights</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <div class="service">
-    <h3>Video Production</h3>
-    <p>Professional video production services for your business needs</p>
-    <p class="p-price">From R2,500</p>
-    <ul>
-      <li>4K Recording</li>
-      <li>Professional Editing</li>
-      <li>Color Grading</li>
-    </ul>
-  </div>
+  </main>
 
-  <div class="service">
-    <h3>Photography Services</h3>
-    <p>Capture your special moments with our professional photography</p>
-    <p class="p-price">From R1,200</p>
-    <ul>
-      <li>Event Photography</li>
-      <li>Portrait Sessions</li>
-      <li>Product Photography</li>
-    </ul>
-  </div>
-
-  <div class="service">
-    <h3>Digital Marketing</h3>
-    <p>Boost your online presence with our marketing strategies</p>
-    <p class="p-price">From R800/month</p>
-    <ul>
-      <li>Social Media Management</li>
-      <li>Content Creation</li>
-      <li>SEO Optimization</li>
-    </ul>
-  </div>
-
-  <div class="service">
-    <h3>Event Coverage</h3>
-    <p>Complete coverage for your events and special occasions</p>
-    <p class="p-price">From R3,500</p>
-    <ul>
-      <li>Live Streaming</li>
-      <li>Multi-Camera Setup</li>
-      <li>Same-Day Highlights</li>
-    </ul>
-  </div>
-</section>
-
-    </main>
-
-    <!-- Footer Component -->
-    <footer id="site-footer">
-        <!-- Will be loaded dynamically from components/footer.html -->
-    </footer>
-
-    <!-- JavaScript Files -->
-    <script src="js/navigation.js"></script>
-    <script src="js/loaders/business-loader.js"></script>
+  <!-- =========================================================
+    Footer (Injected)
+  ========================================================== -->
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <!-- Injected by js/navigation.js -->
+  </footer>
 </body>
 </html>

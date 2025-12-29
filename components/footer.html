@@ -1,44 +1,67 @@
-<head>
-    <link rel="stylesheet" href="../css/responsive.css">
-</head>
+<!-- ==========================================================
+  Component: Footer
+  File: ./components/footer.html
 
-<footer id="site-footer">  <!-- Added the ID for the main footer element -->
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <nav>  <!-- Wrap the links in a <nav> element -->
-                    <ul>
-                        <li><a href="sasolburg.html">Sasolburg</a></li>
-                        <li><a href="vereeniging.html">Vereeniging</a></li>
-                        <li><a href="vanderbijlpark.html">Vanderbijlpark</a></li>
-                        <li><a href="changelog.html">Changelog</a></li>
-                    </ul>
-                </nav>
-            </div>
+  Notes:
+  - Injected into: <footer id="site-footer"></footer>
+  - Uses #year span so JS can update the year automatically
+=========================================================== -->
 
-            <div class="footer-contact">
-                <h3>Get In Touch</h3>
-                <a href="mailto:invaaltriangle@gmail.com"><p>InMail</p></a>
-                <h3>Location</h3>
-                <p style="color: var(--color-secondary);">
-                    Vaal Triangle, South Africa
-                </p>
-            </div>
+<div class="footer-content">
+  <!-- =======================
+    Column 1: Quick Links
+  ======================== -->
+  <section class="footer-col" aria-label="Quick links">
+    <h3>Quick Links</h3>
+    <nav aria-label="Footer navigation">
+      <ul>
+        <li><a href="./sasolburg.html">Sasolburg</a></li>
+        <li><a href="./vereeniging.html">Vereeniging</a></li>
+        <li><a href="./vanderbijlpark.html">Vanderbijlpark</a></li>
+        <li><a href="./changelog.html">Changelog</a></li>
+      </ul>
+    </nav>
+  </section>
 
-            <div class="footer-links">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <!-- Youtube -->
-                    <a href="#" target="_blank"><img class="footer-socials" src="assets/icons/socials/youtube.png" alt="YouTube"></a>
-                    <!-- Facebook -->
-                    <a href="https://www.facebook.com/invaaltriangle/" target="_blank"><img class="footer-socials" src="assets/icons/socials/facebook.png" alt="Facebook_page"></a>
-                    <!-- Whatsapp Chnnl -->
-                    <a href="https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C" target="_blank"><img class="footer-socials" src="assets/icons/socials/whatsapp.png" alt="whatsapp_Channel"></a>
-                </div>
-            </div>
+  <!-- =======================
+    Column 2: Contact
+  ======================== -->
+  <section class="footer-col" aria-label="Contact">
+    <h3>Get In Touch</h3>
+    <p>
+      <a href="mailto:invaaltriangle@gmail.com">invaaltriangle@gmail.com</a>
+    </p>
 
-        </div>
-    <div class="copyright">  <!-- Added a class for the copyright notice -->
-        <p>inVaal [016] &copy; 2025 All rights reserved.</p>
+    <h3 class="footer-subheading">Location</h3>
+    <p>Vaal Triangle, South Africa</p>
+  </section>
+
+  <!-- =======================
+    Column 3: Socials
+  ======================== -->
+  <section class="footer-col" aria-label="Follow us">
+    <h3>Follow Us</h3>
+
+    <div class="social-links" aria-label="Social links">
+      <!-- If you don't have YouTube yet, keep it as a normal link without target blank -->
+      <a href="#" aria-label="YouTube">
+        <img class="footer-socials" src="assets/icons/socials/youtube.png" alt="" />
+      </a>
+
+      <a href="https://www.facebook.com/invaaltriangle/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img class="footer-socials" src="assets/icons/socials/facebook.png" alt="" />
+      </a>
+
+      <a href="https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel">
+        <img class="footer-socials" src="assets/icons/socials/whatsapp.png" alt="" />
+      </a>
     </div>
-</footer>
+  </section>
+</div>
+
+<!-- =======================
+  Footer Bottom
+======================== -->
+<div class="copyright">
+  <p>InVaal [016] &copy; <span id="year"></span>. All rights reserved.</p>
+</div>

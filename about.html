@@ -1,93 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InVaal - About Us</title>
-    
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="css/root.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/mobile_nav.css">
-    <!-- Pages Styling-->
-    <link rel="stylesheet" href="css/about.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+  <!-- =========================================================
+    InVaal [016] — About
+    Page: about.html
+
+    Goal:
+    - Professional newsroom "About" page
+    - Consistent header/footer components (injected by navigation.js)
+    - Clean sections with readable spacing and structure
+  ========================================================== -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About InVaal [016] — your trusted news and media source in the Vaal Triangle." />
+
+  <title>About — InVaal [016]</title>
+
+  <!-- =========================
+    CSS
+  ========================== -->
+  <link rel="stylesheet" href="./css/root.css" />
+  <link rel="stylesheet" href="./css/typography.css" />
+  <link rel="stylesheet" href="./css/mobile_nav.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+  <link rel="stylesheet" href="./css/about.css" />
+
+  <!-- =========================
+    Favicon
+  ========================== -->
+  <link rel="icon" href="./assets/logos/inVaalTriangle_logo.png" type="image/x-icon" />
+
+  <!-- =========================
+    JS (defer improves load performance)
+  ========================== -->
+  <script src="./js/navigation.js" defer></script>
+  <script src="./js/about.js" defer></script>
 </head>
+
 <body>
-    <!-- Navigation Component -->
-    <header id="site-header">
-        <!-- Will be loaded dynamically from ../components/header.html -->
-    </header>
+  <!-- =========================================================
+    Skip link (Accessibility)
+  ========================================================== -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Main Content Area -->
-    <main class="about-page">
-        <section class="about-header">
-            <h1>About InVaal</h1>
-            <p class="motto"></p>
-            <p class="subtitle">Your trusted news source in the Vaal Triangle</p>
-        </section>
+  <!-- =========================================================
+    Header Component (Injected)
+  ========================================================== -->
+  <header id="site-header" class="site-header" role="banner"></header>
 
-        <section class="about-mission">
-            <div class="mission-content">
-                <h2>Our Mission</h2>
-                <p>
-                    InVaal is dedicated to providing comprehensive, 
-                    accurate, and timely NEWS for the Vaal Triangle area. 
-                    We aim to bridge communities by delivering relevant information 
-                    that matters to our residents across both Free State and Gauteng provinces.
-                </p>
-            </div>
-        </section>
+  <!-- =========================================================
+    Main Content
+  ========================================================== -->
+  <main id="main" class="about-page">
 
-        <section class="coverage-area">
-            <h2>Where to find <br> our partners?</h2>
-            <div class="coverage-grid">
-                <div class="coverage-card">
-                    <h3>Primary Cities</h3>
-                    <ul>
-                        <!-- Cities will be populated dynamically -->
-                    </ul>
-                </div>
-                <div class="coverage-card">
-                    <h3>Provinces</h3>
-                    <ul>
-                        <!-- Provinces will be populated dynamically -->
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- =========================
+      Hero / Page Header
+    ========================== -->
+    <section class="about-hero" aria-label="About InVaal">
+      <div class="container">
+        <p class="kicker">About</p>
+        <h1>InVaal [016]</h1>
 
-        <section class="about-values">
-            <h2>Our Values</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <h3>Integrity</h3>
-                    <p>Committed to honest and unbiased reporting</p>
-                </div>
-                <div class="value-card">
-                    <h3>Community</h3>
-                    <p>Connecting and empowering local residents</p>
-                </div>
-                <div class="value-card">
-                    <h3>Innovation</h3>
-                    <p>Embracing new technologies and storytelling methods</p>
-                </div>
-            </div>
-        </section>
+        <!-- Filled by about.js if you want -->
+        <p class="motto" id="motto" aria-live="polite"></p>
 
-        
-    </main>
+        <p class="subtitle">
+          Your trusted news source in the Vaal Triangle.
+        </p>
+      </div>
+    </section>
 
-    <!-- Footer Component -->
-    <footer id="site-footer">
-        <!-- Will be loaded dynamically from ../components/footer.html -->
-    </footer>
+    <!-- =========================
+      Mission
+    ========================== -->
+    <section class="section" aria-label="Our mission">
+      <div class="container">
+        <div class="card about-card">
+          <h2>Our Mission</h2>
+          <p>
+            InVaal is dedicated to providing comprehensive, accurate, and timely news for the Vaal Triangle area.
+            We aim to bridge communities by delivering relevant information that matters to residents across both
+            Free State and Gauteng provinces.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <!-- JavaScript Files -->
-    <script src="js/navigation.js"></script>
-    <script src="js/about.js"></script>
+    <!-- =========================
+      Coverage / Partners
+      (Lists populated dynamically by about.js)
+    ========================== -->
+    <section class="section" aria-label="Coverage area">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Where to find our partners</h2>
+          <p class="section-subtitle">Our network covers key towns and surrounding areas.</p>
+        </header>
+
+        <div class="grid coverage-grid">
+          <article class="card coverage-card">
+            <h3>Primary Cities</h3>
+            <ul id="cities-list" class="clean-list">
+              <!-- Populated by about.js -->
+            </ul>
+          </article>
+
+          <article class="card coverage-card">
+            <h3>Provinces</h3>
+            <ul id="provinces-list" class="clean-list">
+              <!-- Populated by about.js -->
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+      Values
+    ========================== -->
+    <section class="section" aria-label="Our values">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Our Values</h2>
+          <p class="section-subtitle">What guides our reporting and community work.</p>
+        </header>
+
+        <div class="grid values-grid" role="list">
+          <article class="card value-card" role="listitem">
+            <h3>Integrity</h3>
+            <p>Committed to honest and unbiased reporting.</p>
+          </article>
+
+          <article class="card value-card" role="listitem">
+            <h3>Community</h3>
+            <p>Connecting and empowering local residents.</p>
+          </article>
+
+          <article class="card value-card" role="listitem">
+            <h3>Innovation</h3>
+            <p>Embracing new technologies and storytelling methods.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+    Footer Component (Injected)
+  ========================================================== -->
+  <footer id="site-footer" class="site-footer" role="contentinfo"></footer>
 </body>
 </html>

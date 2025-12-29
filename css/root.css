@@ -1,489 +1,658 @@
-/* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+/* ============================================================
+  InVaal [016] — Root Styles (Shared)
+  File: css/root.css
+
+  Purpose:
+  - Global reset + design tokens
+  - Layout utilities (container, sections, grids)
+  - Shared components (buttons, cards, hero, news grid)
+  - Header/footer base styling (works with component loader)
+============================================================ */
+
+/* =========================
+  1) Font Imports
+  (Prefer importing fonts here so all pages get them)
+========================= */
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tiny5&display=swap");
+
+/* =========================
+  2) Reset (Safe, minimal)
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 * {
-    margin: 20px;
-    padding: 20px;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-/* Root Variables */
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* =========================
+  3) Design Tokens
+  (Use these variables everywhere for consistency)
+========================= */
 :root {
-    /* Main Colors */
-    --color-main: hsl(282, 98%, 36%);
-    --color-primary: hsl(282, 92%, 57%);
-    --color-secondary: rgb(4, 174, 217);
+  /* Brand colors (keep your identity but make it more editorial) */
+  --brand-700: hsl(282, 98%, 28%);
+  --brand-600: hsl(282, 92%, 45%);
+  --accent-600: rgb(4, 174, 217);
 
-    /* Basic Colors */
-    --color-black: black;
-    --color-white: white;
-    --color-background: #f4f4f4;
-    --color-text: #333;
+  /* Neutrals */
+  --black: #0b0c10;
+  --white: #ffffff;
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #fbfbfe;
 
-    /* Debugging Colors */
-    --color-test: lime;
-    --color-error: red;
+  --text: #111827;
+  --muted: #6b7280;
 
-    /* Font Sizes */
-    --font-XXS: 0.5rem;
-    --font-XS: 0.7rem;
-    --font-S: 1rem;
-    --font-M: 1.5rem;
-    --font-L: 2.5rem;
-    --font-XL: 4rem;
+  /* Borders + shadows */
+  --border: rgba(17, 24, 39, 0.12);
+  --shadow-sm: 0 6px 18px rgba(17, 24, 39, 0.08);
+  --shadow-md: 0 16px 40px rgba(17, 24, 39, 0.12);
 
-    /* Fonts */
-    --font-body: 'EB Garamond', serif;
-    --font-logo: 'Tiny5', cursive;
+  /* Layout */
+  --container: 1120px;
+  --gutter: 20px;
+  --radius: 16px;
 
-    /* Line */
-    --line-offset: 0.5em;
+  /* Typography */
+  --font-body: "EB Garamond", serif;
+  --font-logo: "Tiny5", cursive;
+
+  /* Motion */
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --t-fast: 160ms;
+  --t-med: 240ms;
 }
 
-/* Global Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =========================
+  4) Base Page
+========================= */
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-body);
-    background-color: var(--color-background);
-    color: var(--color-text);
-    line-height: 1.6;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Intro text */
-.introduction {
-    text-align: center;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: var(--color-secondary);
-    color: var(--color-black);
-
+/* Accessible focus ring */
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-600) 65%, white 35%);
+  outline-offset: 3px;
 }
 
-/* More about us on the index */
-.about-us {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    text-align: center;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: var(--color-black);
-    color: var(--color-white);
+/* Header brand lockup (InVaal + [016]) */
+.logo-lockup {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
 }
 
-
-/* Default Button */
-button {
-    background-color: var(--color-main);
-    color: var(--color-white);
-    padding: 10px;
-    border-radius: 25px;
-}
-button:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-main);
-    font-weight: bold;
-}
-/* Location Page Specific Styles */
-.location-header {
-    background-color: var(--color-main);
-    color: var(--color-white);
-    text-align: center;
-    padding: 2rem 1rem;
+.logo-tag {
+  font-weight: 800;
+  color: rgba(17, 24, 39, 0.65);
+  font-size: 0.95rem;
 }
 
-.location-header h1 {
-    color: var(--color-white);
-    font-size: var(--font-L);
-    margin-bottom: 1rem;
+/* =========================
+  5) Utilities
+========================= */
+.container {
+  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+  margin-inline: auto;
 }
 
-/* News Filter */
-.news-image {
-    width: 100%;
-    height: 200px;
-    border-radius: 8px;
-    object-fit: cover;
+.section {
+  padding: 64px 0;
 }
 
-.news-filter {
-    background-color: var(--color-white);
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.section-header {
+    margin-bottom: 18px;
+    text-align: left;
 }
 
-.filter-controls {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-    max-width: 800px;
+.section-title {
+    padding: 20px;
+    letter-spacing: 0.2px;
 }
 
-.filter-controls select,
-.filter-controls input {
-    padding: 0.5rem;
-    font-size: var(--font-S);
-    border: 1px solid var(--color-secondary);
-    border-radius: 4px;
+.section-subtitle {
+    padding: 20px;
+  margin-top: 8px;
+  color: var(--muted);
+  max-width: 75ch;
 }
 
-/* tags */
-.tags {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    background: var(--color-primary);
-    color: var(--color-white);
-    font-weight: bold;
+/* Skip link (keyboard users) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 12px;
+  z-index: 9999;
+  background: var(--white);
+  color: var(--black);
+  padding: 10px 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
 }
-/* News
- */
-
- /* News Grid */
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
+.skip-link:focus {
+  left: 12px;
 }
 
-/* News styling */
-.news-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+/* Simple grid helper */
+.grid {
+  display: grid;
+  gap: 16px;
 }
 
-.news-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-primary);
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 1rem;
-    text-align: center;
-    transition: transform 0.3s ease;
+/* =========================
+  6) Buttons (Shared)
+========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+
+  text-decoration: none;
+  font-weight: 800;
+
+  transition:
+    transform var(--t-fast) var(--ease),
+    background var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
 }
 
-.news-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.btn-primary {
+  background: var(--brand-600);
+  color: var(--white);
+  box-shadow: 0 12px 30px rgba(120, 20, 160, 0.18);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  background: var(--brand-700);
 }
 
-.news-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: var(--color-primary);
-    color: var(--color-white);
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  background: var(--white);
 }
 
-.news-category {
-    font-size: var(--font-XS);
-    background-color: var(--color-secondary);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+/* =========================
+  7) Cards (Shared)
+========================= */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 
-.news-location {
-    font-weight: bold;
-    color: var(--color-secondary);
-    margin-bottom: 0.5rem;
+/* =========================
+  8) Header Placeholder Styling
+  (Your JS injects header.html into #site-header)
+========================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(246, 247, 251, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
 }
 
-.news-media img {
-    max-width: 100%;
-    height: 200px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.news-title {
-    margin: 0.5rem 0;
-    color: var(--color-main);
-}
-
-.news-description {
-    color: var(--color-black);
-    margin-bottom: 0.5rem;
-}
-
-.news-date {
-    display: block;
-    color: var(--color-secondary);
-    font-size: var(--font-XS);
-}
-
-.news-source {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: var(--color-primary);
-    text-decoration: none;
-}
-
-/* No news Message */
-.no-news-message {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--color-background);
-}
-
-.careers-page h2 {
-    padding: 5px;
-    margin: 0 0 0 25px ;
-   
-}
-
-#featured-news h1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: var(--color-secondary);
-    color: var(--color-black);
-}
-/* About */
-/* About Page Styles */
-.about-header h1, .careers-header h1 {
-    font-size: var(--font-L);
-    margin-bottom: 1rem;
-    color: var(--color-secondary);
-    font-family: tiny5;
-}
-
-.about-header, .careers-header {
-    background-color: var(--color-main);
-    color: var(--color-white);
-    text-align: center;
-    padding: 2rem 1rem;
-}
-
-
-.about-mission, .current-openings {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    border: 3px solid var(--color-main);
-}
-
-.team-grid, .job-listings {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.team-member-card, .job-card, .value-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-secondary);
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-}
-
-.benefit-card {
-    background-color: var(--color-white);
-    border-top: 2px solid var(--color-secondary);
-    padding: 0.5rem;
-    text-align: center;
-}
-
-.application-process {
-    padding: 15px;
-}
-
-.application-steps {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin: 2rem 0;
-}
-
-.step {
-    box-shadow: 0 0 10px 1px var(--color-main);
-    border-radius: 25px;
-    border: 5px double var(--color-secondary);
-    text-align: center;
-    max-width: 250px;
-    padding: 25px;
-}
-
-.step:hover {
-    transition: 0.5s;
-    box-shadow: 0 10px 10px 1px var(--color-main);
-}
-
-/* Navigation Strt */
-/* Navigation Styles */
+/* Support your existing component classes too */
 .main-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--color-white);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+  margin-inline: auto;
+  padding: 12px 0;
 
-.logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--color-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
 }
 
 .logo img {
-    height: 50px;
-    margin-right: 10px;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 
 .logo-text {
-    font-family: var(--font-logo);
-    font-size: var(--font-L);
+  font-family: var(--font-logo);
+  font-size: 2rem;
+  letter-spacing: 0.6px;
+  color: var(--brand-700);
 }
 
 .nav-links ul {
-    display: flex;
-    list-style-type: none;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.nav-links ul li {
-    margin-left: 1rem;
+.nav-links a {
+  display: inline-flex;
+  padding: 10px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  color: rgba(17, 24, 39, 0.86);
+  border: 1px solid transparent;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
-.nav-links ul li a {
-    text-decoration: none;
-    color: var(--color-main);
-    font-weight: bold;
-    transition: color 0.3s ease;
+.nav-links a:hover {
+  background: rgba(4, 174, 217, 0.10);
+  border-color: rgba(4, 174, 217, 0.25);
+  color: var(--text);
 }
 
-.nav-links ul li a:hover {
-    color: var(--color-secondary);
-}
-
-.mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
+/* Mobile menu toggle (kept compatible with your current JS/CSS) */
 .mobile-menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--color-main);
-    margin: 3px 0;
-    transition: 0.4s;
+  background: var(--brand-700);
 }
 
-/* Responsive Navigation */
-@media screen and (max-width: 768px) {
-    .main-navigation {
-        flex-wrap: wrap;
-    }
-
-    .nav-links {
-        display: none; /* Will be shown with JavaScript in mobile view */
-        width: 100%;
-    }
-
-    .nav-links ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links ul li {
-        margin: 0.5rem 0;
-    }
-
-    .mobile-menu-toggle {
-        display: flex;
-    }
+/* =========================
+  9) Homepage Hero (News-style)
+========================= */
+.hero {
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(900px 550px at 15% 0%, rgba(4, 174, 217, 0.14), transparent 60%),
+    radial-gradient(900px 550px at 85% 10%, rgba(160, 60, 210, 0.12), transparent 65%),
+    var(--bg);
 }
-/* Navigation Fin*/
 
-/* Footer */
-/* Footer */
-#site-footer { /* Use a more specific selector for the footer element */
-    background-color: var(--color-black); /* Assuming this is your footer background */
-    color: var(--color-white); /* Default text color for the footer */
-    padding: 2rem 1rem; /* Consistent padding */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 18px;
+  align-items: start;
+  padding: 54px 0;
 }
+
+.kicker {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: rgba(17, 24, 39, 0.70);
+  letter-spacing: 0.3px;
+}
+
+.hero-title {
+  margin-top: 10px;
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+}
+
+.hero-subtitle {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 70ch;
+}
+
+.hero-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-panel {
+  padding: 16px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-title {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.panel-list {
+  margin-top: 10px;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+/* =========================
+  10) News Grid + News Cards
+  (news-loader.js should create .news-card items)
+========================= */
+.status-text {
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.news-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+/* Default cards span */
+.news-grid > * {
+  grid-column: span 4;
+}
+
+/* Make first card “lead story” if your loader adds .is-lead */
+.news-card.is-lead {
+  grid-column: span 8;
+}
+
+.news-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* If your news has an image */
+.news-media img,
+.news-image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #e9ecf2;
+}
+
+/* Card body */
+.news-card-body {
+  padding: 14px;
+}
+
+.news-card-header {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.news-category {
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(4, 174, 217, 0.14);
+  color: rgba(17, 24, 39, 0.85);
+  border: 1px solid rgba(4, 174, 217, 0.22);
+}
+
+.news-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.news-title {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.news-description {
+  margin-top: 10px;
+  color: rgba(17, 24, 39, 0.78);
+}
+
+.news-source {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 800;
+  color: var(--brand-700);
+  text-decoration: none;
+}
+.news-source:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* =========================
+  11) Intro / About Sections
+  (Keep your existing classes but make them more editorial)
+========================= */
+.introduction {
+  margin: 26px auto 0;
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(4, 174, 217, 0.25);
+  background: rgba(4, 174, 217, 0.10);
+  color: var(--text);
+}
+
+.about-us {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-us article {
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+/* ============================================================
+  Footer Columns (for components/footer.html)
+============================================================ */
 
 .footer-content {
-    text-align: center; /*  Applies to all content within the footer */
+  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 18px;
+
+  text-align: left;
 }
 
-/* Removed .footer-section as it's redundant.  Apply styles directly to relevant elements */
-
-/* Footer Navigation (if any) */
-#site-footer nav ul { /* Assuming you have a navigation in the footer */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /*  For horizontal navigation */
-    justify-content: center; /* Center the navigation */
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+.footer-col h3 {
+  color: var(--black);
+  margin-bottom: 10px;
 }
 
-#site-footer nav li {
-    margin: 0.5rem 1rem; /* Spacing between navigation items */
+.footer-subheading {
+    color: aqua;
+  margin-top: 12px;
 }
 
-#site-footer nav a {
-    color: var(--color-secondary); /* Link color */
-    text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition for hover */
+#site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-#site-footer nav a:hover {
-    color: var(--color-white); /* Hover color */
-    text-decoration: underline; /* Or use text-underline-offset */
-    text-underline-offset: var(--line-offset);
+#site-footer li + li {
+  margin-top: 8px;
 }
 
-/* Social Links */
+#site-footer a {
+  color: var(--brand-700);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#site-footer a:hover {
+  color: var(--accent-600);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
 .social-links {
-    display: flex;
-    justify-content: center; /* Center the social links */
-    align-items: center;
-    padding: 0.5rem;
-    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
-}
-
-.social-links a {
-    color: var(--color-white);
-    margin: 0 1rem; /* Spacing between social icons */
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--color-secondary);
-    text-underline-offset: var(--line-offset);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .footer-socials {
-    border-radius: 25%;
-    background-color: var(--color-main);
-    width: 30px;
-    height: auto; /* Maintain aspect ratio */
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px;
 }
 
-/* Optional: Copyright Notice */
-.copyright {
-    font-size: 0.8rem;
-    margin-top: 1rem;
+
+/* =========================
+  13) Responsive (basic)
+  (You can keep responsive.css too, but this handles core layout)
+========================= */
+@media (max-width: 980px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-us {
+    grid-template-columns: 1fr;
+  }
+
+  .news-grid > * {
+    grid-column: span 6;
+  }
+
+  .news-card.is-lead {
+    grid-column: span 12;
+  }
+
+  /* Footer responsive */
+.footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 52px 0;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-grid > * {
+    grid-column: auto;
+  }
+}
+
+
+/* ============================================================
+  News card extras (links + long content)
+============================================================ */
+
+.news-meta {
+  margin-top: 10px;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.meta-sep {
+  opacity: 0.6;
+}
+
+/* Optional header link (title becomes clickable only if provided) */
+.news-header-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.news-header-link:hover {
+  color: var(--accent-600);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Optional guest link */
+.news-guest-link {
+  color: var(--brand-700);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.news-guest-link:hover {
+  color: var(--accent-600);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Long content area (gives more space for the topic) */
+.news-content {
+  margin-top: 12px;
+}
+
+.news-content p + p {
+  margin-top: 10px;
+}
+
+/* Actions row (source link) */
+.news-actions {
+  margin-top: 12px;
 }

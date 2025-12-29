@@ -1,0 +1,76 @@
+[
+  {
+    "id": "vdb-local-update-001",
+    "title": "Vanderbijlpark Update: Community Platforms Are Growing",
+    "date": "2025-04-16",
+    "category": "local",
+    "location": "Vanderbijlpark",
+    "author": "InVaal [016]",
+    "excerpt": "Local pages, creators, and digital media projects are becoming a key way residents share updates and opportunities.",
+    "content": [
+      "Vanderbijlpark continues to see growth in community-driven online platforms — especially local content pages and creators documenting everyday stories.",
+      "These platforms are useful for spreading information, promoting local events, and connecting residents with opportunities.",
+      "InVaal [016] supports initiatives that strengthen community knowledge-sharing and local visibility."
+    ],
+    "media": {
+      "type": "image",
+      "url": "./assets/logos/inVaalTriangle_logo.png",
+      "alt": "InVaal [016] logo"
+    },
+    "tags": ["Local", "Community", "Media"],
+    "links": {
+      "source": {
+        "label": "View top stories",
+        "url": "./index.html#top-stories",
+        "external": false
+      }
+    }
+  },
+  {
+    "id": "vdb-business-directory-cta",
+    "title": "Business Directory: Find and Support Local Businesses",
+    "date": "2025-04-09",
+    "category": "business",
+    "location": "Vanderbijlpark",
+    "author": "InVaal [016]",
+    "excerpt": "We’re building a local business directory so residents can discover services faster and support local growth.",
+    "content": [
+      "Local businesses are essential to the economy and community support networks.",
+      "The InVaal directory will help people find services and help businesses reach local customers more easily.",
+      "If you’re a business owner in Vanderbijlpark, you can get listed and promote your services."
+    ],
+    "media": {
+      "type": "image",
+      "url": "./assets/logos/inVaalTriangle_logo.png",
+      "alt": "InVaal [016] logo"
+    },
+    "tags": ["Business", "Directory", "Support Local"],
+    "links": {
+      "source": {
+        "label": "Go to Business",
+        "url": "./business.html",
+        "external": false
+      }
+    }
+  },
+  {
+    "id": "vdb-events-coming-soon",
+    "title": "Coming Soon: Vanderbijlpark Events Calendar",
+    "date": null,
+    "category": "events",
+    "location": "Vanderbijlpark",
+    "author": "InVaal [016]",
+    "excerpt": "We’re preparing a space for local events, shows, sports, and verified announcements.",
+    "content": [
+      "The Vanderbijlpark Events Calendar will help residents keep track of what’s happening locally.",
+      "Event organizers will be able to submit event details for review and inclusion."
+    ],
+    "media": {
+      "type": "image",
+      "url": "./assets/logos/inVaalTriangle_logo.png",
+      "alt": "InVaal [016] logo"
+    },
+    "tags": ["Events", "Coming Soon"],
+    "links": {}
+  }
+]

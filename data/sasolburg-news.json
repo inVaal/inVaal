@@ -1,0 +1,107 @@
+[
+  {
+    "id": "go-deeper-podcast",
+    "title": "Go Deeper Podcast: Creating Space for Real Conversations in the Community",
+    "date": "2025-04-14",
+    "category": "community",
+    "location": "Sasolburg",
+    "author": "InVaal [016]",
+
+    "excerpt": "A Sasolburg-based YouTube podcast hosted by Innocent Lelo Manana is creating a platform for authentic conversations about growth, purpose, and the human experience.",
+
+    "content": [
+      "A new and growing voice is making waves in the local digital space through meaningful conversations that challenge people to think beyond the surface. Go Deeper Podcast, hosted by Innocent Lelo Manana, is a YouTube-based podcast dedicated to exploring the deeper and often unspoken aspects of life, personal growth, purpose, and the human experience.",
+      "Based in Sasolburg, South Africa, Innocent Manana leads the podcast with a strong focus on authenticity, reflection, and real-life dialogue. The show creates a platform where important topics are discussed openly — topics that are often overlooked or avoided in everyday conversations.",
+      "Go Deeper Podcast describes itself as a space to explore “the unseen, unspoken, and uncharted territories of life.” Through honest discussions, the podcast aims to encourage listeners to reflect, grow, and engage more intentionally with their lives and communities.",
+      "Unlike highly commercial podcasts, Go Deeper Podcast carries a grassroots and community-driven approach, making it relatable and accessible. Episodes are shared primarily on YouTube and promoted through social media platforms, allowing the host to connect directly with viewers and listeners.",
+      "The podcast speaks especially to young people and community members seeking clarity, motivation, and meaningful dialogue, offering conversations that inspire deeper thinking rather than quick entertainment.",
+      "As local digital platforms continue to grow, Go Deeper Podcast stands out as a meaningful initiative, giving the community a voice and a space to engage with real issues, real stories, and real growth.",
+      "Community members are encouraged to support and engage with the podcast by watching, sharing, and participating in discussions online."
+    ],
+
+    "media": {
+      "type": "image",
+      "url": "./assets/images/business-logos/logo_GD_blk.png",
+      "alt": "Go Deeper Podcast-24"
+    },
+
+    "tags": ["Podcast", "Community", "Youth", "Growth"],
+
+    "links": {
+      "header": {
+        "label": "Go Deeper Podcast (YouTube)",
+        "url": "https://www.youtube.com/@GoDeeperPodcast-2024",
+        "external": true
+      },
+      "guest": {
+        "label": "Host: Innocent Lelo Manana",
+        "url": "#",
+        "external": false
+      },
+      "source": {
+        "label": "Read more",
+        "url": "#",
+        "external": false
+      }
+    }
+  },
+
+  {
+    "id": "community-update-001",
+    "title": "Community Notice: Support Local Creators and Platforms",
+    "date": "2025-04-10",
+    "category": "local",
+    "location": "Sasolburg",
+    "author": "InVaal [016]",
+
+    "excerpt": "Local digital platforms are growing fast. Supporting local creators helps community voices stay active, visible, and impactful.",
+
+    "content": [
+      "Sasolburg continues to see steady growth in local digital initiatives — from podcasts and YouTube channels to community pages and local reporting.",
+      "Supporting creators through views, shares, and constructive engagement helps keep the community informed and gives local voices a platform to grow.",
+      "If you run a community project, small business, or creative brand, you can partner with InVaal [016] to reach more people in the Vaal Triangle."
+    ],
+
+    "media": {
+      "type": "image",
+      "url": "./assets/logos/inVaalTriangle_logo.png",
+      "alt": "InVaal [016] logo"
+    },
+
+    "tags": ["Local", "Community", "Creators"],
+
+    "links": {
+      "source": {
+        "label": "Contact InVaal",
+        "url": "mailto:invaaltriangle@gmail.com",
+        "external": false
+      }
+    }
+  },
+
+  {
+    "id": "events-placeholder-001",
+    "title": "Coming Soon: Events Calendar for Sasolburg",
+    "date": null,
+    "category": "events",
+    "location": "Sasolburg",
+    "author": "InVaal [016]",
+
+    "excerpt": "We’re building a local events calendar to promote community gatherings, shows, tournaments, and more.",
+
+    "content": [
+      "The Sasolburg Events Calendar will help residents discover what’s happening locally — from community meetings and charity drives to sports and entertainment.",
+      "If you’re hosting an event, you’ll be able to submit details for review and inclusion in the calendar."
+    ],
+
+    "media": {
+      "type": "image",
+      "url": "./assets/logos/inVaalTriangle_logo.png",
+      "alt": "InVaal [016] logo"
+    },
+
+    "tags": ["Events", "Coming Soon"],
+
+    "links": {}
+  }
+]

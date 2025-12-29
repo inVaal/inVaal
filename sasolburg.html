@@ -1,52 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InVaal - Sasolburg Updates</title>
-    
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="./css/root.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/typography.css">
-    <link rel="stylesheet" href="./css/mobile_nav.css">
-    <link rel="stylesheet" href="./css/places/sasolburg.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/logos/inVaalTriangle_logo.png" type="image/x-icon">
+  <!-- =========================================================
+    InVaal [016] — Sasolburg Updates
+    Page: sasolburg.html
+    Purpose:
+    - Display Sasolburg-specific news
+    - Filter by category + search
+    - News items load from: ./data/sasolburg-news.json
+  ========================================================== -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>InVaal [016] — Sasolburg Updates</title>
+
+  <!-- =========================
+    CSS
+  ========================== -->
+  <link rel="stylesheet" href="./css/root.css" />
+  <link rel="stylesheet" href="./css/typography.css" />
+  <link rel="stylesheet" href="./css/places/places.css">
+  <link rel="stylesheet" href="./css/mobile_nav.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+  <link rel="stylesheet" href="./css/places/sasolburg.css" />
+
+  <!-- =========================
+    Favicon
+  ========================== -->
+  <link rel="icon" href="./assets/logos/inVaalTriangle_logo.png" type="image/x-icon" />
+
+  <!-- =========================
+    JS (defer = runs after HTML is parsed)
+  ========================== -->
+  <script src="./js/navigation.js" defer></script>
+  <script src="./js/loaders/place-news-loader.js" defer></script>
 </head>
+
 <body>
-    <!-- Navigation Component -->
-    <header id="site-header">
-        <!-- Will be loaded dynamically from ../components/header.html -->
-    </header>
+  <!-- =========================================================
+    Skip link (Accessibility)
+  ========================================================== -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Main Content Area -->
-    <main>
-        <section class="location-header">
-            <h1>Sasolburg News</h1>
-            <p>Local news and updates from the Sasolburg area</p>
+  <!-- =========================================================
+    Header Component (Injected)
+  ========================================================== -->
+  <header id="site-header" class="site-header" role="banner">
+    <!-- Loaded by navigation.js -->
+  </header>
+
+  <!-- =========================================================
+    Main Content
+  ========================================================== -->
+  <main id="main">
+    <!-- =========================
+      Page Header
+    ========================== -->
+    <section class="location-header" aria-label="Sasolburg header">
+      <div class="container">
+        <h1>Sasolburg News</h1>
+        <p>Local news and updates from the Sasolburg area.</p>
+      </div>
+    </section>
+
+    <!-- =========================
+      Filters (Category + Search)
+    ========================== -->
+    <section class="news-filter" aria-label="Filter Sasolburg news">
+      <div class="container">
+        <div class="filter-controls">
+          <label class="sr-only" for="news-category"></label>
+          <select id="news-category">
+            <option value="all">All Categories</option>
+            <option value="local">Local News</option>
+            <option value="business">Business</option>
+            <option value="events">Events</option>
+            <option value="community">Community</option>
+          </select>
+<br>
+          <label class="sr-only" for="search-news">Search</label>
+          <input type="search" id="search-news" placeholder="Search news..." />
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+      News Grid (Dynamic)
+      - Loader reads data-source and data-location
+    ========================== -->
+    <section class="section" aria-label="Sasolburg news list">
+      <div class="container">
+        <section
+          class="news-grid"
+          id="sasolburg-news-container"
+          data-place-news
+          data-source="./data/sasolburg-news.json"
+          data-location="Sasolburg"
+        >
+          <!-- Cards injected by place-news-loader.js -->
         </section>
+      </div>
+    </section>
+  </main>
 
-        <section class="news-filter">
-            <div class="filter-controls">
-                <select id="news-category">
-                    <option value="all">All Categories</option>
-                    <option value="local">Local News</option>
-                    <option value="business">Business</option>
-                    <option value="events">Events</option>
-                </select>
-                <input type="text" id="search-news" placeholder="Search news...">
-            </div>
-        </section>
-
-        <section class="news-grid" id="sasolburg-news-container">
-            <!-- News will be dynamically loaded here -->
-        </section>
-    </main>
-
-
-    <!-- JavaScript Files -->
-    <script src="js/null-handler.js"></script>
+  <!-- =========================================================
+    Footer Component (Injected)
+  ========================================================== -->
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <!-- Loaded by navigation.js -->
+  </footer>
 </body>
 </html>

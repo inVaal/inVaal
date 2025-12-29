@@ -1,76 +1,184 @@
-// Function to load and display company information
-async function loadCompanyInfo() {
-    try {
-        const response = await fetch('data/company_inf.json');
-        const data = await response.json();
-        const company = data.company;
+/* ============================================================
+  InVaal [016] — About Page Loader
+  File: js/about.js
 
-        // Update company name and motto
-        document.querySelector('.about-header h1').textContent = `About ${company.name}`;
-        document.querySelector('.motto').textContent = `${company.motto} ${company.motto_text}`;
+  Purpose:
+  - Fetch company information from: data/company_inf.json
+  - Populate:
+      #motto
+      #cities-list
+      #provinces-list
+  - Optional (if you add it later):
+      #contact-block
+      #social-block
 
-        // Update coverage area
-        const citiesList = document.querySelector('.coverage-card:first-child ul');
-        company.location.cities.forEach(city => {
-            const li = document.createElement('li');
-            li.textContent = city;
-            citiesList.appendChild(li);
-        });
+  Notes:
+  - This script is safe: it exits gracefully if elements are missing
+============================================================ */
 
-        const statesList = document.querySelector('.coverage-card:last-child ul');
-        company.location.states.forEach(state => {
-            const li = document.createElement('li');
-            li.textContent = state;
-            statesList.appendChild(li);
-        });
+document.addEventListener("DOMContentLoaded", () => {
+  const DATA_URL = "./data/company_inf.json";
 
-        // // Update social media links
-        // const socialLinksContainer = document.querySelector('.social-links');
-        // socialLinksContainer.innerHTML = ''; // Clear existing links
+  // Page elements (new About layout)
+  const mottoEl = document.getElementById("motto");
+  const citiesList = document.getElementById("cities-list");
+  const provincesList = document.getElementById("provinces-list");
 
-        // const socialMedia = company.contact.social_media;
-        // for (const [platform, url] of Object.entries(socialMedia)) {
-        //     if (url) {
-        //         const link = document.createElement('a');
-        //         link.href = url;
-        //         link.target = '_blank';
-        //         link.rel = 'noopener noreferrer';
-        //         link.className = 'social-link';
-                
-        //         link.innerHTML = `
-        //         <span>${formatPlatformName(platform)}</span>
-        //             <img class="footer-socials" src="assets/icons/socials/${platform}.png" alt="${platform}" class="social-icon">
-        //         `;
-                
-        //         socialLinksContainer.appendChild(link);
-        //     }
-        // }
+  // Optional blocks (only used if you add them in HTML later)
+  const contactBlock = document.getElementById("contact-block");
+  const socialBlock = document.getElementById("social-block");
 
-        // Update contact information
-        const contactInfo = document.querySelector('.contact-info');
-        contactInfo.innerHTML = `
-            <h3>Get in Touch</h3>
-            ${company.contact.email ? `<p>Email: <a href="mailto:${company.contact.email}">${company.contact.email}</a></p>` : ''}
-            ${company.website ? `<p>Website: <a href="${company.website}" target="_blank" rel="noopener noreferrer">${company.website}</a></p>` : ''}
-        `;
+  /* ----------------------------------------------------------
+    Helper: Safe element text update
+  ---------------------------------------------------------- */
+  function setText(el, value) {
+    if (!el) return;
+    el.textContent = String(value ?? "");
+  }
 
-    } catch (error) {
-        console.error('Error loading company information:', error);
+  /* ----------------------------------------------------------
+    Helper: Render a list safely (clears before rendering)
+  ---------------------------------------------------------- */
+  function renderList(listEl, items) {
+    if (!listEl) return;
+    listEl.innerHTML = "";
+
+    if (!Array.isArray(items) || items.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "No data available yet.";
+      listEl.appendChild(li);
+      return;
     }
-}
 
-// Helper function to format platform names
-function formatPlatformName(platform) {
-    const platformNames = {
-        facebook: 'Follow Us On ',
-        whatsapp: 'Join Us On',
-        youtube: 'Watch US on',
-        instagram: 'Follow Us on ',
-        tiktok: 'Follow us on ',
-        x: 'Follow us on '
-    };
-    return platformNames[platform] || `Connect on ${platform.charAt(0).toUpperCase() + platform.slice(1)}`;
-}
+    items.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = String(item);
+      listEl.appendChild(li);
+    });
+  }
 
-// Load company information when the page loads
-document.addEventListener('DOMContentLoaded', loadCompanyInfo);
+  /* ----------------------------------------------------------
+    Helper: Only create a link if URL exists and isn't "#"
+  ---------------------------------------------------------- */
+  function createLink(label, url) {
+    const href = String(url ?? "").trim();
+    if (!href || href === "#") return null;
+
+    const a = document.createElement("a");
+    a.href = href;
+    a.textContent = label;
+
+    // If external, open safely in a new tab
+    const isExternal = /^https?:\/\//i.test(href);
+    if (isExternal) {
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    }
+
+    return a;
+  }
+
+  /* ----------------------------------------------------------
+    Main loader
+  ---------------------------------------------------------- */
+  async function loadCompanyInfo() {
+    try {
+      const resolved = new URL(DATA_URL, document.baseURI).toString();
+      const response = await fetch(resolved, { cache: "no-store" });
+
+      if (!response.ok) {
+        throw new Error(`Failed to load ${DATA_URL} (${response.status})`);
+      }
+
+      const data = await response.json();
+      const company = data?.company;
+
+      if (!company) {
+        throw new Error("Invalid JSON: missing 'company' object.");
+      }
+
+      // Motto (only if your JSON provides it)
+      const mottoLine = [company.motto, company.motto_text].filter(Boolean).join(" ");
+      setText(mottoEl, mottoLine);
+
+      // Coverage
+      renderList(citiesList, company?.location?.cities);
+      renderList(provincesList, company?.location?.states);
+
+      // Optional: Contact (only if HTML has #contact-block)
+      if (contactBlock) {
+        contactBlock.innerHTML = "";
+
+        const email = company?.contact?.email;
+        const website = company?.website;
+
+        const h = document.createElement("h3");
+        h.textContent = "Get in Touch";
+        contactBlock.appendChild(h);
+
+        if (email) {
+          const p = document.createElement("p");
+          const a = createLink(email, `mailto:${email}`);
+          p.textContent = "Email: ";
+          if (a) p.appendChild(a);
+          contactBlock.appendChild(p);
+        }
+
+        if (website) {
+          const p = document.createElement("p");
+          const a = createLink(website, website);
+          p.textContent = "Website: ";
+          if (a) p.appendChild(a);
+          contactBlock.appendChild(p);
+        }
+
+        // If nothing to show, hide the block
+        if (!email && !website) {
+          contactBlock.style.display = "none";
+        }
+      }
+
+      // Optional: Social links (only if HTML has #social-block)
+      if (socialBlock) {
+        socialBlock.innerHTML = "";
+
+        const social = company?.contact?.social_media;
+        if (!social || typeof social !== "object") {
+          socialBlock.style.display = "none";
+          return;
+        }
+
+        const title = document.createElement("h3");
+        title.textContent = "Follow Us";
+        socialBlock.appendChild(title);
+
+        const wrap = document.createElement("div");
+        wrap.className = "social-links";
+
+        Object.entries(social).forEach(([platform, url]) => {
+          const link = createLink(platform, url);
+          if (!link) return;
+
+          // Optional: better label formatting
+          link.textContent = platform.charAt(0).toUpperCase() + platform.slice(1);
+          wrap.appendChild(link);
+        });
+
+        if (wrap.children.length === 0) {
+          socialBlock.style.display = "none";
+        } else {
+          socialBlock.appendChild(wrap);
+        }
+      }
+    } catch (error) {
+      console.error("Error loading company information:", error);
+
+      // Friendly fallback text if motto exists
+      if (mottoEl && !mottoEl.textContent.trim()) {
+        mottoEl.textContent = "Trusted local reporting for the Vaal Triangle.";
+      }
+    }
+  }
+
+  loadCompanyInfo();
+});

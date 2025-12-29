@@ -1,0 +1,103 @@
+/* ============================================================
+  Sasolburg Page — Featured Article
+  File: css/places/sasolburg.css
+============================================================ */
+
+.feature-article {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.feature-media {
+  background: rgba(17, 24, 39, 0.04);
+  border-right: 1px solid var(--border);
+}
+
+.feature-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.feature-body {
+  padding: 18px;
+}
+
+.feature-kicker {
+  font-weight: 800;
+  color: rgba(17, 24, 39, 0.70);
+  font-size: 0.95rem;
+}
+
+.feature-title {
+  margin-top: 8px;
+  line-height: 1.15;
+}
+
+.feature-meta {
+  margin-top: 10px;
+  color: var(--muted);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.feature-meta .dot {
+  opacity: 0.6;
+}
+
+.feature-content {
+  margin-top: 14px;
+}
+
+.feature-content p + p {
+  margin-top: 12px;
+}
+
+.feature-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .feature-article {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-media {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .feature-media img {
+    min-height: 240px;
+  }
+}
+
+
+/* ============================================================
+  Place Page Styles (shared starter)
+  File: css/places/vereeniging.css  OR  css/places/vanderbijlpark.css
+============================================================ */
+
+.location-header {
+  background: var(--brand-700);
+  color: var(--white);
+  padding: 42px 0;
+}
+
+.location-header h1 {
+  color: var(--white);
+}
+
+.location-header p {
+  color: rgba(255, 255, 255, 0.88);
+  margin-top: 8px;
+}

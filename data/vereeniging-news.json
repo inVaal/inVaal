@@ -1,0 +1,76 @@
+[
+  {
+    "id": "vereeniging-business-spotlight-001",
+    "title": "Vereeniging Business Spotlight: Local Services Worth Knowing",
+    "date": "2025-04-18",
+    "category": "business",
+    "location": "Vereeniging",
+    "author": "InVaal [016]",
+    "excerpt": "A quick look at how local service providers and small businesses continue to support the community through reliability, consistency, and accessibility.",
+    "content": [
+      "Vereeniging continues to grow as a hub for local business activity, with service providers and small businesses playing a key role in everyday community life.",
+      "From home services and retail to transport and skills-based work, small businesses remain a major source of employment and support for residents.",
+      "InVaal [016] is building a directory to highlight trusted local businesses and help the community discover services faster."
+    ],
+    "media": {
+      "type": "image",
+      "url": "./assets/logos/inVaalTriangle_logo.png",
+      "alt": "InVaal [016] logo"
+    },
+    "tags": ["Business", "Local Services", "Community"],
+    "links": {
+      "source": {
+        "label": "List your business",
+        "url": "./business.html",
+        "external": false
+      }
+    }
+  },
+  {
+    "id": "vereeniging-community-update-001",
+    "title": "Community Update: Share Verified Information",
+    "date": "2025-04-12",
+    "category": "local",
+    "location": "Vereeniging",
+    "author": "InVaal [016]",
+    "excerpt": "As community pages grow, verified updates help reduce confusion and keep residents informed.",
+    "content": [
+      "Community updates travel fast online — especially on WhatsApp groups and social media.",
+      "When sharing news, include the source, the date, and location details to help others verify what happened and where.",
+      "If you have a tip or story idea, you can contact InVaal [016] so we can help publish it responsibly."
+    ],
+    "media": {
+      "type": "image",
+      "url": "./assets/logos/inVaalTriangle_logo.png",
+      "alt": "InVaal [016] logo"
+    },
+    "tags": ["Local", "Community", "Verified Info"],
+    "links": {
+      "source": {
+        "label": "Email the newsroom",
+        "url": "mailto:invaaltriangle@gmail.com",
+        "external": false
+      }
+    }
+  },
+  {
+    "id": "vereeniging-events-coming-soon",
+    "title": "Coming Soon: Vereeniging Events & Announcements",
+    "date": null,
+    "category": "events",
+    "location": "Vereeniging",
+    "author": "InVaal [016]",
+    "excerpt": "A dedicated space for community events, announcements, and verified updates is being prepared.",
+    "content": [
+      "We’re setting up a place to publish verified community announcements and event information for Vereeniging.",
+      "Organizers will be able to submit details for review before publication."
+    ],
+    "media": {
+      "type": "image",
+      "url": "./assets/logos/inVaalTriangle_logo.png",
+      "alt": "InVaal [016] logo"
+    },
+    "tags": ["Events", "Coming Soon"],
+    "links": {}
+  }
+]

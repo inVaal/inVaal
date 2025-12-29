@@ -1,137 +1,141 @@
-/* Basic styling for the navigation container */
+/* ============================================================
+  InVaal [016] — Mobile Navigation
+  File: css/mobile_nav.css
 
-.nav-container {
-    padding: 1rem;
-    background-color: #f8f9fa;
-    display: flex;
-    justify-content: space-between;
+  Designed to work with components/header.html:
+  - button.mobile-menu-toggle
+  - div#primary-menu.nav-links > ul > li > a
+
+  JS behavior (navigation.js):
+  - toggles .is-open on #primary-menu
+  - updates aria-expanded on .mobile-menu-toggle
+============================================================ */
+
+/* =========================
+  Hamburger Button (Mobile)
+========================= */
+.mobile-menu-toggle {
+  /* Reset button styles */
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+
+  /* Layout */
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+
+  transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
 }
 
+.mobile-menu-toggle:hover {
+  transform: translateY(-1px);
+  background: var(--surface-2);
+}
 
+/* The 3 lines */
+.mobile-menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--brand-700);
+  border-radius: 2px;
 
-/* Style the hamburger button */
-.menu-button {
-    /* Remove default button styles */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
+  transition: transform var(--t-med) var(--ease), opacity var(--t-med) var(--ease);
+}
+
+/* Transform hamburger -> X when aria-expanded is true */
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =========================
+  Menu Container
+========================= */
+
+/* Desktop default is visible via root.css (.nav-links ul { display:flex; ... })
+   On mobile, we hide it until .is-open is added. */
+@media (max-width: 768px) {
+  /* Make header wrap so menu can appear below */
+  .main-navigation {
+    flex-wrap: wrap;
+  }
+
+  /* Hide menu by default */
+  .nav-links {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Show menu when open */
+  .nav-links.is-open {
+    display: block;
+  }
+
+  /* Menu panel look */
+  .nav-links ul {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 
-    /* Center the button */
-    justify-content: center;
-    align-items: center;
-}
+    padding: 12px;
+    border-radius: 14px;
 
-/* Create the hamburger icon using spans */
-.menu-button span {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Bigger tap targets for mobile */
+  .nav-links a {
     display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--color-secondary);
-    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+
+    padding: 12px 14px;
+    border-radius: 12px;
+
+    background: rgba(4, 174, 217, 0.08);
+    border: 1px solid rgba(4, 174, 217, 0.16);
+
+    transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+
+  .nav-links a:hover {
+    background: rgba(4, 174, 217, 0.14);
+    border-color: rgba(4, 174, 217, 0.25);
+  }
 }
 
-/* Style the navigation menu */
-.nav-menu {
-    /* Hide the menu by default on mobile */
+/* =========================
+  Desktop Rules
+========================= */
+@media (min-width: 769px) {
+  /* Hamburger hidden on desktop */
+  .mobile-menu-toggle {
     display: none;
-    margin-top: 1rem;
-}
+  }
 
-/* Show the menu when active class is present */
-.nav-menu.active {
+  /* Ensure menu is visible */
+  .nav-links {
     display: block;
-}
-
-/* Style navigation links */
-.nav-menu ul {
-    list-style: none;
-}
-
-.nav-menu li {
-    padding: 5px;
-}
-
-.nav-menu a {
-    color: var(--color-main);
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-.nav-menu a:hover {
-    font-weight: bold;
-    font-family: tiny5;
-    color: var(--color-secondary);
-}
-
-/* Animation for hamburger to X transformation */
-.menu-button.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-}
-
-.menu-button.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-button.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Media Query for screens wider than 500px */
-@media screen and (width > 500px) {
-    .nav-container {
-        /* Make container flex to align items */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-    }
-
-    /* Hide the hamburger button */
-    .menu-button {
-        display: none;
-    }
-
-    /* Show the navigation menu */
-    .nav-menu {
-        display: block !important; /* Override the mobile display: none */
-        margin-top: 0; /* Remove top margin used in mobile view */
-    }
-
-    /* Style the navigation list */
-    .nav-menu ul {
-        display: flex;
-        gap: 2rem; /* Space between menu items */
-        align-items: center;
-    }
-
-    /* Remove vertical margins used in mobile view */
-    .nav-menu li {
-        margin: 0;
-    }
-
-    /* Enhanced link styling for desktop */
-    .nav-menu a {
-        position: relative;
-        padding: 0.5rem 0;
-    }
-
-    /* Add underline animation on hover */
-    .nav-menu a::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0;
-        height: 2px;
-        background-color: #333;
-        transition: width 0.3s ease;
-    }
-
-    .nav-menu a:hover::after {
-        width: 100%;
-    }
+  }
 }
