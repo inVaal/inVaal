@@ -147,6 +147,10 @@ body {
   max-width: 75ch;
 }
 
+.feature-caption {
+  color: var(--brand-700);
+}
+
 /* Skip link (keyboard users) */
 .skip-link {
   position: absolute;
