@@ -1,90 +1,734 @@
-/* ============================================================
-  InVaal [016] — Responsive Overrides
-  File: css/responsive.css
+/* =========================================================
+   InVaal [016] — V2
+   Responsive System
 
-  Purpose:
-  - Small overrides that adapt layout to tablets + phones
-  - Keeps "news site" spacing and grids readable on small screens
+   Purpose:
+   Makes the platform work across:
 
-  Note:
-  - Core responsiveness is already handled in root.css and mobile_nav.css
-  - This file should stay lightweight and conflict-free
-============================================================ */
+   - Small phones
+   - Large phones
+   - Tablets
+   - Laptops
+   - Desktop screens
+   - Large desktop screens
 
-/* =========================
-  Tablet and below
-========================= */
-@media (max-width: 980px) {
-  /* Filters stack vertically */
-  .filter-controls {
-    flex-direction: column;
+   The layout uses a mobile-first mindset where possible.
+
+   Base styles:
+   root.css
+   typography.css
+   layout.css
+   components.css
+
+   This file:
+   Responsive overrides only.
+========================================================= */
+
+
+/* =========================================================
+   01. LARGE DESKTOP
+   ---------------------------------------------------------
+   1400px+
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  :root {
+    /*
+      Give very large screens slightly more breathing room.
+    */
+    --container-max-width: 1280px;
   }
 
-  /* About section becomes one column */
-  .about-us {
-    grid-template-columns: 1fr;
+
+  .hero-inner {
+    /*
+      Increase the hero gap on larger displays.
+    */
+    gap: var(--space-20);
   }
 
-  /* Team / job grids fall back nicely */
-  .team-grid,
-  .job-listings {
-    grid-template-columns: 1fr;
+
+  .discover-grid {
+    gap: var(--space-6);
   }
 
-  /* Application steps stack if needed */
-  .application-steps {
-    gap: 16px;
+
+  .content-grid {
+    gap: var(--space-8);
   }
 
-  /* Footer columns stack */
-  .footer-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    text-align: center;
-  }
-
-  /* Footer nav stays readable */
-  #site-footer nav ul {
-    justify-content: center;
-  }
-
-  /* Social links centered */
-  .social-links {
-    justify-content: center;
-  }
 }
 
-/* =========================
-  Phones
-========================= */
-@media (max-width: 560px) {
-  /* Reduce large header typography on location pages */
-  .location-header h1 {
-    font-size: 1.5rem; /* controlled and readable */
+
+/* =========================================================
+   02. DESKTOP
+   ---------------------------------------------------------
+   1100px — 1399px
+========================================================= */
+
+@media (max-width: 1399px) {
+
+  .hero-inner {
+    /*
+      Keep the hero comfortable on standard desktop
+      displays.
+    */
+    gap: var(--space-12);
   }
 
-  /* Ensure single-column story cards */
+
+  .discover-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .creatives-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+
+  .community-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .category-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   03. TABLET / SMALL LAPTOP
+   ---------------------------------------------------------
+   769px — 1099px
+========================================================= */
+
+@media (max-width: 1099px) {
+
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
+  .hero {
+    min-height: auto;
+
+    padding-block: var(--space-16);
+  }
+
+
+  .hero-inner {
+    grid-template-columns:
+      minmax(0, 1fr);
+
+    gap: var(--space-10);
+  }
+
+
+  .hero-content {
+    max-width: 850px;
+  }
+
+
+  .hero-discovery {
+    /*
+      On tablets the discovery panel becomes a horizontal
+      section instead of staying beside the hero text.
+    */
+    width: 100%;
+  }
+
+
+  .quick-navigation {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: var(--space-2);
+  }
+
+
+  /* -------------------------------------------------------
+     CONTENT GRIDS
+  ------------------------------------------------------- */
+
+  .content-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
   .news-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
-  /* If your loader uses lead story sizing, neutralize on small screens */
-  .news-card.is-lead {
-    grid-column: auto;
+
+  .business-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
-  /* Footer padding slightly reduced */
-  #site-footer {
-    padding: 22px 0;
+
+  .opportunity-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
-  .footer-socials {
-    width: 36px;
-    height: 36px;
+
+  .creatives-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
-  .copyright {
-    font-size: 0.85rem;
+
+  .events-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
+
+
+  .featured-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  /* -------------------------------------------------------
+     BUSINESS CATEGORIES
+  ------------------------------------------------------- */
+
+  .category-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+
+  /* -------------------------------------------------------
+     COMMUNITY
+  ------------------------------------------------------- */
+
+  .community-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   04. MOBILE
+   ---------------------------------------------------------
+   768px and below
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* -------------------------------------------------------
+     ROOT SPACING
+  ------------------------------------------------------- */
+
+  :root {
+    /*
+      Reduce section spacing on smaller screens so the
+      homepage doesn't become unnecessarily long.
+    */
+    --section-padding-y:
+      clamp(3.5rem, 10vw, 5rem);
+
+    --container-padding:
+      1rem;
+  }
+
+
+  /* -------------------------------------------------------
+     SECTION HEADERS
+  ------------------------------------------------------- */
+
+  .section-header {
+    /*
+      Stack the heading and "View all" link vertically.
+    */
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: var(--space-4);
+
+    margin-bottom: var(--space-8);
+  }
+
+
+  .section-link {
+    /*
+      Keep the navigation action easy to tap.
+    */
+    padding-block: var(--space-2);
+  }
+
+
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
+  .hero {
+    /*
+      Remove excessive vertical space on mobile.
+    */
+    min-height: auto;
+
+    padding-block:
+      var(--space-12)
+      var(--space-10);
+  }
+
+
+  .hero-inner {
+    /*
+      Everything becomes one column.
+    */
+    grid-template-columns:
+      1fr;
+
+    gap: var(--space-8);
+  }
+
+
+  .hero-content {
+    max-width: none;
+  }
+
+
+  .hero-actions {
+    /*
+      Allow buttons to fill the available width.
+    */
+    flex-direction: column;
+
+    align-items: stretch;
+
+    width: 100%;
+  }
+
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+
+  /* -------------------------------------------------------
+     HERO DISCOVERY
+  ------------------------------------------------------- */
+
+  .hero-discovery {
+    padding: var(--space-5);
+
+    border-radius: var(--radius-lg);
+  }
+
+
+  .quick-navigation {
+    /*
+      One column is easier to scan and tap on phones.
+    */
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .quick-navigation a {
+    min-height: 44px;
+  }
+
+
+  /* -------------------------------------------------------
+     DISCOVERY GRID
+  ------------------------------------------------------- */
+
+  .discover-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .discovery-card {
+    min-height: auto;
+
+    padding: var(--space-5);
+  }
+
+
+  /* -------------------------------------------------------
+     ALL CONTENT GRIDS
+  ------------------------------------------------------- */
+
+  .content-grid,
+  .news-grid,
+  .business-grid,
+  .opportunity-grid,
+  .creatives-grid,
+  .events-grid,
+  .featured-grid {
+    grid-template-columns:
+      1fr;
+
+    gap: var(--space-5);
+  }
+
+
+  /* -------------------------------------------------------
+     BUSINESS CATEGORIES
+  ------------------------------------------------------- */
+
+  .category-grid {
+    /*
+      Two columns make better use of phone screen space.
+    */
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: var(--space-2);
+
+    margin-bottom: var(--space-8);
+  }
+
+
+  .category-card {
+    min-height: 100px;
+
+    padding: var(--space-3);
+  }
+
+
+  /* -------------------------------------------------------
+     COMMUNITY
+  ------------------------------------------------------- */
+
+  .community-grid {
+    grid-template-columns:
+      1fr;
+
+    gap: var(--space-4);
+  }
+
+
+  .community-card {
+    min-height: 180px;
+  }
+
+
+  /* -------------------------------------------------------
+     PROMOTION
+  ------------------------------------------------------- */
+
+  .section-promotion {
+    padding-block: var(--space-10);
+  }
+
+
+  .promotion-panel {
+    align-items: stretch;
+
+    padding: var(--space-8);
+
+    border-radius: var(--radius-lg);
+  }
+
+
+  /* -------------------------------------------------------
+     FINAL CTA
+  ------------------------------------------------------- */
+
+  .final-cta {
+    padding: var(--space-8);
+
+    border-radius: var(--radius-lg);
+  }
+
+
+  .final-cta .button {
+    width: 100%;
+  }
+
+
+  /* -------------------------------------------------------
+     FOOTER
+  ------------------------------------------------------- */
+
+  .site-footer {
+    padding-block: var(--space-12);
+  }
+
+}
+
+
+/* =========================================================
+   05. LARGE PHONE
+   ---------------------------------------------------------
+   481px — 768px
+========================================================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .discover-grid {
+    /*
+      Two columns work well on larger phones and small
+      tablets.
+    */
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .discovery-card {
+    min-height: 220px;
+  }
+
+
+  .community-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .content-grid,
+  .news-grid,
+  .business-grid,
+  .opportunity-grid,
+  .creatives-grid,
+  .events-grid,
+  .featured-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   06. SMALL PHONE
+   ---------------------------------------------------------
+   480px and below
+========================================================= */
+
+@media (max-width: 480px) {
+
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
+  .hero-title {
+    /*
+      Keep the hero headline strong without causing
+      excessive line wrapping.
+    */
+    font-size:
+      clamp(2.25rem, 13vw, 3.5rem);
+  }
+
+
+  .hero-description {
+    font-size: var(--font-size-md);
+  }
+
+
+  /* -------------------------------------------------------
+     BUTTONS
+  ------------------------------------------------------- */
+
+  .button {
+    width: 100%;
+
+    min-height: 48px;
+  }
+
+
+  /* -------------------------------------------------------
+     CATEGORIES
+  ------------------------------------------------------- */
+
+  .category-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .category-card {
+    min-height: 90px;
+  }
+
+
+  .category-card span:first-child {
+    font-size: 1.5rem;
+  }
+
+
+  /* -------------------------------------------------------
+     CARDS
+  ------------------------------------------------------- */
+
+  .news-card-title,
+  .business-name,
+  .opportunity-title {
+    font-size: var(--font-size-lg);
+  }
+
+
+  /* -------------------------------------------------------
+     PROMOTION
+  ------------------------------------------------------- */
+
+  .promotion-panel,
+  .final-cta {
+    padding: var(--space-6);
+  }
+
+}
+
+
+/* =========================================================
+   07. VERY SMALL PHONE
+   ---------------------------------------------------------
+   360px and below
+
+   This breakpoint helps prevent cramped layouts on
+   older/smaller Android devices.
+========================================================= */
+
+@media (max-width: 360px) {
+
+  :root {
+    --container-padding: 0.875rem;
+  }
+
+
+  .hero {
+    padding-block:
+      var(--space-10)
+      var(--space-8);
+  }
+
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+
+  .category-card {
+    min-height: 84px;
+
+    padding: var(--space-2);
+  }
+
+
+  .category-card span:last-child {
+    font-size: var(--font-size-sm);
+  }
+
+}
+
+
+/* =========================================================
+   08. LANDSCAPE PHONE
+   ---------------------------------------------------------
+   Helps prevent a short viewport from feeling cramped.
+========================================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+  .hero {
+    min-height: auto;
+
+    padding-block: var(--space-8);
+  }
+
+
+  .hero-inner {
+    gap: var(--space-6);
+  }
+
+
+  .hero-discovery {
+    padding: var(--space-5);
+  }
+
+}
+
+
+/* =========================================================
+   09. TOUCH DEVICES
+   ---------------------------------------------------------
+   Increase interactive areas when the device primarily
+   uses touch input.
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .quick-navigation a,
+  .category-card,
+  .button,
+  .section-link {
+    /*
+      44px is a commonly used minimum target size for
+      comfortable touch interaction.
+    */
+    min-height: 44px;
+  }
+
+
+  .discovery-card:hover,
+  .content-card:hover,
+  .news-card:hover,
+  .business-card:hover,
+  .opportunity-card:hover,
+  .creative-card:hover,
+  .event-card:hover {
+    /*
+      Remove hover elevation on touch devices because
+      there is no true hover state.
+    */
+    transform: none;
+  }
+
+}
+
+
+/* =========================================================
+   10. REDUCED MOTION
+   ---------------------------------------------------------
+   root.css already handles the global reduced-motion
+   preference. These rules make sure component transforms
+   also remain disabled.
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .button:hover,
+  .discovery-card:hover,
+  .content-card:hover,
+  .news-card:hover,
+  .business-card:hover,
+  .opportunity-card:hover,
+  .creative-card:hover,
+  .event-card:hover,
+  .category-card:hover {
+    transform: none;
+  }
+
+
+  .card:hover .card-media img,
+  .content-card:hover .card-media img {
+    transform: none;
+  }
+
 }

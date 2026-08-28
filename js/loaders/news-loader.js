@@ -1,174 +1,552 @@
-/* ============================================================
-  InVaal [016] — News Loader
-  File: js/loaders/news-loader.js
+ /* =========================================================
+    InVaal [016] — News Loader
 
-  JSON format expected (example):
-  {
-    "title": "Available Now",
-    "date": "04/14/2025", // MM/DD/YYYY OR null
-    "source": "sasolburg.html", // internal or external link
-    "description": "...",
-    "location": "Sasolburg",
-    "category": "local",
-    "media": { "type": "image|gif", "url": "..." }
-  }
+    Responsibilities:
+    - Load news.json
+    - Validate the returned data
+    - Display published stories
+    - Highlight featured stories
+    - Handle loading and error states
 
-  Notes:
-  - First item becomes a "lead story" (bigger card)
-  - Safe HTML escaping to avoid broken layout
-============================================================ */
+    Data source:
+    ./data/news.json
+ ========================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const NEWS_URL = "data/news.json";
 
-  const newsGrid = document.getElementById("news-container");
-  const statusEl = document.getElementById("news-status");
+ /* =========================================================
+    CONFIGURATION
+ ========================================================== */
 
-  if (!newsGrid) return;
+ const NEWS_DATA_URL = "./data/news.json";
 
-  /* ----------------------------------------------------------
-    Helpers
-  ---------------------------------------------------------- */
+ const NEWS_CONTAINER_ID = "news-container";
 
-  const escapeHTML = (value) =>
-    String(value ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
+ const NEWS_STATUS_ID = "news-status";
 
-  // Parse MM/DD/YYYY reliably (avoids locale parsing issues)
-  const parseMMDDYYYY = (raw) => {
-    if (!raw) return null;
 
-    // Accept "MM/DD/YYYY" (like your sample)
-    const match = String(raw).match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-    if (!match) return null;
+ /* =========================================================
+    DOM HELPERS
+ ========================================================== */
 
-    const [, mm, dd, yyyy] = match;
-    const date = new Date(Number(yyyy), Number(mm) - 1, Number(dd));
+ /**
+  * Finds an element by its ID.
+  *
+  * @param {string} id
+  * @returns {HTMLElement|null}
+  */
+ const getElement = (id) => (
+   document.getElementById(id)
+ );
 
-    // Guard against invalid dates (e.g., 13/44/2025)
-    return Number.isNaN(date.getTime()) ? null : date;
-  };
 
-  const formatDateLabel = (raw) => {
-    const parsed = parseMMDDYYYY(raw);
-    if (!parsed) return raw ? String(raw) : "Date not specified";
+ /**
+  * Updates the news status message.
+  *
+  * @param {string} message
+  * @param {string} type
+  * @returns {void}
+  */
+ const updateNewsStatus = (
+   message,
+   type = "default"
+ ) => {
 
-    return parsed.toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  };
+   const status = getElement(
+     NEWS_STATUS_ID
+   );
 
-  const normalizeCategory = (value) => {
-    const v = String(value ?? "Local").trim();
-    if (!v) return "Local";
-    return v.charAt(0).toUpperCase() + v.slice(1).toLowerCase();
-  };
+   if (!status) {
+     return;
+   }
 
-  // Detect external links (open in new tab) vs internal (same tab)
-  const isExternalLink = (href) => /^https?:\/\//i.test(String(href ?? ""));
+   status.textContent = message;
 
-  const createNewsCard = (item, index) => {
-    const title = item?.title || "No title available";
-    const description = item?.description || "No description available.";
-    const location = item?.location || "Vaal Triangle";
-    const category = normalizeCategory(item?.category);
-    const dateLabel = formatDateLabel(item?.date);
+   status.dataset.status = type;
 
-    const mediaUrl = item?.media?.url ? String(item.media.url) : "";
-    const hasMedia = Boolean(mediaUrl);
+ };
 
-    const source = typeof item?.source === "string" ? item.source.trim() : "";
-    const hasSource = source && source !== "#";
 
-    const external = hasSource && isExternalLink(source);
+ /* =========================================================
+    DATA LOADING
+ ========================================================== */
 
-    const card = document.createElement("article");
-    card.className = "news-card";
-    if (index === 0) card.classList.add("is-lead");
+ /**
+  * Loads the news JSON file.
+  *
+  * @returns {Promise<Object>}
+  */
+ const fetchNews = async () => {
 
-    const mediaHTML = hasMedia
-      ? `
-        <div class="news-media">
-          <img src="${escapeHTML(mediaUrl)}" alt="${escapeHTML(title)}" loading="lazy">
-        </div>
-      `
-      : "";
+   const response = await fetch(
+     NEWS_DATA_URL
+   );
 
-    const ctaHTML = hasSource
-      ? `
-        <a
-          class="news-source"
-          href="${escapeHTML(source)}"
-          ${external ? 'target="_blank" rel="noopener noreferrer"' : ""}
-        >
-          Read more
-        </a>
-      `
-      : "";
 
-    card.innerHTML = `
-      ${mediaHTML}
+   /*
+     fetch() does not automatically reject for HTTP errors.
 
-      <div class="news-card-body">
-        <div class="news-card-header">
-          <span class="news-category">${escapeHTML(category)}</span>
-          <time class="news-date">${escapeHTML(dateLabel)}</time>
-        </div>
+     Therefore we explicitly check response.ok.
+   */
 
-        <div class="news-location">${escapeHTML(location)}</div>
-        <h3 class="news-title">${escapeHTML(title)}</h3>
-        <p class="news-description">${escapeHTML(description)}</p>
+   if (!response.ok) {
 
-        ${ctaHTML}
-      </div>
-    `;
+     throw new Error(
+       `Unable to load news: ${response.status}`
+     );
 
-    return card;
-  };
+   }
 
-  /* ----------------------------------------------------------
-    Main loader
-  ---------------------------------------------------------- */
-  async function loadNews() {
-    try {
-      if (statusEl) statusEl.textContent = "Loading news...";
-      newsGrid.innerHTML = "";
 
-      const response = await fetch(NEWS_URL, { cache: "no-store" });
-      if (!response.ok) throw new Error(`Fetch failed (${response.status})`);
+   return (
+     response.json()
+   );
 
-      const newsData = await response.json();
+ };
 
-      if (!Array.isArray(newsData) || newsData.length === 0) {
-        if (statusEl) statusEl.textContent = "No news articles available yet. Please check back later.";
-        return;
-      }
 
-      if (statusEl) statusEl.textContent = "";
+ /* =========================================================
+    DATA VALIDATION
+ ========================================================== */
 
-      const fragment = document.createDocumentFragment();
-      newsData.forEach((item, index) => fragment.appendChild(createNewsCard(item, index)));
-      newsGrid.appendChild(fragment);
-    } catch (error) {
-      console.error("Error loading news:", error);
-      if (statusEl) statusEl.textContent = "";
+ /**
+  * Checks whether a news item contains the minimum
+  * information required to display it.
+  *
+  * @param {Object} story
+  * @returns {boolean}
+  */
+ const isValidStory = (story) => (
 
-      newsGrid.innerHTML = `
-        <div class="card" style="padding:16px;">
-          <h3 style="margin-bottom:6px;">Unable to load news</h3>
-          <p style="color: var(--muted);">
-            We're experiencing technical difficulties. Please check back later.
-          </p>
-        </div>
-      `;
-    }
-  }
+   Boolean(
+     story &&
+     story.id &&
+     story.title &&
+     story.excerpt &&
+     story.datePublished
+   )
 
-  loadNews();
-});
+ );
+
+
+ /**
+  * Returns only published and valid stories.
+  *
+  * @param {Array} stories
+  * @returns {Array}
+  */
+ const getPublishedStories = (
+   stories = []
+ ) => (
+
+   stories.filter(
+     (story) => (
+       story.status === "published" &&
+       isValidStory(story)
+     )
+   )
+
+ );
+
+
+ /* =========================================================
+    FORMATTING
+ ========================================================== */
+
+ /**
+  * Converts an ISO date into a readable South African
+  * style date.
+  *
+  * @param {string} date
+  * @returns {string}
+  */
+ const formatDate = (date) => {
+
+   const parsedDate = new Date(date);
+
+   if (Number.isNaN(parsedDate.getTime())) {
+     return "Date unavailable";
+   }
+
+
+   return (
+     new Intl.DateTimeFormat(
+       "en-ZA",
+       {
+         day: "numeric",
+         month: "short",
+         year: "numeric"
+       }
+     ).format(parsedDate)
+   );
+
+ };
+
+
+ /* =========================================================
+    CARD CREATION
+ ========================================================== */
+
+ /**
+  * Creates the HTML for one news card.
+  *
+  * @param {Object} story
+  * @returns {HTMLElement}
+  */
+ const createNewsCard = (
+   story
+ ) => {
+
+   const article = document.createElement(
+     "article"
+   );
+
+
+   article.className = "content-card news-card";
+
+
+   /*
+     Add featured information to the card so CSS can
+     style featured stories differently later.
+   */
+
+   if (story.featured) {
+
+     article.classList.add(
+       "is-featured"
+     );
+
+   }
+
+
+   /* -------------------------------------------------------
+      Image
+   ------------------------------------------------------- */
+
+   if (story.image) {
+
+     const imageWrapper =
+       document.createElement("div");
+
+     imageWrapper.className =
+       "card-media";
+
+
+     const image =
+       document.createElement("img");
+
+     image.src = story.image;
+
+     image.alt =
+       story.title;
+
+     image.loading = "lazy";
+
+
+     imageWrapper.appendChild(
+       image
+     );
+
+     article.appendChild(
+       imageWrapper
+     );
+
+   }
+
+
+   /* -------------------------------------------------------
+      Card body
+   ------------------------------------------------------- */
+
+   const body =
+     document.createElement("div");
+
+   body.className =
+     "card-body";
+
+
+   /* Category */
+
+   const category =
+     document.createElement("span");
+
+   category.className =
+     "card-category";
+
+   category.textContent =
+     story.category || "News";
+
+
+   /* Title */
+
+   const title =
+     document.createElement("h3");
+
+   title.className =
+     "news-card-title";
+
+   title.textContent =
+     story.title;
+
+
+   /* Excerpt */
+
+   const excerpt =
+     document.createElement("p");
+
+   excerpt.className =
+     "card-description";
+
+   excerpt.textContent =
+     story.excerpt;
+
+
+   /* Metadata */
+
+   const metadata =
+     document.createElement("div");
+
+   metadata.className =
+     "card-meta";
+
+
+   const location =
+     document.createElement("span");
+
+   location.textContent =
+     story.location || "Vaal Triangle";
+
+
+   const date =
+     document.createElement("time");
+
+   date.dateTime =
+     story.datePublished;
+
+   date.textContent =
+     formatDate(
+       story.datePublished
+     );
+
+
+   metadata.append(
+     location,
+     date
+   );
+
+
+   /* -------------------------------------------------------
+      Read more link
+
+      The slug gives us a future path to an individual
+      article page.
+   ------------------------------------------------------- */
+
+   const link =
+     document.createElement("a");
+
+   link.className =
+     "section-link";
+
+   link.href =
+     `./pages/news/${story.slug}.html`;
+
+   link.textContent =
+     "Read story →";
+
+
+   /* -------------------------------------------------------
+      Assemble card
+   ------------------------------------------------------- */
+
+   body.append(
+     category,
+     title,
+     excerpt,
+     metadata,
+     link
+   );
+
+
+   article.appendChild(
+     body
+   );
+
+
+   return (
+     article
+   );
+
+ };
+
+
+ /* =========================================================
+    RENDERING
+ ========================================================== */
+
+ /**
+  * Renders news cards into the homepage.
+  *
+  * @param {Array} stories
+  * @returns {void}
+  */
+ const renderNews = (
+   stories
+ ) => {
+
+   const container =
+     getElement(
+       NEWS_CONTAINER_ID
+     );
+
+
+   if (!container) {
+     return;
+   }
+
+
+   /*
+     Clear the loading state before rendering.
+   */
+
+   container.replaceChildren();
+
+
+   /*
+     Limit homepage content.
+
+     The complete news archive will eventually live on
+     pages/news.html.
+   */
+
+   const homepageStories =
+     stories.slice(0, 6);
+
+
+   homepageStories.forEach(
+     (story) => {
+
+       const card =
+         createNewsCard(
+           story
+         );
+
+       container.appendChild(
+         card
+       );
+
+     }
+   );
+
+
+   updateNewsStatus(
+     `${homepageStories.length} stories available.`,
+     "success"
+   );
+
+ };
+
+
+ /* =========================================================
+    INITIALISATION
+ ========================================================== */
+
+ /**
+  * Starts the news system.
+  *
+  * @returns {Promise<void>}
+  */
+ const initialiseNews = async () => {
+
+   updateNewsStatus(
+     "Loading latest stories..."
+   );
+
+
+   try {
+
+     const data =
+       await fetchNews();
+
+
+     /*
+       Make sure the expected JSON structure exists.
+     */
+
+     if (
+       !data ||
+       !Array.isArray(
+         data.stories
+       )
+     ) {
+
+       throw new Error(
+         "Invalid news data format."
+       );
+
+     }
+
+
+     const stories =
+       getPublishedStories(
+         data.stories
+       );
+
+
+     if (!stories.length) {
+
+       updateNewsStatus(
+         "No news stories are currently available.",
+         "empty"
+       );
+
+       return;
+
+     }
+
+
+     /*
+       Sort newest stories first.
+
+       This means we don't have to manually reorder
+       the JSON every time we add a new article.
+     */
+
+     stories.sort(
+       (a, b) => (
+         new Date(b.datePublished) -
+         new Date(a.datePublished)
+       )
+     );
+
+
+     renderNews(
+       stories
+     );
+
+
+   } catch (error) {
+
+     console.error(
+       "InVaal news error:",
+       error
+     );
+
+
+     updateNewsStatus(
+       "We couldn't load the latest stories. Please try again later.",
+       "error"
+     );
+
+   }
+
+ };
+
+
+ /* =========================================================
+    START
+ ========================================================== */
+
+ document.addEventListener(
+   "DOMContentLoaded",
+   initialiseNews
+ );

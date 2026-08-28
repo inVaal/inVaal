@@ -1,89 +1,362 @@
-/* ============================================================
-  InVaal [016] — Component Loader + Mobile Navigation
-  File: js/navigation.js
+/* =========================================================
+   InVaal [016] — Global Navigation System
 
-  This script replaces the old "mobile-menu.js" approach.
-  It:
-  - Injects header/footer components
-  - Handles mobile menu toggling
-  - Updates the footer year
-============================================================ */
+   ./js/navigation.js
+   Responsibilities:
+   - Load header component
+   - Load footer component
+   - Initialise mobile navigation
+   - Set current year
+   - Prevent duplicate initialisation
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const headerMount = document.getElementById("site-header");
-  const footerMount = document.getElementById("site-footer");
 
-  /* ----------------------------------------------------------
-    Fetch + inject an HTML component into a mount element
-  ---------------------------------------------------------- */
-  async function loadComponent(mountEl, path) {
-    if (!mountEl) return;
+/* =========================================================
+   CONFIGURATION
+========================================================= */
 
-    const response = await fetch(path, { cache: "no-store" });
-    if (!response.ok) throw new Error(`Failed to load ${path} (${response.status})`);
+const HEADER_SELECTOR = "#site-header";
+const FOOTER_SELECTOR = "#site-footer";
 
-    mountEl.innerHTML = await response.text();
+const HEADER_PATH = "./components/header.html";
+const FOOTER_PATH = "./components/footer.html";
+
+
+/* =========================================================
+   COMPONENT LOADER
+========================================================= */
+
+/**
+ * Loads an HTML component into a target element.
+ *
+ * @param {string} selector
+ * @param {string} path
+ * @returns {Promise<boolean>}
+ */
+const loadComponent = async (
+  selector,
+  path
+) => {
+
+  const target =
+    document.querySelector(selector);
+
+
+  /*
+    If the target does not exist, there is nowhere
+    to inject the component.
+  */
+
+  if (!target) {
+    return (false);
   }
 
-  /* ----------------------------------------------------------
-    Mobile menu setup (works with new header.html)
-  ---------------------------------------------------------- */
-  function initMobileMenu() {
-    const toggleBtn = document.querySelector(".mobile-menu-toggle");
-    const menu = document.getElementById("primary-menu");
 
-    if (!toggleBtn || !menu) return;
+  /*
+    Prevent the same component from being injected
+    more than once.
+  */
 
-    const setOpen = (isOpen) => {
-      toggleBtn.setAttribute("aria-expanded", String(isOpen));
-      menu.classList.toggle("is-open", isOpen);
-    };
-
-    toggleBtn.addEventListener("click", () => {
-      const isOpen = toggleBtn.getAttribute("aria-expanded") === "true";
-      setOpen(!isOpen);
-    });
-
-    // Close menu after clicking a link
-    menu.addEventListener("click", (e) => {
-      const link = e.target.closest("a");
-      if (!link) return;
-      setOpen(false);
-    });
-
-    // Close when resizing to desktop
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) setOpen(false);
-    });
-
-    setOpen(false);
+  if (
+    target.dataset.loaded === "true"
+  ) {
+    return (true);
   }
 
-  /* ----------------------------------------------------------
-    Footer year updater
-  ---------------------------------------------------------- */
-  function setFooterYear() {
-    const yearEl = document.getElementById("year");
-    if (!yearEl) return;
-    yearEl.textContent = String(new Date().getFullYear());
-  }
 
-  /* ----------------------------------------------------------
-    Boot
-  ---------------------------------------------------------- */
-  (async () => {
-    try {
-      await loadComponent(headerMount, "./components/header.html");
-      initMobileMenu();
-    } catch (err) {
-      console.error("Header load failed:", err);
+  try {
+
+    const response =
+      await fetch(path);
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `HTTP ${response.status}: ${path}`
+      );
+
     }
 
-    try {
-      await loadComponent(footerMount, "./components/footer.html");
-      setFooterYear();
-    } catch (err) {
-      console.error("Footer load failed:", err);
+
+    const html =
+      await response.text();
+
+
+    /*
+      Replace the contents of the mount point.
+
+      replaceChildren() ensures that we don't accidentally
+      append a second copy of the component.
+    */
+
+    target.replaceChildren();
+
+
+    target.insertAdjacentHTML(
+      "afterbegin",
+      html
+    );
+
+
+    /*
+      Mark this component as loaded.
+
+      If initialiseNavigation() is accidentally called
+      again, this prevents another injection.
+    */
+
+    target.dataset.loaded = "true";
+
+
+    return (true);
+
+  } catch (error) {
+
+    console.error(
+      "InVaal component error:",
+      error
+    );
+
+
+    return (false);
+
+  }
+
+};
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+/**
+ * Initialises the mobile navigation.
+ *
+ * @returns {void}
+ */
+const initialiseMobileNavigation = () => {
+
+  const toggle =
+    document.querySelector(
+      "#mobile-menu-toggle"
+    );
+
+
+  const menu =
+    document.querySelector(
+      "#mobile-navigation"
+    );
+
+
+  if (!toggle || !menu) {
+    return;
+  }
+
+
+  /*
+    Prevent duplicate event listeners.
+
+    This is important if the navigation script is
+    accidentally triggered more than once.
+  */
+
+  if (
+    toggle.dataset.initialised === "true"
+  ) {
+    return;
+  }
+
+
+  toggle.dataset.initialised =
+    "true";
+
+
+  toggle.addEventListener(
+    "click",
+    () => {
+
+      const isOpen =
+        toggle.getAttribute(
+          "aria-expanded"
+        ) === "true";
+
+
+      const nextState =
+        !isOpen;
+
+
+      toggle.setAttribute(
+        "aria-expanded",
+        String(nextState)
+      );
+
+
+      toggle.setAttribute(
+        "aria-label",
+        nextState
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+
+
+      menu.hidden =
+        !nextState;
+
     }
-  })();
-});
+  );
+
+
+  /*
+    Close the mobile navigation when the visitor
+    selects a page.
+  */
+
+  menu
+    .querySelectorAll("a")
+    .forEach((link) => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          toggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+
+          toggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+          );
+
+
+          menu.hidden =
+            true;
+
+        }
+      );
+
+    });
+
+};
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+/**
+ * Updates the footer copyright year.
+ *
+ * @returns {void}
+ */
+const initialiseCurrentYear = () => {
+
+  const year =
+    document.querySelector(
+      "#current-year"
+    );
+
+
+  if (!year) {
+    return;
+  }
+
+
+  year.textContent =
+    new Date().getFullYear();
+
+};
+
+
+/* =========================================================
+   NAVIGATION INITIALISATION
+========================================================= */
+
+let navigationInitialised = false;
+
+
+/**
+ * Starts the global navigation system.
+ *
+ * @returns {Promise<void>}
+ */
+const initialiseNavigation = async () => {
+
+  /*
+    Absolute protection against duplicate execution.
+  */
+
+  if (navigationInitialised) {
+    return;
+  }
+
+
+  navigationInitialised =
+    true;
+
+
+  /*
+    Load header and footer simultaneously.
+
+    Promise.all() prevents us from unnecessarily waiting
+    for the header before requesting the footer.
+  */
+
+  await Promise.all([
+
+    loadComponent(
+      HEADER_SELECTOR,
+      HEADER_PATH
+    ),
+
+    loadComponent(
+      FOOTER_SELECTOR,
+      FOOTER_PATH
+    )
+
+  ]);
+
+
+  /*
+    Components now exist in the DOM.
+  */
+
+  initialiseMobileNavigation();
+
+  initialiseCurrentYear();
+
+};
+
+
+/* =========================================================
+   START
+========================================================= */
+
+/*
+  The script uses defer, so DOMContentLoaded will normally
+  still be available.
+
+  The readyState check also protects us if the script is
+  loaded after the DOM has already finished loading.
+*/
+
+if (
+  document.readyState === "loading"
+) {
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    initialiseNavigation,
+    {
+      once: true
+    }
+  );
+
+} else {
+
+  initialiseNavigation();
+
+}

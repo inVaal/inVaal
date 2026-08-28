@@ -1,55 +1,46 @@
 {
-    "businesses": [
+    "businesses" : [
         {
-            "id": 1,
-            "name": "Go Deeper Podcast_2024",
-            "category": "Media",
-            "description": "Dive into the unseen, unspoken & uncharted. ARE YOU READY TO GO DEEPER?",
-            "contact": {
-                "phone": "+27 65 064 1760",
-                "email": "godeeperpodcast-2024@gmail.com",
-                "website": "https://theekingza.github.io/GoDeeper_Podcast/"
+            "id": "business-001",
+            "name": "THE HOOD MEDIA MAGAZINE",
+            "slug": "demo-local-business",
+            "logo": "/assets/businessesLogos/business-001.jpeg",
+            "category": "media",
+            "subcategory": "magazine",
+            "location": {
+                "town": "Vanderbijlpark",
+                "area": "Bophelong",
+                "address": ""
             },
-            "address": {
-                "street": "near Leeuwsprite",
-                "city": "Sasolburg",
-                "province": "Free State"
+            "description": "Demo listing used while developing the InVaal [016] business directory.",
+            "phone": "0604369841",
+            "whatsapp": "0604369841",
+            "email": "thehoodmediamagazine@gmail.com",
+            "website": "www.theekingza.github.io/thehoodmediamagazine",
+            "social": {
+                "facebook": "",
+                "instagram": "",
+                "tiktok": ""
             },
-            "social_media": {
-                "youtube": "https://youtube.com/@godeeperpodcast-2024",
-                "linkedin": "#",
-                "twitter": "#"
+            "openingHours": {
+                "monday": "",
+                "tuesday": "",
+                "wednesday": "",
+                "thursday": "",
+                "friday": "",
+                "saturday": "Closed",
+                "sunday": "Closed"
             },
-            "logo": "assets/images/business-logos/logo_GD_blk.png"
-        },{
-            "id": 2,
-            "name": "Lehae - Elikhaya",
-            "category": "Food & Beverage",
-            "description": "Discover the story behind this beloved eatery and its impact on the community.",
-            "contact": {
-                "phone": "+27 249 8997",
-                "email": "rm.makhalemele@gmail.com",
-                "website": "#"
+            "services": ["photography", "videography"],
+            "images": [],
+            "googleMaps": "",
+            "verified": false,
+            "featured": false,
+            "advertising": {
+                "active": false,
+                "package": ""
             },
-            "address": {
-                "street": "Zamdela",
-                "city": "Sasolburg",
-                "province": "Free State"
-            },
-            "social_media": {
-                "youtube": null,
-                "facebook": "#",
-                "twitter": "#"
-            },
-            "logo": "assets/images/business-logos/logo_LE.png"
+            "status": "active"
         }
-    ],
-    "categories": [
-        "Media",
-        "Food & Beverage",
-        "Technology",
-        "Retail",
-        "Services",
-        "Manufacturing"
     ]
 }

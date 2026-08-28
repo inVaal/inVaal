@@ -1,0 +1,26 @@
+{
+  "lastUpdated": "2026-08-28",
+  "creatives": [
+    {
+      "id": "creative-001",
+      "name": "Example Vaal Creative",
+      "slug": "example-vaal-creative",
+      "type": "Musician",
+      "location": "Vaal Triangle",
+      "bio": "A local creative contributing to the Vaal creative community.",
+      "profileImage": "",
+      "website": "",
+      "social": {
+        "instagram": "",
+        "facebook": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "portfolio": "",
+      "services": [],
+      "featured": false,
+      "verified": false,
+      "status": "active"
+    }
+  ]
+}
