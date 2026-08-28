@@ -1,266 +1,1161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- =========================================================
-    InVaal [016] — Media House (Index)
-    Goal: Professional News/Media layout using HTML + CSS + JS only
+    InVaal [016] — Community Media Platform
+
+    Homepage purpose:
+    - Introduce the InVaal [016] platform
+    - Help visitors discover local information
+    - Create entry points into news, businesses,
+      opportunities, creatives and events
+    - Provide future commercial opportunities
+      through advertising and partnerships
+
+    Technology direction:
+    - HTML5
+    - CSS3
+    - Vanilla JavaScript
+    - JSON data
+    - GitHub Pages compatible
   ========================================================== -->
 
-  <!-- =========================
-    Base Meta
-  ========================== -->
+
+  <!-- =========================================================
+    BASE META
+  ========================================================== -->
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="InVaal [016] — local news, community updates, business promotions, and opportunities in the Vaal Triangle." />
-  <meta name="keywords" content="Vaal Triangle news, InVaal 016, local news, community updates, adverts, jobs, gigs" />
-  <meta name="author" content="InVaal [016]" />
 
-  <title>InVaal [016] - Media House</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-  <!-- =========================
-    Open Graph (Social sharing)
-  ========================== -->
-  <meta property="og:title" content="InVaal [016] — Media House" />
-  <meta property="og:description" content="Local news, community updates, business promotions, and opportunities in the Vaal Triangle." />
-  <meta property="og:image" content="./assets/logos/inVaalTriangle_logo.png" />
-  <meta property="og:type" content="website" />
+  <meta
+    name="description"
+    content="InVaal [016] connects the Vaal Triangle with local news, businesses, opportunities, creatives, events and community information."
+  />
 
-  <!-- =========================
-    Favicon
-  ========================== -->
-  <link rel="icon" href="./assets/logos/inVaalTriangle_logo.png" type="image/x-icon" />
+  <meta
+    name="keywords"
+    content="Vaal Triangle, InVaal 016, Vaal news, Vereeniging, Vanderbijlpark, Sasolburg, local businesses, jobs, events, artists"
+  />
 
-  <!-- =========================
-    CSS (kept as your current structure)
-    Note: We’ll refine these styles next to match a modern news layout.
-  ========================== -->
-  <link rel="stylesheet" href="./css/root.css" />
-  <link rel="stylesheet" href="./css/typography.css" />
-  <link rel="stylesheet" href="./css/places/places.css">
-  <link rel="stylesheet" href="./css/business.css" />
-  <link rel="stylesheet" href="./css/slideShow.css">
-  <link rel="stylesheet" href="./css/mobile_nav.css" />
-  <link rel="stylesheet" href="./css/responsive.css" />
+  <meta
+    name="author"
+    content="InVaal [016]"
+  />
 
-  <!-- =========================
-    JS (defer = runs after HTML is parsed)
-  ========================== -->
-  <script src="js/navigation.js" defer></script>
-  <script src="js/loaders/news-loader.js" defer></script>
-  <script src="js/slideshow.js" defer></script>
+
+  <!-- =========================================================
+    TITLE
+  ========================================================== -->
+
+  <title>InVaal [016] — Vaal Community Media & Local Discovery</title>
+
+
+  <!-- =========================================================
+    OPEN GRAPH
+  ========================================================== -->
+
+  <meta
+    property="og:title"
+    content="InVaal [016] — Vaal Community Media"
+  />
+
+  <meta
+    property="og:description"
+    content="Discover local news, businesses, opportunities, creatives and events across the Vaal Triangle."
+  />
+
+  <meta
+    property="og:image"
+    content="./assets/logos/inVaalTriangle_logo.png"
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+
+  <!-- =========================================================
+    FAVICON
+  ========================================================== -->
+
+  <link
+    rel="icon"
+    href="./assets/logos/inVaalTriangle_logo.png"
+    type="image/png"
+  />
+
+
+  <!-- =========================================================
+    CSS SYSTEM
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./css/root.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="./css/typography.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="./css/layout.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="./css/components.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="./css/navigation.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="./css/responsive.css"
+  />
+
 </head>
 
+
 <body>
-  <!-- =========================================================
-    Skip Link (Accessibility)
-  ========================================================== -->
-  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- =========================================================
-    Header (Loaded as a component via navigation.js)
-    - Keep header markup in components/header.html
-    - This container is the mount point
+    ACCESSIBILITY
   ========================================================== -->
-  <header id="site-header" class="site-header" role="banner">
-    <!-- Injected by JS: components/header.html -->
+
+  <a
+    class="skip-link"
+    href="#main"
+  >
+    Skip to content
+  </a>
+
+
+  <!-- =========================================================
+    HEADER
+    ---------------------------------------------------------
+    navigation.js injects components/header.html here.
+  ========================================================== -->
+
+  <header
+    id="site-header"
+    class="site-header"
+    role="banner"
+  >
+    <!-- Header component injected by JavaScript -->
   </header>
 
+
   <!-- =========================================================
-    Main Content
+    MAIN CONTENT
   ========================================================== -->
-  <main id="main" class="site-main">
+
+  <main
+    id="main"
+    class="site-main"
+  >
+
 
     <!-- =======================================================
-      Hero / Intro (Editorial positioning)
+      HERO
+      ---------------------------------------------------------
+      Primary homepage message.
+
+      InVaal is positioned as a local discovery platform,
+      not simply as a traditional news website.
     ======================================================== -->
-    <section class="hero" aria-label="InVaal introduction">
+
+    <section
+      class="hero"
+      aria-labelledby="hero-title"
+    >
+
       <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="kicker">InVaal [016] • News & Media</p>
-          <h1 class="hero-title">Your local newsroom for the Vaal Triangle.</h1>
-          <p class="hero-subtitle">
-            Community-first reporting, local opportunities, and verified updates —
-            built to keep you informed and connected.
+
+
+        <!-- HERO CONTENT -->
+
+        <div class="hero-content">
+
+          <span class="eyebrow">
+            Vaal Triangle • Community • Culture • Opportunity
+          </span>
+
+
+          <h1
+            id="hero-title"
+            class="hero-title"
+          >
+            Everything happening in the Vaal. In one place.
+          </h1>
+
+
+          <p class="hero-description">
+            InVaal [016] connects people with local stories,
+            businesses, opportunities, creatives and events
+            across the Vaal Triangle.
           </p>
 
-          <!-- Optional: quick action links (wire these to real pages later) -->
-          <div class="hero-actions" role="list">
-            <a class="btn btn-primary" href="#top-stories" role="listitem">Read Top Stories</a>
-            <a class="btn btn-ghost" href="#community" role="listitem">Community Updates</a>
+
+          <!-- HERO ACTIONS -->
+
+          <div class="hero-actions">
+
+            <a
+              class="button button-primary"
+              href="#discover"
+            >
+              Explore InVaal
+            </a>
+
+
+            <a
+              class="button button-secondary"
+              href="#latest-news"
+            >
+              Latest News
+            </a>
+
           </div>
+
         </div>
 
-        <!-- A small “breaking” / quick info panel -->
-        <aside class="hero-panel" aria-label="Quick updates">
-          <h2 class="panel-title">Quick Updates</h2>
-          <ul class="panel-list">
-            <li>Latest posts update automatically.</li>
-            <li>Local ads and partner promos below.</li>
-            <li>Submit a story tip via Contact.</li>
-          </ul>
+
+        <!-- ===================================================
+          HERO DISCOVERY PANEL
+        ==================================================== -->
+
+        <aside
+          class="hero-discovery"
+          aria-labelledby="discovery-title"
+        >
+
+          <span class="eyebrow">
+            Discover
+          </span>
+
+
+          <h2
+            id="discovery-title"
+            class="section-title"
+          >
+            What are you looking for?
+          </h2>
+
+
+          <nav
+            class="quick-navigation"
+            aria-label="Quick discovery navigation"
+          >
+
+            <a href="#latest-news">
+              📰
+              <span>Local News</span>
+            </a>
+
+
+            <a href="#businesses">
+              🏪
+              <span>Businesses</span>
+            </a>
+
+
+            <a href="#opportunities">
+              💼
+              <span>Jobs & Opportunities</span>
+            </a>
+
+
+            <a href="#creatives">
+              🎨
+              <span>Local Creatives</span>
+            </a>
+
+
+            <a href="#events">
+              📅
+              <span>Events</span>
+            </a>
+
+
+            <a href="#community">
+              🤝
+              <span>Community</span>
+            </a>
+
+          </nav>
+
         </aside>
+
       </div>
+
     </section>
 
 
-    <!-- =======================================================
-  Top 10 Local Artists (Editorial Feature)
-======================================================== -->
-<section id="top-10-artists" class="section section-feature" aria-label="Top 10 local artists">
-  <div class="container">
-
-    <header class="section-header">
-      <h2 class="section-title">Top 10 Local Artists</h2>
-      <figcaption class="feature-caption">
-        Data compiled from public YouTube subscribers and Spotify monthly listeners.
-      </figcaption>
-    </header>
-
-    <!-- Feature Image -->
-    <figure class="feature-image">
-      <!--
-        Replace the src path if you move the image.
-        Recommended location:
-        ./assets/images/features/Invaal_top10-local-artists.png
-      -->
-      <img
-        src="./assets/images/features/Invaal_top10-local-artists.png"
-        alt="Top 10 local artists ranked by YouTube subscribers and Spotify monthly listeners"
-        loading="lazy"
-      />
-      
-    </figure>
-
-  </div>
-</section>
 
     <!-- =======================================================
-      Top Stories (Dynamic content)
-      - news-loader.js should render cards into #news-container
+      DISCOVER INVAAL
     ======================================================== -->
-    <section id="top-stories" class="section section-news" aria-label="Top stories">
+
+    <section
+      id="discover"
+      class="section"
+      aria-labelledby="discover-title"
+    >
+
       <div class="container">
+
         <header class="section-header">
-          <h2 class="section-title">Top Stories</h2>
-          <p class="section-subtitle">Latest headlines from around the Vaal Triangle.</p>
+
+          <div>
+
+            <span class="eyebrow">
+              Explore
+            </span>
+
+            <h2
+              id="discover-title"
+              class="section-title"
+            >
+              Discover InVaal
+            </h2>
+
+            <p class="section-description">
+              Find the people, places, stories and opportunities
+              that make the Vaal Triangle what it is.
+            </p>
+
+          </div>
+
         </header>
 
-        <!-- Loading / status message (JS can replace this) -->
-        <p id="news-status" class="status-text" aria-live="polite">
-          Loading news...
+
+        <div class="discover-grid">
+
+
+          <!-- NEWS -->
+
+          <article class="discovery-card">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              📰
+            </span>
+
+            <h3>
+              News & Stories
+            </h3>
+
+            <p>
+              Follow local developments, community stories,
+              important updates and stories from around the Vaal.
+            </p>
+
+            <a
+              class="section-link"
+              href="#latest-news"
+            >
+              Read local stories →
+            </a>
+
+          </article>
+
+
+          <!-- BUSINESSES -->
+
+          <article class="discovery-card">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              🏪
+            </span>
+
+            <h3>
+              Local Businesses
+            </h3>
+
+            <p>
+              Discover restaurants, salons, shops, services,
+              gyms and other businesses operating in the Vaal.
+            </p>
+
+            <a
+              class="section-link"
+              href="#businesses"
+            >
+              Explore businesses →
+            </a>
+
+          </article>
+
+
+          <!-- OPPORTUNITIES -->
+
+          <article class="discovery-card">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              💼
+            </span>
+
+            <h3>
+              Jobs & Opportunities
+            </h3>
+
+            <p>
+              Find jobs, gigs, internships, calls for work,
+              community opportunities and local opportunities.
+            </p>
+
+            <a
+              class="section-link"
+              href="#opportunities"
+            >
+              Find opportunities →
+            </a>
+
+          </article>
+
+
+          <!-- CREATIVES -->
+
+          <article class="discovery-card">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              🎨
+            </span>
+
+            <h3>
+              Local Creatives
+            </h3>
+
+            <p>
+              Discover musicians, producers, photographers,
+              designers, artists and other creative talent.
+            </p>
+
+            <a
+              class="section-link"
+              href="#creatives"
+            >
+              Discover creatives →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+      LATEST NEWS
+      ---------------------------------------------------------
+      Dynamic content will eventually come from:
+
+      ./data/news.json
+    ======================================================== -->
+
+    <section
+      id="latest-news"
+      class="section"
+      aria-labelledby="news-title"
+    >
+
+      <div class="container">
+
+        <header class="section-header">
+
+          <div>
+
+            <span class="eyebrow">
+              Stay informed
+            </span>
+
+            <h2
+              id="news-title"
+              class="section-title"
+            >
+              Latest from the Vaal
+            </h2>
+
+            <p class="section-description">
+              Local stories and updates worth knowing about.
+            </p>
+
+          </div>
+
+
+          <a
+            class="section-link"
+            href="./pages/news.html"
+          >
+            View all news →
+          </a>
+
+        </header>
+
+
+        <!-- Loading/status message -->
+
+        <p
+          id="news-status"
+          class="status-message"
+          aria-live="polite"
+        >
+          Loading latest stories...
         </p>
 
-        <!-- Dynamic news cards mount point -->
-        <div id="news-container" class="news-grid">
-          <!-- Injected by JS -->
+
+        <!-- Dynamic news cards -->
+
+        <div
+          id="news-container"
+          class="content-grid news-grid"
+        >
+          <!-- News cards injected by news-loader.js -->
         </div>
+
       </div>
+
     </section>
 
-    <!-- =======================================================
-      Community / About (Editorial cards)
-    ======================================================== -->
-    <section id="community" class="section section-about" aria-label="About InVaal">
-      <div class="container">
-        <header class="section-header">
-          <h2 class="section-title">About InVaal</h2>
-          <p class="section-subtitle">News, opportunities, and business visibility — in one place.</p>
-        </header>
 
-        <div class="grid info-cards" role="list">
-          <article class="card info-card" role="listitem">
-            <h3 class="card-title">Your Local Guide</h3>
-            <p class="card-text">
-              Stay informed about events, safety updates, local wins, and community stories.
-              We publish content designed for the people of the Vaal Triangle.
-            </p>
-          </article>
-
-          <article class="card info-card" role="listitem">
-            <h3 class="card-title">Advertise Your Business</h3>
-            <p class="card-text">
-              Promote your services to the local audience. Flexible placements are available
-              for small businesses, events, and campaigns.
-            </p>
-          </article>
-
-          <article class="card info-card" role="listitem">
-            <h3 class="card-title">Find Your Next Gig</h3>
-            <p class="card-text">
-              Discover jobs, short-term work, and project opportunities — categorized to help
-              you find the right match quickly.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <!-- =======================================================
-      Partners / Sponsored Carousel (Your slideshow, cleaned up)
-      - slideshow.js controls .prev-slide / .next-slide and indicators
+      LOCAL BUSINESSES
+      ---------------------------------------------------------
+      Future source:
+
+      ./data/businesses.json
     ======================================================== -->
-    <section class="section section-sponsors" aria-label="Partners and promotions">
+
+    <section
+      id="businesses"
+      class="section"
+      aria-labelledby="businesses-title"
+    >
+
       <div class="container">
+
         <header class="section-header">
-          <h2 class="section-title">Partners</h2>
-          <p class="section-subtitle">Tools and brands supporting the community.</p>
-        </header>
 
-        <div id="slideshow" class="slideshow-container" aria-label="Promotions carousel">
-          <div class="slides-wrapper">
+          <div>
 
-            <!-- Slide 1: Opera -->
-            <article class="slide">
-              <a class="slide-link" href="https://opera.com" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/images/opera/miniPay/Opera.png" alt="Opera Browser" />
-                <div class="caption">Opera</div>
-              </a>
-            </article>
+            <span class="eyebrow">
+              Shop local
+            </span>
 
-            <!-- Slide 2: MiniPay -->
-            <article class="slide">
-              <a class="slide-link" href="https://www.minipay.to" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/images/opera/miniPay/Logo/MiniPay Logos/PNG/MiniPay_Primary Color.png" alt="MiniPay" />
-                <div class="caption">MiniPay</div>
-              </a>
-            </article>
+            <h2
+              id="businesses-title"
+              class="section-title"
+            >
+              Businesses around you
+            </h2>
 
-            <!-- Slide 3: Celo Network + CTA -->
-            <article class="slide">
-              <a class="slide-link" href="https://link.minipay.xyz/invite?ref=LQKjVwqe" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/images/opera/miniPay/celo.png" alt="Celo Network" />
-                <div class="caption">Celo Network</div>
-              </a>
-
-              <div class="promo-box" aria-label="MiniPay promotion">
-                <a href="https://link.minipay.xyz/invite?ref=LQKjVwqe" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                  Install MiniPay
-                </a>
-                <p class="promo-text">Start earning money online.</p>
-              </div>
-            </article>
+            <p class="section-description">
+              Find local businesses, services and places
+              operating across the Vaal Triangle.
+            </p>
 
           </div>
 
-          <!-- Carousel controls -->
-          <div class="slideshow-controls" aria-label="Carousel controls">
-            <button class="prev-slide" type="button" aria-label="Previous slide">&#10094;</button>
-            <button class="next-slide" type="button" aria-label="Next slide">&#10095;</button>
+
+          <a
+            class="section-link"
+            href="./pages/businesses.html"
+          >
+            View business directory →
+          </a>
+
+        </header>
+
+
+        <!-- Business categories -->
+
+        <div
+          class="category-grid"
+          aria-label="Business categories"
+        >
+
+          <a
+            class="category-card"
+            href="./pages/businesses.html?category=food"
+          >
+            <span aria-hidden="true">🍔</span>
+            <span>Food & Dining</span>
+          </a>
+
+
+          <a
+            class="category-card"
+            href="./pages/businesses.html?category=beauty"
+          >
+            <span aria-hidden="true">💇</span>
+            <span>Beauty</span>
+          </a>
+
+
+          <a
+            class="category-card"
+            href="./pages/businesses.html?category=retail"
+          >
+            <span aria-hidden="true">🛍️</span>
+            <span>Retail</span>
+          </a>
+
+
+          <a
+            class="category-card"
+            href="./pages/businesses.html?category=services"
+          >
+            <span aria-hidden="true">🔧</span>
+            <span>Services</span>
+          </a>
+
+
+          <a
+            class="category-card"
+            href="./pages/businesses.html?category=fitness"
+          >
+            <span aria-hidden="true">🏋️</span>
+            <span>Fitness</span>
+          </a>
+
+
+          <a
+            class="category-card"
+            href="./pages/businesses.html?category=accommodation"
+          >
+            <span aria-hidden="true">🏨</span>
+            <span>Accommodation</span>
+          </a>
+
+        </div>
+
+
+        <!-- Dynamic business cards -->
+
+        <div
+          id="business-container"
+          class="content-grid business-grid"
+        >
+          <!-- Business cards injected by JavaScript -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+      OPPORTUNITIES
+    ======================================================== -->
+
+    <section
+      id="opportunities"
+      class="section"
+      aria-labelledby="opportunities-title"
+    >
+
+      <div class="container">
+
+        <header class="section-header">
+
+          <div>
+
+            <span class="eyebrow">
+              Opportunities
+            </span>
+
+            <h2
+              id="opportunities-title"
+              class="section-title"
+            >
+              Find your next opportunity
+            </h2>
+
+            <p class="section-description">
+              Jobs, gigs, internships, projects and opportunities
+              available to people in and around the Vaal.
+            </p>
+
           </div>
 
-          <!-- Indicators (JS can populate dots here) -->
-          <div class="slide-indicators" aria-label="Slide indicators"></div>
+
+          <a
+            class="section-link"
+            href="./pages/opportunities.html"
+          >
+            View all opportunities →
+          </a>
+
+        </header>
+
+
+        <div
+          id="opportunity-container"
+          class="content-grid opportunity-grid"
+        >
+          <!-- Opportunities injected by JavaScript -->
         </div>
+
       </div>
+
     </section>
+
+
+
+    <!-- =======================================================
+      LOCAL CREATIVES
+    ======================================================== -->
+
+    <section
+      id="creatives"
+      class="section"
+      aria-labelledby="creatives-title"
+    >
+
+      <div class="container">
+
+        <header class="section-header">
+
+          <div>
+
+            <span class="eyebrow">
+              Creative Vaal
+            </span>
+
+            <h2
+              id="creatives-title"
+              class="section-title"
+            >
+              Meet local creatives
+            </h2>
+
+            <p class="section-description">
+              Artists, musicians, producers, photographers,
+              designers and creative businesses from the Vaal.
+            </p>
+
+          </div>
+
+
+          <a
+            class="section-link"
+            href="./pages/creatives.html"
+          >
+            Explore creatives →
+          </a>
+
+        </header>
+
+
+        <div
+          id="creative-container"
+          class="content-grid creatives-grid"
+        >
+          <!-- Creative profiles injected by JavaScript -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+      EVENTS
+    ======================================================== -->
+
+    <section
+      id="events"
+      class="section"
+      aria-labelledby="events-title"
+    >
+
+      <div class="container">
+
+        <header class="section-header">
+
+          <div>
+
+            <span class="eyebrow">
+              What's happening
+            </span>
+
+            <h2
+              id="events-title"
+              class="section-title"
+            >
+              Upcoming events
+            </h2>
+
+            <p class="section-description">
+              Discover events, launches, markets, performances,
+              community gatherings and more.
+            </p>
+
+          </div>
+
+
+          <a
+            class="section-link"
+            href="./pages/events.html"
+          >
+            View all events →
+          </a>
+
+        </header>
+
+
+        <div
+          id="event-container"
+          class="content-grid events-grid"
+        >
+          <!-- Event cards injected by JavaScript -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+      COMMUNITY
+    ======================================================== -->
+
+    <section
+      id="community"
+      class="section"
+      aria-labelledby="community-title"
+    >
+
+      <div class="container">
+
+        <header class="section-header">
+
+          <div>
+
+            <span class="eyebrow">
+              Built for the Vaal
+            </span>
+
+            <h2
+              id="community-title"
+              class="section-title"
+            >
+              A platform for the community
+            </h2>
+
+            <p class="section-description">
+              InVaal [016] is being built to make local
+              information easier to discover and local
+              people easier to connect.
+            </p>
+
+          </div>
+
+        </header>
+
+
+        <div class="community-grid">
+
+
+          <!-- COMMUNITY STORIES -->
+
+          <article class="community-card">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              🗞️
+            </span>
+
+            <h3>
+              Tell local stories
+            </h3>
+
+            <p>
+              Highlight people, places, developments and
+              stories that matter to the community.
+            </p>
+
+            <a
+              href="./pages/contact.html"
+              class="section-link"
+            >
+              Send a story tip →
+            </a>
+
+          </article>
+
+
+          <!-- LOCAL BUSINESS -->
+
+          <article class="community-card">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              📍
+            </span>
+
+            <h3>
+              Support local business
+            </h3>
+
+            <p>
+              Help residents discover businesses and give
+              local entrepreneurs a place to be found.
+            </p>
+
+            <a
+              href="./pages/businesses.html"
+              class="section-link"
+            >
+              Explore businesses →
+            </a>
+
+          </article>
+
+
+          <!-- LOCAL TALENT -->
+
+          <article class="community-card">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              🎤
+            </span>
+
+            <h3>
+              Showcase local talent
+            </h3>
+
+            <p>
+              Give Vaal creatives more visibility and help
+              audiences discover local talent.
+            </p>
+
+            <a
+              href="./pages/creatives.html"
+              class="section-link"
+            >
+              Discover talent →
+            </a>
+
+          </article>
+
+
+          <!-- COMMUNITY PARTICIPATION -->
+
+          <article class="community-card">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              🤝
+            </span>
+
+            <h3>
+              Get involved
+            </h3>
+
+            <p>
+              Businesses, organisations, creatives and
+              community members can contribute to InVaal.
+            </p>
+
+            <a
+              href="./pages/contact.html"
+              class="section-link"
+            >
+              Get in touch →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+      ADVERTISING / PARTNERSHIP CTA
+      ---------------------------------------------------------
+      Commercial layer kept separate from editorial content.
+    ======================================================== -->
+
+    <section
+      class="section section-promotion"
+      aria-labelledby="promotion-title"
+    >
+
+      <div class="container">
+
+        <div class="promotion-panel">
+
+          <span class="eyebrow">
+            For local businesses
+          </span>
+
+
+          <h2
+            id="promotion-title"
+            class="section-title"
+          >
+            Want your business to be seen by the Vaal?
+          </h2>
+
+
+          <p class="section-description">
+            InVaal can help local businesses build visibility
+            through listings, digital content, promotions and
+            community-focused campaigns.
+          </p>
+
+
+          <a
+            class="button button-primary"
+            href="./pages/advertise.html"
+          >
+            Advertise with InVaal
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+      FINAL CTA
+    ======================================================== -->
+
+    <section
+      class="section section-final-cta"
+      aria-labelledby="final-cta-title"
+    >
+
+      <div class="container">
+
+        <div class="final-cta">
+
+          <span class="eyebrow">
+            InVaal [016]
+          </span>
+
+
+          <h2
+            id="final-cta-title"
+            class="section-title"
+          >
+            Know what's happening. Support what's local.
+          </h2>
+
+
+          <p class="section-description">
+            Follow InVaal [016] as we build a stronger digital
+            connection between the people, businesses, creatives
+            and communities of the Vaal Triangle.
+          </p>
+
+
+          <a
+            class="button button-primary"
+            href="./pages/contact.html"
+          >
+            Connect with InVaal
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
 
   </main>
 
+
+
   <!-- =========================================================
-    Footer (Loaded as a component via navigation.js or a footer loader)
+    FOOTER
+    ---------------------------------------------------------
+    navigation.js injects components/footer.html here.
   ========================================================== -->
-  <footer id="site-footer" class="site-footer" role="contentinfo">
-    <!-- Injected by JS: components/footer.html -->
+
+  <footer
+    id="site-footer"
+    class="site-footer"
+    role="contentinfo"
+  >
+    <!-- Footer component injected by JavaScript -->
   </footer>
+
+
+
+  <!-- =========================================================
+    JAVASCRIPT
+    ---------------------------------------------------------
+    Global navigation is loaded first.
+
+    Content loaders will be added as we complete and test
+    each individual data system.
+  ========================================================== -->
+
+  <script
+    src="./js/navigation.js"
+    defer
+  ></script>
+  <script
+  src="./js/loaders/news-loader.js"
+  defer
+></script>
+
+  <script
+  src="./js/loaders/business-loader.js"
+  defer
+></script>
+
 </body>
+
 </html>
+```

@@ -1,61 +1,332 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-# Color codes
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+# =========================================================
+# InVaal [016] — GitHub Pages Deployment Script
+#
+# File:
+# ./deploy_.sh
+#
+# Responsibilities:
+# - Check Git configuration
+# - Commit changes to master
+# - Push master to GitHub
+# - Create/update gh-pages
+# - Deploy the current project to GitHub Pages
+# - Return to master after deployment
+#
+# IMPORTANT:
+# The script stops immediately if a command fails.
+# =========================================================
 
-# Git deployment script for inVaal [016] Media House
-deploy_to_github() {
-    # Ensure the user is on the master branch before deploying
-    current_branch=$(git rev-parse --abbrev-ref HEAD)
-    
-    if [ "$current_branch" != "master" ]; then
-        echo -e "${YELLOW}Switching to master branch...${NC}"
-        git checkout master 2>/dev/null || git checkout -b master
-    fi
 
-    # Add all changes
+# =========================================================
+# SAFETY
+# =========================================================
+
+# Stop the script when any command fails.
+# This prevents false "deployment successful" messages.
+set -e
+
+
+# =========================================================
+# CONFIGURATION
+# =========================================================
+
+MASTER_BRANCH="master"
+PAGES_BRANCH="gh-pages"
+
+
+# =========================================================
+# GIT IDENTITY CHECK
+# =========================================================
+
+echo ""
+echo "========================================================="
+echo " InVaal [016] — Deployment"
+echo "========================================================="
+echo ""
+
+echo "Checking Git identity..."
+
+
+GIT_NAME="$(git config user.name || true)"
+GIT_EMAIL="$(git config user.email || true)"
+
+
+if [ -z "$GIT_NAME" ] || [ -z "$GIT_EMAIL" ]; then
+
+    echo ""
+    echo "ERROR: Git identity is not configured."
+    echo ""
+    echo "Run:"
+    echo ""
+    echo 'git config --global user.name "Your Name"'
+    echo 'git config --global user.email "you@example.com"'
+    echo ""
+
+    exit 1
+
+fi
+
+
+echo "Git user: $GIT_NAME"
+echo "Git email: $GIT_EMAIL"
+echo ""
+
+
+# =========================================================
+# CURRENT BRANCH
+# =========================================================
+
+CURRENT_BRANCH="$(git branch --show-current)"
+
+
+echo "Current branch: $CURRENT_BRANCH"
+echo ""
+
+
+# =========================================================
+# MAKE SURE WE ARE ON MASTER
+# =========================================================
+
+if [ "$CURRENT_BRANCH" != "$MASTER_BRANCH" ]; then
+
+    echo "Switching to $MASTER_BRANCH..."
+
+    git switch "$MASTER_BRANCH"
+
+fi
+
+
+# =========================================================
+# CHECK REMOTE
+# =========================================================
+
+echo "Checking GitHub remote..."
+
+
+if ! git remote get-url origin > /dev/null 2>&1; then
+
+    echo ""
+    echo "ERROR: GitHub remote 'origin' is not configured."
+    echo ""
+    echo "Check with:"
+    echo ""
+    echo "git remote -v"
+    echo ""
+
+    exit 1
+
+fi
+
+
+echo "GitHub remote found."
+echo ""
+
+
+# =========================================================
+# CHECK WORKING TREE
+# =========================================================
+
+echo "Checking project changes..."
+echo ""
+
+git status --short
+
+echo ""
+
+
+# =========================================================
+# COMMIT MESSAGE
+# =========================================================
+
+read -r -p "Enter commit message: " COMMIT_MESSAGE
+
+
+if [ -z "$COMMIT_MESSAGE" ]; then
+
+    echo ""
+    echo "ERROR: Commit message cannot be empty."
+    exit 1
+
+fi
+
+
+# =========================================================
+# STAGE CHANGES
+# =========================================================
+
+echo ""
+echo "Staging project changes..."
+
+git add .
+
+
+# =========================================================
+# CHECK WHETHER THERE IS ANYTHING TO COMMIT
+# =========================================================
+
+if git diff --cached --quiet; then
+
+    echo ""
+    echo "No new changes to commit."
+
+else
+
+    echo ""
+    echo "Creating commit..."
+
+    git commit -m "$COMMIT_MESSAGE"
+
+fi
+
+
+# =========================================================
+# PUSH MASTER
+# =========================================================
+
+echo ""
+echo "Pushing $MASTER_BRANCH to GitHub..."
+
+git push origin "$MASTER_BRANCH"
+
+echo ""
+echo "$MASTER_BRANCH pushed successfully."
+
+
+# =========================================================
+# SAVE MASTER COMMIT
+# =========================================================
+
+MASTER_COMMIT="$(git rev-parse "$MASTER_BRANCH")"
+
+
+echo ""
+echo "Master commit:"
+echo "$MASTER_COMMIT"
+
+
+# =========================================================
+# CHECK FOR GH-PAGES
+# =========================================================
+
+echo ""
+echo "Checking $PAGES_BRANCH branch..."
+
+
+if git show-ref --verify --quiet "refs/heads/$PAGES_BRANCH"; then
+
+    echo "$PAGES_BRANCH branch exists."
+
+else
+
+    echo "$PAGES_BRANCH branch does not exist."
+    echo "Creating $PAGES_BRANCH..."
+
+    git switch --orphan "$PAGES_BRANCH"
+
+    # Remove tracked project files from the new orphan branch.
+    git rm -rf . > /dev/null 2>&1 || true
+
+    git commit --allow-empty -m "Initialize GitHub Pages"
+
+fi
+
+
+# =========================================================
+# SWITCH TO GH-PAGES
+# =========================================================
+
+git switch "$PAGES_BRANCH"
+
+
+# =========================================================
+# SYNC DEPLOYMENT FILES
+# =========================================================
+
+echo ""
+echo "Preparing GitHub Pages deployment..."
+
+# Return to the master version of the project.
+git checkout "$MASTER_BRANCH" -- .
+
+
+# =========================================================
+# REMOVE FILES THAT SHOULD NOT BE DEPLOYED
+# =========================================================
+
+# The deployment branch contains the website itself.
+#
+# Keep this section empty unless we later decide that
+# specific development-only files should be excluded.
+
+
+# =========================================================
+# CHECK DEPLOYMENT CHANGES
+# =========================================================
+
+echo ""
+echo "Checking deployment changes..."
+echo ""
+
+git status --short
+
+
+# =========================================================
+# COMMIT DEPLOYMENT
+# =========================================================
+
+if git diff --quiet && git diff --cached --quiet; then
+
+    echo ""
+    echo "No deployment changes detected."
+
+else
+
     git add .
 
-    # Prompt for commit message
-    read -p "Enter commit message: " commit_message
+    git commit -m "Deploy: $COMMIT_MESSAGE"
 
-    # Commit changes
-    git commit -m "$commit_message"
+fi
 
-    # Push to master branch
-    git push origin master
-    if [ $? -ne 0 ]; then
-        echo -e "${RED}Failed to push to master. Check your Git configuration.${NC}"
-        exit 1
-    fi
 
-    echo -e "${GREEN}master branch updated successfully.${NC}"
+# =========================================================
+# PUSH GH-PAGES
+# =========================================================
 
-    # Check if gh-pages branch exists
-    if git show-ref --quiet refs/heads/gh-pages; then
-        echo -e "${GREEN}gh-pages branch exists. Updating...${NC}"
-        git checkout gh-pages
-        git merge master --no-edit
-    else
-        echo -e "${YELLOW}gh-pages branch does not exist. Creating it...${NC}"
-        git checkout -b gh-pages
-        git merge master --no-edit
-    fi
+echo ""
+echo "Pushing $PAGES_BRANCH to GitHub..."
 
-    # Push to gh-pages branch
-    git push origin gh-pages
-    if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Deployment to gh-pages successful!${NC}"
-    else
-        echo -e "${RED}Failed to deploy to gh-pages.${NC}"
-    fi
+git push -u origin "$PAGES_BRANCH"
 
-    # Switch back to master branch
-    git checkout master
-}
+echo ""
+echo "GitHub Pages branch updated successfully."
 
-# Run deployment function
-deploy_to_github
+
+# =========================================================
+# RETURN TO MASTER
+# =========================================================
+
+echo ""
+echo "Returning to $MASTER_BRANCH..."
+
+git switch "$MASTER_BRANCH"
+
+
+# =========================================================
+# FINAL STATUS
+# =========================================================
+
+echo ""
+echo "========================================================="
+echo " Deployment successful!"
+echo "========================================================="
+echo ""
+echo "Master branch:"
+echo "  $MASTER_BRANCH"
+echo ""
+echo "Pages branch:"
+echo "  $PAGES_BRANCH"
+echo ""
+echo "Website deployment is complete."
+echo ""

@@ -1,662 +1,652 @@
-/* ============================================================
-  InVaal [016] — Root Styles (Shared)
-  File: css/root.css
+/* =========================================================
+   InVaal [016] — V2
+   Root Design System
 
-  Purpose:
-  - Global reset + design tokens
-  - Layout utilities (container, sections, grids)
-  - Shared components (buttons, cards, hero, news grid)
-  - Header/footer base styling (works with component loader)
-============================================================ */
+   Purpose:
+   This file contains the global design tokens and
+   foundational styles used throughout the platform.
 
-/* =========================
-  1) Font Imports
-  (Prefer importing fonts here so all pages get them)
-========================= */
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Tiny5&display=swap");
+   Do NOT put page-specific layouts in this file.
 
-/* =========================
-  2) Reset (Safe, minimal)
-========================= */
+   Other CSS files will build on these variables.
+
+   Structure:
+   01. Design Tokens
+   02. Colours
+   03. Typography
+   04. Spacing
+   05. Layout
+   06. Borders & Radius
+   07. Shadows
+   08. Motion
+   09. Accessibility
+   10. Base Reset
+   11. Global Elements
+   12. Utility Classes
+========================================================= */
+
+
+/* =========================================================
+   01. DESIGN TOKENS
+   ---------------------------------------------------------
+   CSS custom properties allow us to control the entire
+   visual identity from one place.
+
+   Example:
+
+   var(--color-brand)
+
+   can be reused throughout every CSS file.
+========================================================= */
+
+:root {
+
+  /* -------------------------------------------------------
+     Brand
+  ------------------------------------------------------- */
+
+  --color-brand: #111111;
+  --color-brand-light: #222222;
+  --color-brand-dark: #000000;
+
+
+  /* -------------------------------------------------------
+     Accent
+     We can refine the final InVaal accent colour later.
+  ------------------------------------------------------- */
+
+  --color-accent: #d4a017;
+  --color-accent-light: #e8bd45;
+  --color-accent-dark: #a87900;
+
+
+  /* -------------------------------------------------------
+     Neutral Colours
+  ------------------------------------------------------- */
+
+  --color-white: #ffffff;
+
+  --color-black: #000000;
+
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+
+
+  /* -------------------------------------------------------
+     Semantic Colours
+
+     These are intentionally separate from the brand colours
+     because they communicate system states.
+  ------------------------------------------------------- */
+
+  --color-success: #16803c;
+  --color-warning: #b77900;
+  --color-error: #b42318;
+  --color-info: #175cd3;
+
+
+  /* -------------------------------------------------------
+     Backgrounds
+  ------------------------------------------------------- */
+
+  --color-background: var(--color-white);
+
+  --color-background-soft: var(--color-gray-50);
+
+  --color-background-muted: var(--color-gray-100);
+
+  --color-background-dark: var(--color-gray-900);
+
+
+  /* -------------------------------------------------------
+     Text
+  ------------------------------------------------------- */
+
+  --color-text: var(--color-gray-900);
+
+  --color-text-muted: var(--color-gray-600);
+
+  --color-text-light: var(--color-gray-500);
+
+  --color-text-inverse: var(--color-white);
+
+
+  /* -------------------------------------------------------
+     Borders
+  ------------------------------------------------------- */
+
+  --color-border: var(--color-gray-200);
+
+  --color-border-dark: var(--color-gray-300);
+
+
+  /* -------------------------------------------------------
+     Typography
+  ------------------------------------------------------- */
+
+  --font-family-base:
+    Inter,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --font-family-heading:
+    Inter,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --font-family-mono:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+
+  /* -------------------------------------------------------
+     Font Sizes
+
+     Using clamp() allows headings to scale smoothly
+     between mobile and desktop.
+  ------------------------------------------------------- */
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3.5rem;
+
+  --font-size-hero:
+    clamp(2.5rem, 7vw, 5.5rem);
+
+  --font-size-section:
+    clamp(2rem, 4vw, 3.5rem);
+
+
+  /* -------------------------------------------------------
+     Font Weights
+  ------------------------------------------------------- */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+
+  /* -------------------------------------------------------
+     Line Heights
+  ------------------------------------------------------- */
+
+  --line-height-tight: 1.1;
+  --line-height-heading: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+
+  /* -------------------------------------------------------
+     Spacing Scale
+
+     Keeping spacing consistent makes the entire site
+     feel like one product rather than separate pages.
+  ------------------------------------------------------- */
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+
+  /* -------------------------------------------------------
+     Section Spacing
+  ------------------------------------------------------- */
+
+  --section-padding-y:
+    clamp(4rem, 8vw, 8rem);
+
+
+  /* -------------------------------------------------------
+     Container
+  ------------------------------------------------------- */
+
+  --container-max-width: 1200px;
+
+  --container-padding:
+    clamp(1rem, 4vw, 2rem);
+
+
+  /* -------------------------------------------------------
+     Border Radius
+  ------------------------------------------------------- */
+
+  --radius-sm: 0.375rem;
+
+  --radius-md: 0.625rem;
+
+  --radius-lg: 1rem;
+
+  --radius-xl: 1.5rem;
+
+  --radius-pill: 999px;
+
+
+  /* -------------------------------------------------------
+     Shadows
+  ------------------------------------------------------- */
+
+  --shadow-sm:
+    0 1px 3px rgba(0, 0, 0, 0.08);
+
+  --shadow-md:
+    0 8px 24px rgba(0, 0, 0, 0.10);
+
+  --shadow-lg:
+    0 16px 40px rgba(0, 0, 0, 0.14);
+
+
+  /* -------------------------------------------------------
+     Z-Index
+     Keeping these values centralised prevents random
+     z-index numbers from appearing throughout the project.
+  ------------------------------------------------------- */
+
+  --z-base: 1;
+
+  --z-dropdown: 100;
+
+  --z-sticky: 200;
+
+  --z-overlay: 300;
+
+  --z-modal: 400;
+
+  --z-toast: 500;
+
+
+  /* -------------------------------------------------------
+     Transitions
+  ------------------------------------------------------- */
+
+  --transition-fast:
+    150ms ease;
+
+  --transition-normal:
+    250ms ease;
+
+  --transition-slow:
+    400ms ease;
+
+
+  /* -------------------------------------------------------
+     Focus Ring
+     Used for keyboard accessibility.
+  ------------------------------------------------------- */
+
+  --focus-ring:
+    0 0 0 3px rgba(212, 160, 23, 0.35);
+
+}
+
+
+/* =========================================================
+   02. BOX SIZING
+   ---------------------------------------------------------
+   Makes width calculations predictable.
+
+   Without this, padding and borders can unexpectedly
+   increase the size of elements.
+========================================================= */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+
+/* =========================================================
+   03. BASE RESET
+========================================================= */
+
+html {
+  /* Smooth scrolling for internal navigation links. */
+  scroll-behavior: smooth;
+
+  /* Prevents horizontal overflow from accidental elements. */
+  overflow-x: hidden;
 }
 
-img,
-picture {
-  max-width: 100%;
-  display: block;
+
+body {
+  /* Remove default browser margin. */
+  margin: 0;
+
+  /* Use the global font system. */
+  font-family: var(--font-family-base);
+
+  /* Establish the default text colour. */
+  color: var(--color-text);
+
+  /* Establish the default page background. */
+  background-color: var(--color-background);
+
+  /* Improve text readability. */
+  line-height: var(--line-height-normal);
+
+  /* Prevent long words from causing horizontal overflow. */
+  overflow-x: hidden;
+
+  /* Remove browser-specific text sizing adjustments. */
+  -webkit-text-size-adjust: 100%;
 }
+
+
+/* =========================================================
+   04. MEDIA DEFAULTS
+========================================================= */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  /* Prevent media from overflowing its container. */
+  display: block;
+
+  /* Make responsive images the default. */
+  max-width: 100%;
+}
+
+
+img {
+  /* Keep images from creating unwanted inline spacing. */
+  height: auto;
+}
+
 
 button,
 input,
-select,
-textarea {
+textarea,
+select {
+  /* Form controls inherit the site's typography. */
   font: inherit;
 }
 
-/* =========================
-  3) Design Tokens
-  (Use these variables everywhere for consistency)
-========================= */
-:root {
-  /* Brand colors (keep your identity but make it more editorial) */
-  --brand-700: hsl(282, 98%, 28%);
-  --brand-600: hsl(282, 92%, 45%);
-  --accent-600: rgb(4, 174, 217);
 
-  /* Neutrals */
-  --black: #0b0c10;
-  --white: #ffffff;
-  --bg: #f6f7fb;
-  --surface: #ffffff;
-  --surface-2: #fbfbfe;
+/* =========================================================
+   05. LINKS
+========================================================= */
 
-  --text: #111827;
-  --muted: #6b7280;
+a {
+  /* Links inherit the surrounding text colour by default. */
+  color: inherit;
 
-  /* Borders + shadows */
-  --border: rgba(17, 24, 39, 0.12);
-  --shadow-sm: 0 6px 18px rgba(17, 24, 39, 0.08);
-  --shadow-md: 0 16px 40px rgba(17, 24, 39, 0.12);
-
-  /* Layout */
-  --container: 1120px;
-  --gutter: 20px;
-  --radius: 16px;
-
-  /* Typography */
-  --font-body: "EB Garamond", serif;
-  --font-logo: "Tiny5", cursive;
-
-  /* Motion */
-  --ease: cubic-bezier(.2, .8, .2, 1);
-  --t-fast: 160ms;
-  --t-med: 240ms;
-}
-
-/* =========================
-  4) Base Page
-========================= */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.65;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Accessible focus ring */
-:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--accent-600) 65%, white 35%);
-  outline-offset: 3px;
-}
-
-/* Header brand lockup (InVaal + [016]) */
-.logo-lockup {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.logo-tag {
-  font-weight: 800;
-  color: rgba(17, 24, 39, 0.65);
-  font-size: 0.95rem;
-}
-
-/* =========================
-  5) Utilities
-========================= */
-.container {
-  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
-  margin-inline: auto;
-}
-
-.section {
-  padding: 64px 0;
-}
-
-.section-header {
-    margin-bottom: 18px;
-    text-align: left;
-}
-
-.section-title {
-    padding: 20px;
-    letter-spacing: 0.2px;
-}
-
-.section-subtitle {
-    padding: 20px;
-  margin-top: 8px;
-  color: var(--muted);
-  max-width: 75ch;
-}
-
-.feature-caption {
-  color: var(--brand-700);
-}
-
-/* Skip link (keyboard users) */
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: 12px;
-  z-index: 9999;
-  background: var(--white);
-  color: var(--black);
-  padding: 10px 12px;
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-}
-.skip-link:focus {
-  left: 12px;
-}
-
-/* Simple grid helper */
-.grid {
-  display: grid;
-  gap: 16px;
-}
-
-/* =========================
-  6) Buttons (Shared)
-========================= */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  padding: 12px 16px;
-  border-radius: 999px;
-  border: 1px solid transparent;
-
-  text-decoration: none;
-  font-weight: 800;
-
-  transition:
-    transform var(--t-fast) var(--ease),
-    background var(--t-fast) var(--ease),
-    border-color var(--t-fast) var(--ease);
-}
-
-.btn-primary {
-  background: var(--brand-600);
-  color: var(--white);
-  box-shadow: 0 12px 30px rgba(120, 20, 160, 0.18);
-}
-.btn-primary:hover {
-  transform: translateY(-1px);
-  background: var(--brand-700);
-}
-
-.btn-ghost {
-  background: rgba(255, 255, 255, 0.8);
-  color: var(--text);
-  border-color: var(--border);
-}
-.btn-ghost:hover {
-  transform: translateY(-1px);
-  background: var(--white);
-}
-
-/* =========================
-  7) Cards (Shared)
-========================= */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-}
-
-/* =========================
-  8) Header Placeholder Styling
-  (Your JS injects header.html into #site-header)
-========================= */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(246, 247, 251, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
-
-/* Support your existing component classes too */
-.main-navigation {
-  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
-  margin-inline: auto;
-  padding: 12px 0;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text);
-}
-
-.logo img {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-}
-
-.logo-text {
-  font-family: var(--font-logo);
-  font-size: 2rem;
-  letter-spacing: 0.6px;
-  color: var(--brand-700);
-}
-
-.nav-links ul {
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.nav-links a {
-  display: inline-flex;
-  padding: 10px 12px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  color: rgba(17, 24, 39, 0.86);
-  border: 1px solid transparent;
-  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
-}
-
-.nav-links a:hover {
-  background: rgba(4, 174, 217, 0.10);
-  border-color: rgba(4, 174, 217, 0.25);
-  color: var(--text);
-}
-
-/* Mobile menu toggle (kept compatible with your current JS/CSS) */
-.mobile-menu-toggle span {
-  background: var(--brand-700);
-}
-
-/* =========================
-  9) Homepage Hero (News-style)
-========================= */
-.hero {
-  border-bottom: 1px solid var(--border);
-  background:
-    radial-gradient(900px 550px at 15% 0%, rgba(4, 174, 217, 0.14), transparent 60%),
-    radial-gradient(900px 550px at 85% 10%, rgba(160, 60, 210, 0.12), transparent 65%),
-    var(--bg);
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.4fr 0.9fr;
-  gap: 18px;
-  align-items: start;
-  padding: 54px 0;
-}
-
-.kicker {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: rgba(17, 24, 39, 0.70);
-  letter-spacing: 0.3px;
-}
-
-.hero-title {
-  margin-top: 10px;
-  font-size: clamp(2rem, 4.4vw, 3.25rem);
-  line-height: 1.1;
-  letter-spacing: 0.3px;
-}
-
-.hero-subtitle {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 1.1rem;
-  max-width: 70ch;
-}
-
-.hero-actions {
-  margin-top: 18px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.hero-panel {
-  padding: 16px;
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-}
-
-.panel-title {
-  font-size: 1.1rem;
-  color: var(--text);
-}
-
-.panel-list {
-  margin-top: 10px;
-  padding-left: 18px;
-  color: var(--muted);
-}
-
-/* =========================
-  10) News Grid + News Cards
-  (news-loader.js should create .news-card items)
-========================= */
-.status-text {
-  color: var(--muted);
-  margin-top: 6px;
-}
-
-.news-grid {
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
-}
-
-/* Default cards span */
-.news-grid > * {
-  grid-column: span 4;
-}
-
-/* Make first card “lead story” if your loader adds .is-lead */
-.news-card.is-lead {
-  grid-column: span 8;
-}
-
-.news-card {
-  overflow: hidden;
-  border-radius: var(--radius);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
-}
-
-.news-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* If your news has an image */
-.news-media img,
-.news-image {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  background: #e9ecf2;
-}
-
-/* Card body */
-.news-card-body {
-  padding: 14px;
-}
-
-.news-card-header {
-  display: flex;
-  gap: 8px;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.news-category {
-  font-size: 0.78rem;
-  font-weight: 800;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(4, 174, 217, 0.14);
-  color: rgba(17, 24, 39, 0.85);
-  border: 1px solid rgba(4, 174, 217, 0.22);
-}
-
-.news-date {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.news-title {
-  font-size: 1.25rem;
-  line-height: 1.2;
-  color: var(--text);
-}
-
-.news-description {
-  margin-top: 10px;
-  color: rgba(17, 24, 39, 0.78);
-}
-
-.news-source {
-  display: inline-block;
-  margin-top: 12px;
-  font-weight: 800;
-  color: var(--brand-700);
+  /* Remove the browser's default underline.
+     Individual components can add their own. */
   text-decoration: none;
 }
-.news-source:hover {
+
+
+a:hover {
+  /* Indicates interactive links. */
   text-decoration: underline;
-  text-underline-offset: 6px;
 }
 
-/* =========================
-  11) Intro / About Sections
-  (Keep your existing classes but make them more editorial)
-========================= */
-.introduction {
-  margin: 26px auto 0;
-  padding: 18px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(4, 174, 217, 0.25);
-  background: rgba(4, 174, 217, 0.10);
-  color: var(--text);
+
+button,
+a {
+  /* Make interactive elements feel responsive. */
+  -webkit-tap-highlight-color: transparent;
 }
 
-.about-us {
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+
+/* =========================================================
+   06. HEADINGS
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Remove default browser margins. */
+  margin: 0;
+
+  /* Use the heading font family. */
+  font-family: var(--font-family-heading);
+
+  /* Improve heading readability. */
+  line-height: var(--line-height-heading);
+
+  /* Make headings visually stronger. */
+  font-weight: var(--font-weight-bold);
 }
 
-.about-us article {
-  padding: 16px;
-  border-radius: var(--radius);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-}
-/* ============================================================
-  Footer Columns (for components/footer.html)
-============================================================ */
 
-.footer-content {
-  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
-  margin-inline: auto;
-
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 18px;
-
-  text-align: left;
-}
-
-.footer-col h3 {
-  color: var(--black);
-  margin-bottom: 10px;
-}
-
-.footer-subheading {
-    color: aqua;
-  margin-top: 12px;
-}
-
-#site-footer ul {
-  list-style: none;
-  padding: 0;
+p {
+  /* Remove default paragraph margin.
+     Components will define their own spacing. */
   margin: 0;
 }
 
-#site-footer li + li {
-  margin-top: 8px;
-}
 
-#site-footer a {
-  color: var(--brand-700);
-  text-decoration: none;
-  font-weight: 700;
-}
+/* =========================================================
+   07. LISTS
+========================================================= */
 
-#site-footer a:hover {
-  color: var(--accent-600);
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
+ul,
+ol {
+  /* Remove browser default indentation. */
+  margin: 0;
 
-.social-links {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
+  padding: 0;
 
-.footer-socials {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 6px;
+  /* Useful for navigation and custom lists. */
+  list-style: none;
 }
 
 
-/* =========================
-  13) Responsive (basic)
-  (You can keep responsive.css too, but this handles core layout)
-========================= */
-@media (max-width: 980px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
+/* =========================================================
+   08. BUTTON RESET
+========================================================= */
+
+button {
+  /* Remove browser default button border. */
+  border: 0;
+
+  /* Allow component styles to control the background. */
+  background: none;
+
+  /* Buttons should indicate they can be clicked. */
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   09. GLOBAL CONTAINER
+   ---------------------------------------------------------
+   This class will be reused throughout the entire site.
+
+   Example:
+
+   <div class="container">
+     ...
+   </div>
+========================================================= */
+
+.container {
+  /* Prevent content from becoming excessively wide. */
+  width: min(
+    100% - (var(--container-padding) * 2),
+    var(--container-max-width)
+  );
+
+  /* Centre the content horizontally. */
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   10. GLOBAL SECTION
+   ---------------------------------------------------------
+   Every major homepage section can inherit consistent
+   vertical spacing from this class.
+========================================================= */
+
+.section {
+  /* Establish consistent section spacing. */
+  padding-block: var(--section-padding-y);
+}
+
+
+/* =========================================================
+   11. ACCESSIBILITY
+========================================================= */
+
+.skip-link {
+  /* Position the skip link outside the visible page
+     until keyboard users focus it. */
+  position: fixed;
+
+  top: var(--space-4);
+
+  left: var(--space-4);
+
+  /* Keep it above other page elements. */
+  z-index: var(--z-modal);
+
+  /* Hide it visually while preserving accessibility. */
+  transform: translateY(-200%);
+
+  padding: var(--space-3) var(--space-4);
+
+  color: var(--color-text-inverse);
+
+  background-color: var(--color-background-dark);
+
+  border-radius: var(--radius-md);
+
+  transition:
+    transform var(--transition-fast);
+}
+
+
+.skip-link:focus {
+  /* Bring the skip link into view for keyboard users. */
+  transform: translateY(0);
+
+  /* Make focus obvious. */
+  outline: none;
+
+  box-shadow: var(--focus-ring);
+}
+
+
+/* =========================================================
+   12. KEYBOARD FOCUS
+========================================================= */
+
+:focus-visible {
+  /* Remove the browser outline so we can provide
+     a consistent focus treatment. */
+  outline: none;
+
+  box-shadow: var(--focus-ring);
+}
+
+
+/* =========================================================
+   13. SELECTION
+========================================================= */
+
+::selection {
+  /* Use the InVaal accent when users highlight text. */
+  background-color: var(--color-accent);
+
+  color: var(--color-black);
+}
+
+
+/* =========================================================
+   14. UTILITY CLASSES
+   ---------------------------------------------------------
+   Small reusable helpers.
+
+   These should remain generic.
+========================================================= */
+
+.text-center {
+  text-align: center;
+}
+
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   15. REDUCED MOTION
+   ---------------------------------------------------------
+   Some users configure their operating system to reduce
+   animations and motion.
+
+   Respecting this improves accessibility.
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
   }
 
-  .about-us {
-    grid-template-columns: 1fr;
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
   }
 
-  .news-grid > * {
-    grid-column: span 6;
-  }
-
-  .news-card.is-lead {
-    grid-column: span 12;
-  }
-
-  /* Footer responsive */
-.footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .social-links {
-    justify-content: center;
-  }
-
-}
-
-@media (max-width: 560px) {
-  .section {
-    padding: 52px 0;
-  }
-
-  .news-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .news-grid > * {
-    grid-column: auto;
-  }
-}
-
-
-/* ============================================================
-  News card extras (links + long content)
-============================================================ */
-
-.news-meta {
-  margin-top: 10px;
-  color: var(--muted);
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.meta-sep {
-  opacity: 0.6;
-}
-
-/* Optional header link (title becomes clickable only if provided) */
-.news-header-link {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 900;
-}
-
-.news-header-link:hover {
-  color: var(--accent-600);
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
-
-/* Optional guest link */
-.news-guest-link {
-  color: var(--brand-700);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.news-guest-link:hover {
-  color: var(--accent-600);
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
-
-/* Long content area (gives more space for the topic) */
-.news-content {
-  margin-top: 12px;
-}
-
-.news-content p + p {
-  margin-top: 10px;
-}
-
-/* Actions row (source link) */
-.news-actions {
-  margin-top: 12px;
 }

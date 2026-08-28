@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <!-- =========================================================
+    InVaal [016] — Business Directory
+
+    File:
+    ./pages/businesses.html
+
+    Purpose:
+    - Display the complete public business directory
+    - Allow visitors to search and filter businesses
+    - Only display businesses with approved consent
+    - Provide links to individual business profiles
+
+    Technology:
+    - HTML5
+    - CSS3
+    - Vanilla JavaScript
+    - JSON
+    - GitHub Pages compatible
+  ========================================================== -->
+
+  <!-- =========================================================
+    META
+  ========================================================== -->
+
+  <meta charset="UTF-8" />
+
+<meta
+ name="viewport"
+ content="width=device-width, initial-scale=1.0"
+/>
+
+<meta
+ name="description"
+ content="Discover local businesses across the Vaal Triangle with InVaal [016]. Find restaurants, shops, services, salons, gyms and more."
+/>
+
+<meta
+ name="keywords"
+ content="Vaal businesses, Vanderbijlpark businesses, Vereeniging businesses, Sasolburg businesses, local business directory, InVaal 016"
+/>
+
+<meta
+ name="author"
+ content="InVaal [016]"
+/>
+
+  <!-- =========================================================
+    TITLE
+  ========================================================== -->
+
+  <title>
+    Businesses — InVaal [016]
+  </title>
+
+  <!-- =========================================================
+    OPEN GRAPH
+  ========================================================== -->
+
+<meta
+ property="og:title"
+ content="Local Businesses — InVaal [016]"
+/>
+
+<meta
+ property="og:description"
+ content="Discover businesses, services and places across the Vaal Triangle."
+/>
+
+<meta
+ property="og:image"
+ content="../assets/logos/inVaalTriangle_logo.png"
+/>
+
+<meta
+ property="og:type"
+ content="website"
+/>
+
+  <!-- =========================================================
+    FAVICON
+  ========================================================== -->
+
+  <link
+    rel="icon"
+    href="../assets/logos/inVaalTriangle_logo.png"
+    type="image/png"
+  />
+
+  <!-- =========================================================
+    CSS
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../css/root.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../css/typography.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../css/layout.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../css/components.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../css/responsive.css"
+  />
+
+</head>
+
+<body>
+
+  <!-- =========================================================
+    ACCESSIBILITY
+  ========================================================== -->
+
+<a
+class="skip-link"
+href="#main"
+
+>
+
+```
+Skip to content
+```
+
+  </a>
+
+  <!-- =========================================================
+    GLOBAL HEADER
+
+    navigation.js loads:
+
+    ./components/header.html
+  ========================================================== -->
+
+  <header
+    id="site-header"
+    class="site-header"
+    role="banner"
+  >
+    <!-- Header injected by navigation.js -->
+  </header>
+
+  <!-- =========================================================
+    MAIN CONTENT
+  ========================================================== -->
+
+  <main
+    id="main"
+    class="site-main"
+  >
+
+```
+<!-- =======================================================
+  PAGE HERO
+======================================================== -->
+
+<section
+  class="page-hero"
+  aria-labelledby="businesses-title"
+>
+
+  <div class="container">
+
+    <span class="eyebrow">
+      Shop Local
+    </span>
+
+
+    <h1
+      id="businesses-title"
+      class="page-title"
+    >
+      Local Businesses
+    </h1>
+
+
+    <p class="page-description">
+      Discover restaurants, shops, salons, services,
+      gyms and other businesses operating across
+      the Vaal Triangle.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+  DIRECTORY
+======================================================== -->
+
+<section
+  class="section"
+  aria-labelledby="directory-title"
+>
+
+  <div class="container">
+
+
+    <!-- ===================================================
+      DIRECTORY HEADER
+    ==================================================== -->
+
+    <header class="section-header">
+
+      <div>
+
+        <span class="eyebrow">
+          Business Directory
+        </span>
+
+
+        <h2
+          id="directory-title"
+          class="section-title"
+        >
+          Find a local business
+        </h2>
+
+
+        <p class="section-description">
+          Search the directory or browse businesses
+          by category.
+        </p>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===================================================
+      SEARCH & FILTERS
+    ==================================================== -->
+
+    <div
+      class="directory-controls"
+      aria-label="Business directory filters"
+    >
+
+
+      <!-- SEARCH -->
+
+      <div class="search-control">
+
+        <label
+          for="business-search"
+        >
+          Search businesses
+        </label>
+
+
+        <input
+          id="business-search"
+          type="search"
+          name="business-search"
+          placeholder="Search by business name..."
+          autocomplete="off"
+        />
+
+      </div>
+
+
+      <!-- CATEGORY -->
+
+      <div class="filter-control">
+
+        <label
+          for="business-category"
+        >
+          Category
+        </label>
+
+
+        <select
+          id="business-category"
+          name="business-category"
+        >
+
+          <option value="all">
+            All categories
+          </option>
+
+          <option value="food">
+            Food & Dining
+          </option>
+
+          <option value="beauty">
+            Beauty
+          </option>
+
+          <option value="retail">
+            Retail
+          </option>
+
+          <option value="services">
+            Services
+          </option>
+
+          <option value="fitness">
+            Fitness
+          </option>
+
+          <option value="accommodation">
+            Accommodation
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- TOWN -->
+
+      <div class="filter-control">
+
+        <label
+          for="business-town"
+        >
+          Town
+        </label>
+
+
+        <select
+          id="business-town"
+          name="business-town"
+        >
+
+          <option value="all">
+            All towns
+          </option>
+
+          <option value="Vanderbijlpark">
+            Vanderbijlpark
+          </option>
+
+          <option value="Vereeniging">
+            Vereeniging
+          </option>
+
+          <option value="Sasolburg">
+            Sasolburg
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <!-- ===================================================
+      DIRECTORY STATUS
+    ==================================================== -->
+
+    <div
+      class="directory-status"
+      aria-live="polite"
+    >
+
+      <p
+        id="business-status"
+        class="status-message"
+      >
+        Loading businesses...
+      </p>
+
+    </div>
+
+
+    <!-- ===================================================
+      BUSINESS GRID
+    ==================================================== -->
+
+    <div
+      id="business-directory"
+      class="content-grid business-grid"
+    >
+
+      <!--
+        Business cards are injected by:
+
+        ./js/loaders/businesses-page.js
+      -->
+
+    </div>
+
+
+    <!-- ===================================================
+      EMPTY STATE
+    ==================================================== -->
+
+    <div
+      id="business-empty"
+      class="empty-state"
+      hidden
+    >
+
+      <h2>
+        No businesses found
+      </h2>
+
+
+      <p>
+        We couldn't find any businesses matching
+        your search or filters.
+      </p>
+
+
+      <button
+        id="clear-business-filters"
+        class="button button-secondary"
+        type="button"
+      >
+        Clear filters
+      </button>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+  BUSINESS SUBMISSION CTA
+
+  This provides a future path for businesses to request
+  inclusion in the directory.
+======================================================== -->
+
+<section
+  class="section section-promotion"
+  aria-labelledby="business-submit-title"
+>
+
+  <div class="container">
+
+    <div class="promotion-panel">
+
+      <span class="eyebrow">
+        Own a business?
+      </span>
+
+
+      <h2
+        id="business-submit-title"
+        class="section-title"
+      >
+        Want your business listed?
+      </h2>
+
+
+      <p class="section-description">
+        Get your business in front of people across
+        the Vaal Triangle through the InVaal [016]
+        business directory.
+      </p>
+
+
+      <a
+        class="button button-primary"
+        href="./contact.html"
+      >
+        Contact InVaal
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+```
+
+  </main>
+
+  <!-- =========================================================
+    GLOBAL FOOTER
+  ========================================================== -->
+
+  <footer
+    id="site-footer"
+    class="site-footer"
+    role="contentinfo"
+  >
+    <!-- Footer injected by navigation.js -->
+  </footer>
+
+  <!-- =========================================================
+    JAVASCRIPT
+  ========================================================== -->
+
+  <script
+    src="../js/navigation.js"
+    defer
+  ></script>
+
+  <script
+    src="../js/loaders/businesses-page.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

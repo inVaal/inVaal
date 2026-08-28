@@ -1,0 +1,583 @@
+/* =========================================================
+   InVaal [016] — V2
+   Layout System
+
+   Purpose:
+   Controls the structural geometry of the platform.
+
+   This file handles:
+   - Containers
+   - Grids
+   - Hero structure
+   - Section headers
+   - Discovery sections
+   - Business sections
+   - Opportunities
+   - Creative sections
+   - Events
+   - Community
+   - Promotion areas
+   - CTA layouts
+
+   Component styling belongs in components.css.
+   Responsive overrides belong in responsive.css.
+========================================================= */
+
+
+/* =========================================================
+   01. GLOBAL CONTAINER
+========================================================= */
+
+.container {
+  /*
+    The root stylesheet already defines the maximum width
+    and horizontal padding.
+
+    We reinforce the layout behaviour here so every major
+    section uses the same visual alignment.
+  */
+  width: min(
+    100% - (var(--container-padding) * 2),
+    var(--container-max-width)
+  );
+
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   02. GLOBAL SECTION
+========================================================= */
+
+.section {
+  /*
+    All major homepage sections receive consistent
+    vertical breathing room.
+  */
+  padding-block: var(--section-padding-y);
+}
+
+
+/* =========================================================
+   03. SECTION HEADER
+========================================================= */
+
+.section-header {
+  /*
+    Most sections use a header with:
+    
+    left:
+    title + description
+
+    right:
+    "View all" link
+  */
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: var(--space-8);
+
+  margin-bottom: var(--space-10);
+}
+
+
+.section-header > div {
+  /*
+    Prevent the text portion from stretching too wide.
+  */
+  max-width: 800px;
+}
+
+
+/* =========================================================
+   04. HERO
+========================================================= */
+
+.hero {
+  /*
+    The hero is the primary entry point into InVaal.
+
+    Rather than looking like a traditional newspaper,
+    the layout creates a platform/discovery feel.
+  */
+  min-height: 75vh;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-block: var(--space-20);
+}
+
+
+.hero-inner {
+  /*
+    Two-column hero:
+
+    LEFT:
+    InVaal message + actions
+
+    RIGHT:
+    Discovery navigation
+  */
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(280px, 0.6fr);
+
+  align-items: center;
+
+  gap: var(--space-16);
+}
+
+
+.hero-content {
+  /*
+    Keeps the hero text visually grouped.
+  */
+  max-width: 800px;
+}
+
+
+.hero-actions {
+  /*
+    Keeps CTA buttons together while allowing them
+    to wrap on smaller screens.
+  */
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: var(--space-4);
+
+  margin-top: var(--space-8);
+}
+
+
+/* =========================================================
+   05. HERO DISCOVERY PANEL
+========================================================= */
+
+.hero-discovery {
+  /*
+    This panel acts as a mini directory.
+
+    It immediately communicates that InVaal is more
+    than just a news site.
+  */
+  padding: var(--space-8);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-xl);
+
+  background-color: var(--color-background-soft);
+}
+
+
+.hero-discovery h2 {
+  margin-bottom: var(--space-6);
+}
+
+
+/* =========================================================
+   06. QUICK NAVIGATION
+========================================================= */
+
+.quick-navigation {
+  /*
+    Stack discovery links vertically.
+  */
+  display: grid;
+
+  gap: var(--space-2);
+}
+
+
+.quick-navigation a {
+  /*
+    Each link gets its own interactive area.
+  */
+  display: flex;
+
+  align-items: center;
+
+  gap: var(--space-3);
+
+  padding: var(--space-3);
+
+  border-radius: var(--radius-md);
+}
+
+
+.quick-navigation a:hover {
+  /*
+    Subtle background feedback keeps the navigation
+    feeling interactive without becoming visually noisy.
+  */
+  background-color: var(--color-white);
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   07. DISCOVERY GRID
+========================================================= */
+
+.discover-grid {
+  /*
+    Four primary discovery categories.
+  */
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: var(--space-5);
+}
+
+
+/* =========================================================
+   08. CONTENT GRIDS
+   ---------------------------------------------------------
+   Used for dynamic content such as:
+
+   - News
+   - Businesses
+   - Creatives
+   - Events
+   - Featured content
+========================================================= */
+
+.content-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: var(--space-6);
+}
+
+
+/* =========================================================
+   09. NEWS GRID
+========================================================= */
+
+.news-grid {
+  /*
+    News cards receive slightly more visual priority.
+  */
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   10. BUSINESS GRID
+========================================================= */
+
+.business-grid {
+  /*
+    Business cards benefit from a denser layout because
+    directories can contain many listings.
+  */
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   11. OPPORTUNITY GRID
+========================================================= */
+
+.opportunity-grid {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   12. CREATIVES GRID
+========================================================= */
+
+.creatives-grid {
+  /*
+    Creative profiles are highly visual, so we keep the
+    grid flexible enough for image-based cards.
+  */
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   13. EVENTS GRID
+========================================================= */
+
+.events-grid {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   14. FEATURED GRID
+========================================================= */
+
+.featured-grid {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   15. CATEGORY GRID
+   ---------------------------------------------------------
+   Used by the business directory.
+========================================================= */
+
+.category-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, minmax(0, 1fr));
+
+  gap: var(--space-3);
+
+  margin-bottom: var(--space-10);
+}
+
+
+.category-card {
+  /*
+    Category cards remain compact because they are
+    navigation rather than full content cards.
+  */
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: var(--space-3);
+
+  min-height: 120px;
+
+  padding: var(--space-4);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   16. COMMUNITY GRID
+========================================================= */
+
+.community-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: var(--space-5);
+}
+
+
+/* =========================================================
+   17. PROMOTION SECTION
+========================================================= */
+
+.section-promotion {
+  /*
+    Gives the commercial section enough separation
+    from editorial/community content.
+  */
+  padding-block: var(--space-16);
+}
+
+
+.promotion-panel {
+  /*
+    The promotion panel is deliberately structured as
+    a single strong CTA.
+  */
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  padding: var(--space-12);
+
+  border-radius: var(--radius-xl);
+}
+
+
+/* =========================================================
+   18. FINAL CTA
+========================================================= */
+
+.section-final-cta {
+  /*
+    The final CTA closes the homepage by reinforcing
+    the platform's main purpose.
+  */
+  text-align: center;
+}
+
+
+.final-cta {
+  /*
+    Keep the closing message narrow so it has impact.
+  */
+  max-width: 800px;
+
+  margin-inline: auto;
+}
+
+
+.final-cta .section-description {
+  margin-inline: auto;
+}
+
+
+.final-cta .button {
+  margin-top: var(--space-6);
+}
+
+
+/* =========================================================
+   19. FOOTER
+========================================================= */
+
+.site-footer {
+  /*
+    Footer gets its own structural area rather than
+    simply following the final CTA.
+  */
+  padding-block: var(--space-16);
+}
+
+
+.site-footer .container {
+  /*
+    Footer content can later become a multi-column grid.
+  */
+  display: grid;
+
+  gap: var(--space-8);
+}
+
+
+/* =========================================================
+   20. FULL-WIDTH SECTIONS
+========================================================= */
+
+.section > .container {
+  /*
+    Establishes predictable positioning for sections
+    containing a container as their direct child.
+  */
+  position: relative;
+}
+
+
+/* =========================================================
+   21. CONTENT FLOW
+========================================================= */
+
+.section + .section {
+  /*
+    Prevent adjacent sections from visually collapsing
+    into one another.
+  */
+  position: relative;
+}
+
+
+/* =========================================================
+   22. EMPTY STATE STRUCTURE
+   ---------------------------------------------------------
+   Dynamic content will sometimes have no results.
+
+   JavaScript can use .empty-state when necessary.
+========================================================= */
+
+.empty-state {
+  /*
+    Empty states span the available content area.
+  */
+  grid-column: 1 / -1;
+
+  padding: var(--space-12);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   23. LOADING STATE STRUCTURE
+========================================================= */
+
+.loading-state {
+  /*
+    Dynamic loaders can use this class while JSON
+    content is being retrieved.
+  */
+  grid-column: 1 / -1;
+
+  min-height: 150px;
+
+  display: grid;
+
+  place-items: center;
+}
+
+
+/* =========================================================
+   24. RESPONSIVE STRUCTURAL FALLBACK
+   ---------------------------------------------------------
+   These are basic layout adjustments.
+
+   The detailed breakpoint system will live in
+   responsive.css.
+
+   This small rule prevents obvious overflow before
+   responsive.css is introduced.
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .discover-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .creatives-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .community-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .category-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}

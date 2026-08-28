@@ -1,67 +1,130 @@
-<!-- ==========================================================
-  Component: Footer
-  File: ./components/footer.html
+<!-- =========================================================
+  InVaal [016] — Global Footer
 
-  Notes:
-  - Injected into: <footer id="site-footer"></footer>
-  - Uses #year span so JS can update the year automatically
-=========================================================== -->
 
-<div class="footer-content">
-  <!-- =======================
-    Column 1: Quick Links
-  ======================== -->
-  <section class="footer-col" aria-label="Quick links">
-    <h3>Quick Links</h3>
-    <nav aria-label="Footer navigation">
-      <ul>
-        <li><a href="./sasolburg.html">Sasolburg</a></li>
-        <li><a href="./vereeniging.html">Vereeniging</a></li>
-        <li><a href="./vanderbijlpark.html">Vanderbijlpark</a></li>
-        <li><a href="./changelog.html">Changelog</a></li>
-      </ul>
-    </nav>
-  </section>
+  ./components/footer.html
+  
+========================================================= -->
 
-  <!-- =======================
-    Column 2: Contact
-  ======================== -->
-  <section class="footer-col" aria-label="Contact">
-    <h3>Get In Touch</h3>
+<div class="container">
+
+  <!-- Footer brand -->
+
+  <div class="footer-brand">
+
+    <a
+      class="site-logo"
+      href="./index.html"
+    >
+
+      <img
+        src="./assets/logos/inVaalTriangle_logo.png"
+        alt="InVaal [016]"
+        width="42"
+        height="42"
+      />
+
+      <span>
+        InVaal <strong>[016]</strong>
+      </span>
+
+    </a>
+
+
     <p>
-      <a href="mailto:invaaltriangle@gmail.com">invaaltriangle@gmail.com</a>
+      Connecting the Vaal with local stories,
+      businesses, opportunities, creatives and events.
     </p>
 
-    <h3 class="footer-subheading">Location</h3>
-    <p>Vaal Triangle, South Africa</p>
-  </section>
+  </div>
 
-  <!-- =======================
-    Column 3: Socials
-  ======================== -->
-  <section class="footer-col" aria-label="Follow us">
-    <h3>Follow Us</h3>
 
-    <div class="social-links" aria-label="Social links">
-      <!-- If you don't have YouTube yet, keep it as a normal link without target blank -->
-      <a href="#" aria-label="YouTube">
-        <img class="footer-socials" src="assets/icons/socials/youtube.png" alt="" />
+  <!-- Footer navigation -->
+
+  <div class="footer-navigation">
+
+    <div>
+
+      <h2>
+        Explore
+      </h2>
+
+      <a href="./pages/news.html">
+        News
       </a>
 
-      <a href="https://www.facebook.com/invaaltriangle/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <img class="footer-socials" src="assets/icons/socials/facebook.png" alt="" />
+      <a href="./pages/businesses.html">
+        Businesses
       </a>
 
-      <a href="https://whatsapp.com/channel/0029Vaez8FB6WaKiRJKHpC0C" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel">
-        <img class="footer-socials" src="assets/icons/socials/whatsapp.png" alt="" />
+      <a href="./pages/opportunities.html">
+        Opportunities
       </a>
+
     </div>
-  </section>
-</div>
 
-<!-- =======================
-  Footer Bottom
-======================== -->
-<div class="copyright">
-  <p>InVaal [016] &copy; <span id="year"></span>. All rights reserved.</p>
+
+    <div>
+
+      <h2>
+        Community
+      </h2>
+
+      <a href="./pages/creatives.html">
+        Creatives
+      </a>
+
+      <a href="./pages/events.html">
+        Events
+      </a>
+
+      <a href="./pages/contact.html">
+        Contact
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h2>
+        InVaal
+      </h2>
+
+      <a href="./pages/about.html">
+        About
+      </a>
+
+      <a href="./pages/advertise.html">
+        Advertise
+      </a>
+
+      <a href="./pages/privacy.html">
+        Privacy
+      </a>
+
+      <a href="./pages/terms.html">
+        Terms
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- Copyright -->
+
+  <div class="footer-bottom">
+
+    <p>
+      © <span id="current-year"></span>
+      InVaal [016]. All rights reserved.
+    </p>
+
+    <p>
+      Built for the Vaal.
+    </p>
+
+  </div>
+
 </div>

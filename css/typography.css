@@ -1,36 +1,633 @@
-/* ============================================================
-  InVaal [016] — Typography
-  File: css/typography.css
+/* =========================================================
+   InVaal [016] — V2
+   Typography System
 
-  Purpose:
-  - Headings, body copy, and link styles
-  - Consistent, readable editorial hierarchy
-============================================================ */
+   Purpose:
+   Defines the visual hierarchy of the InVaal platform.
 
-h1, h2, h3, h4 {
-  font-family: var(--font-body);
-  color: var(--text);
-  line-height: 1.15;
-  letter-spacing: 0.2px;
+   This file controls:
+   - Headings
+   - Body text
+   - Eyebrows / labels
+   - Navigation text
+   - Article metadata
+   - Buttons
+   - Links
+   - Responsive typography
+
+   Design direction:
+   Clear, modern, editorial and highly readable.
+========================================================= */
+
+
+/* =========================================================
+   01. BASE TYPOGRAPHY
+========================================================= */
+
+body {
+  /*
+    Establish the default font rendering.
+    This helps text remain clean and readable across
+    different operating systems and browsers.
+  */
+  font-size: var(--font-size-md);
+
+  font-weight: var(--font-weight-regular);
+
+  line-height: var(--line-height-normal);
 }
 
-h1 { font-size: clamp(2rem, 4.2vw, 3rem); }
-h2 { font-size: clamp(1.4rem, 2.6vw, 2rem); }
-h3 { font-size: 1.25rem; }
-h4 { font-size: 1.1rem; }
 
-p {
-  color: rgba(17, 24, 39, 0.86);
+/* =========================================================
+   02. EYEBROW / SECTION LABEL
+   ---------------------------------------------------------
+   Used for small contextual labels such as:
+
+   "NEWS & COMMUNITY"
+   "LOCAL BUSINESS"
+   "CREATIVE VAAL"
+   "OPPORTUNITIES"
+========================================================= */
+
+.eyebrow {
+  /*
+    Small uppercase labels create hierarchy without
+    competing with the main heading.
+  */
+  display: inline-block;
+
+  margin-bottom: var(--space-3);
+
+  color: var(--color-accent);
+
+  font-size: var(--font-size-sm);
+
+  font-weight: var(--font-weight-bold);
+
+  line-height: 1.2;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
 }
 
-a {
-  color: var(--brand-700);
+
+/* =========================================================
+   03. HERO TYPOGRAPHY
+========================================================= */
+
+.hero-title {
+  /*
+    clamp() allows the headline to scale smoothly
+    between mobile and large desktop screens.
+  */
+  font-size: var(--font-size-hero);
+
+  font-weight: var(--font-weight-black);
+
+  line-height: var(--line-height-tight);
+
+  letter-spacing: -0.04em;
+
+  max-width: 12ch;
+}
+
+
+.hero-description {
+  /*
+    Hero descriptions should remain readable without
+    becoming wider than necessary.
+  */
+  max-width: 650px;
+
+  margin-top: var(--space-6);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+
+  line-height: var(--line-height-relaxed);
+}
+
+
+/* =========================================================
+   04. SECTION HEADINGS
+========================================================= */
+
+.section-title {
+  /*
+    Large section headings establish the beginning
+    of each major area of the platform.
+  */
+  font-size: var(--font-size-section);
+
+  font-weight: var(--font-weight-bold);
+
+  line-height: var(--line-height-tight);
+
+  letter-spacing: -0.03em;
+}
+
+
+.section-description {
+  /*
+    Supporting text underneath section titles.
+  */
+  max-width: 700px;
+
+  margin-top: var(--space-4);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+
+  line-height: var(--line-height-relaxed);
+}
+
+
+/* =========================================================
+   05. SECTION HEADER
+========================================================= */
+
+.section-header {
+  /*
+    Prevent headings and supporting content from becoming
+    excessively wide.
+  */
+  max-width: 800px;
+
+  margin-bottom: var(--space-10);
+}
+
+
+.section-header .eyebrow {
+  margin-bottom: var(--space-3);
+}
+
+
+/* =========================================================
+   06. CARD TYPOGRAPHY
+========================================================= */
+
+.discovery-card h3,
+.opportunity-card h3,
+.community-card h3 {
+  /*
+    Card headings should be prominent but smaller than
+    major section headings.
+  */
+  font-size: var(--font-size-xl);
+
+  font-weight: var(--font-weight-bold);
+
+  line-height: var(--line-height-heading);
+
+  letter-spacing: -0.015em;
+}
+
+
+.discovery-card p,
+.opportunity-card p,
+.community-card p {
+  /*
+    Card descriptions use muted text so the heading
+    remains the primary visual focus.
+  */
+  margin-top: var(--space-3);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-md);
+
+  line-height: var(--line-height-relaxed);
+}
+
+
+/* =========================================================
+   07. CARD LINKS
+========================================================= */
+
+.discovery-card a,
+.opportunity-card a,
+.community-card a {
+  /*
+    Links inside cards act as secondary calls to action.
+  */
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: var(--space-2);
+
+  margin-top: var(--space-5);
+
+  color: var(--color-text);
+
+  font-size: var(--font-size-sm);
+
+  font-weight: var(--font-weight-semibold);
+}
+
+
+.discovery-card a:hover,
+.opportunity-card a:hover,
+.community-card a:hover {
+  /*
+    Accent colour provides visual feedback when the
+    user interacts with the link.
+  */
+  color: var(--color-accent);
+}
+
+
+/* =========================================================
+   08. CARD ICONS
+========================================================= */
+
+.card-icon {
+  /*
+    Icons are intentionally kept separate from the heading
+    so the card remains easy to scan.
+  */
+  display: block;
+
+  margin-bottom: var(--space-5);
+
+  font-size: 2rem;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   09. NAVIGATION TYPOGRAPHY
+========================================================= */
+
+.site-header {
+  font-size: var(--font-size-sm);
+}
+
+
+.site-header a {
+  /*
+    Navigation should feel deliberate and compact.
+  */
+  font-weight: var(--font-weight-medium);
+}
+
+
+.site-header a:hover {
+  color: var(--color-accent);
+
   text-decoration: none;
-  transition: color var(--t-fast) var(--ease);
 }
 
-a:hover {
-  color: var(--accent-600);
-  text-decoration: underline;
-  text-underline-offset: 6px;
+
+/* =========================================================
+   10. QUICK NAVIGATION
+========================================================= */
+
+.quick-navigation a {
+  /*
+    These links appear inside the hero discovery panel.
+  */
+  font-size: var(--font-size-sm);
+
+  font-weight: var(--font-weight-semibold);
+}
+
+
+/* =========================================================
+   11. BUTTON TYPOGRAPHY
+========================================================= */
+
+.button {
+  /*
+    Buttons should have stronger typography than
+    ordinary links.
+  */
+  font-size: var(--font-size-sm);
+
+  font-weight: var(--font-weight-semibold);
+
+  line-height: 1.2;
+
+  text-decoration: none;
+}
+
+
+.button:hover {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   12. SECTION LINKS
+========================================================= */
+
+.section-link {
+  /*
+    "View all →" links provide a consistent way to
+    navigate from homepage sections into full pages.
+  */
+  font-size: var(--font-size-sm);
+
+  font-weight: var(--font-weight-semibold);
+
+  white-space: nowrap;
+}
+
+
+.section-link:hover {
+  color: var(--color-accent);
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   13. STATUS / SYSTEM TEXT
+   ---------------------------------------------------------
+   Used for messages such as:
+
+   "Loading stories..."
+   "No businesses found."
+   "Events coming soon."
+========================================================= */
+
+.status-message {
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-sm);
+
+  line-height: var(--line-height-normal);
+}
+
+
+/* =========================================================
+   14. ARTICLE / EDITORIAL TYPOGRAPHY
+   ---------------------------------------------------------
+   These classes will become useful when we build
+   individual news article pages.
+========================================================= */
+
+.article-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+
+  font-weight: var(--font-weight-bold);
+
+  line-height: var(--line-height-tight);
+
+  letter-spacing: -0.035em;
+}
+
+
+.article-excerpt {
+  margin-top: var(--space-5);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+
+  line-height: var(--line-height-relaxed);
+}
+
+
+.article-body {
+  max-width: 720px;
+
+  font-size: var(--font-size-lg);
+
+  line-height: 1.8;
+}
+
+
+.article-body p + p {
+  /*
+    Creates consistent spacing between paragraphs.
+  */
+  margin-top: var(--space-6);
+}
+
+
+/* =========================================================
+   15. ARTICLE METADATA
+========================================================= */
+
+.article-meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: var(--space-3);
+
+  color: var(--color-text-light);
+
+  font-size: var(--font-size-sm);
+}
+
+
+.article-category {
+  color: var(--color-accent);
+
+  font-weight: var(--font-weight-semibold);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   16. BUSINESS TYPOGRAPHY
+========================================================= */
+
+.business-name {
+  font-size: var(--font-size-xl);
+
+  font-weight: var(--font-weight-bold);
+
+  line-height: var(--line-height-heading);
+}
+
+
+.business-category {
+  color: var(--color-accent);
+
+  font-size: var(--font-size-xs);
+
+  font-weight: var(--font-weight-bold);
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+.business-description {
+  margin-top: var(--space-3);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-sm);
+
+  line-height: var(--line-height-relaxed);
+}
+
+
+/* =========================================================
+   17. OPPORTUNITY TYPOGRAPHY
+========================================================= */
+
+.opportunity-title {
+  font-size: var(--font-size-xl);
+
+  font-weight: var(--font-weight-bold);
+
+  line-height: var(--line-height-heading);
+}
+
+
+.opportunity-meta {
+  margin-top: var(--space-2);
+
+  color: var(--color-text-light);
+
+  font-size: var(--font-size-sm);
+}
+
+
+/* =========================================================
+   18. FEATURED / SPONSORED LABELS
+   ---------------------------------------------------------
+   Commercial content must be clearly distinguishable
+   from editorial content.
+========================================================= */
+
+.featured-label,
+.sponsored-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: var(--space-1) var(--space-3);
+
+  border-radius: var(--radius-pill);
+
+  font-size: var(--font-size-xs);
+
+  font-weight: var(--font-weight-bold);
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+
+.featured-label {
+  color: var(--color-text);
+
+  background-color: var(--color-gray-100);
+}
+
+
+.sponsored-label {
+  color: var(--color-text-inverse);
+
+  background-color: var(--color-background-dark);
+}
+
+
+/* =========================================================
+   19. SEARCH TYPOGRAPHY
+   ---------------------------------------------------------
+   Search will become increasingly important as the
+   directory grows.
+========================================================= */
+
+.search-input {
+  font-size: var(--font-size-md);
+
+  line-height: 1.2;
+}
+
+
+.search-input::placeholder {
+  color: var(--color-text-light);
+}
+
+
+/* =========================================================
+   20. FOOTER TYPOGRAPHY
+========================================================= */
+
+.site-footer {
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-sm);
+
+  line-height: var(--line-height-normal);
+}
+
+
+.site-footer h2,
+.site-footer h3 {
+  color: var(--color-text);
+
+  font-size: var(--font-size-md);
+
+  font-weight: var(--font-weight-semibold);
+}
+
+
+/* =========================================================
+   21. RESPONSIVE TYPOGRAPHY
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .hero-title {
+    /*
+      Slightly reduce the hero headline on smaller
+      screens while keeping it dominant.
+    */
+    max-width: 100%;
+
+    letter-spacing: -0.03em;
+  }
+
+
+  .hero-description {
+    font-size: var(--font-size-md);
+  }
+
+
+  .section-description {
+    font-size: var(--font-size-md);
+  }
+
+
+  .article-body {
+    font-size: var(--font-size-md);
+
+    line-height: 1.7;
+  }
+
+}
+
+
+/* =========================================================
+   22. LARGE SCREEN TYPOGRAPHY
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .hero-description {
+    /*
+      Give the hero description a little more presence
+      on larger screens.
+    */
+    font-size: var(--font-size-xl);
+  }
+
 }

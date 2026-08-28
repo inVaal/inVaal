@@ -1,0 +1,23 @@
+{
+  "lastUpdated": "2026-08-28",
+  "opportunities": [
+    {
+      "id": "opportunity-001",
+      "title": "Example Local Opportunity",
+      "slug": "example-local-opportunity",
+      "type": "job",
+      "category": "General",
+      "organisation": "Example Organisation",
+      "location": "Vaal Triangle",
+      "description": "An example opportunity available to people in the local community.",
+      "requirements": [],
+      "applicationMethod": "Online application",
+      "applicationUrl": "",
+      "contact": "",
+      "deadline": "",
+      "datePosted": "2026-08-28",
+      "featured": false,
+      "status": "open"
+    }
+  ]
+}

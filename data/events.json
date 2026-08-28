@@ -1,0 +1,24 @@
+{
+  "lastUpdated": "2026-08-28",
+  "events": [
+    {
+      "id": "event-001",
+      "title": "Example Vaal Community Event",
+      "slug": "example-vaal-community-event",
+      "category": "Community",
+      "description": "An example event taking place in the Vaal Triangle.",
+      "venue": "Example Venue",
+      "location": "Vaal Triangle",
+      "date": "2026-09-05",
+      "startTime": "10:00",
+      "endTime": "16:00",
+      "ticketPrice": "",
+      "ticketUrl": "",
+      "organiser": "Example Organisation",
+      "contact": "",
+      "image": "",
+      "featured": false,
+      "status": "upcoming"
+    }
+  ]
+}

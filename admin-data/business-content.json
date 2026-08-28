@@ -1,0 +1,29 @@
+{
+  "consentRecords": [
+    {
+      "id": "consent-demo-001",
+      "businessId": "business-001",
+
+      "status": "approved",
+
+      "consent": {
+        "businessListings": true,
+        "businessName": true,
+        "logo": true,
+        "description": true,
+        "contactInformation": true,
+        "location": true,
+        "openingHours": true,
+        "services": true,
+        "images": true,
+        "socialLinks": true,
+        "googleMaps": true
+      },
+
+      "submittedAt": "2026-08-28",
+      "ApprovedAt": "2026-08-28",
+
+      "notes": "Development record only. No real business information."
+    }
+  ]
+}
