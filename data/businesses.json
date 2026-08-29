@@ -4,7 +4,7 @@
             "id": "business-001",
             "name": "THE HOOD MEDIA MAGAZINE",
             "slug": "demo-local-business",
-            "logo": "/assets/businessesLogos/business-001.jpeg",
+            "logo": "./assets/businessesLogos/business-001.jpeg",
             "category": "media",
             "subcategory": "magazine",
             "location": {
