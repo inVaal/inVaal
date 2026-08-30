@@ -12,26 +12,27 @@
                 "area": "Bophelong",
                 "address": ""
             },
-            "description": "Demo listing used while developing the InVaal [016] business directory.",
+            "description": "A South African digital publication founded in 2022 that provides free promotion and distribution for underground music talent. Operating under the philosophy 'by locals, for locals, and the world,' the platform features custom visual profiles, track breakdowns, and artist biographies to help independent creatives transition to mainstream audiences",
             "phone": "0604369841",
             "whatsapp": "0604369841",
             "email": "thehoodmediamagazine@gmail.com",
             "website": "www.theekingza.github.io/thehoodmediamagazine",
             "social": {
-                "facebook": "",
-                "instagram": "",
-                "tiktok": ""
+                "facebook": "https://www.facebook.com/profile.php?id=100084848285227",
+                "instagram": "https://www.instagram.com/hoodmediamagazine/",
+                "tiktok": "",
+                "youtube": ""
             },
             "openingHours": {
-                "monday": "",
-                "tuesday": "",
-                "wednesday": "",
-                "thursday": "",
-                "friday": "",
-                "saturday": "Closed",
-                "sunday": "Closed"
+                "monday": "24 hrs",
+                "tuesday": "24 hrs",
+                "wednesday": "24 hrs",
+                "thursday": "24 hrs",
+                "friday": "24 hrs",
+                "saturday": "24 hrs",
+                "sunday": "24 hrs"
             },
-            "services": ["photography", "videography"],
+            "services": ["Sponsorship For Events", "Promos"],
             "images": [],
             "googleMaps": "",
             "verified": false,

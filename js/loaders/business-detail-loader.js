@@ -331,11 +331,11 @@ const createBusinessHero = (
     const logo =
       document.createElement("img");
 
-    logo.src =
-      business.logo;
+    // logo.src =
+    //   business.logo;
 
     logo.alt =
-      `${business.name} logo`;
+      `${business.name}`;
 
     logo.loading =
       "eager";
