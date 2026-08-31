@@ -4,7 +4,7 @@
             "id": "business-001",
             "name": "THE HOOD MEDIA MAGAZINE",
             "slug": "demo-local-business",
-            "logo": "./assets/businessesLogos/business-001.jpeg",
+            "logo": "/assets/businessesLogos/business-001.jpeg",
             "category": "media",
             "subcategory": "magazine",
             "location": {
@@ -16,7 +16,7 @@
             "phone": "0604369841",
             "whatsapp": "0604369841",
             "email": "thehoodmediamagazine@gmail.com",
-            "website": "www.theekingza.github.io/thehoodmediamagazine",
+            "website": "https://theekingza.github.io/thehoodmediamagazine/",
             "social": {
                 "facebook": "https://www.facebook.com/profile.php?id=100084848285227",
                 "instagram": "https://www.instagram.com/hoodmediamagazine/",
