@@ -332,10 +332,10 @@ const createBusinessHero = (
       document.createElement("img");
 
     // logo.src =
-    //   business.logo;
+      // business.logo;
 
-    logo.alt =
-      `${business.name}`;
+    // logo.alt =
+      // `${business.name} logo`;
 
     logo.loading =
       "eager";
