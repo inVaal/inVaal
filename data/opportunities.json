@@ -1,23 +1,690 @@
 {
-  "lastUpdated": "2026-08-28",
+  "version": "1.1",
+  "last_updated": "2026-09-02",
+
+  "description": "InVaal[016] curated external opportunities and resources for people, businesses, creatives, students, job seekers and community organisations across the Vaal region and South Africa.",
+
   "opportunities": [
+
     {
-      "id": "opportunity-001",
-      "title": "Example Local Opportunity",
-      "slug": "example-local-opportunity",
-      "type": "job",
-      "category": "General",
-      "organisation": "Example Organisation",
-      "location": "Vaal Triangle",
-      "description": "An example opportunity available to people in the local community.",
-      "requirements": [],
-      "applicationMethod": "Online application",
-      "applicationUrl": "",
-      "contact": "",
-      "deadline": "",
-      "datePosted": "2026-08-28",
-      "featured": false,
-      "status": "open"
+      "id": "nfvf-resource",
+
+      "title": "NFVF Funding & Industry Opportunities",
+
+      "organisation": "National Film and Video Foundation (NFVF)",
+
+      "category": "Film & Media",
+
+      "audience": "Filmmakers, producers, creatives and eligible film/video organisations",
+
+      "location": "South Africa",
+
+      "deadline": "Check official source for current calls",
+
+      "description": "Discover NFVF funding, industry support and related film and video opportunities. InVaal[016] summarises the resource and directs applicants to the official source.",
+
+      "official_url": "https://www.nfvf.co.za/",
+
+      "details_url": "https://www.nfvf.co.za/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External resource",
+
+      "tags": [
+        "film",
+        "video",
+        "funding",
+        "creative",
+        "production"
+      ]
+    },
+
+
+    {
+      "id": "samro-csi",
+
+      "title": "SAMRO CSI & Music Support Programmes",
+
+      "organisation": "Southern African Music Rights Organisation (SAMRO)",
+
+      "category": "Music & Creative",
+
+      "audience": "Music creators, SAMRO members and eligible music-sector applicants",
+
+      "location": "South Africa",
+
+      "deadline": "Calls vary — check official source",
+
+      "description": "SAMRO runs CSI initiatives supporting music education, music-business development, technology and selected music-creation programmes.",
+
+      "official_url": "https://www.samro.org.za/csi",
+
+      "details_url": "https://www.samro.org.za/csi/the-samro-music-creation-support-fund",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External resource",
+
+      "tags": [
+        "music",
+        "royalties",
+        "training",
+        "funding",
+        "creative"
+      ]
+    },
+
+
+    {
+      "id": "samro-careers",
+
+      "title": "SAMRO Careers",
+
+      "organisation": "Southern African Music Rights Organisation (SAMRO)",
+
+      "category": "Jobs",
+
+      "audience": "Qualified applicants matching advertised roles",
+
+      "location": "South Africa",
+
+      "deadline": "Varies by vacancy",
+
+      "description": "Employment opportunities published by SAMRO. Applicants should use the official careers page for the latest vacancies and requirements.",
+
+      "official_url": "https://www.samro.org.za/careers",
+
+      "details_url": "https://www.samro.org.za/careers",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External resource",
+
+      "tags": [
+        "jobs",
+        "employment",
+        "music",
+        "technology"
+      ]
+    },
+
+
+    {
+      "id": "samro-membership",
+
+      "title": "SAMRO Music Creator Membership",
+
+      "organisation": "Southern African Music Rights Organisation (SAMRO)",
+
+      "category": "Music & Creative",
+
+      "audience": "Composers, lyricists/authors and music publishers",
+
+      "location": "South Africa",
+
+      "deadline": "Ongoing — subject to official requirements",
+
+      "description": "Information for music creators interested in SAMRO membership and administration of performing rights.",
+
+      "official_url": "https://www.samro.org.za/creator",
+
+      "details_url": "https://www.samro.org.za/membership-tiers",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External resource",
+
+      "tags": [
+        "music",
+        "composer",
+        "songwriter",
+        "publisher",
+        "rights"
+      ]
+    },
+
+
+    {
+      "id": "capasso",
+
+      "title": "CAPASSO Music Rights & Royalties",
+
+      "organisation": "Composers Authors and Publishers Association (CAPASSO)",
+
+      "category": "Music & Creative",
+
+      "audience": "Composers, authors, publishers and music creators",
+
+      "location": "South Africa",
+
+      "deadline": "Ongoing — subject to official requirements",
+
+      "description": "CAPASSO provides music licensing, membership, distribution and royalty-related services for composers, authors and publishers. This resource can help local Vaal music creators understand music rights and royalty collection.",
+
+      "official_url": "https://www.capasso.co.za/",
+
+      "details_url": "https://www.capasso.co.za/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External resource",
+
+      "tags": [
+        "music",
+        "royalties",
+        "copyright",
+        "licensing",
+        "publisher",
+        "composer"
+      ]
+    },
+
+
+    {
+      "id": "nyda-grant",
+
+      "title": "NYDA Grant Programme",
+
+      "organisation": "National Youth Development Agency (NYDA)",
+
+      "category": "Youth & Entrepreneurship",
+
+      "audience": "South African youth aged 18–35 with qualifying business ideas or businesses",
+
+      "location": "South Africa",
+
+      "deadline": "Check official source for current application requirements",
+
+      "description": "Financial and non-financial business development support for qualifying young entrepreneurs, including mentorship, business consultancy, market linkages and business management training.",
+
+      "official_url": "https://www.nyda.gov.za/",
+
+      "details_url": "https://www.nyda.gov.za/Products-Services/NYDA-Grant-Programme.html",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External programme",
+
+      "tags": [
+        "youth",
+        "business",
+        "entrepreneurship",
+        "grant",
+        "funding",
+        "mentorship"
+      ]
+    },
+
+
+    {
+      "id": "nyda-voucher",
+
+      "title": "NYDA Business Development Voucher",
+
+      "organisation": "National Youth Development Agency (NYDA)",
+
+      "category": "Youth & Entrepreneurship",
+
+      "audience": "Eligible young entrepreneurs",
+
+      "location": "South Africa",
+
+      "deadline": "Check official source",
+
+      "description": "Business development support through approved consultants. Voucher services can assist qualifying young entrepreneurs with areas such as business development and strengthening their participation in the mainstream economy.",
+
+      "official_url": "https://www.nyda.gov.za/",
+
+      "details_url": "https://www.nyda.gov.za/Products-Services/NYDA-Voucher-Programme.html",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External programme",
+
+      "tags": [
+        "youth",
+        "business",
+        "consulting",
+        "entrepreneurship",
+        "training"
+      ]
+    },
+
+
+    {
+      "id": "nyda-national-youth-service",
+
+      "title": "National Youth Service Opportunities",
+
+      "organisation": "National Youth Development Agency (NYDA)",
+
+      "category": "Youth & Work",
+
+      "audience": "Unemployed young South Africans",
+
+      "location": "South Africa",
+
+      "deadline": "Check official source for current opportunities",
+
+      "description": "National Youth Service opportunities provide young people with community-service experience, work exposure, skills development and pathways towards sustainable livelihoods.",
+
+      "official_url": "https://www.nyda.gov.za/",
+
+      "details_url": "https://www.nyda.gov.za/Products-Services/National-Youth-Services-Programme.html",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External programme",
+
+      "tags": [
+        "youth",
+        "employment",
+        "community",
+        "skills",
+        "work-experience",
+        "service"
+      ]
+    },
+
+
+    {
+      "id": "employment-essa",
+
+      "title": "ESSA — Employment Services of South Africa",
+
+      "organisation": "Department of Employment and Labour",
+
+      "category": "Jobs",
+
+      "audience": "Job seekers, unemployed people and employers",
+
+      "location": "South Africa",
+
+      "deadline": "Ongoing — individual vacancies have their own deadlines",
+
+      "description": "The official government employment service allows work seekers to register, create a profile and CV, search for opportunities and apply for available work and learning opportunities.",
+
+      "official_url": "https://essa.labour.gov.za/EssaOnline/",
+
+      "details_url": "https://essa.labour.gov.za/EssaOnline/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Official government resource",
+
+      "tags": [
+        "jobs",
+        "employment",
+        "work",
+        "job-seeker",
+        "career",
+        "learnerships"
+      ]
+    },
+
+
+    {
+      "id": "nsfas",
+
+      "title": "NSFAS Student Financial Aid",
+
+      "organisation": "National Student Financial Aid Scheme (NSFAS)",
+
+      "category": "Education & Bursaries",
+
+      "audience": "Eligible students attending public universities and TVET colleges",
+
+      "location": "South Africa",
+
+      "deadline": "Application periods vary — check official source",
+
+      "description": "Financial assistance for qualifying students who need support to study at public universities and TVET colleges.",
+
+      "official_url": "https://www.nsfas.org.za/",
+
+      "details_url": "https://www.gov.za/services/tertiary-education/apply-financial-assistance-national-student-financial-aid-scheme-nsfas",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Official government resource",
+
+      "tags": [
+        "students",
+        "education",
+        "bursary",
+        "nsfas",
+        "university",
+        "tveta"
+      ]
+    },
+
+
+    {
+      "id": "central-application-service",
+
+      "title": "Central Application Service (CAS)",
+
+      "organisation": "Department of Higher Education and Training",
+
+      "category": "Education",
+
+      "audience": "Learners and prospective post-school students",
+
+      "location": "South Africa",
+
+      "deadline": "Check official service for current application information",
+
+      "description": "Central information and support for learners exploring post-school education and training opportunities. CAS replaced CACH for the 2026 academic year and beyond.",
+
+      "official_url": "https://www.gov.za/services/services-residents/education-and-training/tertiary-education/central-application-service",
+
+      "details_url": "https://www.gov.za/services/services-residents/education-and-training/tertiary-education/central-application-service",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Official government resource",
+
+      "tags": [
+        "students",
+        "education",
+        "university",
+        "college",
+        "applications",
+        "career"
+      ]
+    },
+
+
+    {
+      "id": "ndmc-bursary-2027",
+
+      "title": "NDMC 2027 External Bursary Programme",
+
+      "organisation": "National Disaster Management Centre (NDMC)",
+
+      "category": "Education & Bursaries",
+
+      "audience": "South African students studying Disaster Management, Fire Technology or Fire Engineering at recognised public higher education institutions",
+
+      "location": "South Africa",
+
+      "deadline": "30 September 2026",
+
+      "description": "Bursary opportunity supporting studies in disaster management and fire-related fields. Successful applicants may receive tuition and registration support, subject to the official requirements.",
+
+      "official_url": "https://www.cogta.gov.za/",
+
+      "details_url": "https://www.cogta.gov.za/index.php/2026/09/01/applications-open-for-the-ndmc-2027-external-bursary-programme/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Currently open",
+
+      "tags": [
+        "bursary",
+        "students",
+        "education",
+        "disaster-management",
+        "fire",
+        "2027"
+      ]
+    },
+
+
+    {
+      "id": "sedfa-business-support",
+
+      "title": "SEDFA Business Support & Funding",
+
+      "organisation": "Small Enterprise Development and Finance Agency (SEDFA)",
+
+      "category": "Business & Funding",
+
+      "audience": "Micro, small and medium enterprises, entrepreneurs and cooperatives",
+
+      "location": "South Africa",
+
+      "deadline": "Programmes and funding calls vary",
+
+      "description": "SEDFA provides financial and non-financial support intended to help South African MSMEs and cooperatives start, strengthen and grow. This is particularly relevant to local entrepreneurs seeking business development support, finance and market opportunities.",
+
+      "official_url": "https://www.sedfa.org.za/",
+
+      "details_url": "https://www.sedfa.org.za/financial-support.html",
+
+      "last_verified": "2026-09-02",
+
+      "status": "External government agency",
+
+      "tags": [
+        "business",
+        "smmes",
+        "funding",
+        "finance",
+        "entrepreneurship",
+        "cooperatives",
+        "support"
+      ]
+    },
+
+
+    {
+      "id": "etenders",
+
+      "title": "South African Government eTenders",
+
+      "organisation": "National Treasury",
+
+      "category": "Business & Tenders",
+
+      "audience": "Businesses, suppliers, contractors, service providers and professionals",
+
+      "location": "South Africa",
+
+      "deadline": "Each tender has its own closing date",
+
+      "description": "Official public-sector tender information covering opportunities from national, provincial and local government and other public-sector organisations.",
+
+      "official_url": "https://www.etenders.gov.za/",
+
+      "details_url": "https://www.etenders.gov.za/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Official government resource",
+
+      "tags": [
+        "tenders",
+        "business",
+        "procurement",
+        "suppliers",
+        "government",
+        "smmes"
+      ]
+    },
+
+
+    {
+      "id": "metsimaholo-rfqs",
+
+      "title": "Metsimaholo Municipal RFQs",
+
+      "organisation": "Metsimaholo Local Municipality",
+
+      "category": "Local Business & Tenders",
+
+      "audience": "Local businesses, suppliers and service providers",
+
+      "location": "Sasolburg, Deneysville, Oranjeville and surrounding areas",
+
+      "deadline": "Each RFQ has its own closing date",
+
+      "description": "Municipal requests for quotations and procurement opportunities. InVaal[016] can highlight relevant opportunities while directing businesses to the municipality for official documents, requirements and submission instructions.",
+
+      "official_url": "https://www.metsimaholo.gov.za/",
+
+      "details_url": "https://www.metsimaholo.gov.za/rfqs/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Local government resource",
+
+      "tags": [
+        "sasolburg",
+        "metsimaholo",
+        "rfq",
+        "tenders",
+        "business",
+        "procurement"
+      ]
+    },
+
+
+    {
+      "id": "metsimaholo-vacancies",
+
+      "title": "Metsimaholo Municipality Vacancies",
+
+      "organisation": "Metsimaholo Local Municipality",
+
+      "category": "Local Jobs",
+
+      "audience": "Job seekers meeting advertised requirements",
+
+      "location": "Sasolburg, Deneysville, Oranjeville and surrounding areas",
+
+      "deadline": "Varies by vacancy",
+
+      "description": "Employment opportunities published by Metsimaholo Local Municipality. Applicants should use the official municipal vacancy notice for requirements and application instructions.",
+
+      "official_url": "https://www.metsimaholo.gov.za/",
+
+      "details_url": "https://www.metsimaholo.gov.za/vacancies/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Local government resource",
+
+      "tags": [
+        "jobs",
+        "employment",
+        "sasolburg",
+        "metsimaholo",
+        "municipality",
+        "careers"
+      ]
+    },
+
+
+    {
+      "id": "sedibeng-opportunities",
+
+      "title": "Sedibeng District Opportunities",
+
+      "organisation": "Sedibeng District Municipality",
+
+      "category": "Local Jobs & Community",
+
+      "audience": "Residents, job seekers, youth and community members",
+
+      "location": "Sedibeng District, Gauteng",
+
+      "deadline": "Varies by opportunity",
+
+      "description": "Official Sedibeng District information covering municipal vacancies, public programmes, notices and community-related opportunities.",
+
+      "official_url": "https://sedibeng.gov.za/",
+
+      "details_url": "https://sedibeng.gov.za/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Local government resource",
+
+      "tags": [
+        "sedibeng",
+        "vaal",
+        "jobs",
+        "community",
+        "municipality",
+        "gauteng"
+      ]
+    },
+
+
+    {
+      "id": "midvaal-tenders",
+
+      "title": "Midvaal Municipality Tenders",
+
+      "organisation": "Midvaal Local Municipality",
+
+      "category": "Local Business & Tenders",
+
+      "audience": "Businesses, suppliers and service providers",
+
+      "location": "Midvaal, Gauteng",
+
+      "deadline": "Each tender has its own closing date",
+
+      "description": "Municipal tender and procurement information for businesses and service providers operating in or interested in working with Midvaal Municipality.",
+
+      "official_url": "https://www.midvaal.gov.za/",
+
+      "details_url": "https://www.midvaal.gov.za/tenders/opening-registers/7-day-ad-tender/",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Local government resource",
+
+      "tags": [
+        "midvaal",
+        "meyerton",
+        "tenders",
+        "business",
+        "procurement",
+        "suppliers"
+      ]
+    },
+
+
+    {
+      "id": "nac-arts-funding",
+
+      "title": "National Arts Council Funding",
+
+      "organisation": "National Arts Council of South Africa (NAC)",
+
+      "category": "Arts & Creative",
+
+      "audience": "Artists, arts practitioners, creative organisations and community art centres",
+
+      "location": "South Africa",
+
+      "deadline": "Funding calls vary",
+
+      "description": "National Arts Council funding opportunities covering disciplines such as music, literature, theatre, visual arts, craft, dance and multidisciplinary projects.",
+
+      "official_url": "https://www.dsac.gov.za/",
+
+      "details_url": "https://www.dsac.gov.za/index.php/National%20Arts%20Council%20of%20South%20Africa%20%28NAC%29%20-%20New%20call%20for%20the%20NAC%20annual%20project%20funding%20applications%20for%202026%20-%202027",
+
+      "last_verified": "2026-09-02",
+
+      "status": "Recurring external funding resource",
+
+      "tags": [
+        "arts",
+        "music",
+        "dance",
+        "theatre",
+        "visual-art",
+        "craft",
+        "funding",
+        "creative"
+      ]
     }
+
   ]
 }

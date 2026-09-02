@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta
+  name="description"
+  content="InVaal[016] Opportunities & Resources"
+/>
+
+<title>Opportunities | InVaal[016]</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f7f7f7;
+  color:#171717;
+  line-height:1.6;
+}
+
+header{
+  background:#111;
+  color:#fff;
+  padding:42px 20px;
+}
+
+.wrap{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+h1{
+  font-size:clamp(2rem,5vw,3.4rem);
+  margin:0 0 8px;
+}
+
+.notice{
+  margin:25px 0;
+  padding:16px 18px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-left:5px solid #111;
+  border-radius:8px;
+}
+
+.controls{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:12px;
+  margin:25px 0;
+}
+
+input,
+select{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  background:#fff;
+  font:inherit;
+  box-sizing:border-box;
+}
+
+#opportunities{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(290px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+}
+
+.tag{
+  display:inline-block;
+  font-size:.78rem;
+  font-weight:700;
+  background:#eee;
+  padding:4px 8px;
+  border-radius:20px;
+  margin-bottom:10px;
+}
+
+.card h2{
+  font-size:1.25rem;
+  margin:3px 0 7px;
+}
+
+.org{
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.meta{
+  color:#666;
+  font-size:.9rem;
+  margin:4px 0;
+}
+
+.description{
+  margin:12px 0;
+}
+
+.actions{
+  margin-top:auto;
+  padding-top:15px;
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:9px 13px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  border:1px solid #111;
+}
+
+.primary{
+  background:#111;
+  color:#fff;
+}
+
+.secondary{
+  color:#111;
+  background:#fff;
+}
+
+.empty{
+  grid-column:1/-1;
+  padding:35px;
+  text-align:center;
+  color:#666;
+}
+
+footer{
+  margin-top:45px;
+  padding:28px 0;
+  border-top:1px solid #ddd;
+  color:#666;
+  font-size:.9rem;
+}
+
+@media(max-width:650px){
+  .controls{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+
+    <h1>InVaal[016] Opportunities</h1>
+
+    <p>
+      Discover funding, jobs, training, business support,
+      creative programmes and community opportunities.
+    </p>
+
+  </div>
+</header>
+
+
+<main class="wrap">
+
+  <!--
+    IMPORTANT:
+    InVaal[016] is presenting information about
+    external organisations.
+
+    The organisation itself remains the official
+    source of the opportunity.
+  -->
+
+  <div class="notice">
+
+    <strong>External Information Notice:</strong>
+
+    InVaal[016] independently curates information
+    from external organisations.
+
+    Unless explicitly stated, InVaal[016] is not
+    affiliated with, endorsed by or sponsored by
+    the organisations listed.
+
+    Always verify requirements and deadlines
+    on the official source.
+
+  </div>
+
+
+  <!-- Search + category filter -->
+
+  <div class="controls">
+
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search opportunities, organisations, skills..."
+    >
+
+    <select id="categoryFilter">
+
+      <option value="all">
+        All categories
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <!-- Number of results -->
+
+  <p
+    id="resultCount"
+    class="meta"
+  ></p>
+
+
+  <!-- Opportunity cards are loaded here -->
+
+  <section
+    id="opportunities"
+    aria-live="polite"
+  ></section>
+
+</main>
+
+
+<footer>
+
+  <div class="wrap">
+
+    <strong>InVaal[016]</strong>
+    — Community media & digital platform.
+
+    <br>
+
+    Official organisations remain
+    the authoritative source.
+
+  </div>
+
+</footer>
+
+
+<script src="../js/loaders/opportunity-loader.js"></script>
+
+</body>
+</html>
