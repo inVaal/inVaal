@@ -1,0 +1,93 @@
+{
+  "version": "2.0",
+
+  "last_updated": "2026-09-02",
+
+  "title": "Contact InVaal[016]",
+
+  "intro": "InVaal[016] connects people, businesses, creatives, organisations and opportunities across the Vaal community.",
+
+  "contact_topics": [
+
+    {
+      "id": "general",
+      "title": "General Enquiries",
+      "description": "Have a question, suggestion or idea about InVaal[016]? Get in touch with us."
+    },
+    {
+      "id": "business",
+      "title": "Local Businesses",
+      "description": "Contact us about local businesses, business information, listings and opportunities for businesses to connect with the community."
+    },
+    {
+      "id": "events",
+      "title": "Events",
+      "description": "Share information about community events, markets, entertainment, workshops and activities happening around the Vaal."
+    },
+    {
+      "id": "opportunities",
+      "title": "Opportunities",
+      "description": "Let us know about jobs, bursaries, grants, tenders, learnerships, training programmes and other opportunities that could benefit the community."
+    },
+    {
+      "id": "creatives",
+      "title": "Creatives",
+      "description": "Connect with us if you're a musician, filmmaker, photographer, designer, artist, writer or another local creative."
+    },
+    {
+      "id": "community",
+      "title": "Community",
+      "description": "Share community initiatives, projects, stories and information that can help people across the Vaal."
+    },
+    {
+      "id": "partnerships",
+      "title": "Partnerships",
+      "description": "Organisations, businesses and community groups interested in working with InVaal[016] are welcome to connect with us."
+    },
+    {
+      "id": "advertising",
+      "title": "Advertising",
+      "description": "Businesses and organisations can contact InVaal[016] to explore ways of reaching the local community."
+    },
+    {
+      "id": "correction",
+      "title": "Corrections & Updates",
+      "description": "Found information that is outdated, incorrect or needs updating? Let us know so we can review it."
+    }
+
+  ],
+
+
+  "email": "invaaltriangle@gmail.com",
+
+
+  "whatsapp": {
+
+    "label": "WhatsApp InVaal[016]",
+
+    "url": "https://wa.me/message/KXWQBI4QCSMKK1?src=qr"
+
+  },
+
+
+  "socials": {
+
+    "facebook": "https://www.facebook.com/share/1KaSvPznH6/",
+
+    "instagram": "https://www.instagram.com/invaal_016"
+
+  },
+
+
+  "community": {
+
+    "title": "InVaal[016] belongs to the community.",
+
+    "message": "Local information becomes more useful when the community helps keep it accurate, relevant and active."
+
+  },
+
+
+  "disclaimer": "InVaal[016] may share information originating from external organisations and sources. Please verify important information with the relevant official organisation."
+
+}

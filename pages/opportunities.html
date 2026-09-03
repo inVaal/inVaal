@@ -1,265 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<meta
-  name="description"
-  content="InVaal[016] Opportunities & Resources"
-/>
+  <meta charset="UTF-8">
 
-<title>Opportunities | InVaal[016]</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f7f7f7;
-  color:#171717;
-  line-height:1.6;
-}
+  <meta
+    name="description"
+    content="Discover jobs, funding, training, business support, creative programmes and community opportunities across the Vaal."
+  >
 
-header{
-  background:#111;
-  color:#fff;
-  padding:42px 20px;
-}
+  <title>
+    Opportunities | InVaal[016]
+  </title>
 
-.wrap{
-  width:min(1100px,92%);
-  margin:auto;
-}
 
-h1{
-  font-size:clamp(2rem,5vw,3.4rem);
-  margin:0 0 8px;
-}
+  <!-- =====================================================
+       INVAAL [016] CORE CSS
+       ===================================================== -->
 
-.notice{
-  margin:25px 0;
-  padding:16px 18px;
-  background:#fff;
-  border:1px solid #ddd;
-  border-left:5px solid #111;
-  border-radius:8px;
-}
+  <link
+    rel="stylesheet"
+    href="../css/root.css"
+  >
 
-.controls{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:12px;
-  margin:25px 0;
-}
+  <link
+    rel="stylesheet"
+    href="../css/typography.css"
+  >
 
-input,
-select{
-  width:100%;
-  padding:13px;
-  border:1px solid #ddd;
-  border-radius:7px;
-  background:#fff;
-  font:inherit;
-  box-sizing:border-box;
-}
+  <link
+    rel="stylesheet"
+    href="../css/layout.css"
+  >
 
-#opportunities{
-  display:grid;
-  grid-template-columns:
-    repeat(auto-fit,minmax(290px,1fr));
-  gap:18px;
-}
+  <link
+    rel="stylesheet"
+    href="../css/components.css"
+  >
 
-.card{
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-}
+  <link
+    rel="stylesheet"
+    href="../css/responsive.css"
+  >
 
-.tag{
-  display:inline-block;
-  font-size:.78rem;
-  font-weight:700;
-  background:#eee;
-  padding:4px 8px;
-  border-radius:20px;
-  margin-bottom:10px;
-}
+  <link rel="stylesheet" href="../css/fixedBack.css">
 
-.card h2{
-  font-size:1.25rem;
-  margin:3px 0 7px;
-}
 
-.org{
-  font-weight:700;
-  margin-bottom:10px;
-}
+  <!-- =====================================================
+       OPPORTUNITIES PAGE CSS
+       ===================================================== -->
 
-.meta{
-  color:#666;
-  font-size:.9rem;
-  margin:4px 0;
-}
+  <link
+    rel="stylesheet"
+    href="../css/opportunities.css"
+  >
 
-.description{
-  margin:12px 0;
-}
-
-.actions{
-  margin-top:auto;
-  padding-top:15px;
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-  padding:9px 13px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:700;
-  border:1px solid #111;
-}
-
-.primary{
-  background:#111;
-  color:#fff;
-}
-
-.secondary{
-  color:#111;
-  background:#fff;
-}
-
-.empty{
-  grid-column:1/-1;
-  padding:35px;
-  text-align:center;
-  color:#666;
-}
-
-footer{
-  margin-top:45px;
-  padding:28px 0;
-  border-top:1px solid #ddd;
-  color:#666;
-  font-size:.9rem;
-}
-
-@media(max-width:650px){
-  .controls{
-    grid-template-columns:1fr;
-  }
-}
-</style>
 </head>
 
-<body>
 
-<header>
-  <div class="wrap">
+<body class="opportunities-page">
 
-    <h1>InVaal[016] Opportunities</h1>
+     <!-- =========================================================
+    FIXED BACK BUTTON
+    ---------------------------------------------------------
+    Always returns the visitor to the main InVaal page.
+  ========================================================== -->
 
-    <p>
-      Discover funding, jobs, training, business support,
-      creative programmes and community opportunities.
-    </p>
+  <a
+    class="back-to-home button button-secondary"
+    href="../index.html"
+    aria-label="Back to InVaal [016] home page"
+  >
 
-  </div>
-</header>
+    <span aria-hidden="true">
+      ←
+    </span>
+
+    <span>
+      InVaal [016]
+    </span>
+
+  </a>
+
+  <!-- =====================================================
+       PAGE HEADER
+       ===================================================== -->
+
+  <header class="opportunities-header">
+
+    <div class="wrap">
+
+      <p class="eyebrow">
+        INVAAL [016]
+      </p>
+
+      <h1>
+        Opportunities
+      </h1>
+
+      <p class="header-intro">
+        Discover funding, jobs, training, business support,
+        creative programmes and community opportunities.
+      </p>
+
+    </div>
+
+  </header>
 
 
-<main class="wrap">
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
 
-  <!--
-    IMPORTANT:
-    InVaal[016] is presenting information about
-    external organisations.
-
-    The organisation itself remains the official
-    source of the opportunity.
-  -->
-
-  <div class="notice">
-
-    <strong>External Information Notice:</strong>
-
-    InVaal[016] independently curates information
-    from external organisations.
-
-    Unless explicitly stated, InVaal[016] is not
-    affiliated with, endorsed by or sponsored by
-    the organisations listed.
-
-    Always verify requirements and deadlines
-    on the official source.
-
-  </div>
+  <main class="wrap">
 
 
-  <!-- Search + category filter -->
+    <!-- ===================================================
+         EXTERNAL INFORMATION NOTICE
+         =================================================== -->
 
-  <div class="controls">
-
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="Search opportunities, organisations, skills..."
+    <div
+      class="notice"
+      role="note"
     >
 
-    <select id="categoryFilter">
+      <div class="notice-icon" aria-hidden="true">
+        ℹ
+      </div>
 
-      <option value="all">
-        All categories
-      </option>
+      <div class="notice-content">
 
-    </select>
+        <strong>
+          External Information Notice
+        </strong>
 
-  </div>
+        <p>
+          InVaal[016] independently curates information
+          from external organisations.
+        </p>
 
+        <p>
+          Unless explicitly stated, InVaal[016] is not
+          affiliated with, endorsed by or sponsored by
+          the organisations listed.
+        </p>
 
-  <!-- Number of results -->
+        <p>
+          Always verify requirements, eligibility and
+          deadlines on the official source.
+        </p>
 
-  <p
-    id="resultCount"
-    class="meta"
-  ></p>
+      </div>
 
-
-  <!-- Opportunity cards are loaded here -->
-
-  <section
-    id="opportunities"
-    aria-live="polite"
-  ></section>
-
-</main>
-
-
-<footer>
-
-  <div class="wrap">
-
-    <strong>InVaal[016]</strong>
-    — Community media & digital platform.
-
-    <br>
-
-    Official organisations remain
-    the authoritative source.
-
-  </div>
-
-</footer>
+    </div>
 
 
-<script src="../js/loaders/opportunity-loader.js"></script>
+    <!-- ===================================================
+         SEARCH + CATEGORY FILTER
+         =================================================== -->
+
+    <section
+      class="controls"
+      aria-label="Opportunity search and filters"
+    >
+
+      <!-- Search -->
+
+      <label
+        class="control-group"
+        for="searchInput"
+      >
+
+        <span class="control-label">
+          Search opportunities
+        </span>
+
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search organisations, skills, jobs..."
+          autocomplete="off"
+          aria-label="Search opportunities"
+        >
+
+      </label>
+
+
+      <!-- Category -->
+
+      <label
+        class="control-group"
+        for="categoryFilter"
+      >
+
+        <span class="control-label">
+          Category
+        </span>
+
+        <select
+          id="categoryFilter"
+          aria-label="Filter opportunities by category"
+        >
+
+          <option value="all">
+            All categories
+          </option>
+
+        </select>
+
+      </label>
+
+    </section>
+
+
+    <!-- ===================================================
+         RESULT COUNT
+         =================================================== -->
+
+    <div class="results-header">
+
+      <p
+        id="resultCount"
+        class="result-count"
+        aria-live="polite"
+      >
+        Loading opportunities...
+      </p>
+
+    </div>
+
+
+    <!-- ===================================================
+         OPPORTUNITY CARDS
+         =================================================== -->
+
+    <section
+      id="opportunities"
+      class="opportunity-grid"
+      aria-label="Available opportunities"
+      aria-live="polite"
+      aria-busy="true"
+    >
+
+      <!-- JavaScript loads cards here -->
+
+      <div class="empty">
+
+        <div class="empty-icon" aria-hidden="true">
+          ⏳
+        </div>
+
+        <strong>
+          Loading opportunities...
+        </strong>
+
+        <p>
+          Please wait while we load the latest information.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SOURCE REMINDER
+         =================================================== -->
+
+    <section class="source-reminder">
+
+      <div class="source-reminder-icon" aria-hidden="true">
+        ✓
+      </div>
+
+      <div>
+
+        <h2>
+          Verify before applying
+        </h2>
+
+        <p>
+          Opportunity information can change.
+          Always check the official organisation's
+          website for the latest requirements,
+          application instructions and deadlines.
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="opportunities-footer">
+
+    <div class="wrap">
+
+      <strong>
+        InVaal[016]
+      </strong>
+
+      <span>
+        — Community media &amp; digital platform.
+      </span>
+
+      <br>
+
+      <small>
+        External organisations remain the authoritative
+        source for their opportunities.
+      </small>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script
+    src="../js/loaders/opportunity-loader.js"
+  ></script>
+
 
 </body>
+
 </html>

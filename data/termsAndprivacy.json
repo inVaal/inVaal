@@ -1,0 +1,271 @@
+{
+  "version": "2.0",
+  "last_updated": "2026-09-02",
+
+  "terms": {
+    "title": "Terms of Use",
+    "subtitle": "Terms and conditions for using InVaal [016].",
+
+    "intro": "Welcome to InVaal [016], a community-focused platform designed to help people discover local news, businesses, opportunities, creatives, events and community information across the Vaal Triangle. By accessing or using this website, you agree to use the platform responsibly and in accordance with these Terms of Use.",
+
+    "sections": [
+      {
+        "id": "about",
+        "title": "1. About InVaal [016]",
+        "paragraphs": [
+          "InVaal [016] is currently an independent, community-focused digital platform. The platform is currently unregistered as a formal business entity.",
+          "The purpose of InVaal [016] is to improve the discovery and sharing of useful local information for people, businesses, organisations, creatives and communities in the Vaal Triangle."
+        ]
+      },
+
+      {
+        "id": "acceptable-use",
+        "title": "2. Acceptable Use",
+        "paragraphs": [
+          "You agree to use InVaal [016] only for lawful and legitimate purposes.",
+          "You must not use the platform to knowingly publish, submit, distribute or promote false, fraudulent, abusive, threatening, defamatory, unlawful or misleading information.",
+          "You must not attempt to interfere with the operation or security of the website, its data, its hosting environment or its users."
+        ]
+      },
+
+      {
+        "id": "information",
+        "title": "3. Information Published on the Platform",
+        "paragraphs": [
+          "InVaal [016] may publish or reference information relating to local businesses, organisations, events, opportunities, public services, community initiatives, creatives and other local resources.",
+          "Information may come from official public sources, organisations, businesses, community members, partners or other publicly accessible sources.",
+          "Although reasonable care may be taken to review information before publication, InVaal [016] cannot guarantee that every item will always be complete, accurate, current or available."
+        ]
+      },
+
+      {
+        "id": "verification",
+        "title": "4. Verify Important Information",
+        "paragraphs": [
+          "Users should verify important information directly with the relevant organisation, business, institution or official source before relying on it.",
+          "This is particularly important for employment opportunities, bursaries, grants, tenders, funding programmes, application deadlines, prices, legal requirements and other information that may change."
+        ]
+      },
+
+      {
+        "id": "external-websites",
+        "title": "5. External Websites and Links",
+        "paragraphs": [
+          "InVaal [016] may provide links to external websites operated by government departments, municipalities, businesses, organisations, institutions and other third parties.",
+          "These websites are outside the control of InVaal [016]. Visiting an external website is subject to that website's own terms, privacy policies and conditions.",
+          "The inclusion of an external link does not automatically mean that InVaal [016] endorses, sponsors or is officially affiliated with the organisation or website."
+        ]
+      },
+
+      {
+        "id": "business-information",
+        "title": "6. Business and Organisation Information",
+        "paragraphs": [
+          "Business and organisation listings may contain information such as names, descriptions, contact details, websites, social media links, operating hours, locations and services.",
+          "InVaal [016] aims to present this information responsibly and may update or remove information when changes or corrections are brought to its attention.",
+          "A listing or mention on InVaal [016] should not automatically be interpreted as an endorsement, certification, accreditation or guarantee of the business or organisation."
+        ]
+      },
+
+      {
+        "id": "community-contributions",
+        "title": "7. Community Contributions",
+        "paragraphs": [
+          "Where InVaal [016] accepts information, recommendations, corrections, stories, event details or other contributions from members of the community, contributors should only submit information that they are reasonably entitled to share.",
+          "Contributors should avoid submitting private, confidential, sensitive or unlawful information about other people.",
+          "InVaal [016] may review, edit, decline, remove or update submitted information where reasonably necessary."
+        ]
+      },
+
+      {
+        "id": "intellectual-property",
+        "title": "8. Intellectual Property",
+        "paragraphs": [
+          "Content created by InVaal [016], including original written material, website design, code, graphics and other original materials, may be protected by applicable intellectual property laws.",
+          "Third-party names, trademarks, logos, photographs, documents and other materials remain the property of their respective owners unless otherwise stated.",
+          "InVaal [016] does not claim ownership of third-party intellectual property merely because it references or links to that material."
+        ]
+      },
+
+      {
+        "id": "no-endorsement",
+        "title": "9. No Automatic Endorsement",
+        "paragraphs": [
+          "Being listed, mentioned, linked to or referenced on InVaal [016] does not automatically mean that InVaal [016] endorses, certifies, represents or guarantees the relevant person, business, organisation, opportunity, event, product or service."
+        ]
+      },
+
+      {
+        "id": "disclaimer",
+        "title": "10. Disclaimer",
+        "paragraphs": [
+          "Information on InVaal [016] is provided for general informational and community-discovery purposes.",
+          "InVaal [016] does not provide legal, financial, employment, investment, medical or other professional advice through general website content.",
+          "Users are responsible for making their own decisions and conducting appropriate verification before acting on information published on the platform."
+        ]
+      },
+
+      {
+        "id": "changes",
+        "title": "11. Changes to These Terms",
+        "paragraphs": [
+          "These Terms of Use may be updated as InVaal [016] develops, introduces new features, establishes partnerships or formalises its operations.",
+          "The latest version published on this website will be treated as the current version."
+        ]
+      },
+
+      {
+        "id": "questions",
+        "title": "12. Questions and Corrections",
+        "paragraphs": [
+          "If you believe information published on InVaal [016] is inaccurate, outdated or incorrectly represented, please contact InVaal [016] so that the information can be reviewed."
+        ]
+      },
+
+      {
+        "id": "legal-review",
+        "title": "13. Legal Information",
+        "paragraphs": [
+          "These Terms are intended to provide a clear framework for the responsible use of the platform. They are not a substitute for advice from a qualified legal professional.",
+          "As InVaal [016] grows or becomes formally registered, these Terms should be reviewed and updated where necessary."
+        ]
+      }
+    ],
+
+    "closing": {
+      "title": "Use InVaal [016] responsibly.",
+      "message": "The goal is simple: make useful local information easier to discover while respecting the people, businesses and communities behind it."
+    }
+  },
+
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "How InVaal [016] approaches privacy and information.",
+
+    "intro": "InVaal [016] respects the privacy of people who interact with the platform. This Privacy Policy explains the types of information that may be encountered through the website, how information may be used, and the principles InVaal [016] follows when handling information.",
+
+    "sections": [
+      {
+        "id": "privacy-approach",
+        "title": "1. Our Approach to Privacy",
+        "paragraphs": [
+          "InVaal [016] aims to collect and use only information that is reasonably necessary for operating, improving and communicating about the platform.",
+          "The platform is intended to serve the community while avoiding unnecessary collection of personal information."
+        ]
+      },
+
+      {
+        "id": "information-received",
+        "title": "2. Information We May Receive",
+        "paragraphs": [
+          "Depending on how you interact with InVaal [016], information may include your name, contact details, business information, organisation information, messages, corrections, submissions or other information that you voluntarily provide.",
+          "Basic technical information may also be processed by website hosting, security, analytics or other technical services used to operate the platform."
+        ]
+      },
+
+      {
+        "id": "how-information-used",
+        "title": "3. How Information May Be Used",
+        "paragraphs": [
+          "Information may be used to respond to enquiries, review corrections, communicate with contributors, maintain listings, publish community information, improve the website, provide requested services and protect the platform from misuse.",
+          "Information should not be used for purposes that are materially different from the reason it was provided without an appropriate basis or permission where required by applicable law."
+        ]
+      },
+
+      {
+        "id": "public-information",
+        "title": "4. Public and Business Information",
+        "paragraphs": [
+          "InVaal [016] may reference information that businesses, organisations, government institutions, municipalities or other entities have already made publicly available.",
+          "The fact that information is publicly available does not mean that every use of that information is unrestricted. InVaal [016] aims to use public information responsibly and may provide attribution or links to the relevant official source where appropriate.",
+          "If you believe information about your organisation or business is inaccurate, outdated or improperly presented, you can contact InVaal [016] to request a review."
+        ]
+      },
+
+      {
+        "id": "external-services",
+        "title": "5. External Websites and Services",
+        "paragraphs": [
+          "The platform may link to or rely on external services such as government websites, social media platforms, mapping services, hosting providers and other third-party websites.",
+          "Those services may have their own privacy policies and data practices. Users should review the privacy policies of external services when interacting with them."
+        ]
+      },
+
+      {
+        "id": "cookies",
+        "title": "6. Cookies and Similar Technologies",
+        "paragraphs": [
+          "InVaal [016] may use cookies or similar technologies in the future if required for website functionality, security, analytics or other legitimate operational purposes.",
+          "Where third-party services are used, those services may also use their own cookies or similar technologies according to their policies."
+        ]
+      },
+
+      {
+        "id": "data-security",
+        "title": "7. Information Security",
+        "paragraphs": [
+          "Reasonable measures should be taken to protect information handled through the platform. However, no internet-based system can guarantee absolute security.",
+          "Users should avoid submitting unnecessary sensitive or confidential information through ordinary website communication channels."
+        ]
+      },
+
+      {
+        "id": "retention",
+        "title": "8. Information Retention",
+        "paragraphs": [
+          "Information may be retained for as long as reasonably necessary for the purpose for which it was collected, for maintaining records, resolving disputes, protecting the platform or meeting applicable legal obligations."
+        ]
+      },
+
+      {
+        "id": "privacy-requests",
+        "title": "9. Privacy Requests",
+        "paragraphs": [
+          "If you have a question about information associated with you, believe information is inaccurate, or want to raise a privacy concern, you can contact InVaal [016] for review.",
+          "Requests may need to contain enough information for InVaal [016] to understand and respond to the issue, while unnecessary personal information should not be submitted."
+        ]
+      },
+
+      {
+        "id": "popia",
+        "title": "10. South African Privacy Law",
+        "paragraphs": [
+          "InVaal [016] operates with the intention of respecting applicable South African privacy and data-protection principles, including the Protection of Personal Information Act (POPIA), where applicable.",
+          "As the platform develops, its privacy practices should be reviewed against applicable legal requirements and updated accordingly."
+        ]
+      },
+
+      {
+        "id": "children",
+        "title": "11. Children and Young People",
+        "paragraphs": [
+          "InVaal [016] does not intentionally seek unnecessary personal information from children.",
+          "Parents, guardians and responsible adults should take appropriate care when children interact with websites or external services linked through the platform."
+        ]
+      },
+
+      {
+        "id": "privacy-changes",
+        "title": "12. Changes to This Privacy Policy",
+        "paragraphs": [
+          "This Privacy Policy may be updated as InVaal [016] grows, introduces new features, changes its technology or formalises its operations.",
+          "The latest version published on this website will be treated as the current version."
+        ]
+      },
+
+      {
+        "id": "privacy-review",
+        "title": "13. Privacy and Legal Review",
+        "paragraphs": [
+          "This Privacy Policy provides a practical starting framework for the current InVaal [016] project.",
+          "As InVaal [016] grows, collects more information, introduces accounts, advertising systems, forms, analytics, partnerships or other data-processing activities, this policy should be professionally reviewed and expanded where necessary."
+        ]
+      }
+    ],
+
+    "closing": {
+      "title": "Privacy matters to the community.",
+      "message": "InVaal [016] aims to build a useful local platform without collecting more personal information than is reasonably necessary."
+    }
+  }
+}

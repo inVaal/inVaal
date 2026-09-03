@@ -1,0 +1,933 @@
+/* =========================================================
+   InVaal [016] — Business Grid
+   Styles the dynamically generated business cards
+   ========================================================= */
+
+
+/* =========================================================
+   BUSINESS GRID
+   ========================================================= */
+
+.business-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+
+  width: 100%;
+
+  margin-top: 25px;
+}
+
+
+/* =========================================================
+   BUSINESS CARD
+   ========================================================= */
+
+/*
+   This targets cards generated inside:
+
+   #business-container.business-grid
+
+   If your JavaScript creates:
+   <article class="business-card">
+
+   this styling will apply automatically.
+*/
+
+.business-grid .business-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 100%;
+
+  padding: 24px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  color: #171717;
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Gold accent at the top of every card */
+
+.business-grid .business-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: var(--color-accent);
+}
+
+
+/* Hover */
+
+.business-grid .business-card:hover {
+  transform: translateY(-5px);
+
+  border-color: black;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================================================
+   BUSINESS IMAGE
+   ========================================================= */
+
+.business-grid .business-card img {
+  display: block;
+
+  width: 100%;
+  height: 190px;
+
+  object-fit: cover;
+
+  margin: 0 0 18px;
+
+  border-radius: 13px;
+
+  background: #eeeeee;
+}
+
+
+/* =========================================================
+   BUSINESS CATEGORY
+   ========================================================= */
+
+.business-grid .business-category,
+.business-grid .category,
+.business-grid .tag {
+  align-self: flex-start;
+
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
+  margin-bottom: 12px;
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #f6ead0;
+
+  color: var(--color-accent);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BUSINESS NAME
+   ========================================================= */
+
+.business-grid .business-card h2,
+.business-grid .business-name {
+  margin: 0 0 8px;
+
+  color: #171717;
+
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   BUSINESS DESCRIPTION
+   ========================================================= */
+
+.business-grid .business-description,
+.business-grid .description {
+  margin: 0 0 16px;
+
+  color: #5c5c5c;
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BUSINESS INFORMATION
+   ========================================================= */
+
+.business-grid .business-info,
+.business-grid .meta {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-top: auto;
+}
+
+
+.business-grid .business-info p,
+.business-grid .meta p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+
+.business-grid .business-info strong,
+.business-grid .meta strong {
+  color: #222;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
+
+.business-grid .location {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 7px;
+
+  margin-top: 7px;
+
+  color: #666;
+
+  font-size: 0.84rem;
+}
+
+
+/* =========================================================
+   CONTACT DETAILS
+   ========================================================= */
+
+.business-grid .phone,
+.business-grid .whatsapp,
+.business-grid .website {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 0.84rem;
+}
+
+
+/* Links */
+
+.business-grid .business-card a {
+    color: var(--color-info);
+    font-weight: 700;
+    
+    text-decoration: none;
+}
+
+
+.business-grid .business-card a:hover {
+    color: var(--color-accent);
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   BUSINESS ACTIONS
+   ========================================================= */
+
+.business-grid .business-actions,
+.business-grid .actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   BUSINESS BUTTONS
+   ========================================================= */
+
+.business-grid .btn,
+.business-grid .business-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 14px;
+
+  border-radius: 10px;
+
+  font-size: 0.8rem;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Primary button */
+
+.business-grid .btn-primary,
+.business-grid .business-btn.primary {
+  border: 1px solid var(--color-accent);
+
+  background: #e4a928;
+
+  color: #17120a;
+}
+
+
+.business-grid .btn-primary:hover,
+.business-grid .business-btn.primary:hover {
+  background: var(--color-accent);
+
+  color: #17120a;
+
+  text-decoration: none;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 14px rgba(228, 169, 40, 0.22);
+}
+
+
+/* Secondary button */
+
+.business-grid .btn-secondary,
+.business-grid .business-btn.secondary {
+  border: 1px solid #dddddd;
+
+  background: #ffffff;
+
+  color: #333333;
+}
+
+
+.business-grid .btn-secondary:hover,
+.business-grid .business-btn.secondary:hover {
+  border-color: var(--color-accent);
+
+  background: #faf7ef;
+
+  color: #333333;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   FEATURED BUSINESS
+   ========================================================= */
+
+.business-grid .business-card.featured {
+  border-color: rgba(228, 169, 40, 0.45);
+
+  box-shadow:
+    0 14px 34px rgba(228, 169, 40, 0.12);
+}
+
+
+.business-grid .business-card.featured::before {
+  height: 5px;
+}
+
+
+/* Featured label */
+
+.business-grid .featured-label {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  background: #e4a928;
+
+  color: #17120a;
+
+  font-size: 0.68rem;
+  font-weight: 900;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.business-grid .empty,
+.business-grid .no-results {
+  grid-column: 1 / -1;
+
+  padding: 45px 25px;
+
+  border: 1px dashed rgba(0, 0, 0, 0.20);
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  color: #666;
+
+  text-align: center;
+}
+
+
+.business-grid .empty h2,
+.business-grid .no-results h2 {
+  margin: 0 0 8px;
+
+  color: #222;
+
+  font-size: 1.15rem;
+}
+
+
+.business-grid .empty p,
+.business-grid .no-results p {
+  margin: 0;
+
+  font-size: 0.88rem;
+}
+
+
+/* =========================================================
+   LOADING STATE
+   ========================================================= */
+
+.business-grid.is-loading {
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .business-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 680px) {
+
+  .business-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    margin-top: 20px;
+  }
+
+
+  .business-grid .business-card {
+    padding: 20px;
+
+    border-radius: 16px;
+  }
+
+
+  .business-grid .business-card img {
+    height: 200px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .business-grid .business-card {
+    padding: 17px;
+  }
+
+
+  .business-grid .business-card img {
+    height: 175px;
+
+    border-radius: 11px;
+  }
+
+
+  .business-grid .business-actions,
+  .business-grid .actions {
+    flex-direction: column;
+  }
+
+
+  .business-grid .btn,
+  .business-grid .business-btn {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.business-grid .business-card a:focus-visible,
+.business-grid .btn:focus-visible,
+.business-grid .business-btn:focus-visible {
+  outline: 3px solid rgba(228, 169, 40, 0.55);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .business-grid .business-card,
+  .business-grid .btn,
+  .business-grid .business-btn {
+    transition: none;
+  }
+
+}
+
+
+/* =========================================================
+   BUSINESS SIDEBAR
+   ========================================================= */
+
+.business-sidebar {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   SIDEBAR CARDS
+   ========================================================= */
+
+.business-sidebar > section,
+.business-sidebar > .content-card,
+.business-sidebar > .detail-card {
+  position: relative;
+
+  padding: 22px;
+
+  border: 1px solid var(--business-border);
+
+  border-radius: var(--business-radius-md);
+
+  background: var(--business-surface);
+
+  box-shadow:
+    var(--business-shadow);
+}
+
+
+/*
+   Small gold accent used consistently across
+   sidebar sections.
+*/
+
+.business-sidebar > section::before,
+.business-sidebar > .content-card::before,
+.business-sidebar > .detail-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 22px;
+
+  width: 40px;
+  height: 3px;
+
+  border-radius: 0 0 4px 4px;
+
+  background: var(--business-gold);
+}
+
+
+/* =========================================================
+   CONTACT CARD
+   ========================================================= */
+
+.business-sidebar .business-contact {
+  border-color:
+    rgba(228, 169, 40, 0.22);
+}
+
+
+.business-sidebar .business-contact h2,
+.business-sidebar .contact-card h2 {
+  margin: 0 0 16px;
+
+  color: var(--business-black);
+
+  font-size: 1.15rem;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   CONTACT LIST
+   ========================================================= */
+
+.business-contact-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.business-contact-list li {
+  margin: 0;
+}
+
+
+.business-contact-list a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-height: 46px;
+
+  padding: 7px 10px;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #333333;
+
+  text-decoration: none;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.business-contact-list a:hover {
+  transform: translateX(2px);
+
+  border-color:
+    rgba(228, 169, 40, 0.35);
+
+  background: #fffdf7;
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.06);
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   CONTACT ICON
+   ========================================================= */
+
+.contact-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 34px;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 9px;
+
+  background: var(--business-gold-soft);
+
+  color: var(--business-gold-dark);
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   FOLLOW CARD
+   ========================================================= */
+
+.business-sidebar .business-follow,
+.business-sidebar .follow-card {
+  border-color:
+    rgba(0, 0, 0, 0.08);
+}
+
+
+.business-sidebar .business-follow h2,
+.business-sidebar .follow-card h2 {
+  margin: 0 0 7px;
+
+  color: var(--business-black);
+
+  font-size: 1.15rem;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   FOLLOW DESCRIPTION
+   ========================================================= */
+
+.business-follow-description {
+  margin: 0 0 15px;
+
+  color: var(--business-muted);
+
+  font-size: 0.82rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FOLLOW LIST
+   ========================================================= */
+
+.business-follow-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.business-follow-list li {
+  margin: 0;
+}
+
+
+/* =========================================================
+   FOLLOW LINK
+   ========================================================= */
+
+.business-follow-list a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-height: 46px;
+
+  padding: 7px 10px;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #333333;
+
+  text-decoration: none;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.business-follow-list a:hover {
+  transform: translateX(2px);
+
+  border-color:
+    rgba(228, 169, 40, 0.35);
+
+  background: #fffdf7;
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.06);
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   FOLLOW ICON
+   ========================================================= */
+
+.follow-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 34px;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 9px;
+
+  background: var(--business-gold-soft);
+
+  color: var(--business-gold-dark);
+
+  font-size: 0.85rem;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   FOLLOW NAME
+   ========================================================= */
+
+.follow-name {
+  flex: 1;
+
+  color: #333333;
+
+  font-size: 0.82rem;
+
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   FOLLOW ARROW
+   ========================================================= */
+
+.follow-arrow {
+  color: #999999;
+
+  font-size: 0.75rem;
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+
+.business-follow-list a:hover .follow-arrow {
+  color: var(--business-gold-dark);
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .business-sidebar {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    align-items: start;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .business-sidebar {
+    display: flex;
+
+    flex-direction: column;
+  }
+
+
+  .business-sidebar > section,
+  .business-sidebar > .content-card,
+  .business-sidebar > .detail-card {
+    padding: 20px;
+  }
+
+}

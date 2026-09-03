@@ -1,0 +1,566 @@
+/* =========================================================
+   InVaal [016] — Terms & Privacy Styles
+
+   File:
+   ./css/termsAndPrivacy.css
+
+   Used by:
+   ./pages/terms.html
+   ./pages/privacy.html
+
+   Responsibilities:
+   - Legal page layout
+   - Back-to-home button
+   - Legal hero
+   - Legal introduction
+   - Legal sections
+   - Legal status/loading message
+   - Error message
+   - Closing message
+   - Legal page navigation
+   - Responsive behaviour
+
+   Notes:
+   - Uses the existing InVaal [016] design system
+   - Does not replace root.css, layout.css or typography.css
+   - No JavaScript is required for these styles
+========================================================= */
+
+
+/* =========================================================
+   LEGAL PAGE
+========================================================= */
+
+.legal-page {
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   BACK TO INVAAL BUTTON
+========================================================= */
+
+/*
+  Fixed navigation button.
+
+  This keeps a simple way back to the main InVaal [016]
+  website without loading the global navigation.
+*/
+
+.legal-back-button {
+  position: fixed;
+
+  top: 1rem;
+  left: 1rem;
+
+  z-index: 1000;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0.65rem 1rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  color: inherit;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.legal-back-button:hover {
+  transform: translateY(-2px);
+
+  background: rgba(0, 0, 0, 0.9);
+
+  border-color: currentColor;
+}
+
+
+.legal-back-button:focus-visible {
+  outline: 3px solid currentColor;
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   LEGAL HERO
+========================================================= */
+
+.legal-hero {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+}
+
+
+/*
+  Keeps the hero text from becoming excessively wide.
+*/
+
+.legal-hero .section-heading {
+  max-width: 850px;
+}
+
+
+/*
+  Legal page eyebrow.
+*/
+
+.legal-hero .eyebrow {
+  display: inline-block;
+
+  margin-bottom: 0.75rem;
+}
+
+
+/*
+  Main legal page heading.
+*/
+
+.legal-hero h1 {
+  margin-bottom: 1rem;
+}
+
+
+/*
+  Hero subtitle.
+*/
+
+.legal-hero .section-description {
+  max-width: 720px;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   LEGAL CONTAINER
+========================================================= */
+
+.legal-container {
+  max-width: 900px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   LEGAL INTRODUCTION
+========================================================= */
+
+.legal-introduction {
+  margin-bottom: 2.5rem;
+}
+
+
+.legal-introduction > p:first-child {
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   LAST UPDATED
+========================================================= */
+
+.legal-updated {
+  margin-top: 1rem;
+
+  font-size: 0.85rem;
+
+  opacity: 0.7;
+}
+
+
+.legal-updated time {
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   LOADING / STATUS
+========================================================= */
+
+.legal-status {
+  display: block;
+
+  margin: 1.5rem 0;
+
+  padding: 1rem 1.25rem;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  font-size: 0.9rem;
+
+  line-height: 1.6;
+}
+
+
+/*
+  JavaScript adds .is-error when loading fails.
+*/
+
+.legal-status.is-error {
+  border: 1px solid rgba(255, 80, 80, 0.35);
+}
+
+
+/* =========================================================
+   LEGAL SECTIONS
+========================================================= */
+
+.legal-sections {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+
+/* =========================================================
+   INDIVIDUAL LEGAL SECTION
+========================================================= */
+
+.legal-section {
+  padding-bottom: 2rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.legal-section:last-child {
+  border-bottom: none;
+
+  padding-bottom: 0;
+}
+
+
+/* =========================================================
+   LEGAL SECTION HEADING
+========================================================= */
+
+.legal-section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+
+  font-size: clamp(
+    1.2rem,
+    2vw,
+    1.55rem
+  );
+
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   LEGAL SECTION CONTENT
+========================================================= */
+
+.legal-section-content {
+  max-width: 820px;
+}
+
+
+.legal-section-content p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+}
+
+
+.legal-section-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   LEGAL ERROR
+========================================================= */
+
+.legal-error {
+  margin: 2rem 0;
+
+  padding: 1.5rem;
+
+  border: 1px solid rgba(255, 80, 80, 0.3);
+
+  border-radius: 14px;
+
+  background: rgba(255, 80, 80, 0.06);
+}
+
+
+.legal-error h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+
+.legal-error p {
+  margin-bottom: 0;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   LEGAL CLOSING
+========================================================= */
+
+.legal-closing {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+
+  padding: 2rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  text-align: center;
+}
+
+
+.legal-closing-content {
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.legal-closing h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+
+.legal-closing p {
+  margin: 0;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   LEGAL FOOTER SECTION
+========================================================= */
+
+/*
+  This is not the global site footer.
+
+  It is simply the final navigation area for the legal page.
+*/
+
+.legal-footer-section {
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+}
+
+
+/* =========================================================
+   LEGAL NAVIGATION
+========================================================= */
+
+.legal-navigation {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.75rem;
+}
+
+
+/*
+  Allow existing .button styles from components.css
+  to control the main appearance.
+*/
+
+.legal-navigation .button {
+  text-align: center;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+/*
+  Make keyboard navigation clearly visible.
+*/
+
+.legal-page a:focus-visible {
+  outline: 3px solid currentColor;
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .legal-hero {
+    padding-top: 7rem;
+  }
+
+
+  .legal-container {
+    max-width: 760px;
+  }
+
+
+  .legal-section-content p {
+    font-size: 0.98rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+  /* -----------------------------------------------
+     Hero
+  ----------------------------------------------- */
+
+  .legal-hero {
+    padding-top: 6rem;
+    padding-bottom: 2.5rem;
+  }
+
+
+  .legal-hero h1 {
+    font-size: clamp(
+      2rem,
+      9vw,
+      2.7rem
+    );
+  }
+
+
+  .legal-hero .section-description {
+    font-size: 0.95rem;
+
+    line-height: 1.65;
+  }
+
+
+  /* -----------------------------------------------
+     Introduction
+  ----------------------------------------------- */
+
+  .legal-introduction {
+    margin-bottom: 2rem;
+  }
+
+
+  .legal-introduction > p:first-child {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+
+  /* -----------------------------------------------
+     Legal sections
+  ----------------------------------------------- */
+
+  .legal-sections {
+    gap: 1.5rem;
+  }
+
+
+  .legal-section {
+    padding-bottom: 1.5rem;
+  }
+
+
+  .legal-section h2 {
+    font-size: 1.2rem;
+  }
+
+
+  .legal-section-content p {
+    font-size: 0.95rem;
+
+    line-height: 1.75;
+  }
+
+
+  /* -----------------------------------------------
+     Closing
+  ----------------------------------------------- */
+
+  .legal-closing {
+    margin-top: 2rem;
+
+    padding: 1.5rem;
+
+    border-radius: 14px;
+  }
+
+
+  /* -----------------------------------------------
+     Final navigation
+  ----------------------------------------------- */
+
+  .legal-footer-section {
+    padding-bottom: 3rem;
+  }
+
+
+  .legal-navigation {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .legal-navigation .button {
+    width: 100%;
+  }
+
+}
+
+
+

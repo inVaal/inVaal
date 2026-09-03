@@ -1,13 +1,34 @@
 /* =========================================================
-   InVaal [016] — Global Navigation System
+   InVaal [016] — Navigation Controller
 
+   File:
    ./js/navigation.js
+
    Responsibilities:
-   - Load header component
-   - Load footer component
-   - Initialise mobile navigation
-   - Set current year
-   - Prevent duplicate initialisation
+   - Load the shared header
+   - Load the shared footer
+   - Initialise the mobile navigation
+   - Initialise the current year in the footer
+   - Handle navigation only on pages that actually
+     contain #site-header and/or #site-footer
+
+   Important:
+   - Secondary pages such as:
+       ./pages/contact.html
+       ./pages/terms.html
+       ./pages/privacy.html
+
+     do NOT use the shared navigation/footer.
+
+   - Therefore this file does not try to calculate
+     ../ paths for secondary pages.
+
+   Compatible with:
+   - Static HTML
+   - GitHub Pages
+   - Vanilla JavaScript
+   - No npm
+   - No React
 ========================================================= */
 
 
@@ -15,52 +36,66 @@
    CONFIGURATION
 ========================================================= */
 
-const HEADER_SELECTOR = "#site-header";
-const FOOTER_SELECTOR = "#site-footer";
+// Shared component locations.
+//
+// navigation.js is normally loaded from:
+//
+// ./index.html
+//
+// Therefore these paths are relative to the website root.
+const HEADER_PATH =
+  "./components/header.html";
 
-const HEADER_PATH = "./components/header.html";
-const FOOTER_PATH = "./components/footer.html";
+const FOOTER_PATH =
+  "./components/footer.html";
 
 
 /* =========================================================
-   COMPONENT LOADER
+   SELECTORS
+========================================================= */
+
+// Header and footer containers.
+//
+// Example:
+//
+// <header id="site-header"></header>
+// <footer id="site-footer"></footer>
+
+const HEADER_SELECTOR =
+  "#site-header";
+
+const FOOTER_SELECTOR =
+  "#site-footer";
+
+
+/* =========================================================
+   LOAD SHARED COMPONENT
 ========================================================= */
 
 /**
  * Loads an HTML component into a target element.
  *
+ * This is used for the shared header and footer.
+ *
  * @param {string} selector
  * @param {string} path
  * @returns {Promise<boolean>}
  */
-const loadComponent = async (
-  selector,
-  path
-) => {
+async function loadComponent(selector, path) {
 
-  const target =
+  const container =
     document.querySelector(selector);
 
-
   /*
-    If the target does not exist, there is nowhere
-    to inject the component.
+    If the page does not contain this component,
+    simply skip it.
+
+    This is important because pages such as
+    terms.html and privacy.html intentionally
+    do not have a shared header/footer.
   */
-
-  if (!target) {
-    return (false);
-  }
-
-
-  /*
-    Prevent the same component from being injected
-    more than once.
-  */
-
-  if (
-    target.dataset.loaded === "true"
-  ) {
-    return (true);
+  if (!container) {
+    return false;
   }
 
 
@@ -73,7 +108,7 @@ const loadComponent = async (
     if (!response.ok) {
 
       throw new Error(
-        `HTTP ${response.status}: ${path}`
+        `Unable to load ${path} (${response.status})`
       );
 
     }
@@ -83,47 +118,23 @@ const loadComponent = async (
       await response.text();
 
 
-    /*
-      Replace the contents of the mount point.
-
-      replaceChildren() ensures that we don't accidentally
-      append a second copy of the component.
-    */
-
-    target.replaceChildren();
+    container.innerHTML =
+      html;
 
 
-    target.insertAdjacentHTML(
-      "afterbegin",
-      html
-    );
-
-
-    /*
-      Mark this component as loaded.
-
-      If initialiseNavigation() is accidentally called
-      again, this prevents another injection.
-    */
-
-    target.dataset.loaded = "true";
-
-
-    return (true);
+    return true;
 
   } catch (error) {
 
     console.error(
-      "InVaal component error:",
+      `InVaal [016]: Failed to load component: ${path}`,
       error
     );
 
 
-    return (false);
-
+    return false;
   }
-
-};
+}
 
 
 /* =========================================================
@@ -131,116 +142,122 @@ const loadComponent = async (
 ========================================================= */
 
 /**
- * Initialises the mobile navigation.
+ * Initialises the mobile navigation menu.
+ *
+ * Expected HTML:
+ *
+ * #mobile-menu-toggle
+ * #mobile-navigation
  *
  * @returns {void}
  */
-const initialiseMobileNavigation = () => {
+function initialiseMobileNavigation() {
 
-  const toggle =
+  const menuToggle =
     document.querySelector(
       "#mobile-menu-toggle"
     );
 
-
-  const menu =
+  const mobileNavigation =
     document.querySelector(
       "#mobile-navigation"
     );
 
 
-  if (!toggle || !menu) {
-    return;
-  }
-
-
   /*
-    Prevent duplicate event listeners.
-
-    This is important if the navigation script is
-    accidentally triggered more than once.
+    If the page does not contain the mobile
+    navigation, there is nothing to initialise.
   */
-
   if (
-    toggle.dataset.initialised === "true"
+    !menuToggle ||
+    !mobileNavigation
   ) {
     return;
   }
 
 
-  toggle.dataset.initialised =
-    "true";
-
-
-  toggle.addEventListener(
+  menuToggle.addEventListener(
     "click",
     () => {
 
       const isOpen =
-        toggle.getAttribute(
+        menuToggle.getAttribute(
           "aria-expanded"
         ) === "true";
 
 
-      const nextState =
-        !isOpen;
+      /*
+        Toggle the aria-expanded state.
 
-
-      toggle.setAttribute(
+        false → true
+        true → false
+      */
+      menuToggle.setAttribute(
         "aria-expanded",
-        String(nextState)
+        String(!isOpen)
       );
 
 
-      toggle.setAttribute(
+      /*
+        hidden=true means the menu is hidden.
+
+        Therefore we reverse the current state.
+      */
+      mobileNavigation.hidden =
+        isOpen;
+
+
+      /*
+        Update the accessible button label.
+      */
+      menuToggle.setAttribute(
         "aria-label",
-        nextState
-          ? "Close navigation menu"
-          : "Open navigation menu"
+        isOpen
+          ? "Open navigation menu"
+          : "Close navigation menu"
       );
-
-
-      menu.hidden =
-        !nextState;
 
     }
   );
 
 
   /*
-    Close the mobile navigation when the visitor
-    selects a page.
+    Close the mobile menu when a navigation
+    link is selected.
   */
+  const mobileLinks =
+    mobileNavigation.querySelectorAll(
+      "a"
+    );
 
-  menu
-    .querySelectorAll("a")
-    .forEach((link) => {
+
+  mobileLinks.forEach(
+    (link) => {
 
       link.addEventListener(
         "click",
         () => {
 
-          toggle.setAttribute(
+          menuToggle.setAttribute(
             "aria-expanded",
             "false"
           );
 
-
-          toggle.setAttribute(
+          menuToggle.setAttribute(
             "aria-label",
             "Open navigation menu"
           );
 
-
-          menu.hidden =
+          mobileNavigation.hidden =
             true;
 
         }
       );
 
-    });
+    }
+  );
 
-};
+}
 
 
 /* =========================================================
@@ -248,99 +265,167 @@ const initialiseMobileNavigation = () => {
 ========================================================= */
 
 /**
- * Updates the footer copyright year.
+ * Inserts the current year into footer elements.
+ *
+ * Expected HTML:
+ *
+ * <span data-current-year></span>
  *
  * @returns {void}
  */
-const initialiseCurrentYear = () => {
+function initialiseCurrentYear() {
 
-  const year =
-    document.querySelector(
-      "#current-year"
+  const yearElements =
+    document.querySelectorAll(
+      "[data-current-year]"
     );
 
 
-  if (!year) {
+  if (!yearElements.length) {
     return;
   }
 
 
-  year.textContent =
+  const currentYear =
     new Date().getFullYear();
 
-};
+
+  yearElements.forEach(
+    (element) => {
+
+      element.textContent =
+        currentYear;
+
+    }
+  );
+
+}
 
 
 /* =========================================================
-   NAVIGATION INITIALISATION
+   ACTIVE NAVIGATION LINK
 ========================================================= */
 
-let navigationInitialised = false;
-
-
 /**
- * Starts the global navigation system.
+ * Marks the current navigation link as active.
  *
- * @returns {Promise<void>}
+ * This allows CSS to highlight the page currently
+ * being viewed.
+ *
+ * Expected HTML:
+ *
+ * <a href="./pages/businesses.html">Businesses</a>
+ *
+ * @returns {void}
  */
-const initialiseNavigation = async () => {
+function initialiseActiveNavigation() {
 
-  /*
-    Absolute protection against duplicate execution.
-  */
+  const navigationLinks =
+    document.querySelectorAll(
+      ".site-navigation a, .mobile-navigation a"
+    );
 
-  if (navigationInitialised) {
+
+  if (!navigationLinks.length) {
     return;
   }
 
 
-  navigationInitialised =
-    true;
+  /*
+    Get the current page path.
+  */
+  const currentPath =
+    window.location.pathname;
+
+
+  navigationLinks.forEach(
+    (link) => {
+
+      const linkURL =
+        new URL(
+          link.href,
+          window.location.origin
+        );
+
+
+      /*
+        Compare the URL path with the
+        current page path.
+      */
+      if (
+        linkURL.pathname ===
+        currentPath
+      ) {
+
+        link.classList.add(
+          "is-active"
+        );
+
+        link.setAttribute(
+          "aria-current",
+          "page"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   INITIALISE NAVIGATION
+========================================================= */
+
+/**
+ * Main navigation initialisation function.
+ *
+ * Loads the shared header/footer first and then
+ * initialises the functionality they contain.
+ *
+ * @returns {Promise<void>}
+ */
+async function initialiseNavigation() {
+
+  /*
+    Load the header.
+  */
+  await loadComponent(
+    HEADER_SELECTOR,
+    HEADER_PATH
+  );
 
 
   /*
-    Load header and footer simultaneously.
-
-    Promise.all() prevents us from unnecessarily waiting
-    for the header before requesting the footer.
+    Load the footer.
   */
-
-  await Promise.all([
-
-    loadComponent(
-      HEADER_SELECTOR,
-      HEADER_PATH
-    ),
-
-    loadComponent(
-      FOOTER_SELECTOR,
-      FOOTER_PATH
-    )
-
-  ]);
+  await loadComponent(
+    FOOTER_SELECTOR,
+    FOOTER_PATH
+  );
 
 
   /*
-    Components now exist in the DOM.
+    The header/footer now exist in the DOM,
+    so their functionality can be initialised.
   */
-
   initialiseMobileNavigation();
 
   initialiseCurrentYear();
 
-};
+  initialiseActiveNavigation();
+
+}
 
 
 /* =========================================================
-   START
+   START NAVIGATION
 ========================================================= */
 
 /*
-  The script uses defer, so DOMContentLoaded will normally
-  still be available.
-
-  The readyState check also protects us if the script is
-  loaded after the DOM has already finished loading.
+  Wait until the DOM is ready before attempting
+  to load the shared components.
 */
 
 if (
@@ -349,10 +434,7 @@ if (
 
   document.addEventListener(
     "DOMContentLoaded",
-    initialiseNavigation,
-    {
-      once: true
-    }
+    initialiseNavigation
   );
 
 } else {
@@ -360,3 +442,27 @@ if (
   initialiseNavigation();
 
 }
+
+
+/* =========================================================
+   OPTIONAL DEVELOPMENT ACCESS
+========================================================= */
+
+/*
+  Expose the main function for development/debugging.
+
+  From the browser console you can run:
+
+  InVaalNavigation.initialise();
+
+  This is optional and can be removed later
+  for production if you prefer.
+*/
+
+window.InVaalNavigation = {
+  initialise: initialiseNavigation,
+  loadComponent,
+  initialiseMobileNavigation,
+  initialiseCurrentYear,
+  initialiseActiveNavigation
+};
