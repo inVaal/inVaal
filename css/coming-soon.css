@@ -1,0 +1,613 @@
+/* =========================================================
+   InVaal [016] — Coming Soon Pages
+   File: css/coming-soon.css
+
+   Used by:
+   - pages/news.html
+   - pages/creatives.html
+   - pages/events.html
+
+   This stylesheet is intentionally independent from the
+   existing global navigation/footer system.
+   ========================================================= */
+
+
+/* =========================================================
+   1. PAGE
+   ========================================================= */
+
+.coming-soon-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   2. BACK BUTTON
+   ========================================================= */
+
+.coming-soon-back {
+    position: fixed;
+
+    top: 1.25rem;
+    left: 1.25rem;
+
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0.65rem 1rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.coming-soon-back:hover {
+    transform: translateY(-2px);
+
+    background: rgba(0, 0, 0, 0.9);
+
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.coming-soon-back:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   3. HERO
+   ========================================================= */
+
+.coming-soon-hero {
+    position: relative;
+
+    min-height: 78vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7rem 1.5rem 5rem;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   4. BACKGROUND GLOW
+   ========================================================= */
+
+.coming-soon-glow {
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.09) 0%,
+            rgba(255, 255, 255, 0.035) 35%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   5. CONTENT
+   ========================================================= */
+
+.coming-soon-content {
+    position: relative;
+    z-index: 1;
+
+    width: min(850px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   6. EYEBROW
+   ========================================================= */
+
+.coming-soon-eyebrow {
+    margin: 0 0 1.5rem;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   7. ICON
+   ========================================================= */
+
+.coming-soon-icon {
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 1.5rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    font-size: 2rem;
+
+    box-shadow:
+        0 0 0 10px rgba(255, 255, 255, 0.015),
+        0 0 50px rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================================
+   8. HEADING
+   ========================================================= */
+
+.coming-soon-content h1 {
+    max-width: 850px;
+
+    margin: 0 auto 1.5rem;
+
+    font-size: clamp(3rem, 8vw, 6.5rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.055em;
+}
+
+.coming-soon-content h1 span {
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   9. LEAD TEXT
+   ========================================================= */
+
+.coming-soon-lead {
+    max-width: 700px;
+
+    margin: 0 auto 1.75rem;
+
+    font-size: clamp(1rem, 2vw, 1.2rem);
+
+    line-height: 1.75;
+
+    opacity: 0.78;
+}
+
+
+/* =========================================================
+   10. COMING SOON BADGE
+   ========================================================= */
+
+.coming-soon-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+
+    padding: 0.65rem 1rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    letter-spacing: 0.05em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   11. STATUS DOT
+   ========================================================= */
+
+.coming-soon-dot {
+    width: 8px;
+    height: 8px;
+
+    display: block;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    animation: comingSoonPulse 2s ease-in-out infinite;
+}
+
+@keyframes comingSoonPulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   12. STATUS TEXT
+   ========================================================= */
+
+.coming-soon-status {
+    max-width: 600px;
+
+    margin: 1.25rem auto 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   13. ACTIONS
+   ========================================================= */
+
+.coming-soon-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+
+    margin-top: 2rem;
+}
+
+.coming-soon-actions a {
+    min-height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.8rem 1.4rem;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        background 0.25s ease;
+}
+
+.coming-soon-actions a:hover {
+    transform: translateY(-2px);
+}
+
+.coming-soon-actions a:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+}
+
+
+/* Primary */
+
+.coming-soon-primary {
+    background: currentColor;
+
+    color: Canvas;
+
+    border: 1px solid transparent;
+}
+
+
+/* Secondary */
+
+.coming-soon-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    background: rgba(255, 255, 255, 0.03);
+
+    color: inherit;
+}
+
+
+/* =========================================================
+   14. PREVIEW SECTION
+   ========================================================= */
+
+.coming-soon-preview {
+    padding: 6rem 1.5rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.coming-soon-container {
+    width: min(1100px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   15. SECTION HEADING
+   ========================================================= */
+
+.coming-soon-section-heading {
+    max-width: 700px;
+
+    margin: 0 auto 3rem;
+
+    text-align: center;
+}
+
+.coming-soon-label {
+    margin: 0 0 0.75rem;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+
+    opacity: 0.5;
+}
+
+.coming-soon-section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    line-height: 1.05;
+
+    letter-spacing: -0.035em;
+}
+
+
+/* =========================================================
+   16. PREVIEW CARDS
+   ========================================================= */
+
+.coming-soon-cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.25rem;
+}
+
+.coming-soon-card {
+    padding: 2rem;
+
+    min-height: 220px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 1.25rem;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.coming-soon-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+    background: rgba(255, 255, 255, 0.045);
+}
+
+.coming-soon-card > span {
+    display: block;
+
+    margin-bottom: 2.5rem;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+
+    opacity: 0.4;
+}
+
+.coming-soon-card h3 {
+    margin: 0 0 0.7rem;
+
+    font-size: 1.2rem;
+}
+
+.coming-soon-card p {
+    margin: 0;
+
+    font-size: 0.92rem;
+
+    line-height: 1.7;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   17. BOTTOM MESSAGE
+   ========================================================= */
+
+.coming-soon-bottom {
+    padding: 2rem 1.5rem 4rem;
+
+    text-align: center;
+}
+
+.coming-soon-bottom p {
+    margin: 0;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 0.04em;
+
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   18. TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .coming-soon-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .coming-soon-card {
+        min-height: auto;
+    }
+
+    .coming-soon-card > span {
+        margin-bottom: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   19. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .coming-soon-back {
+        top: 0.75rem;
+        left: 0.75rem;
+
+        padding: 0.55rem 0.85rem;
+
+        font-size: 0.8rem;
+    }
+
+    .coming-soon-hero {
+        min-height: 82vh;
+
+        padding: 6rem 1rem 4rem;
+    }
+
+    .coming-soon-eyebrow {
+        font-size: 0.68rem;
+
+        letter-spacing: 0.12em;
+    }
+
+    .coming-soon-icon {
+        width: 64px;
+        height: 64px;
+
+        font-size: 1.6rem;
+    }
+
+    .coming-soon-content h1 {
+        font-size: clamp(2.7rem, 14vw, 4.5rem);
+    }
+
+    .coming-soon-lead {
+        font-size: 0.95rem;
+    }
+
+    .coming-soon-status {
+        font-size: 0.82rem;
+    }
+
+    .coming-soon-actions {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .coming-soon-actions a {
+        width: 100%;
+    }
+
+    .coming-soon-preview {
+        padding: 4rem 1rem;
+    }
+
+    .coming-soon-card {
+        padding: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   20. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .coming-soon-dot {
+        animation: none;
+    }
+
+    .coming-soon-back,
+    .coming-soon-actions a,
+    .coming-soon-card {
+        transition: none;
+    }
+
+}

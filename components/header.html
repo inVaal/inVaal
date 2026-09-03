@@ -9,9 +9,24 @@
   - Provide mobile navigation
   - Provide a business/advertising CTA
   - Remain compatible with navigation.js
+
+  IMPORTANT:
+  Navigation paths are intentionally written using
+  data attributes.
+
+  navigation.js converts them into the correct paths
+  depending on whether the current page is:
+
+  /index.html
+
+  or:
+
+  /pages/example.html
 ========================================================= -->
 
+
 <div class="container header-inner">
+
 
   <!-- =======================================================
     BRAND
@@ -19,12 +34,14 @@
 
   <a
     class="site-logo"
-    href="./index.html"
+    href="#"
+    data-site-link="index.html"
     aria-label="InVaal [016] — Home"
   >
 
     <img
-      src="./assets/logos/inVaalTriangle_logo.png"
+      src="../assets/logos/inVaalTriangle_logo.png"
+      data-site-logo
       alt="InVaal [016] logo"
       width="42"
       height="42"
@@ -37,6 +54,7 @@
   </a>
 
 
+
   <!-- =======================================================
     DESKTOP NAVIGATION
   ======================================================== -->
@@ -46,31 +64,50 @@
     aria-label="Main navigation"
   >
 
-    <a href="./index.html">
-      Home
-    </a>
 
-    <a href="./pages/news.html">
+   
+
+    <a
+      href="#"
+      data-site-link="pages/news.html"
+    >
       News
     </a>
 
-    <a href="./pages/businesses.html">
+
+    <a
+      href="#"
+      data-site-link="pages/businesses.html"
+    >
       Businesses
     </a>
 
-    <a href="./pages/opportunities.html">
+
+    <a
+      href="#"
+      data-site-link="pages/opportunities.html"
+    >
       Opportunities
     </a>
 
-    <a href="./pages/creatives.html">
+
+    <a
+      href="#"
+      data-site-link="pages/creatives.html"
+    >
       Creatives
     </a>
 
-    <a href="./pages/events.html">
+
+    <a
+      href="#"
+      data-site-link="pages/events.html"
+    >
       Events
     </a>
 
   </nav>
+
 
 
   <!-- =======================================================
@@ -79,12 +116,15 @@
 
   <div class="header-actions">
 
+
     <a
       class="button button-primary header-business-button"
-      href="./pages/advertise.html"
+      href="../pages/advertise.html"
+      data-site-link="pages/advertise.html"
     >
       Advertise
     </a>
+
 
 
     <!-- =====================================================
@@ -93,8 +133,6 @@
       navigation.js looks specifically for:
 
       #mobile-menu-toggle
-
-      aria-expanded controls whether the menu is open.
     ====================================================== -->
 
     <button
@@ -111,7 +149,7 @@
       </span>
 
       <span class="sr-only">
-        Menu
+        
       </span>
 
     </button>
@@ -121,15 +159,13 @@
 </div>
 
 
+
 <!-- =========================================================
   MOBILE NAVIGATION
 
   navigation.js looks specifically for:
 
   #mobile-navigation
-
-  The menu starts hidden and is controlled through
-  the mobile menu toggle.
 ========================================================= -->
 
 <nav
@@ -141,46 +177,78 @@
 
   <div class="mobile-navigation-inner">
 
-    <a href="./index.html">
+
+    <a
+      href="#"
+      data-site-link="index.html"
+    >
       Home
     </a>
 
-    <a href="./pages/news.html">
+
+    <a
+      href="#"
+      data-site-link="pages/news.html"
+    >
       📰
       <span>News</span>
     </a>
 
-    <a href="./pages/businesses.html">
+
+    <a
+      href="#"
+      data-site-link="pages/businesses.html"
+    >
       🏪
       <span>Businesses</span>
     </a>
 
-    <a href="./pages/opportunities.html">
+
+    <a
+      href="#"
+      data-site-link="pages/opportunities.html"
+    >
       💼
       <span>Opportunities</span>
     </a>
 
-    <a href="./pages/creatives.html">
+
+    <a
+      href="#"
+      data-site-link="pages/creatives.html"
+    >
       🎨
       <span>Creatives</span>
     </a>
 
-    <a href="./pages/events.html">
+
+    <a
+      href="#"
+      data-site-link="pages/events.html"
+    >
       📅
       <span>Events</span>
     </a>
 
-    <a href="./pages/contact.html">
+
+    <a
+      href="#"
+      data-site-link="pages/contact.html"
+    >
       🤝
       <span>Contact</span>
     </a>
 
 
-    <!-- Mobile business CTA -->
+
+    <!-- =====================================================
+      MOBILE BUSINESS CTA
+    ====================================================== -->
 
     <a
       class="button button-primary"
-      href="./pages/advertise.html"
+      href="../pages/advertise.html"
+      data-site-link="pages/advertise.html"
     >
       Advertise with InVaal
     </a>
@@ -188,4 +256,3 @@
   </div>
 
 </nav>
-```

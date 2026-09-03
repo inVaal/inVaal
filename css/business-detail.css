@@ -1,0 +1,2107 @@
+
+
+/* =========================================================
+   FOLLOW / SOCIAL MEDIA CARD
+   ========================================================= */
+
+.business-content .follow-card,
+.business-content .business-follow {
+  position: sticky;
+
+  top: 24px;
+
+  padding: 24px;
+
+  border: 1px solid var(--color-accent);
+  border-radius: var(--color-info
+  );
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #fbfaf6
+    );
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ---------------------------------------------------------
+   Follow heading
+   --------------------------------------------------------- */
+
+.business-content
+.follow-card h2,
+
+.business-content
+.business-follow h2 {
+  margin: 0 0 16px;
+
+  color: var(--business-black);
+
+  font-size: 1.15rem;
+
+  font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   Follow description
+   --------------------------------------------------------- */
+
+.business-content
+.follow-description {
+  margin: 0 0 16px;
+
+  color: var(--business-muted);
+
+  font-size: 0.84rem;
+
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   Social media list
+   --------------------------------------------------------- */
+
+.business-content
+.follow-list,
+
+.business-content
+.business-follow-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* ---------------------------------------------------------
+   Social media item
+   --------------------------------------------------------- */
+
+.business-content
+.follow-list li,
+
+.business-content
+.business-follow-list li {
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Social media link
+   --------------------------------------------------------- */
+
+.business-content
+.follow-list a,
+
+.business-content
+.business-follow-list a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-height: 46px;
+
+  padding: 8px 11px;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #333333;
+
+  text-decoration: none;
+
+  transition:
+    transform var(--business-transition),
+    border-color var(--business-transition),
+    background-color var(--business-transition),
+    box-shadow var(--business-transition);
+}
+
+
+/* ---------------------------------------------------------
+   Hover state
+   --------------------------------------------------------- */
+
+.business-content
+.follow-list a:hover,
+
+.business-content
+.business-follow-list a:hover {
+  transform: translateX(2px);
+
+  border-color: var(--color-accent-dark);
+
+  background: #fffdf7;
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.06);
+
+  text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   Social icon
+   --------------------------------------------------------- */
+
+.business-content
+.follow-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 34px;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 9px;
+
+  background: var(--business-gold-soft);
+
+  color: var(--color-accent);
+
+  font-size: 0.85rem;
+}
+
+
+/* ---------------------------------------------------------
+   Social platform name
+   --------------------------------------------------------- */
+
+.business-content
+.follow-name {
+  flex: 1;
+
+  color: #333333;
+
+  font-size: 0.82rem;
+
+  font-weight: 750;
+}
+
+
+/* ---------------------------------------------------------
+   External link indicator
+   --------------------------------------------------------- */
+
+.business-content
+.follow-arrow {
+  color: #999999;
+
+  font-size: 0.75rem;
+
+  transition:
+    transform var(--business-transition),
+    color var(--business-transition);
+}
+
+
+.business-content
+.follow-list a:hover
+.follow-arrow,
+
+.business-content
+.business-follow-list a:hover
+.follow-arrow {
+  color: var(--color-accent);
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   MOBILE — FOLLOW CARD
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .business-content .follow-card,
+  .business-content .business-follow {
+    position: static;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .business-content .follow-card,
+  .business-content .business-follow {
+    padding: 20px;
+  }
+
+
+  .business-content
+  .follow-list a,
+
+  .business-content
+  .business-follow-list a {
+    min-height: 44px;
+  }
+
+}/* =========================================================
+   InVaal [016] — BUSINESS DETAIL PAGE
+   business-detail.css
+
+   Used by:
+   /pages/businesses/{business-slug}.html
+
+   Dynamic content:
+   business-detail-loader.js
+
+   Main structure:
+
+   .business-hero
+       .business-profile
+
+   .business-content
+       .business-main
+       .business-sidebar
+
+   Design direction:
+   - Professional
+   - Local/community focused
+   - Premium but approachable
+   - InVaal [016] gold + neutral palette
+   - Responsive
+   - Accessible
+
+   ========================================================= */
+
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
+:root {
+  --business-gold: #e4a928;
+  --business-gold-dark: #b98213;
+  --business-gold-soft: #f6ead0;
+
+  --business-black: #171717;
+  --business-text: #333333;
+  --business-muted: #666666;
+  --business-light-text: #777777;
+
+  --business-border: rgba(0, 0, 0, 0.08);
+  --business-border-gold: rgba(228, 169, 40, 0.28);
+
+  --business-surface: #ffffff;
+  --business-surface-soft: #f8f7f4;
+
+  --business-success: #276238;
+  --business-success-bg: #edf6ef;
+
+  --business-radius-lg: 24px;
+  --business-radius-md: 18px;
+  --business-radius-sm: 12px;
+
+  --business-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.08);
+
+  --business-shadow-hover:
+    0 18px 45px rgba(0, 0, 0, 0.12);
+
+  --business-transition:
+    180ms ease;
+}
+
+
+/* =========================================================
+   PAGE FOUNDATION
+   ========================================================= */
+
+.business-hero {
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/*
+   Decorative background element.
+
+   The global InVaal [016] background remains untouched.
+   This only adds a subtle gold visual layer.
+*/
+
+.business-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 460px;
+  height: 460px;
+
+  top: -250px;
+  right: -200px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(228, 169, 40, 0.11) 0%,
+      rgba(228, 169, 40, 0.04) 45%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+}
+
+
+.business-hero .container {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   BACK TO BUSINESSES
+   ========================================================= */
+
+.business-hero > .container > .section-link {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 26px;
+
+  color: inherit;
+
+  font-size: 0.85rem;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  opacity: 0.72;
+
+  transition:
+    opacity var(--business-transition),
+    transform var(--business-transition);
+}
+
+
+.business-hero > .container > .section-link:hover {
+  opacity: 1;
+
+  transform: translateX(-4px);
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   BUSINESS PROFILE / HERO CARD
+   ========================================================= */
+
+.business-profile {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 0.85fr)
+    minmax(0, 1.5fr);
+
+  gap: 42px;
+
+  align-items: center;
+
+  min-height: 370px;
+
+  padding: 36px;
+
+  border: 1px solid var(--business-border-gold);
+  border-radius: var(--business-radius-lg);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(252, 251, 248, 0.98)
+    );
+
+  color: var(--business-black);
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.11);
+
+  overflow: hidden;
+}
+
+
+/*
+   Gold accent line.
+
+   Provides strong visual branding without requiring
+   additional HTML markup.
+*/
+
+.business-profile::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-accent),
+      var(--business-gold),
+      #f0c95d
+    );
+}
+
+
+/*
+   Subtle inner highlight.
+*/
+
+.business-profile::after {
+  content: "";
+
+  position: absolute;
+
+  right: -80px;
+  bottom: -120px;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: rgba(228, 169, 40, 0.055);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PROFILE MEDIA
+   ========================================================= */
+
+.business-profile .business-media,
+.business-profile .profile-media {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 285px;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--color-info
+  );
+
+  background:
+    linear-gradient(
+      145deg,
+      #f6f4ef,
+      #ece9e0
+    );
+
+  overflow: hidden;
+}
+
+
+/*
+   Adds a subtle overlay above the image.
+
+   This is useful when logos or badges are positioned
+   inside the media container.
+*/
+
+.business-profile .business-media::after,
+.business-profile .profile-media::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 60%,
+      rgba(0, 0, 0, 0.08)
+    );
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   MAIN BUSINESS IMAGE
+   ========================================================= */
+
+.business-profile .business-media > img,
+.business-profile .profile-media > img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 285px;
+
+  object-fit: cover;
+
+  transition:
+    transform 500ms ease;
+}
+
+
+/*
+   Slight image movement on desktop.
+
+   It creates a more polished feel without being
+   distracting.
+*/
+
+@media (hover: hover) {
+
+  .business-profile:hover
+  .business-media > img,
+
+  .business-profile:hover
+  .profile-media > img {
+    transform: scale(1.015);
+  }
+
+}
+
+
+/* =========================================================
+   BUSINESS LOGO
+   ========================================================= */
+
+.business-profile .business-logo {
+  position: absolute;
+
+  left: 22px;
+  bottom: 22px;
+
+  width: 94px;
+  height: 94px;
+
+  padding: 8px;
+
+  object-fit: contain;
+
+  border: 4px solid #ffffff;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.20);
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   PROFILE INFORMATION
+   ========================================================= */
+
+.business-profile .profile-info,
+.business-profile .business-info {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.business-profile .card-category,
+.business-profile .business-category,
+.business-profile .category {
+  display: inline-flex;
+
+  align-items: center;
+
+  width: fit-content;
+
+  margin-bottom: 14px;
+
+  padding: 7px 12px;
+
+  border: 1px solid rgba(228, 169, 40, 0.18);
+  border-radius: 999px;
+
+  background: var(--business-gold-soft);
+
+  color: var(--color-accent);
+
+  font-size: 0.70rem;
+  font-weight: 850;
+
+  letter-spacing: 0.065em;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BUSINESS NAME
+   ========================================================= */
+
+.business-profile h1,
+.business-profile .business-name {
+  margin: 0 0 14px;
+
+  color: var(--business-black);
+
+  font-size:
+    clamp(2.1rem, 4vw, 3.65rem);
+
+  line-height: 1.04;
+
+  font-weight: 850;
+
+  letter-spacing: -0.035em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.business-profile .description,
+.business-profile .business-description {
+  max-width: 680px;
+
+  margin: 0 0 20px;
+
+  color: #555555;
+
+  font-size: 1rem;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   LOCATION / META
+   ========================================================= */
+
+.business-profile .card-meta,
+.business-profile .business-meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 8px 14px;
+
+  margin-top: 16px;
+
+  color: var(--business-muted);
+
+  font-size: 0.86rem;
+}
+
+
+.business-profile .card-meta > *,
+.business-profile .business-meta > * {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+
+/* =========================================================
+   VERIFIED BADGE
+   ========================================================= */
+
+.business-profile .verified-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 6px 10px;
+
+  border: 1px solid rgba(48, 116, 69, 0.20);
+  border-radius: 999px;
+
+  background: var(--business-success-bg);
+
+  color: var(--business-success);
+
+  font-size: 0.70rem;
+  font-weight: 850;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   BUSINESS CONTENT LAYOUT
+   ========================================================= */
+
+.business-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.65fr)
+    minmax(280px, 0.75fr);
+
+  gap: 26px;
+
+  align-items: start;
+}
+
+
+.business-content > * {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   MAIN CONTENT / SIDEBAR SUPPORT
+   ========================================================= */
+
+.business-main,
+.business-sidebar {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   GENERIC CONTENT CARD
+   ========================================================= */
+
+.business-content .content-card,
+.business-content .business-section,
+.business-content .detail-card,
+.business-content section {
+  position: relative;
+
+  padding: 26px;
+
+  border: 1px solid var(--business-border);
+  border-radius: var(--color-info
+  );
+
+  background: var(--business-surface);
+
+  color: var(--business-text);
+
+  box-shadow: var(--business-shadow);
+}
+
+
+/*
+   Give separate sections some breathing room.
+*/
+
+.business-content
+.content-card + .content-card,
+
+.business-content
+.business-section + .business-section,
+
+.business-content
+.detail-card + .detail-card,
+
+.business-content
+section + section {
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   CONTENT CARD TOP ACCENT
+   ========================================================= */
+
+.business-content
+.content-card::before,
+
+.business-content
+.business-section::before,
+
+.business-content
+.detail-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 24px;
+
+  width: 42px;
+  height: 3px;
+
+  border-radius: 0 0 4px 4px;
+
+  background: var(--business-gold);
+}
+
+
+/* =========================================================
+   CONTENT HEADINGS
+   ========================================================= */
+
+.business-content h2 {
+  margin: 0 0 15px;
+
+  color: var(--business-black);
+
+  font-size: 1.35rem;
+
+  line-height: 1.25;
+
+  font-weight: 800;
+
+  letter-spacing: -0.015em;
+}
+
+
+.business-content h3 {
+  margin: 22px 0 9px;
+
+  color: #222222;
+
+  font-size: 1rem;
+
+  line-height: 1.3;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   CONTENT TEXT
+   ========================================================= */
+
+.business-content p {
+  margin: 0 0 14px;
+
+  color: #5c5c5c;
+
+  font-size: 0.92rem;
+
+  line-height: 1.75;
+}
+
+
+.business-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   BUSINESS INFORMATION LIST
+   ========================================================= */
+
+.business-content dl {
+  display: grid;
+
+  grid-template-columns:
+    minmax(120px, 0.45fr)
+    minmax(0, 1fr);
+
+  gap: 13px 20px;
+
+  margin: 0;
+}
+
+
+.business-content dt {
+  color: var(--business-light-text);
+
+  font-size: 0.73rem;
+
+  font-weight: 850;
+
+  letter-spacing: 0.055em;
+
+  text-transform: uppercase;
+}
+
+
+.business-content dd {
+  min-width: 0;
+
+  margin: 0;
+
+  color: var(--business-text);
+
+  font-size: 0.88rem;
+
+  line-height: 1.55;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   BUSINESS LINKS
+   ========================================================= */
+
+.business-content a {
+  color: var(--color-accent);
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    color var(--business-transition);
+}
+
+
+.business-content a:hover {
+  color: var(--color-accent);
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.business-content .actions,
+.business-content .business-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 21px;
+}
+
+
+.business-content .btn,
+.business-content .business-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+
+  padding: 0 16px;
+
+  border-radius: var(--business-radius-sm);
+
+  font-size: 0.80rem;
+  font-weight: 850;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--business-transition),
+    box-shadow var(--business-transition),
+    background-color var(--business-transition),
+    border-color var(--business-transition);
+}
+
+
+.business-content .btn:hover,
+.business-content .business-btn:hover {
+  text-decoration: none;
+
+  transform: translateY(-2px);
+}
+
+
+.business-content .btn:active,
+.business-content .business-btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.business-content .btn-primary,
+.business-content .business-btn.primary {
+  border: 1px solid #d99d20;
+
+  background: var(--business-gold);
+
+  color: #17120a;
+}
+
+
+.business-content .btn-primary:hover,
+.business-content .business-btn.primary:hover {
+  background: #d99d20;
+
+  box-shadow:
+    0 8px 18px rgba(228, 169, 40, 0.24);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.business-content .btn-secondary,
+.business-content .business-btn.secondary {
+  border: 1px solid #dddddd;
+
+  background: #ffffff;
+
+  color: #333333;
+}
+
+
+.business-content .btn-secondary:hover,
+.business-content .business-btn.secondary:hover {
+  border-color: var(--color-accent-dark);
+
+  background: #faf7ef;
+}
+
+
+/* =========================================================
+   CONTACT / SIDEBAR
+   ========================================================= */
+
+.business-content .contact-card,
+.business-content .business-contact {
+  position: sticky;
+
+  top: 24px;
+
+  padding: 24px;
+
+  border: 1px solid var(--color-accent);
+  border-radius: var(--color-info
+  );
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #fbfaf6
+    );
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.09);
+}
+
+
+/*
+   Contact heading.
+
+   Makes the contact section look like an intentional
+   business contact panel rather than another generic card.
+*/
+
+.business-content
+.contact-card h2,
+
+.business-content
+.business-contact h2 {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   CONTACT LIST
+   ========================================================= */
+
+.business-content
+.contact-list,
+
+.business-content
+.business-contact-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.business-content
+.contact-list li,
+
+.business-content
+.business-contact-list li {
+  margin: 0;
+}
+
+
+.business-content
+.contact-list a,
+
+.business-content
+.business-contact-list a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-height: 46px;
+
+  padding: 9px 11px;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #333333;
+
+  text-decoration: none;
+
+  transition:
+    transform var(--business-transition),
+    border-color var(--business-transition),
+    background-color var(--business-transition),
+    box-shadow var(--business-transition);
+}
+
+
+.business-content
+.contact-list a:hover,
+
+.business-content
+.business-contact-list a:hover {
+  transform: translateX(2px);
+
+  border-color: var(--color-accent-dark);
+
+  background: #fffdf7;
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.06);
+
+  text-decoration: none;
+}
+
+
+/*
+   Icons placed inside contact links.
+
+   Works with:
+   <span class="contact-icon">
+   or
+   <i class="contact-icon">
+*/
+
+.business-content
+.contact-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 34px;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 9px;
+
+  background: var(--business-gold-soft);
+
+  color: var(--color-accent);
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   OPENING HOURS
+   ========================================================= */
+
+.business-content
+.business-hours {
+  display: grid;
+
+  gap: 7px;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.business-content
+.business-hours li {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 8px 0;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  color: #555555;
+
+  font-size: 0.84rem;
+}
+
+
+.business-content
+.business-hours li:last-child {
+  border-bottom: 0;
+}
+
+
+.business-content
+.business-hours .day {
+  font-weight: 750;
+
+  color: #333333;
+}
+
+
+.business-content
+.business-hours .closed {
+  color: #999999;
+
+  font-style: italic;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+   ========================================================= */
+
+.business-content
+.social-links {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 15px;
+}
+
+
+.business-content
+.social-links a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 38px;
+  min-height: 38px;
+
+  padding: 0 11px;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #555555;
+
+  font-size: 0.78rem;
+
+  text-decoration: none;
+}
+
+
+.business-content
+.social-links a:hover {
+  border-color: var(--color-accent-dark);
+
+  background: var(--business-gold-soft);
+
+  color: var(--business-black);
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   MAP / LOCATION
+   ========================================================= */
+
+.business-content
+.business-map {
+  width: 100%;
+
+  min-height: 240px;
+
+  margin-top: 18px;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   IMAGE GALLERY
+   ========================================================= */
+
+.business-content
+.business-gallery {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+
+.business-content
+.business-gallery img {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+
+  transition:
+    transform var(--business-transition);
+}
+
+
+.business-content
+.business-gallery img:hover {
+  transform: scale(1.015);
+}
+
+
+/* =========================================================
+   GENERAL CONTENT IMAGES
+   ========================================================= */
+
+.business-content img {
+  display: block;
+
+  max-width: 100%;
+
+  border-radius: 13px;
+}
+
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+.business-content ul,
+.business-content ol {
+  margin: 0;
+
+  padding-left: 21px;
+
+  color: #555555;
+
+  font-size: 0.90rem;
+
+  line-height: 1.7;
+}
+
+
+.business-content li + li {
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   STATUS MESSAGE
+   ========================================================= */
+
+.business-profile .status-message,
+.business-content .status-message {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 35px 22px;
+
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+  border-radius: 16px;
+
+  background: var(--business-surface-soft);
+
+  color: #666666;
+
+  text-align: center;
+
+  font-size: 0.90rem;
+
+  line-height: 1.6;
+}
+
+
+.business-profile > .status-message {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   EMPTY / UNAVAILABLE CONTENT
+   ========================================================= */
+
+.business-content
+.empty-state {
+  padding: 28px 20px;
+
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+
+  background: #fafafa;
+
+  color: #777777;
+
+  text-align: center;
+
+  font-size: 0.88rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .business-profile {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+
+    padding: 28px;
+  }
+
+
+  .business-profile .business-media,
+  .business-profile .profile-media {
+    min-height: 310px;
+  }
+
+
+  .business-profile .business-media > img,
+  .business-profile .profile-media > img {
+    min-height: 310px;
+  }
+
+
+  .business-content {
+    grid-template-columns: 1fr;
+  }
+
+
+  /*
+     The contact card no longer needs to follow the page
+     while scrolling on smaller screens.
+  */
+
+  .business-content .contact-card,
+  .business-content .business-contact {
+    position: static;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .business-profile {
+    padding: 18px;
+
+    gap: 22px;
+
+    border-radius: var(--color-info);
+  }
+
+
+  .business-profile .business-media,
+  .business-profile .profile-media {
+    min-height: 230px;
+
+    border-radius: 14px;
+  }
+
+
+  .business-profile .business-media > img,
+  .business-profile .profile-media > img {
+    min-height: 230px;
+  }
+
+
+  .business-profile .business-logo {
+    left: 14px;
+    bottom: 14px;
+
+    width: 72px;
+    height: 72px;
+
+    padding: 6px;
+
+    border-width: 3px;
+
+    border-radius: 14px;
+  }
+
+
+  .business-profile h1,
+  .business-profile .business-name {
+    font-size: 2rem;
+
+    letter-spacing: -0.025em;
+  }
+
+
+  .business-profile .description,
+  .business-profile .business-description {
+    font-size: 0.93rem;
+
+    line-height: 1.65;
+  }
+
+
+  .business-content .content-card,
+  .business-content .business-section,
+  .business-content .detail-card,
+  .business-content section,
+  .business-content .contact-card,
+  .business-content .business-contact {
+    padding: 20px;
+
+    border-radius: 15px;
+  }
+
+
+  .business-content dl {
+    grid-template-columns: 1fr;
+
+    gap: 3px;
+
+    margin-bottom: 13px;
+  }
+
+
+  .business-content dd {
+    margin-bottom: 8px;
+  }
+
+
+  .business-content .actions,
+  .business-content .business-actions {
+    flex-direction: column;
+  }
+
+
+  .business-content .btn,
+  .business-content .business-btn {
+    width: 100%;
+  }
+
+
+  .business-content
+  .business-gallery {
+    grid-template-columns: 1fr;
+  }
+
+
+  .business-content
+  .business-hours li {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 2px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .business-profile {
+    padding: 15px;
+
+    border-radius: 15px;
+  }
+
+
+  .business-profile .business-media,
+  .business-profile .profile-media {
+    min-height: 200px;
+  }
+
+
+  .business-profile .business-media > img,
+  .business-profile .profile-media > img {
+    min-height: 200px;
+  }
+
+
+  .business-profile h1,
+  .business-profile .business-name {
+    font-size: 1.75rem;
+  }
+
+
+  .business-content .content-card,
+  .business-content .business-section,
+  .business-content .detail-card,
+  .business-content section,
+  .business-content .contact-card,
+  .business-content .business-contact {
+    padding: 17px;
+  }
+
+
+  .business-content
+  .contact-list a,
+
+  .business-content
+  .business-contact-list a {
+    min-height: 44px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.business-hero a:focus-visible,
+.business-content a:focus-visible,
+.business-content button:focus-visible {
+  outline: 3px solid var(--color-accent);
+
+  outline-offset: 3px;
+
+  border-radius: 5px;
+}
+
+
+/*
+   Make sure keyboard users can clearly see focused
+   contact links and buttons.
+*/
+
+.business-content
+.contact-list a:focus-visible,
+
+.business-content
+.business-contact-list a:focus-visible,
+
+.business-content
+.btn:focus-visible,
+
+.business-content
+.business-btn:focus-visible {
+  box-shadow:
+    0 0 0 4px rgba(228, 169, 40, 0.18);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .business-hero a,
+  .business-content a,
+  .business-content button,
+  .business-content img,
+  .business-profile img {
+    transition: none;
+  }
+
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+  .business-profile,
+  .business-content .content-card,
+  .business-content .business-section,
+  .business-content .detail-card,
+  .business-content .contact-card,
+  .business-content .business-contact {
+    box-shadow: none;
+
+    border-color: #cccccc;
+  }
+
+
+  .business-content .contact-card,
+  .business-content .business-contact {
+    position: static;
+  }
+
+
+  .business-content .btn,
+  .business-content .business-btn {
+    border: 1px solid #999999;
+
+    background: #ffffff;
+
+    color: #000000;
+  }
+
+}
+
+
+/* =========================================================
+   FOLLOW / SOCIAL MEDIA CARD
+   ========================================================= */
+
+.business-content .follow-card,
+.business-content .business-follow {
+  position: sticky;
+
+  top: 24px;
+
+  padding: 24px;
+
+  border: 1px solid var(--color-accent);
+  border-radius: var(--color-info);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #fbfaf6
+    );
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ---------------------------------------------------------
+   Follow heading
+   --------------------------------------------------------- */
+
+.business-content
+.follow-card h2,
+
+.business-content
+.business-follow h2 {
+  margin: 0 0 16px;
+
+  color: var(--business-black);
+
+  font-size: 1.15rem;
+
+  font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   Follow description
+   --------------------------------------------------------- */
+
+.business-content
+.follow-description {
+  margin: 0 0 16px;
+
+  color: var(--business-muted);
+
+  font-size: 0.84rem;
+
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   Social media list
+   --------------------------------------------------------- */
+
+.business-content
+.follow-list,
+
+.business-content
+.business-follow-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* ---------------------------------------------------------
+   Social media item
+   --------------------------------------------------------- */
+
+.business-content
+.follow-list li,
+
+.business-content
+.business-follow-list li {
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Social media link
+   --------------------------------------------------------- */
+
+.business-content
+.follow-list a,
+
+.business-content
+.business-follow-list a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-height: 46px;
+
+  padding: 8px 11px;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #333333;
+
+  text-decoration: none;
+
+  transition:
+    transform var(--business-transition),
+    border-color var(--business-transition),
+    background-color var(--business-transition),
+    box-shadow var(--business-transition);
+}
+
+
+/* ---------------------------------------------------------
+   Hover state
+   --------------------------------------------------------- */
+
+.business-content
+.follow-list a:hover,
+
+.business-content
+.business-follow-list a:hover {
+  transform: translateX(2px);
+
+  border-color: var(--color-accent);
+
+  background: #fffdf7;
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.06);
+
+  text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   Social icon
+   --------------------------------------------------------- */
+
+.business-content
+.follow-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 34px;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 9px;
+
+  background: var(--business-gold-soft);
+
+  color: var(--color-accent);
+
+  font-size: 0.85rem;
+}
+
+
+/* ---------------------------------------------------------
+   Social platform name
+   --------------------------------------------------------- */
+
+.business-content
+.follow-name {
+  flex: 1;
+
+  color: #333333;
+
+  font-size: 0.82rem;
+
+  font-weight: 750;
+}
+
+
+/* ---------------------------------------------------------
+   External link indicator
+   --------------------------------------------------------- */
+
+.business-content
+.follow-arrow {
+  color: #999999;
+
+  font-size: 0.75rem;
+
+  transition:
+    transform var(--business-transition),
+    color var(--business-transition);
+}
+
+
+.business-content
+.follow-list a:hover
+.follow-arrow,
+
+.business-content
+.business-follow-list a:hover
+.follow-arrow {
+  color: var(--color-accent);
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   MOBILE — FOLLOW CARD
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .business-content .follow-card,
+  .business-content .business-follow {
+    position: static;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .business-content .follow-card,
+  .business-content .business-follow {
+    padding: 20px;
+  }
+
+
+  .business-content
+  .follow-list a,
+
+  .business-content
+  .business-follow-list a {
+    min-height: 44px;
+  }
+
+}
+
+
+.business-social-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    
+}
+
+.business-social-links :hover {
+    color: var(--color-accent);
+}

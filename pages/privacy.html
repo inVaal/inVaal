@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- =====================================================
+       InVaal [016] — Privacy Policy
+
+       File:
+       ./pages/privacy.html
+
+       Content:
+       ../data/termsAndprivacy.json
+
+       JavaScript:
+       ../js/loaders/terms-privacy-loader.js
+
+       Notes:
+       - No global navigation
+       - No shared footer
+       - Uses the same InVaal [016] CSS system
+       - Privacy content is loaded from JSON
+  ====================================================== -->
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Privacy Policy for InVaal [016], explaining how the platform approaches privacy and information."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <title>InVaal [016] — Privacy Policy</title>
+
+
+  <!-- =====================================================
+       FAVICON
+  ====================================================== -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/logos/inVaalTriangle_logo.png"
+  >
+
+
+  <!-- =====================================================
+       STYLES
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../css/root.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/typography.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/layout.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/components.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/responsive.css"
+  >
+
+  
+  <link rel="stylesheet" href="../css/fixedBack.css"/>
+  <link rel="stylesheet" href="../css/termsAndPrivacy.css">
+
+
+
+</head>
+
+
+<body class="legal-page">
+
+
+  <!-- =====================================================
+       BACK TO INVAAL BUTTON
+  ====================================================== -->
+
+  <a
+    class="back-to-home button button-secondary"
+    href="../index.html"
+    aria-label="Back to InVaal [016] home page"
+  >
+  <span aria-hidden="true">
+      ←
+    </span>
+
+    <span>
+      InVaal [016]
+    </span>
+
+  </a>
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+  <main>
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="section legal-hero">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            Privacy
+          </span>
+
+          <h1 data-legal-title>
+            Privacy Policy
+          </h1>
+
+          <p
+            class="section-description"
+            data-legal-subtitle
+          >
+            How InVaal [016] approaches privacy and information.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         INTRODUCTION
+    ==================================================== -->
+
+    <section class="section">
+
+      <div class="container legal-container">
+
+        <div class="legal-introduction">
+
+          <p data-legal-intro>
+            InVaal [016] respects the privacy of people who
+            interact with the platform.
+          </p>
+
+          <p class="legal-updated">
+
+            Last updated:
+
+            <time data-legal-updated>
+              2 September 2026
+            </time>
+
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             LOADING STATUS
+        ================================================== -->
+
+        <div
+          id="legal-status"
+          class="legal-status"
+          aria-live="polite"
+        >
+          Loading...
+        </div>
+
+
+        <!-- =================================================
+             PRIVACY CONTENT
+
+             terms-privacy-loader.js will populate this
+             section using:
+
+             data.privacy.sections
+        ================================================== -->
+
+        <section
+          id="privacy-content"
+          class="legal-sections"
+          aria-label="Privacy Policy"
+        >
+        </section>
+
+
+        <!-- =================================================
+             CLOSING MESSAGE
+        ================================================== -->
+
+        <section
+          id="legal-closing"
+          class="legal-closing"
+        >
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FINAL NAVIGATION
+    ==================================================== -->
+
+    <section class="section legal-footer-section">
+
+      <div class="container">
+
+        <div class="legal-navigation">
+
+          <a
+            class="button button-primary"
+            href="../index.html"
+          >
+            Back to InVaal [016]
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="./terms.html"
+          >
+            Terms of Use
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="./contact.html"
+          >
+            Contact InVaal [016]
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       TERMS & PRIVACY LOADER
+  ====================================================== -->
+
+  <script
+    src="../js/loaders/terms-privacy-loader.js"
+    defer
+  ></script>
+
+</body>
+</html>

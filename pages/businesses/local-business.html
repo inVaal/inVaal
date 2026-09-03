@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Business information on InVaal [016]."
+  />
+
+  <title>
+    Business | InVaal [016]
+  </title>
+
+
+  <!-- =====================================================
+    GLOBAL STYLES
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../../css/root.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/typography.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/layout.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/components.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../../css/responsive.css"
+  />
+
+  <!-- Business detail styles -->
+
+  <link
+    rel="stylesheet"
+    href="../../css/business-detail.css"
+  />
+
+
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+    ACCESSIBILITY
+  ====================================================== -->
+
+  <a
+    class="skip-link"
+    href="#main"
+  >
+    Skip to content
+  </a>
+
+
+  <!-- =====================================================
+    GLOBAL HEADER
+  ====================================================== -->
+
+  <header
+    id="site-header"
+    class="site-header"
+    role="banner"
+  >
+    <!-- Loaded by navigation.js -->
+  </header>
+
+
+  <!-- =====================================================
+    MAIN CONTENT
+  ====================================================== -->
+
+  <main
+    id="main"
+    class="site-main"
+  >
+
+
+    <!-- ===================================================
+      BUSINESS HERO
+    ==================================================== -->
+
+    <section
+      class="business-hero section"
+      aria-labelledby="business-title"
+    >
+
+      <div class="container">
+
+
+        <!-- Back to business directory -->
+
+        <a
+          class="section-link"
+          href="../businesses.html"
+        >
+          ← Back to businesses
+        </a>
+
+
+        <!-- ===============================================
+          BUSINESS PROFILE
+
+          Populated by:
+          business-detail-loader.js
+        ================================================ -->
+
+        <div
+          id="business-profile"
+          class="business-profile"
+        >
+
+          <p
+            id="business-status"
+            class="status-message"
+            aria-live="polite"
+          >
+            Loading business...
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+      BUSINESS INFORMATION
+    ==================================================== -->
+
+    <section
+      class="business-information section"
+      aria-labelledby="business-information-title"
+    >
+
+      <div class="container">
+
+
+        <div
+          id="business-content"
+          class="business-content"
+        >
+
+
+          <!-- =============================================
+            MAIN BUSINESS INFORMATION
+
+            About
+            Services
+            Products
+            Gallery
+            Location
+          ============================================== -->
+
+          <main
+            id="business-main"
+            class="business-main"
+          >
+
+            <!--
+              Content is injected by
+              business-detail-loader.js
+            -->
+
+          </main>
+
+
+          <!-- =============================================
+            BUSINESS SIDEBAR
+
+            Contact
+            Follow
+            Hours
+            Additional business information
+          ============================================== -->
+
+          <aside
+            id="business-sidebar"
+            class="business-sidebar"
+            aria-label="Business information"
+          >
+
+            <!--
+              Sidebar content is injected by
+              business-detail-loader.js
+            -->
+
+          </aside>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+    GLOBAL FOOTER
+  ====================================================== -->
+
+  <footer
+    id="site-footer"
+    class="site-footer"
+    role="contentinfo"
+  >
+    <!-- Loaded by navigation.js -->
+  </footer>
+
+
+  <!-- =====================================================
+    GLOBAL NAVIGATION
+  ====================================================== -->
+
+  <script
+    src="../../js/navigation.js"
+    defer
+  ></script>
+
+
+  <!-- =====================================================
+    BUSINESS DETAIL LOADER
+  ====================================================== -->
+
+  <script
+    src="../../js/loaders/business-detail-loader.js"
+    defer
+  ></script>
+
+
+</body>
+
+</html>

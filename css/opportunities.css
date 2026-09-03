@@ -1,0 +1,936 @@
+/* =========================================================
+   opportunities.css
+   InVaal [016] — Opportunities Page
+
+   DESIGN DIRECTION
+   ---------------------------------------------------------
+   • Keep the original page/background styling
+   • Make the search area stand out more
+   • Give the search/filter controls a stronger visual
+     hierarchy
+   • Keep the opportunity cards clean and readable
+   • Gold remains the main InVaal [016] accent
+   • Avoid changing the overall site background
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE FOUNDATION
+   ========================================================= */
+
+.opportunities-page {
+  min-height: 100vh;
+}
+
+
+/* Keep the existing site background.
+   This intentionally does NOT set a new page-wide background. */
+
+.opportunities-page .wrap {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.opportunities-header {
+  position: relative;
+  padding: 70px 0 80px;
+  overflow: hidden;
+}
+
+
+/* Subtle decorative glow only.
+   It does not replace the existing background. */
+
+.opportunities-header::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -180px;
+  top: -220px;
+
+  background: rgba(228, 169, 40, 0.08);
+
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+
+.opportunities-header .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+
+.opportunities-header .eyebrow {
+  margin: 0 0 12px;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--color-accent-dark);
+}
+
+
+.opportunities-header h1 {
+  margin: 0;
+
+  font-size: clamp(2.3rem, 5vw, 4.4rem);
+  line-height: 0.95;
+}
+
+
+.opportunities-header .header-intro {
+  max-width: 680px;
+  margin: 22px 0 0;
+
+  font-size: 1.08rem;
+  line-height: 1.7;
+  opacity: 0.82;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.opportunities-page main {
+  padding-bottom: 80px;
+}
+
+
+/* =========================================================
+   EXTERNAL INFORMATION NOTICE
+   ========================================================= */
+
+.opportunities-page .notice {
+  display: flex;
+  gap: 16px;
+
+  margin-bottom: 24px;
+  padding: 18px 20px;
+
+  border: 1px solid var(--color-info);
+  border-radius: 16px;
+
+  background: var(--color-gray-100);
+
+  color: var(--color-info);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+
+.opportunities-page .notice-icon {
+  flex: 0 0 38px;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--color-gray-100);
+  color: var(--color-accent-dark);
+
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+
+.opportunities-page .notice-content {
+  min-width: 0;
+}
+
+
+.opportunities-page .notice-content strong {
+  display: block;
+  margin-bottom: 5px;
+
+  font-size: 0.95rem;
+}
+
+
+.opportunities-page .notice-content p {
+  margin: 3px 0;
+
+  font-size: 0.88rem;
+  line-height: 1.55;
+
+  color: #555;
+}
+
+
+/* =========================================================
+   SEARCH + FILTER AREA
+   ========================================================= */
+
+/*
+   The search area is deliberately brighter and more
+   prominent than the rest of the page.
+
+   The page background remains untouched.
+*/
+
+.opportunities-page .controls {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 2.5fr) minmax(220px, 1fr);
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+  padding: 12px;
+
+  border: 1px solid var(--color-info);
+  border-radius: 20px;
+
+  background: var(--color-gray-100);
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.12);
+
+  isolation: isolate;
+}
+
+
+/*
+   Small gold line at the top gives the search panel
+   a stronger InVaal identity.
+*/
+
+.opportunities-page .controls::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 32px;
+  right: 32px;
+
+  height: 3px;
+
+  border-radius: 0 0 8px 8px;
+
+  background: var(--color-accent);
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   CONTROL GROUPS
+   ========================================================= */
+
+.opportunities-page .control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  min-width: 0;
+}
+
+
+.opportunities-page .control-label {
+  padding-left: 5px;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: var(--color-accent-dark);
+}
+
+
+/* =========================================================
+   SEARCH INPUT
+   ========================================================= */
+
+.opportunities-page .control-group input {
+  width: 100%;
+  min-height: 62px;
+
+  box-sizing: border-box;
+
+  padding: 0 20px;
+
+  border: 2px solid transparent;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  color: #171717;
+
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  outline: none;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.10),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.opportunities-page .control-group input::placeholder {
+  color: #888;
+  font-weight: 500;
+}
+
+
+.opportunities-page .control-group input:hover {
+  box-shadow:
+    inset 0 0 0 1px var(--color-accent),
+    0 7px 18px rgba(0, 0, 0, 0.07);
+}
+
+
+.opportunities-page .control-group input:focus {
+  border-color: var(--color-accent);
+
+  box-shadow:
+    0 0 0 4px rgba(228, 169, 40, 0.15),
+    0 8px 22px rgba(0, 0, 0, 0.08);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CATEGORY SELECT
+   ========================================================= */
+
+.opportunities-page .control-group select {
+  width: 100%;
+  min-height: 62px;
+
+  box-sizing: border-box;
+
+  padding: 0 44px 0 17px;
+
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 14px;
+
+  background-color: #ffffff;
+
+  color: #222;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  outline: none;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.05);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.opportunities-page .control-group select:hover {
+  border-color: var(--color-accent);
+}
+
+
+.opportunities-page .control-group select:focus {
+  border-color: var(--color-accent);
+
+  box-shadow:
+    0 0 0 4px rgba(228, 169, 40, 0.15);
+}
+
+
+/* =========================================================
+   RESULTS HEADER
+   ========================================================= */
+
+.opportunities-page .results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+
+.opportunities-page .result-count {
+  margin: 0;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================================
+   OPPORTUNITY GRID
+   ========================================================= */
+
+.opportunities-page #opportunities {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   OPPORTUNITY CARD
+   ========================================================= */
+
+.opportunities-page #opportunities .card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: 24px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  color: #171717;
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.10);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Gold card accent */
+
+.opportunities-page #opportunities .card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: var(--color-accent);
+}
+
+
+.opportunities-page #opportunities .card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--color-accent);
+
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================================
+   CATEGORY TAG
+   ========================================================= */
+
+.opportunities-page #opportunities .tag {
+  align-self: flex-start;
+
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 15px;
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: var(--color-gray-100);
+  color: var(--color-accent-dark);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.opportunities-page #opportunities .card h2 {
+  margin: 0 0 10px;
+
+  color: #171717;
+
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   ORGANISATION
+   ========================================================= */
+
+.opportunities-page #opportunities .org {
+  margin-bottom: 18px;
+
+  color: var(--color-accent-dark);
+
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   CARD METADATA
+   ========================================================= */
+
+.opportunities-page #opportunities .meta {
+  margin: 5px 0;
+
+  color: var(--color-info);
+
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+
+.opportunities-page #opportunities .meta strong {
+  color: #292929;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.opportunities-page #opportunities .description {
+  margin: 15px 0;
+
+  color: var(--color-accent-dark);
+
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   LAST VERIFIED
+   ========================================================= */
+
+.opportunities-page #opportunities .card > .meta:last-of-type {
+  margin-top: auto;
+  padding-top: 15px;
+
+  border-top: 1px solid #eeeeee;
+
+  color: var(--color-info);
+
+  font-size: 0.76rem;
+}
+
+
+/* =========================================================
+   CARD ACTIONS
+   ========================================================= */
+
+.opportunities-page #opportunities .actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 18px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.opportunities-page #opportunities .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 14px;
+
+  border-radius: 10px;
+
+  font-size: 0.82rem;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+.opportunities-page #opportunities .btn:hover {
+  transform: translateY(-1px);
+}
+
+
+/* Primary */
+
+.opportunities-page #opportunities .btn.primary {
+  border: 1px solid var(--color-accent);
+
+  background: white;
+  color: #17120a;
+
+  box-shadow:
+    0 5px 12px rgba(228, 169, 40, 0.18);
+}
+
+
+.opportunities-page #opportunities .btn.primary:hover {
+  background: var(--color-accent);
+
+  box-shadow:
+    0 7px 16px rgba(228, 169, 40, 0.25);
+}
+
+
+/* Secondary */
+
+.opportunities-page #opportunities .btn.secondary {
+  border: 1px solid var(--color-info);
+
+  background: #ffffff;
+  color: #333333;
+}
+
+
+.opportunities-page #opportunities .btn.secondary:hover {
+  border-color: var(--color-info);
+
+  background: var(--color-info-satu);
+}
+
+
+/* =========================================================
+   EMPTY / LOADING STATE
+   ========================================================= */
+
+.opportunities-page #opportunities .empty,
+.opportunities-page .empty {
+  grid-column: 1 / -1;
+
+  padding: 45px 25px;
+
+  border: 1px dashed rgba(0, 0, 0, 0.20);
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.90);
+
+  color: #555;
+
+  text-align: center;
+}
+
+
+.opportunities-page .empty strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #222;
+}
+
+
+.opportunities-page .empty p {
+  margin: 0;
+
+  font-size: 0.9rem;
+}
+
+
+.opportunities-page .empty-icon {
+  margin-bottom: 12px;
+
+  font-size: 1.8rem;
+}
+
+
+/* =========================================================
+   VERIFY REMINDER
+   ========================================================= */
+
+.opportunities-page .source-reminder {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  margin-top: 30px;
+  padding: 22px;
+
+  border: 1px solid rgba(62, 104, 73, 0.18);
+  border-radius: 16px;
+
+  background: #edf5ef;
+
+  color: #1d3524;
+}
+
+
+.opportunities-page .source-reminder-icon {
+  flex: 0 0 36px;
+
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #d9eadc;
+
+  font-weight: 900;
+}
+
+
+.opportunities-page .source-reminder h2 {
+  margin: 0 0 6px;
+
+  font-size: 1rem;
+}
+
+
+.opportunities-page .source-reminder p {
+  margin: 0;
+
+  max-width: 760px;
+
+  font-size: 0.86rem;
+  line-height: 1.6;
+
+  opacity: 0.82;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.opportunities-page .opportunities-footer {
+  padding: 28px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+.opportunities-page .opportunities-footer strong {
+  font-weight: 800;
+}
+
+
+.opportunities-page .opportunities-footer span {
+  opacity: 0.75;
+}
+
+
+.opportunities-page .opportunities-footer small {
+  display: inline-block;
+
+  margin-top: 6px;
+
+  font-size: 0.76rem;
+  opacity: 0.60;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .opportunities-page #opportunities {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .opportunities-page .wrap {
+    width: min(100% - 28px, 1180px);
+  }
+
+
+  .opportunities-header {
+    padding: 55px 0 65px;
+  }
+
+
+  .opportunities-header h1 {
+    font-size: clamp(2.2rem, 12vw, 3.3rem);
+  }
+
+
+  .opportunities-header .header-intro {
+    font-size: 0.98rem;
+  }
+
+
+  /*
+     Stack search and category filter.
+  */
+
+  .opportunities-page .controls {
+    grid-template-columns: 1fr;
+
+    padding: 11px;
+
+    border-radius: 17px;
+  }
+
+
+  .opportunities-page .controls::before {
+    left: 24px;
+    right: 24px;
+  }
+
+
+  .opportunities-page #opportunities {
+    grid-template-columns: 1fr;
+  }
+
+
+  .opportunities-page .notice {
+    padding: 16px;
+  }
+
+
+  .opportunities-page .source-reminder {
+    padding: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .opportunities-page .wrap {
+    width: min(100% - 20px, 1180px);
+  }
+
+
+  .opportunities-page .controls {
+    border-radius: 15px;
+  }
+
+
+  .opportunities-page .control-group input,
+  .opportunities-page .control-group select {
+    min-height: 56px;
+  }
+
+
+  .opportunities-page #opportunities .card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+
+  .opportunities-page #opportunities .actions {
+    flex-direction: column;
+  }
+
+
+  .opportunities-page #opportunities .btn {
+    width: 100%;
+  }
+
+
+  .opportunities-page .notice {
+    flex-direction: column;
+  }
+
+
+  .opportunities-page .source-reminder {
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.opportunities-page a:focus-visible,
+.opportunities-page input:focus-visible,
+.opportunities-page select:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .opportunities-page *,
+  .opportunities-page *::before,
+  .opportunities-page *::after {
+    scroll-behavior: auto !important;
+
+    transition: none !important;
+    animation: none !important;
+  }
+
+}

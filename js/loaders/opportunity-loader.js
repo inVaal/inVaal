@@ -1,10 +1,32 @@
 /**
- * Opportunity-loader
- * 
- */ 
+ * InVaal [016] — Opportunity Loader
+ *
+ * Loads opportunities from:
+ * ../data/opportunities.json
+ *
+ * Responsibilities:
+ * - Load the external JSON database
+ * - Build the category filter
+ * - Search opportunities
+ * - Filter by category
+ * - Render opportunity cards
+ * - Safely handle external URLs
+ * - Escape JSON content before inserting it into HTML
+ */
+
+"use strict";
+
+
+/* =========================================================
+   GLOBAL DATA
+   ========================================================= */
 
 let opportunities = [];
 
+
+/* =========================================================
+   DOM ELEMENTS
+   ========================================================= */
 
 const container =
   document.getElementById("opportunities");
@@ -19,61 +41,129 @@ const resultCount =
   document.getElementById("resultCount");
 
 
+/* =========================================================
+   INITIALISE
+   ========================================================= */
 
 /*
-  Load the external opportunity database.
+ * Make sure the required HTML elements exist
+ * before attempting to use them.
+ */
 
-  This keeps the HTML separate from the data,
-  meaning we can update opportunities.json
-  without rebuilding this page.
-*/
+if (
+  !container ||
+  !searchInput ||
+  !categoryFilter ||
+  !resultCount
+) {
+  console.error(
+    "Opportunity loader: Required HTML elements are missing."
+  );
+}
+
+
+/* =========================================================
+   LOAD OPPORTUNITY DATABASE
+   ========================================================= */
+
+/*
+ * The HTML stays separate from the data.
+ *
+ * This means opportunities.json can be updated
+ * without rebuilding opportunities.html.
+ */
 
 fetch("../data/opportunities.json")
 
   .then(response => {
 
     if (!response.ok) {
-
       throw new Error(
-        "Database unavailable"
+        `Database unavailable (${response.status})`
       );
-
     }
 
     return response.json();
-
   })
 
   .then(data => {
 
+    /*
+     * Only accept an array.
+     */
+
     opportunities =
-      data.opportunities || [];
+      Array.isArray(data.opportunities)
+        ? data.opportunities
+        : [];
+
+    /*
+     * Build the category dropdown.
+     */
 
     buildCategories();
 
-    render();
+    /*
+     * Display the opportunities.
+     */
 
+    render();
   })
 
   .catch(error => {
 
-    console.error(error);
+    console.error(
+      "Opportunity loader error:",
+      error
+    );
 
-    container.innerHTML =
-      '<div class="empty">' +
-      'Unable to load the opportunities database.' +
-      '</div>';
+    container.innerHTML = `
+      <div class="empty error-state">
 
+        <strong>
+          Unable to load the opportunities database.
+        </strong>
+
+        <p>
+          Please try again later.
+        </p>
+
+      </div>
+    `;
+
+    resultCount.textContent =
+      "Opportunities unavailable";
   });
 
 
+/* =========================================================
+   BUILD CATEGORY FILTER
+   ========================================================= */
 
 /*
-  Automatically create the category
-  dropdown from the JSON database.
-*/
+ * Automatically creates the category dropdown
+ * from the categories found in opportunities.json.
+ */
 
-function buildCategories(){
+function buildCategories() {
+
+  /*
+   * Remove existing categories first.
+   *
+   * This prevents duplicates if the function
+   * is ever called again.
+   */
+
+  categoryFilter.innerHTML = `
+    <option value="all">
+      All categories
+    </option>
+  `;
+
+
+  /*
+   * Extract categories.
+   */
 
   const categories = [
 
@@ -87,8 +177,15 @@ function buildCategories(){
 
     )
 
-  ].sort();
+  ].sort(
+    (a, b) =>
+      String(a).localeCompare(String(b))
+  );
 
+
+  /*
+   * Add each category to the dropdown.
+   */
 
   categories.forEach(category => {
 
@@ -100,18 +197,22 @@ function buildCategories(){
     option.textContent = category;
 
     categoryFilter.appendChild(option);
-
   });
-
 }
 
 
+/* =========================================================
+   FILTER + RENDER
+   ========================================================= */
 
 /*
-  Filter and display opportunities.
-*/
+ * Filters opportunities based on:
+ *
+ * - Search text
+ * - Selected category
+ */
 
-function render(){
+function render() {
 
   const query =
     searchInput.value
@@ -122,8 +223,17 @@ function render(){
     categoryFilter.value;
 
 
+  /*
+   * Filter the database.
+   */
+
   const filtered =
     opportunities.filter(item => {
+
+      /*
+       * Create one searchable text string
+       * containing the important fields.
+       */
 
       const searchable = [
 
@@ -139,130 +249,273 @@ function render(){
 
         item.location,
 
+        item.deadline,
+
+        item.type,
+
         ...(item.tags || [])
 
       ]
 
-      .join(" ")
-      .toLowerCase();
+        .filter(Boolean)
 
+        .join(" ")
+
+        .toLowerCase();
+
+
+      /*
+       * Search condition.
+       */
+
+      const matchesSearch =
+        !query ||
+        searchable.includes(query);
+
+
+      /*
+       * Category condition.
+       */
+
+      const matchesCategory =
+        category === "all" ||
+        item.category === category;
+
+
+      /*
+       * Opportunity must satisfy
+       * both conditions.
+       */
 
       return (
-
-        (!query ||
-          searchable.includes(query))
-
-        &&
-
-        (
-          category === "all" ||
-          item.category === category
-        )
-
+        matchesSearch &&
+        matchesCategory
       );
-
     });
 
 
+  /* =======================================================
+     RESULT COUNT
+     ======================================================= */
+
+  const count =
+    filtered.length;
+
   resultCount.textContent =
-
-    `${filtered.length} opportunity` +
-
-    `${filtered.length === 1 ? "" : "ies"} found`;
+    `${count} opportunit${count === 1 ? "y" : "ies"} found`;
 
 
-  if(!filtered.length){
+  /* =======================================================
+     EMPTY RESULT
+     ======================================================= */
 
-    container.innerHTML =
-      '<div class="empty">' +
-      'No opportunities match your search.' +
-      '</div>';
+  if (!filtered.length) {
+
+    container.innerHTML = `
+      <div class="empty">
+
+        <strong>
+          No opportunities found.
+        </strong>
+
+        <p>
+          Try another search term or category.
+        </p>
+
+      </div>
+    `;
 
     return;
-
   }
 
+
+  /* =======================================================
+     RENDER CARDS
+     ======================================================= */
 
   container.innerHTML =
     filtered
       .map(createCard)
       .join("");
-
 }
 
 
+/* =========================================================
+   CREATE OPPORTUNITY CARD
+   ========================================================= */
 
 /*
-  Build an individual opportunity card.
-*/
+ * Creates one card for each opportunity.
+ */
 
-function createCard(item){
+function createCard(item) {
+
+  /*
+   * Safely prepare the main values.
+   */
+
+  const category =
+    item.category ||
+    "Opportunity";
+
+  const title =
+    item.title ||
+    "Untitled Opportunity";
+
+  const organisation =
+    item.organisation ||
+    "Organisation not specified";
+
+  const audience =
+    item.audience ||
+    "See official requirements";
+
+  const location =
+    item.location ||
+    "See eligibility";
+
+  const deadline =
+    item.deadline ||
+    "Check official source";
+
+  const description =
+    item.description ||
+    "No description provided.";
+
+  const lastVerified =
+    item.last_verified ||
+    "Not specified";
+
+
+  /* =======================================================
+     TAGS
+     ======================================================= */
+
+  const tags =
+    Array.isArray(item.tags)
+      ? item.tags
+      : [];
+
+
+  const tagMarkup =
+    tags.length
+
+      ? `
+        <div class="tags">
+
+          ${tags
+            .map(tag => `
+              <span class="tag tag-secondary">
+                ${escapeHtml(tag)}
+              </span>
+            `)
+            .join("")}
+
+        </div>
+      `
+
+      : "";
+
+
+  /* =======================================================
+     DETAILS LINK
+     ======================================================= */
+
+  const detailsLink =
+    item.details_url
+
+      ? `
+        <a
+          class="btn secondary"
+          href="${safeUrl(item.details_url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Details ↗
+        </a>
+      `
+
+      : "";
+
+
+  /* =======================================================
+     CARD
+     ======================================================= */
 
   return `
 
     <article class="card">
 
+      <!-- Category -->
+
       <span class="tag">
-        ${escapeHtml(
-          item.category || "Opportunity"
-        )}
+        ${escapeHtml(category)}
       </span>
 
 
+      <!-- Opportunity title -->
+
       <h2>
-        ${escapeHtml(item.title)}
+        ${escapeHtml(title)}
       </h2>
 
 
+      <!-- Organisation -->
+
       <div class="org">
-        ${escapeHtml(item.organisation)}
+        ${escapeHtml(organisation)}
       </div>
 
+
+      <!-- Audience -->
 
       <div class="meta">
 
-        <strong>For:</strong>
+        <strong>
+          For:
+        </strong>
 
-        ${escapeHtml(
-          item.audience ||
-          "See official requirements"
-        )}
+        ${escapeHtml(audience)}
 
       </div>
 
+
+      <!-- Location -->
 
       <div class="meta">
 
-        <strong>Location:</strong>
+        <strong>
+          Location:
+        </strong>
 
-        ${escapeHtml(
-          item.location ||
-          "See eligibility"
-        )}
+        ${escapeHtml(location)}
 
       </div>
 
+
+      <!-- Deadline -->
 
       <div class="meta">
 
-        <strong>Deadline:</strong>
+        <strong>
+          Deadline:
+        </strong>
 
-        ${escapeHtml(
-          item.deadline ||
-          "Check official source"
-        )}
+        ${escapeHtml(deadline)}
 
       </div>
 
+
+      <!-- Description -->
 
       <p class="description">
 
-        ${escapeHtml(
-          item.description || ""
-        )}
+        ${escapeHtml(description)}
 
       </p>
 
+
+      <!-- Last verified -->
 
       <div class="meta">
 
@@ -270,13 +523,17 @@ function createCard(item){
           Last verified:
         </strong>
 
-        ${escapeHtml(
-          item.last_verified ||
-          "Not specified"
-        )}
+        ${escapeHtml(lastVerified)}
 
       </div>
 
+
+      <!-- Optional tags -->
+
+      ${tagMarkup}
+
+
+      <!-- Actions -->
 
       <div class="actions">
 
@@ -290,88 +547,125 @@ function createCard(item){
         </a>
 
 
-        ${
-          item.details_url
-
-          ?
-
-          `<a
-            class="btn secondary"
-            href="${safeUrl(item.details_url)}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Details ↗
-          </a>`
-
-          :
-
-          ""
-
-        }
+        ${detailsLink}
 
       </div>
 
     </article>
 
   `;
-
 }
 
 
+/* =========================================================
+   SAFE URL
+   ========================================================= */
 
 /*
-  Only allow HTTP/HTTPS links.
-*/
+ * Only allow HTTP and HTTPS URLs.
+ *
+ * This prevents dangerous protocols such as:
+ *
+ * javascript:
+ * data:
+ * file:
+ *
+ * from being inserted into links.
+ */
 
-function safeUrl(url){
+function safeUrl(url) {
 
-  return (
+  if (
+    typeof url !== "string" ||
+    !url.trim()
+  ) {
+    return "#";
+  }
 
-    url &&
-    /^https?:\/\//i.test(url)
 
-  )
+  const trimmed =
+    url.trim();
 
-    ? escapeHtml(url)
 
-    : "#";
+  /*
+   * Only HTTP/HTTPS is permitted.
+   */
 
+  if (
+    !/^https?:\/\//i.test(trimmed)
+  ) {
+    return "#";
+  }
+
+
+  /*
+   * Escape the URL before inserting it
+   * into the HTML attribute.
+   */
+
+  return escapeHtml(trimmed);
 }
 
 
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
 
 /*
-  Protect the page from HTML being
-  injected through JSON content.
-*/
+ * JSON is external data.
+ *
+ * Never insert external data directly into
+ * innerHTML without escaping it first.
+ */
 
-function escapeHtml(value){
+function escapeHtml(value) {
 
   return String(value ?? "")
 
-    .replaceAll("&","&amp;")
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
 
-    .replaceAll("<","&lt;")
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
 
-    .replaceAll(">","&gt;")
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
 
-    .replaceAll('"',"&quot;")
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
 
-    .replaceAll("'","&#039;");
-
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 }
 
 
+/* =========================================================
+   LIVE SEARCH
+   ========================================================= */
 
 /*
-  Live search and filtering.
-*/
+ * Search updates immediately while the user types.
+ */
 
 searchInput.addEventListener(
   "input",
   render
 );
+
+
+/* =========================================================
+   CATEGORY FILTER
+   ========================================================= */
 
 categoryFilter.addEventListener(
   "change",

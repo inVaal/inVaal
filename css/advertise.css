@@ -1,0 +1,766 @@
+/* =========================================================
+   InVaal [016] — Advertising Page Styles
+   File: css/advertise.css
+
+   Purpose:
+   Page-specific styling for:
+   pages/advertise.html
+
+   This stylesheet works alongside:
+   - root.css
+   - typography.css
+   - layout.css
+   - components.css
+   - responsive.css
+   ========================================================= */
+
+
+/* =========================================================
+   1. ADVERTISING PAGE
+   ========================================================= */
+
+.advertise-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   2. BACK BUTTON
+   ========================================================= */
+
+.advertise-back-button {
+    position: fixed;
+    top: 1.25rem;
+    left: 1.25rem;
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    padding: 0.65rem 1rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.advertise-back-button:hover {
+    background: rgba(0, 0, 0, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.advertise-back-button:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   3. HERO
+   ========================================================= */
+
+.advertise-hero {
+    position: relative;
+
+    min-height: 72vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 8rem 1.5rem 6rem;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.advertise-hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255, 255, 255, 0.08),
+            transparent 40%
+        );
+}
+
+.advertise-hero-content {
+    position: relative;
+    z-index: 1;
+
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
+
+.advertise-eyebrow {
+    margin-bottom: 1rem;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    opacity: 0.75;
+}
+
+.advertise-hero h1 {
+    max-width: 850px;
+
+    margin: 0 auto 1.5rem;
+
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+}
+
+.advertise-hero-description {
+    max-width: 720px;
+
+    margin: 0 auto 2rem;
+
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+
+    opacity: 0.82;
+}
+
+
+/* =========================================================
+   4. HERO ACTIONS
+   ========================================================= */
+
+.advertise-hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 0.8rem;
+
+    margin-top: 2rem;
+}
+
+.advertise-hero-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0.8rem 1.4rem;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        background 0.25s ease;
+}
+
+.advertise-hero-actions a:hover {
+    transform: translateY(-2px);
+}
+
+.advertise-hero-actions a:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   5. GENERAL SECTION
+   ========================================================= */
+
+.advertise-section {
+    padding: 6rem 1.5rem;
+}
+
+.advertise-container {
+    width: min(1150px, 100%);
+    margin: 0 auto;
+}
+
+.advertise-section-heading {
+    max-width: 750px;
+
+    margin: 0 auto 3rem;
+
+    text-align: center;
+}
+
+.advertise-section-heading h2 {
+    margin-bottom: 1rem;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.05;
+}
+
+.advertise-section-heading p {
+    margin: 0;
+
+    font-size: 1.05rem;
+    line-height: 1.7;
+
+    opacity: 0.78;
+}
+
+
+/* =========================================================
+   6. BENEFIT GRID
+   ========================================================= */
+
+.advertise-benefits-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1.25rem;
+}
+
+.advertise-benefit-card {
+    padding: 1.75rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.advertise-benefit-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255, 255, 255, 0.22);
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.advertise-benefit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 1.25rem;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    font-size: 1.4rem;
+}
+
+.advertise-benefit-card h3 {
+    margin: 0 0 0.75rem;
+
+    font-size: 1.15rem;
+}
+
+.advertise-benefit-card p {
+    margin: 0;
+
+    font-size: 0.95rem;
+    line-height: 1.65;
+
+    opacity: 0.72;
+}
+
+
+/* =========================================================
+   7. ADVERTISING OPTIONS
+   ========================================================= */
+
+.advertise-options-section {
+    position: relative;
+}
+
+.advertise-options-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.5rem;
+}
+
+.advertise-option-card {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2rem;
+
+    min-height: 100%;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.advertise-option-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(255, 255, 255, 0.25);
+
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+}
+
+.advertise-option-icon {
+    margin-bottom: 1rem;
+
+    font-size: 2rem;
+}
+
+.advertise-option-card h3 {
+    margin: 0 0 0.75rem;
+
+    font-size: 1.35rem;
+}
+
+.advertise-option-card p {
+    margin: 0 0 1.25rem;
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+    opacity: 0.75;
+}
+
+.advertise-option-card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+
+    line-height: 1.7;
+}
+
+.advertise-option-card li {
+    margin-bottom: 0.35rem;
+
+    font-size: 0.9rem;
+
+    opacity: 0.78;
+}
+
+
+/* =========================================================
+   8. OPTION CTA
+   ========================================================= */
+
+.advertise-option-action {
+    margin-top: auto;
+    padding-top: 1.5rem;
+}
+
+.advertise-option-action a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 0.7rem 1rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.advertise-option-action a:hover {
+    transform: translateY(-2px);
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   9. WHO CAN WORK WITH US
+   ========================================================= */
+
+.advertise-audience-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1rem;
+}
+
+.advertise-audience-card {
+    padding: 1.5rem;
+
+    border-radius: 1rem;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.advertise-audience-card:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.advertise-audience-card h3 {
+    margin: 0;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   10. APPROACH / PRINCIPLES
+   ========================================================= */
+
+.advertise-approach {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1.5rem;
+}
+
+.advertise-approach-item {
+    padding: 1.75rem;
+
+    border-left: 3px solid currentColor;
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.advertise-approach-item h3 {
+    margin: 0 0 0.6rem;
+
+    font-size: 1.15rem;
+}
+
+.advertise-approach-item p {
+    margin: 0;
+
+    line-height: 1.7;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   11. CURRENT STATUS
+   ========================================================= */
+
+.advertise-status-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.advertise-status-box {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 2rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.25rem;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    text-align: center;
+}
+
+.advertise-status-box h2 {
+    margin: 0 0 1rem;
+
+    font-size: 1.5rem;
+}
+
+.advertise-status-box p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    line-height: 1.7;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   12. FINAL CALL TO ACTION
+   ========================================================= */
+
+.advertise-cta-section {
+    padding: 7rem 1.5rem;
+}
+
+.advertise-cta-box {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: clamp(2rem, 6vw, 4rem);
+
+    border-radius: 1.5rem;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.advertise-cta-box h2 {
+    margin: 0 0 1rem;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.05;
+}
+
+.advertise-cta-box p {
+    max-width: 650px;
+
+    margin: 0 auto 2rem;
+
+    line-height: 1.7;
+
+    opacity: 0.78;
+}
+
+.advertise-cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 0.8rem;
+}
+
+.advertise-cta-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0.8rem 1.5rem;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.advertise-cta-actions a:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   13. FINAL NAVIGATION
+   ========================================================= */
+
+.advertise-navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+
+    padding: 2rem 1.5rem 4rem;
+}
+
+.advertise-navigation a {
+    padding: 0.65rem 1rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    opacity: 0.8;
+
+    transition:
+        opacity 0.25s ease,
+        background 0.25s ease;
+}
+
+.advertise-navigation a:hover {
+    opacity: 1;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================================
+   14. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .advertise-benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advertise-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advertise-audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   15. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .advertise-back-button {
+        top: 0.75rem;
+        left: 0.75rem;
+
+        padding: 0.55rem 0.85rem;
+
+        font-size: 0.8rem;
+    }
+
+    .advertise-hero {
+        min-height: 80vh;
+
+        padding: 7rem 1rem 4rem;
+    }
+
+    .advertise-hero h1 {
+        font-size: clamp(2.3rem, 12vw, 4rem);
+    }
+
+    .advertise-hero-description {
+        font-size: 0.95rem;
+    }
+
+    .advertise-section {
+        padding: 4rem 1rem;
+    }
+
+    .advertise-section-heading {
+        margin-bottom: 2rem;
+    }
+
+    .advertise-benefits-grid,
+    .advertise-options-grid,
+    .advertise-audience-grid,
+    .advertise-approach {
+        grid-template-columns: 1fr;
+    }
+
+    .advertise-benefit-card,
+    .advertise-option-card,
+    .advertise-audience-card,
+    .advertise-approach-item {
+        padding: 1.35rem;
+    }
+
+    .advertise-cta-section {
+        padding: 4rem 1rem;
+    }
+
+    .advertise-cta-box {
+        padding: 2rem 1.25rem;
+    }
+
+    .advertise-hero-actions,
+    .advertise-cta-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .advertise-hero-actions a,
+    .advertise-cta-actions a {
+        width: 100%;
+    }
+
+    .advertise-navigation {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+}
+
+
+/* =========================================================
+   16. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .advertise-back-button,
+    .advertise-benefit-card,
+    .advertise-option-card,
+    .advertise-option-action a,
+    .advertise-audience-card,
+    .advertise-hero-actions a,
+    .advertise-cta-actions a,
+    .advertise-navigation a {
+        transition: none;
+    }
+
+}

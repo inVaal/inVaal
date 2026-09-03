@@ -1,0 +1,44 @@
+{
+  "version": "2.0",
+  "last_updated": "2026-09-02",
+
+  "advertising": [
+    {
+      "id": "business-feature-001",
+      "title": "Business Feature",
+      "type": "business_feature",
+
+      "description": "Give your business a dedicated feature on InVaal [016] with useful information that helps local customers discover what you offer.",
+
+      "audience": [
+        "Local businesses",
+        "Entrepreneurs",
+        "Service providers"
+      ],
+
+      "includes": [
+        "Business name",
+        "Business description",
+        "Products or services",
+        "Location",
+        "Contact information",
+        "Website and social media links"
+      ],
+
+      "duration": "30 days",
+
+      "price": {
+        "amount": 0,
+        "currency": "ZAR",
+        "display": "Contact InVaal [016]"
+      },
+
+      "status": "available",
+
+      "call_to_action": {
+        "label": "Enquire About Advertising",
+        "url": "./contact.html"
+      }
+    }
+  ]
+}

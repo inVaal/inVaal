@@ -1,0 +1,83 @@
+/*
+    Fixed Back Button
+
+    The button stays in the top-left corner
+    even when the visitor scrolls.
+*/
+
+.back-to-home {
+    position: fixed;
+
+    top: 1rem;
+
+    left: 1rem;
+
+    z-index: 9999;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    padding: 0.65rem 1rem;
+
+    text-decoration: none;
+
+    border-radius: 999px;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+
+}
+
+
+/*
+    Small movement when the visitor
+    hovers over the button.
+*/
+
+.back-to-home:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/*
+    Keyboard accessibility.
+*/
+
+.back-to-home:focus-visible {
+
+    outline: 3px solid currentColor;
+
+    outline-offset: 3px;
+
+}
+
+
+/*
+    Slightly smaller button on mobile.
+*/
+
+@media (max-width: 600px) {
+
+    .back-to-home {
+
+    top: 0.75rem;
+
+    left: 0.75rem;
+
+    padding: 0.55rem 0.8rem;
+
+    font-size: 0.9rem;
+
+    }
+
+}
