@@ -7,21 +7,9 @@
    Responsibilities:
    - Load the shared header
    - Load the shared footer
-   - Initialise the mobile navigation
-   - Initialise the current year in the footer
-   - Handle navigation only on pages that actually
-     contain #site-header and/or #site-footer
-
-   Important:
-   - Secondary pages such as:
-       ./pages/contact.html
-       ./pages/terms.html
-       ./pages/privacy.html
-
-     do NOT use the shared navigation/footer.
-
-   - Therefore this file does not try to calculate
-     ../ paths for secondary pages.
+   - Initialise mobile navigation
+   - Initialise the current year
+   - Initialise active navigation links
 
    Compatible with:
    - Static HTML
@@ -33,33 +21,140 @@
 
 
 /* =========================================================
-   CONFIGURATION
+   PATH CONFIGURATION
 ========================================================= */
 
-// Shared component locations.
-//
-// navigation.js is normally loaded from:
-//
-// ./index.html
-//
-// Therefore these paths are relative to the website root.
+/**
+ * Determines how many levels we need to go back
+ * from the current HTML page to the website root.
+ *
+ * Examples:
+ *
+ * /InVaal[016]/index.html
+ *        → ./
+ *
+ * /InVaal[016]/pages/businesses.html
+ *        → ../
+ *
+ * /InVaal[016]/pages/businesses/example.html
+ *        → ../../
+ *
+ * @returns {string}
+ */
+function getRootPath() {
+
+  const pathname =
+    window.location.pathname;
+
+
+  /*
+    Remove the filename from the path.
+  */
+  const pathWithoutFile =
+    pathname.substring(
+      0,
+      pathname.lastIndexOf("/")
+    );
+
+
+  /*
+    Remove empty path segments.
+  */
+  const segments =
+    pathWithoutFile
+      .split("/")
+      .filter(
+        (segment) => segment.length > 0
+      );
+
+
+  /*
+    The first segment is normally the
+    GitHub Pages repository/project name.
+
+    Example:
+
+    /InVaal[016]/pages/businesses/
+
+    becomes:
+
+    ["InVaal[016]", "pages", "businesses"]
+  */
+
+  /*
+    If there is only one segment, we're at
+    the GitHub Pages project root.
+  */
+  if (segments.length <= 1) {
+
+    return "./";
+
+  }
+
+
+  /*
+    Every directory below the project root
+    requires one ../
+
+    Example:
+
+    /InVaal[016]/pages/
+
+    needs:
+
+    ../
+  */
+
+  const directoryDepth =
+    segments.length - 1;
+
+
+  return "../".repeat(
+    directoryDepth
+  );
+
+}
+
+
+/* =========================================================
+   COMPONENT PATHS
+========================================================= */
+
+/*
+  Calculate the correct path for the
+  current HTML page.
+*/
+const ROOT_PATH =
+  getRootPath();
+
+
+/*
+  Shared component locations.
+
+  These are now calculated relative to
+  the current HTML page.
+
+  Examples:
+
+  index.html
+  → ./components/header.html
+
+  pages/businesses.html
+  → ../components/header.html
+
+  pages/businesses/example.html
+  → ../../components/header.html
+*/
 const HEADER_PATH =
-  "./components/header.html";
+  `${ROOT_PATH}components/header.html`;
 
 const FOOTER_PATH =
-  "./components/footer.html";
+  `${ROOT_PATH}components/footer.html`;
 
 
 /* =========================================================
    SELECTORS
 ========================================================= */
-
-// Header and footer containers.
-//
-// Example:
-//
-// <header id="site-header"></header>
-// <footer id="site-footer"></footer>
 
 const HEADER_SELECTOR =
   "#site-header";
@@ -75,40 +170,53 @@ const FOOTER_SELECTOR =
 /**
  * Loads an HTML component into a target element.
  *
- * This is used for the shared header and footer.
- *
  * @param {string} selector
  * @param {string} path
  * @returns {Promise<boolean>}
  */
-async function loadComponent(selector, path) {
+async function loadComponent(
+  selector,
+  path
+) {
 
   const container =
-    document.querySelector(selector);
+    document.querySelector(
+      selector
+    );
+
 
   /*
-    If the page does not contain this component,
-    simply skip it.
-
-    This is important because pages such as
-    terms.html and privacy.html intentionally
-    do not have a shared header/footer.
+    If this page does not contain the
+    component, do nothing.
   */
   if (!container) {
+
     return false;
+
   }
 
 
   try {
 
+    console.log(
+      `InVaal [016]: Loading ${path}`
+    );
+
+
     const response =
       await fetch(path);
 
 
+    /*
+      fetch() does not automatically throw
+      an error for 404 responses.
+
+      Therefore we check response.ok.
+    */
     if (!response.ok) {
 
       throw new Error(
-        `Unable to load ${path} (${response.status})`
+        `HTTP ${response.status}`
       );
 
     }
@@ -118,6 +226,9 @@ async function loadComponent(selector, path) {
       await response.text();
 
 
+    /*
+      Insert the component into the page.
+    */
     container.innerHTML =
       html;
 
@@ -133,7 +244,9 @@ async function loadComponent(selector, path) {
 
 
     return false;
+
   }
+
 }
 
 
@@ -142,12 +255,7 @@ async function loadComponent(selector, path) {
 ========================================================= */
 
 /**
- * Initialises the mobile navigation menu.
- *
- * Expected HTML:
- *
- * #mobile-menu-toggle
- * #mobile-navigation
+ * Initialises the mobile navigation.
  *
  * @returns {void}
  */
@@ -158,6 +266,7 @@ function initialiseMobileNavigation() {
       "#mobile-menu-toggle"
     );
 
+
   const mobileNavigation =
     document.querySelector(
       "#mobile-navigation"
@@ -165,14 +274,16 @@ function initialiseMobileNavigation() {
 
 
   /*
-    If the page does not contain the mobile
-    navigation, there is nothing to initialise.
+    Nothing to initialise if the
+    mobile navigation does not exist.
   */
   if (
     !menuToggle ||
     !mobileNavigation
   ) {
+
     return;
+
   }
 
 
@@ -186,30 +297,16 @@ function initialiseMobileNavigation() {
         ) === "true";
 
 
-      /*
-        Toggle the aria-expanded state.
-
-        false → true
-        true → false
-      */
       menuToggle.setAttribute(
         "aria-expanded",
         String(!isOpen)
       );
 
 
-      /*
-        hidden=true means the menu is hidden.
-
-        Therefore we reverse the current state.
-      */
       mobileNavigation.hidden =
         isOpen;
 
 
-      /*
-        Update the accessible button label.
-      */
       menuToggle.setAttribute(
         "aria-label",
         isOpen
@@ -222,8 +319,8 @@ function initialiseMobileNavigation() {
 
 
   /*
-    Close the mobile menu when a navigation
-    link is selected.
+    Close the mobile menu after
+    selecting a navigation link.
   */
   const mobileLinks =
     mobileNavigation.querySelectorAll(
@@ -243,10 +340,12 @@ function initialiseMobileNavigation() {
             "false"
           );
 
+
           menuToggle.setAttribute(
             "aria-label",
             "Open navigation menu"
           );
+
 
           mobileNavigation.hidden =
             true;
@@ -265,11 +364,8 @@ function initialiseMobileNavigation() {
 ========================================================= */
 
 /**
- * Inserts the current year into footer elements.
- *
- * Expected HTML:
- *
- * <span data-current-year></span>
+ * Inserts the current year into
+ * footer elements.
  *
  * @returns {void}
  */
@@ -282,7 +378,9 @@ function initialiseCurrentYear() {
 
 
   if (!yearElements.length) {
+
     return;
+
   }
 
 
@@ -303,18 +401,12 @@ function initialiseCurrentYear() {
 
 
 /* =========================================================
-   ACTIVE NAVIGATION LINK
+   ACTIVE NAVIGATION
 ========================================================= */
 
 /**
- * Marks the current navigation link as active.
- *
- * This allows CSS to highlight the page currently
- * being viewed.
- *
- * Expected HTML:
- *
- * <a href="./pages/businesses.html">Businesses</a>
+ * Marks the current navigation link
+ * as active.
  *
  * @returns {void}
  */
@@ -327,13 +419,12 @@ function initialiseActiveNavigation() {
 
 
   if (!navigationLinks.length) {
+
     return;
+
   }
 
 
-  /*
-    Get the current page path.
-  */
   const currentPath =
     window.location.pathname;
 
@@ -348,10 +439,6 @@ function initialiseActiveNavigation() {
         );
 
 
-      /*
-        Compare the URL path with the
-        current page path.
-      */
       if (
         linkURL.pathname ===
         currentPath
@@ -360,6 +447,7 @@ function initialiseActiveNavigation() {
         link.classList.add(
           "is-active"
         );
+
 
         link.setAttribute(
           "aria-current",
@@ -379,54 +467,61 @@ function initialiseActiveNavigation() {
 ========================================================= */
 
 /**
- * Main navigation initialisation function.
- *
- * Loads the shared header/footer first and then
- * initialises the functionality they contain.
+ * Main navigation initialisation.
  *
  * @returns {Promise<void>}
  */
 async function initialiseNavigation() {
 
   /*
-    Load the header.
+    Load header first.
   */
-  await loadComponent(
-    HEADER_SELECTOR,
-    HEADER_PATH
-  );
+  const headerLoaded =
+    await loadComponent(
+      HEADER_SELECTOR,
+      HEADER_PATH
+    );
 
 
   /*
-    Load the footer.
+    Load footer.
   */
-  await loadComponent(
-    FOOTER_SELECTOR,
-    FOOTER_PATH
-  );
+  const footerLoaded =
+    await loadComponent(
+      FOOTER_SELECTOR,
+      FOOTER_PATH
+    );
 
 
   /*
-    The header/footer now exist in the DOM,
-    so their functionality can be initialised.
+    Only initialise header functionality
+    after the header has actually loaded.
   */
-  initialiseMobileNavigation();
+  if (headerLoaded) {
 
-  initialiseCurrentYear();
+    initialiseMobileNavigation();
 
-  initialiseActiveNavigation();
+    initialiseActiveNavigation();
+
+  }
+
+
+  /*
+    Initialise footer functionality
+    after the footer has loaded.
+  */
+  if (footerLoaded) {
+
+    initialiseCurrentYear();
+
+  }
 
 }
 
 
 /* =========================================================
-   START NAVIGATION
+   START
 ========================================================= */
-
-/*
-  Wait until the DOM is ready before attempting
-  to load the shared components.
-*/
 
 if (
   document.readyState === "loading"
@@ -445,24 +540,22 @@ if (
 
 
 /* =========================================================
-   OPTIONAL DEVELOPMENT ACCESS
+   DEVELOPMENT ACCESS
 ========================================================= */
 
-/*
-  Expose the main function for development/debugging.
-
-  From the browser console you can run:
-
-  InVaalNavigation.initialise();
-
-  This is optional and can be removed later
-  for production if you prefer.
-*/
-
 window.InVaalNavigation = {
-  initialise: initialiseNavigation,
+
+  initialise:
+    initialiseNavigation,
+
   loadComponent,
+
   initialiseMobileNavigation,
+
   initialiseCurrentYear,
-  initialiseActiveNavigation
+
+  initialiseActiveNavigation,
+
+  getRootPath
+
 };
