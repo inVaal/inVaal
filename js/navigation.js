@@ -7,9 +7,11 @@
    Responsibilities:
    - Load the shared header
    - Load the shared footer
+   - Resolve shared navigation paths
+   - Resolve the shared logo path
    - Initialise mobile navigation
-   - Initialise the current year
-   - Initialise active navigation links
+   - Initialise current year
+   - Initialise active navigation
 
    Compatible with:
    - Static HTML
@@ -21,47 +23,60 @@
 
 
 /* =========================================================
-   PATH CONFIGURATION
+   CONFIGURATION
+========================================================= */
+
+const HEADER_FILE =
+  "components/header.html";
+
+const FOOTER_FILE =
+  "components/footer.html";
+
+const LOGO_FILE =
+  "assets/logos/inVaalTriangle_logo.png";
+
+
+/* =========================================================
+   SITE ROOT
 ========================================================= */
 
 /**
- * Determines how many levels we need to go back
- * from the current HTML page to the website root.
+ * Determines the root of the website.
  *
  * Examples:
  *
- * /InVaal[016]/index.html
- *        → ./
+ * /InVaal[016]/
  *
- * /InVaal[016]/pages/businesses.html
- *        → ../
+ * /InVaal[016]/pages/
  *
- * /InVaal[016]/pages/businesses/example.html
- *        → ../../
+ * /InVaal[016]/pages/businesses/
+ *
+ * All of these should resolve back to:
+ *
+ * /InVaal[016]/
  *
  * @returns {string}
  */
-function getRootPath() {
+function getSiteRoot() {
 
   const pathname =
     window.location.pathname;
 
 
   /*
-    Remove the filename from the path.
-  */
-  const pathWithoutFile =
-    pathname.substring(
-      0,
-      pathname.lastIndexOf("/")
-    );
+    Find the first directory after
+    the domain name.
 
+    Example:
 
-  /*
-    Remove empty path segments.
+    /InVaal[016]/pages/businesses/example.html
+
+    becomes:
+
+    InVaal[016]
   */
   const segments =
-    pathWithoutFile
+    pathname
       .split("/")
       .filter(
         (segment) => segment.length > 0
@@ -69,87 +84,44 @@ function getRootPath() {
 
 
   /*
-    The first segment is normally the
-    GitHub Pages repository/project name.
-
-    Example:
-
-    /InVaal[016]/pages/businesses/
-
-    becomes:
-
-    ["InVaal[016]", "pages", "businesses"]
+    If there is no project directory,
+    the site is running from the domain root.
   */
+  if (!segments.length) {
 
-  /*
-    If there is only one segment, we're at
-    the GitHub Pages project root.
-  */
-  if (segments.length <= 1) {
-
-    return "./";
+    return "/";
 
   }
 
 
   /*
-    Every directory below the project root
-    requires one ../
+    GitHub Pages project root.
 
     Example:
 
-    /InVaal[016]/pages/
-
-    needs:
-
-    ../
+    /InVaal[016]/
   */
-
-  const directoryDepth =
-    segments.length - 1;
-
-
-  return "../".repeat(
-    directoryDepth
-  );
+  return `/${segments[0]}/`;
 
 }
+
+
+/*
+  Store the site root once.
+*/
+const SITE_ROOT =
+  getSiteRoot();
 
 
 /* =========================================================
    COMPONENT PATHS
 ========================================================= */
 
-/*
-  Calculate the correct path for the
-  current HTML page.
-*/
-const ROOT_PATH =
-  getRootPath();
-
-
-/*
-  Shared component locations.
-
-  These are now calculated relative to
-  the current HTML page.
-
-  Examples:
-
-  index.html
-  → ./components/header.html
-
-  pages/businesses.html
-  → ../components/header.html
-
-  pages/businesses/example.html
-  → ../../components/header.html
-*/
 const HEADER_PATH =
-  `${ROOT_PATH}components/header.html`;
+  `${SITE_ROOT}${HEADER_FILE}`;
 
 const FOOTER_PATH =
-  `${ROOT_PATH}components/footer.html`;
+  `${SITE_ROOT}${FOOTER_FILE}`;
 
 
 /* =========================================================
@@ -164,11 +136,11 @@ const FOOTER_SELECTOR =
 
 
 /* =========================================================
-   LOAD SHARED COMPONENT
+   LOAD COMPONENT
 ========================================================= */
 
 /**
- * Loads an HTML component into a target element.
+ * Loads an HTML component into the page.
  *
  * @param {string} selector
  * @param {string} path
@@ -185,10 +157,6 @@ async function loadComponent(
     );
 
 
-  /*
-    If this page does not contain the
-    component, do nothing.
-  */
   if (!container) {
 
     return false;
@@ -207,12 +175,6 @@ async function loadComponent(
       await fetch(path);
 
 
-    /*
-      fetch() does not automatically throw
-      an error for 404 responses.
-
-      Therefore we check response.ok.
-    */
     if (!response.ok) {
 
       throw new Error(
@@ -226,9 +188,6 @@ async function loadComponent(
       await response.text();
 
 
-    /*
-      Insert the component into the page.
-    */
     container.innerHTML =
       html;
 
@@ -251,11 +210,122 @@ async function loadComponent(
 
 
 /* =========================================================
+   SITE LINKS
+========================================================= */
+
+/**
+ * Converts data-site-link attributes into
+ * correct website URLs.
+ *
+ * Example:
+ *
+ * data-site-link="pages/businesses.html"
+ *
+ * becomes:
+ *
+ * /InVaal[016]/pages/businesses.html
+ *
+ * This works from every page depth.
+ *
+ * @returns {void}
+ */
+function initialiseSiteLinks() {
+
+  const links =
+    document.querySelectorAll(
+      "[data-site-link]"
+    );
+
+
+  if (!links.length) {
+
+    return;
+
+  }
+
+
+  links.forEach(
+    (link) => {
+
+      const target =
+        link.getAttribute(
+          "data-site-link"
+        );
+
+
+      if (!target) {
+
+        return;
+
+      }
+
+
+      /*
+        Remove leading ./ or / so that
+        the path can be safely rebuilt.
+      */
+      const cleanTarget =
+        target.replace(
+          /^\.?\//,
+          ""
+        );
+
+
+      /*
+        Build the final URL from the
+        website root.
+      */
+      link.href =
+        `${SITE_ROOT}${cleanTarget}`;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   SITE LOGO
+========================================================= */
+
+/**
+ * Sets the correct path for the global logo.
+ *
+ * @returns {void}
+ */
+function initialiseSiteLogo() {
+
+  const logos =
+    document.querySelectorAll(
+      "[data-site-logo]"
+    );
+
+
+  if (!logos.length) {
+
+    return;
+
+  }
+
+
+  logos.forEach(
+    (logo) => {
+
+      logo.src =
+        `${SITE_ROOT}${LOGO_FILE}`;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
    MOBILE NAVIGATION
 ========================================================= */
 
 /**
- * Initialises the mobile navigation.
+ * Initialises the mobile navigation menu.
  *
  * @returns {void}
  */
@@ -273,10 +343,6 @@ function initialiseMobileNavigation() {
     );
 
 
-  /*
-    Nothing to initialise if the
-    mobile navigation does not exist.
-  */
   if (
     !menuToggle ||
     !mobileNavigation
@@ -319,8 +385,8 @@ function initialiseMobileNavigation() {
 
 
   /*
-    Close the mobile menu after
-    selecting a navigation link.
+    Close mobile navigation after
+    selecting a link.
   */
   const mobileLinks =
     mobileNavigation.querySelectorAll(
@@ -364,8 +430,7 @@ function initialiseMobileNavigation() {
 ========================================================= */
 
 /**
- * Inserts the current year into
- * footer elements.
+ * Inserts the current year into footer elements.
  *
  * @returns {void}
  */
@@ -405,8 +470,7 @@ function initialiseCurrentYear() {
 ========================================================= */
 
 /**
- * Marks the current navigation link
- * as active.
+ * Marks the current navigation link as active.
  *
  * @returns {void}
  */
@@ -463,7 +527,7 @@ function initialiseActiveNavigation() {
 
 
 /* =========================================================
-   INITIALISE NAVIGATION
+   MAIN INITIALISATION
 ========================================================= */
 
 /**
@@ -474,7 +538,7 @@ function initialiseActiveNavigation() {
 async function initialiseNavigation() {
 
   /*
-    Load header first.
+    Load header.
   */
   const headerLoaded =
     await loadComponent(
@@ -494,10 +558,14 @@ async function initialiseNavigation() {
 
 
   /*
-    Only initialise header functionality
-    after the header has actually loaded.
+    Header must be loaded before
+    these functions can find its elements.
   */
   if (headerLoaded) {
+
+    initialiseSiteLinks();
+
+    initialiseSiteLogo();
 
     initialiseMobileNavigation();
 
@@ -507,8 +575,8 @@ async function initialiseNavigation() {
 
 
   /*
-    Initialise footer functionality
-    after the footer has loaded.
+    Footer must be loaded before
+    searching for its year element.
   */
   if (footerLoaded) {
 
@@ -520,7 +588,7 @@ async function initialiseNavigation() {
 
 
 /* =========================================================
-   START
+   START NAVIGATION
 ========================================================= */
 
 if (
@@ -550,12 +618,16 @@ window.InVaalNavigation = {
 
   loadComponent,
 
+  initialiseSiteLinks,
+
+  initialiseSiteLogo,
+
   initialiseMobileNavigation,
 
   initialiseCurrentYear,
 
   initialiseActiveNavigation,
 
-  getRootPath
+  getSiteRoot
 
 };

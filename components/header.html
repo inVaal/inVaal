@@ -1,27 +1,21 @@
 <!-- =========================================================
   InVaal [016] — Global Header
 
+  File:
   ./components/header.html
 
-  Responsibilities:
-  - Display InVaal [016] branding
-  - Provide desktop navigation
-  - Provide mobile navigation
-  - Provide a business/advertising CTA
-  - Remain compatible with navigation.js
-
   IMPORTANT:
-  Navigation paths are intentionally written using
-  data attributes.
+  Navigation paths are handled by navigation.js.
 
-  navigation.js converts them into the correct paths
-  depending on whether the current page is:
+  Do NOT use ../ paths here.
 
-  /index.html
+  navigation.js reads:
 
-  or:
+  data-site-link
+  data-site-logo
 
-  /pages/example.html
+  and converts them into the correct paths depending
+  on the current page location.
 ========================================================= -->
 
 
@@ -32,27 +26,23 @@
     BRAND
   ======================================================== -->
 
-  <a
-    class="site-logo"
-    href="../index.html"
-    data-site-link="index.html"
-    aria-label="InVaal [016] — Home"
-  >
+<a
+      class="site-logo"
+      href="./index.html"
+    >
 
-    <img
-      src="../assets/logos/inVaalTriangle_logo.png"
-      data-site-logo
-      alt="InVaal [016] logo"
-      width="42"
-      height="42"
-    />
+      <img
+        src="./assets/logos/inVaalTriangle_logo.png"
+        alt="InVaal [016]"
+        width="42"
+        height="42"
+      />
 
     <span>
       InVaal <strong>[016]</strong>
     </span>
 
   </a>
-
 
 
   <!-- =======================================================
@@ -63,9 +53,6 @@
     class="site-navigation"
     aria-label="Main navigation"
   >
-
-
-   
 
     <a
       href="#"
@@ -109,30 +96,23 @@
   </nav>
 
 
-
   <!-- =======================================================
     HEADER ACTIONS
   ======================================================== -->
 
   <div class="header-actions">
 
-
     <a
       class="button button-primary header-business-button"
-      href="../pages/advertise.html"
+      href="#"
       data-site-link="pages/advertise.html"
     >
       Advertise
     </a>
 
 
-
     <!-- =====================================================
       MOBILE MENU TOGGLE
-
-      navigation.js looks specifically for:
-
-      #mobile-menu-toggle
     ====================================================== -->
 
     <button
@@ -149,7 +129,7 @@
       </span>
 
       <span class="sr-only">
-        
+        Menu
       </span>
 
     </button>
@@ -159,13 +139,8 @@
 </div>
 
 
-
 <!-- =========================================================
   MOBILE NAVIGATION
-
-  navigation.js looks specifically for:
-
-  #mobile-navigation
 ========================================================= -->
 
 <nav
@@ -176,7 +151,6 @@
 >
 
   <div class="mobile-navigation-inner">
-
 
     <a
       href="#"
@@ -240,14 +214,13 @@
     </a>
 
 
-
     <!-- =====================================================
       MOBILE BUSINESS CTA
     ====================================================== -->
 
     <a
       class="button button-primary"
-      href="../pages/advertise.html"
+      href="#"
       data-site-link="pages/advertise.html"
     >
       Advertise with InVaal
